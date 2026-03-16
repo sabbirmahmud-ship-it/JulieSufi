@@ -123,12 +123,14 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding: 0 5rem;
   }
 }
-
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 990px) and (max-width: 1199px) {
   .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
     padding-right: 5rem;
   }
+}
+
+@media screen and (min-width: 990px) {
 
   .page-width--narrow {
     max-width: 72.6rem;
