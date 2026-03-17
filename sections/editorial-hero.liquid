@@ -1,0 +1,282 @@
+{{ 'section-editorial-hero.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_image = section.settings.desktop_image
+  assign mobile_image = section.settings.mobile_image | default: desktop_image
+  assign fallback_image = desktop_image | default: mobile_image
+  assign fetch_priority = 'auto'
+
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+{%- style -%}
+  #EditorialHero-{{ section.id }} {
+    --desktop-height: {{ section.settings.desktop_height }}px;
+    --mobile-height: {{ section.settings.mobile_height }}px;
+    --overlay-opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    --content-max-width: {{ section.settings.content_width }}px;
+    --desktop-object-position: {{ section.settings.desktop_image_position }};
+    --mobile-object-position: {{ section.settings.mobile_image_position }};
+  }
+{%- endstyle -%}
+
+<section
+  id="EditorialHero-{{ section.id }}"
+  class="editorial-hero color-{{ section.settings.color_scheme }} gradient"
+>
+  <div class="editorial-hero__frame">
+    <div class="editorial-hero__media">
+      {%- if fallback_image != blank -%}
+        <picture>
+          {%- if mobile_image != blank -%}
+            <source
+              media="(max-width: 749px)"
+              srcset="
+                {{ mobile_image | image_url: width: 375 }} 375w,
+                {{ mobile_image | image_url: width: 550 }} 550w,
+                {{ mobile_image | image_url: width: 750 }} 750w,
+                {{ mobile_image | image_url: width: 900 }} 900w,
+                {{ mobile_image | image_url: width: 1100 }} 1100w,
+                {{ mobile_image | image_url: width: 1500 }} 1500w,
+                {{ mobile_image | image_url: width: 2000 }} 2000w
+              "
+              sizes="100vw"
+            >
+          {%- endif -%}
+          {{
+            fallback_image
+            | image_url: width: 3840
+            | image_tag:
+              widths: '750, 1100, 1500, 1780, 2000, 2400, 3000, 3840',
+              sizes: '100vw',
+              loading: 'eager',
+              fetchpriority: fetch_priority
+          }}
+        </picture>
+      {%- else -%}
+        {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </div>
+
+    <div class="editorial-hero__inner page-width">
+      <div class="editorial-hero__content">
+        {%- if section.settings.heading_line_one != blank or section.settings.heading_line_two != blank -%}
+          <h2 class="editorial-hero__heading">
+            {%- if section.settings.heading_line_one != blank -%}
+              <span class="editorial-hero__heading-line">{{ section.settings.heading_line_one | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.heading_line_two != blank -%}
+              <span class="editorial-hero__heading-line editorial-hero__heading-line--accent">
+                {{ section.settings.heading_line_two | escape }}
+              </span>
+            {%- endif -%}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.body_text != blank -%}
+          <div class="editorial-hero__copy rte">{{ section.settings.body_text }}</div>
+        {%- endif -%}
+
+        {%- if section.blocks.size > 0 -%}
+          <div class="editorial-hero__actions">
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'button' and block.settings.label != blank -%}
+                <a
+                  {% if block.settings.link != blank %}
+                    href="{{ block.settings.link }}"
+                  {% else %}
+                    role="link" aria-disabled="true"
+                  {% endif %}
+                  class="editorial-hero__button editorial-hero__button--{{ block.settings.style }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <span>{{ block.settings.label | escape }}</span>
+                  {%- if block.settings.show_icon -%}
+                    <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                  {%- endif -%}
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Editorial Hero",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "select",
+      "id": "desktop_image_position",
+      "label": "Desktop image position",
+      "default": "center center",
+      "options": [
+        { "value": "left top", "label": "Top left" },
+        { "value": "center top", "label": "Top center" },
+        { "value": "right top", "label": "Top right" },
+        { "value": "left center", "label": "Center left" },
+        { "value": "center center", "label": "Center" },
+        { "value": "right center", "label": "Center right" },
+        { "value": "left bottom", "label": "Bottom left" },
+        { "value": "center bottom", "label": "Bottom center" },
+        { "value": "right bottom", "label": "Bottom right" }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile image position",
+      "default": "center center",
+      "options": [
+        { "value": "left top", "label": "Top left" },
+        { "value": "center top", "label": "Top center" },
+        { "value": "right top", "label": "Top right" },
+        { "value": "left center", "label": "Center left" },
+        { "value": "center center", "label": "Center" },
+        { "value": "right center", "label": "Center right" },
+        { "value": "left bottom", "label": "Bottom left" },
+        { "value": "center bottom", "label": "Bottom center" },
+        { "value": "right bottom", "label": "Bottom right" }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Desktop overlay strength",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "label": "Desktop height",
+      "min": 500,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "default": 740
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "label": "Mobile height",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 480
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Desktop content width",
+      "min": 400,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 620
+    },
+    {
+      "type": "richtext",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "<p>Handcrafted couture gowns, designed in direct collaboration with our head designer for the bride who wants extraordinary.</p>"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_one",
+      "label": "Heading line one",
+      "default": "Wedding Dresses"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_two",
+      "label": "Heading line two",
+      "default": "Melbourne"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Book a free consultation"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "default": "primary",
+          "options": [
+            { "value": "primary", "label": "Primary" },
+            { "value": "secondary", "label": "Secondary" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "show_icon",
+          "label": "Show arrow icon",
+          "default": true
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Hero",
+      "blocks": [
+        {
+          "type": "button",
+          "settings": {
+            "label": "Book a free consultation",
+            "style": "primary",
+            "show_icon": true
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "label": "Explore collection",
+            "style": "secondary",
+            "show_icon": false
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

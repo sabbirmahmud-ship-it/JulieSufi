@@ -127,12 +127,13 @@
     .header-reference-bar__link,
     .header-reference-bar__text {
       color: inherit;
-      font-size: 1.2rem;
+      font-size: 14px;
       font-weight: 500;
       letter-spacing: 0.03em;
       line-height: 1;
       text-decoration: none;
       white-space: nowrap;
+      font-family: var(--outfit-font);
     }
 
     .header-reference-bar__link:hover {
@@ -252,13 +253,14 @@
       padding: 0 2.1rem;
       background: #1f1f1f;
       color: #ffffff;
-      font-size: 1.34rem;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 400;
       letter-spacing: 0.04em;
       line-height: 1;
       text-decoration: none;
       text-transform: uppercase;
       white-space: nowrap;
+      font-family: var(--outfit-font);
     }
 
     .header__desktop-cta .svg-wrapper {
@@ -555,6 +557,8 @@
         {%- endcase -%}
       {%- endfor -%}
 
+      {% comment %} Care icon
+       
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
         {% if cart == empty %}
           <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
@@ -570,7 +574,9 @@
             <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
           </div>
         {%- endif -%}
-      </a>
+      </a> 
+
+      {% endcomment %}
     </div>
   </header>
 </{{ header_tag }}>

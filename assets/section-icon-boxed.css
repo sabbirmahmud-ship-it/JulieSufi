@@ -1,0 +1,229 @@
+.icon-boxed {
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-boxed__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.icon-boxed__background picture,
+.icon-boxed__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-boxed__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.icon-boxed__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.icon-boxed__intro {
+  max-width: 72rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.icon-boxed__eyebrow {
+  margin: 0;
+  color: #8f8883;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.icon-boxed__heading {
+  margin: 1.2rem 0 0;
+  color: #2b2830;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 2.35rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+}
+
+.icon-boxed__description {
+  max-width: 40rem;
+  margin: 1.3rem auto 0;
+  color: #38343c;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.icon-boxed__description p {
+  margin: 0;
+}
+
+.icon-boxed__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--icon-boxed-columns-mobile, 1), minmax(0, 1fr));
+  column-gap: var(--icon-boxed-column-gap, 2.4rem);
+  row-gap: var(--icon-boxed-row-gap, 1.2rem);
+  margin-top: 2.8rem;
+}
+
+.icon-boxed__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100%;
+  padding: 2.7rem 2rem 2.5rem;
+  border: 1px solid rgba(40, 35, 32, 0.09);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.icon-boxed__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+}
+
+.icon-boxed__icon-wrap img,
+.icon-boxed__icon-wrap .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.icon-boxed__item-title {
+  margin: 1.8rem 0 0;
+  color: #2d2930;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 2.05rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.icon-boxed__item-copy {
+  margin-top: 1.3rem;
+  color: #3c3941;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.72;
+}
+
+.icon-boxed__item-copy p {
+  margin: 0;
+}
+
+.icon-boxed__item-copy p + p {
+  margin-top: 0.6rem;
+}
+
+.icon-boxed__actions {
+  margin-top: 2rem;
+}
+
+.icon-boxed__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  width: 100%;
+  min-height: 4.8rem;
+  padding: 1.4rem 2rem;
+  background: #1f1e23;
+  border: 1px solid #1f1e23;
+  color: #ffffff;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.icon-boxed__button .svg-wrapper {
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.icon-boxed__button .svg-wrapper svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-boxed__button:hover {
+  background: transparent;
+  color: #1f1e23;
+}
+
+@media screen and (min-width: 750px) {
+  .icon-boxed__heading {
+    font-size: 3.2rem;
+    line-height: 1.12;
+  }
+
+  .icon-boxed__description {
+    max-width: 48rem;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.5;
+  }
+
+  .icon-boxed__grid {
+    grid-template-columns: repeat(var(--icon-boxed-columns-desktop, 3), minmax(0, 1fr));
+    margin-top: 5.2rem;
+  }
+
+  .icon-boxed__item {
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .icon-boxed__icon-wrap {
+    width: 4.8rem;
+    height: 4.8rem;
+    /* border: 1px solid rgba(40, 35, 32, 0.1);
+    border-radius: 50%;
+    padding: 1.1rem; */
+  }
+
+  .icon-boxed__item-title {
+    margin-top: 2rem;
+    font-size: 1.9rem;
+  }
+
+  .icon-boxed__item-copy {
+    max-width: 28rem;
+    margin-top: 1.2rem;
+    font-size: 1.25rem;
+    line-height: 1.7;
+  }
+
+  .icon-boxed__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+  }
+
+  .icon-boxed__button {
+    width: auto;
+    min-width: 16.3rem;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+  }
+}

@@ -1,0 +1,349 @@
+{{ 'section-jf-image-boxed.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+-%}
+
+{%- style -%}
+  #JfImageBoxed-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfImageBoxed-{{ section.id }} .jf-image-boxed__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfImageBoxed-{{ section.id }} .jf-image-boxed__grid {
+    --jf-image-boxed-columns-mobile: {{ section.settings.columns_mobile }};
+    --jf-image-boxed-columns-desktop: {{ section.settings.columns_desktop }};
+    --jf-image-boxed-column-gap: {{ section.settings.column_gap }}px;
+    --jf-image-boxed-row-gap: {{ section.settings.row_gap }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfImageBoxed-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfImageBoxed-{{ section.id }} .jf-image-boxed__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfImageBoxed-{{ section.id }}" class="jf-image-boxed">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-image-boxed__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-image-boxed__inner page-width">
+    <div class="jf-image-boxed__intro">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-image-boxed__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading_line_one != blank or section.settings.heading_line_two != blank -%}
+          <h2 class="jf-image-boxed__heading">
+            {%- if section.settings.heading_line_one != blank -%}
+              <span>{{ section.settings.heading_line_one | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.heading_line_two != blank -%}
+              <span class="jf-image-boxed__heading-accent"> {{ section.settings.heading_line_two | escape }}</span>
+            {%- endif -%}
+          </h2>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.description != blank -%}
+        <div class="jf-image-boxed__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="jf-image-boxed__grid">
+      {%- for block in section.blocks -%}
+        <article class="jf-image-boxed__item" {{ block.shopify_attributes }}>
+          <div class="jf-image-boxed__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 240
+                | image_tag:
+                  widths: '90, 120, 180, 240',
+                  sizes: '90px',
+                  loading: 'lazy',
+                  alt: block.settings.image.alt
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="jf-image-boxed__item-title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <div class="jf-image-boxed__item-copy">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </article>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="jf-image-boxed__actions">
+        <a
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+          class="jf-image-boxed__button"
+        >
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Image Boxed",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Julie Sufi Difference"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_one",
+      "label": "Heading line one",
+      "default": "Why Melbourne Brides Choose"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_two",
+      "label": "Heading line two",
+      "default": "Julie Sufi"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>In a city with many bridal options, Julie Sufi Couture stands apart. We are not a boutique. We are a couture atelier and the difference is felt from the very first appointment.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Book a free consultation"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Items per row on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Row gap",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Box item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Box image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Melbourne-Based Atelier"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Your wedding dress is designed, cut, and sewn entirely in Melbourne. No overseas factories. No mass production. Just exceptional local craftsmanship.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Image Boxed",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Melbourne-Based Atelier"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Personal Designer Access",
+            "text": "<p>You work directly with Julie at every appointment not a sales assistant. This ensures your vision is understood and executed with complete precision.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Truly Custom Creations",
+            "text": "<p>Every custom wedding dress is designed from scratch for you. We do not adapt existing patterns we create entirely new designs based on your unique vision.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

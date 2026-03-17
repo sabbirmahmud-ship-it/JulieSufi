@@ -1,0 +1,314 @@
+{{ 'section-jf-review-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-jf-review-slider.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign show_controls = false
+
+  if section.blocks.size > 3
+    assign show_controls = true
+  endif
+-%}
+
+{%- style -%}
+  #JfReviewSlider-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfReviewSlider-{{ section.id }} .jf-review-slider__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfReviewSlider-{{ section.id }} .jf-review-slider__track {
+    --jf-review-gap: {{ section.settings.slide_gap }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfReviewSlider-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfReviewSlider-{{ section.id }} .jf-review-slider__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<jf-review-slider id="JfReviewSlider-{{ section.id }}" class="jf-review-slider">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-review-slider__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-review-slider__inner">
+    <div class="jf-review-slider__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="jf-review-slider__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading_line_one != blank or section.settings.heading_line_two != blank -%}
+        <h2 class="jf-review-slider__heading">
+          {%- if section.settings.heading_line_one != blank -%}
+            <span class="jf-review-slider__heading-line">{{ section.settings.heading_line_one | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading_line_two != blank -%}
+            <span class="jf-review-slider__heading-line jf-review-slider__heading-line--accent">
+              {{ section.settings.heading_line_two | escape }}
+            </span>
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+    </div>
+
+    <div class="jf-review-slider__viewport">
+      <ul
+        class="jf-review-slider__track list-unstyled{% unless show_controls %} jf-review-slider__track--desktop-grid{% endunless %}"
+        data-review-track
+      >
+        {%- for block in section.blocks -%}
+          <li class="jf-review-slider__slide" data-review-slide {{ block.shopify_attributes }}>
+            <article class="jf-review-slider__card">
+              <span class="jf-review-slider__quote-mark" aria-hidden="true">&ldquo;</span>
+
+              <div class="jf-review-slider__stars" aria-label="{{ block.settings.rating }} out of 5 stars">
+                {%- for index in (1..5) -%}
+                  <span class="jf-review-slider__star{% if index > block.settings.rating %} is-inactive{% endif %}" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M8 0.9l2.1 4.26 4.7 0.68-3.4 3.32 0.8 4.69L8 11.62 3.8 13.85l0.8-4.69L1.2 5.84l4.7-0.68L8 0.9z"/>
+                    </svg>
+                  </span>
+                {%- endfor -%}
+              </div>
+
+              {%- if block.settings.quote != blank -%}
+                <div class="jf-review-slider__quote">{{ block.settings.quote }}</div>
+              {%- endif -%}
+
+              {%- if block.settings.author != blank -%}
+                <h3 class="jf-review-slider__author">{{ block.settings.author | escape }}</h3>
+              {%- endif -%}
+
+              {%- if block.settings.meta != blank -%}
+                <p class="jf-review-slider__meta">{{ block.settings.meta | escape }}</p>
+              {%- endif -%}
+            </article>
+          </li>
+        {%- endfor -%}
+      </ul>
+
+      {%- if show_controls -%}
+        <div class="jf-review-slider__controls">
+          <button type="button" class="jf-review-slider__arrow jf-review-slider__arrow--prev" data-review-prev aria-label="Previous reviews">
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </button>
+          <button type="button" class="jf-review-slider__arrow jf-review-slider__arrow--next" data-review-next aria-label="Next reviews">
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </button>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</jf-review-slider>
+
+{% schema %}
+{
+  "name": "JF Review Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "From Our Brides"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_one",
+      "label": "Heading line one",
+      "default": "Real Brides. Real Moments."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_two",
+      "label": "Heading line two",
+      "default": "Timeless Couture."
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#f7f4f0"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#f7f4f0"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "label": "Gap between reviews",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote",
+          "default": "<p>&ldquo;Julie Sufi understood me before I even knew how to explain what I wanted. Every fitting felt calm, personal, and incredibly thoughtful. My gown felt like an extension of who I am.&rdquo;</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Mariyam B."
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "Melbourne Bride · 2024"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Review Slider",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "author": "Mariyam B.",
+            "meta": "Melbourne Bride · 2024"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "<p>&ldquo;From our first conversation to the final fitting, the entire experience felt refined and effortless. Julie&rsquo;s eye for detail and craftsmanship is truly exceptional.&rdquo;</p>",
+            "author": "Sophie K.",
+            "meta": "Custom Couture · 2024"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "<p>&ldquo;Julie Sufi creates gowns with so much intention. I felt supported, heard, and completely confident every step of the way. I couldn&rsquo;t recommend her more.&rdquo;</p>",
+            "author": "Yasmin R.",
+            "meta": "Custom Couture · 2023"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

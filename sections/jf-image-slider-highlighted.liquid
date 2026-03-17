@@ -1,0 +1,290 @@
+{{ 'section-jf-image-slider-highlighted.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign enable_slider = false
+
+  if section.blocks.size > 3
+    assign enable_slider = true
+  endif
+-%}
+
+{%- style -%}
+  #JfImageSliderHighlighted-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfImageSliderHighlighted-{{ section.id }} .jf-image-slider-highlighted__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfImageSliderHighlighted-{{ section.id }} .jf-image-slider-highlighted__track {
+    --jf-highlighted-gap: {{ section.settings.slide_gap }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfImageSliderHighlighted-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfImageSliderHighlighted-{{ section.id }} .jf-image-slider-highlighted__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfImageSliderHighlighted-{{ section.id }}" class="jf-image-slider-highlighted">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-image-slider-highlighted__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-image-slider-highlighted__inner">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.description != blank -%}
+      <div class="jf-image-slider-highlighted__intro">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-image-slider-highlighted__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jf-image-slider-highlighted__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="jf-image-slider-highlighted__description">{{ section.settings.description }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <ul class="jf-image-slider-highlighted__track list-unstyled{% if enable_slider %} jf-image-slider-highlighted__track--slider{% endif %}">
+      {%- for block in section.blocks -%}
+        <li class="jf-image-slider-highlighted__slide{% if block.settings.highlighted %} is-highlighted{% endif %}" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="jf-image-slider-highlighted__link">
+          {%- else -%}
+            <div class="jf-image-slider-highlighted__card">
+          {%- endif -%}
+            <div class="jf-image-slider-highlighted__media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 1600
+                  | image_tag:
+                    widths: '375, 550, 750, 900, 1100, 1500, 1600',
+                    sizes: '(min-width: 750px) 33vw, 60vw',
+                    loading: 'lazy',
+                    alt: block.settings.image.alt
+                }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <p class="jf-image-slider-highlighted__title">{{ block.settings.title | escape }}</p>
+            {%- endif -%}
+          {%- if block.settings.link != blank -%}
+            </a>
+          {%- else -%}
+            </div>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Image Highlighted",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Optional intro"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Slides"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "label": "Gap between slides",
+      "min": 0,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The House"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlighted",
+          "label": "Highlighted size",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Image Highlighted",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "title": "The House"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "The Designer",
+            "highlighted": true
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "title": "The Celebrities"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

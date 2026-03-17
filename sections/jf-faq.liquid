@@ -1,0 +1,253 @@
+{{ 'section-jf-faq.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+-%}
+
+{%- style -%}
+  #JfFaq-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfFaq-{{ section.id }} .jf-faq__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfFaq-{{ section.id }} .jf-faq__list {
+    --jf-faq-gap: {{ section.settings.item_gap }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfFaq-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfFaq-{{ section.id }} .jf-faq__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfFaq-{{ section.id }}" class="jf-faq">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-faq__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-faq__inner">
+    <div class="jf-faq__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="jf-faq__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="jf-faq__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+
+    <div class="jf-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="jf-faq__item" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="jf-faq__summary">
+            <span class="jf-faq__question">{{ block.settings.question | escape }}</span>
+            <span class="jf-faq__toggle" aria-hidden="true"></span>
+          </summary>
+
+          {%- if block.settings.answer != blank -%}
+            <div class="jf-faq__answer">{{ block.settings.answer }}</div>
+          {%- endif -%}
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF FAQ",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Questions, Answered"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Details"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "item_gap",
+      "label": "Gap between items",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Do you offer custom-made bridal gowns?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF FAQ",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "open_by_default": true
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "How does the appointment process work?",
+            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations?",
+            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

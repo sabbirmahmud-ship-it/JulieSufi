@@ -9,76 +9,563 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "editorial_hero": {
+      "type": "editorial-hero",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "hero_button_primary": {
+          "type": "button",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "label": "Book a free consultation",
+            "link": "",
+            "style": "primary",
+            "show_icon": true
           }
         },
-        "button": {
-          "type": "buttons",
+        "hero_button_secondary": {
+          "type": "button",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "label": "Explore collection",
+            "link": "",
+            "style": "secondary",
+            "show_icon": false
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "hero_button_primary",
+        "hero_button_secondary"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "desktop_image": "shopify://shop_images/Group_1000013371.png",
+        "mobile_image": "shopify://shop_images/ZEp7LlQ_1.png",
+        "desktop_image_position": "center top",
+        "mobile_image_position": "center center",
+        "overlay_opacity": 70,
+        "desktop_height": 740,
+        "mobile_height": 480,
+        "content_width": 620,
+        "body_text": "<p>Handcrafted couture gowns, designed in direct collaboration with our head designer for the bride who wants extraordinary.</p>",
+        "heading_line_one": "Wedding Dresses",
+        "heading_line_two": "Melbourne",
+        "color_scheme": "scheme-1"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "statistics_e9Pn7Y": {
+      "type": "statistics",
+      "blocks": {
+        "stat_UTMdRc": {
+          "type": "stat",
+          "settings": {
+            "value": "300+",
+            "label": "<p>Brides Worldwide</p>"
+          }
+        },
+        "stat_8kXq6Y": {
+          "type": "stat",
+          "settings": {
+            "value": "10+",
+            "label": "<p>Years of Couture</p>"
+          }
+        },
+        "stat_m3B9w8": {
+          "type": "stat",
+          "settings": {
+            "value": "100%",
+            "label": "<p>Handcrafted</p>"
+          }
+        },
+        "stat_y7BYmy": {
+          "type": "stat",
+          "settings": {
+            "value": "Melbourne",
+            "label": "<p>Atelier</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stat_UTMdRc",
+        "stat_8kXq6Y",
+        "stat_m3B9w8",
+        "stat_y7BYmy"
+      ],
+      "name": "Statistics",
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "columns_mobile": 2,
+        "column_gap": 24,
+        "row_gap": 12,
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "icon_boxed_4ANnif": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_LCaq7d": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013359.png",
+            "title": "Book a Free Consultation",
+            "text": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.</p>"
+          }
+        },
+        "item_XmgC8t": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013360.png",
+            "title": "Visit the Boutique",
+            "text": "<p>Try on selected designs, choose your fabrics, and place your order. Your couture journey begins in our Melbourne atelier.</p>"
+          }
+        },
+        "item_GdntjW": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013361.png",
+            "title": "Final Fittings",
+            "text": "<p>Hand-finished fittings ensure every detail is perfected. Your gown is handed over, complete, ready for your extraordinary day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_LCaq7d",
+        "item_XmgC8t",
+        "item_GdntjW"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "The Bridal Experience",
+        "heading": "A Personalised Couture Journey",
+        "description": "<p>Guided by our head designer, from first sketch to final handover.</p>",
+        "button_label": "Book a free consultation",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "jf_featured_collection_R4wirD": {
+      "type": "jf-featured-collection",
+      "name": "JF Featured Collection",
+      "settings": {
+        "collection": "bridal-collection",
+        "products_to_show": 5,
+        "eyebrow": "Bridal Collection 2025",
+        "heading_line_one": "Where Modern Romance",
+        "heading_line_two": "Meets Couture Craftsmanship",
+        "description": "<p>A considered edit of modern bridal couture. Every gown begins with you.</p>",
+        "mobile_button_copy": "A considered edit of modern bridal couture.",
+        "button_label": "Explore full collection",
+        "button_link": "",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "column_gap": 1,
+        "row_gap": 0,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_image_slider_CckHk7": {
+      "type": "jf-image-slider",
+      "blocks": {
+        "slide_Cz9MLQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22888.png",
+            "label": "Personal, Precise, Couture",
+            "link": ""
+          }
+        },
+        "slide_PYP6Am": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22889.png",
+            "label": "Detail, Defined",
+            "link": ""
+          }
+        },
+        "slide_7kxw38": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22890.png",
+            "label": "A Dress Takes Shape",
+            "link": ""
+          }
+        },
+        "slide_UDmDKM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22891.png",
+            "label": "The Final Fitting",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_Cz9MLQ",
+        "slide_PYP6Am",
+        "slide_7kxw38",
+        "slide_UDmDKM"
+      ],
+      "name": "JF Image Slider",
+      "settings": {
+        "eyebrow": "Inside the Atelier",
+        "heading": "Every Gown is Handcrafted",
+        "description": "<p>Defined by precision, intention, and detail.</p>",
+        "desktop_background_color": "#f7f4f0",
+        "mobile_background_color": "#f7f4f0",
+        "slide_gap": 8,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 44
+      }
+    },
+    "rich_text_kX6hyd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_X93Q7w": {
+          "type": "heading",
+          "settings": {
+            "heading": "“",
+            "heading_size": "h1"
+          }
+        },
+        "text_4QXCBb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every Julie Sufi gown is meticulously handcrafted, defined by precision and detail. From the first consultation to the final fitting, every step is a collaboration.</p>"
+          }
+        },
+        "caption_zMWknk": {
+          "type": "caption",
+          "settings": {
+            "caption": "— Julie Sufi, Head Designer & Founder",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_X93Q7w",
+        "text_4QXCBb",
+        "caption_zMWknk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "jf_review_slider_DQxq78": {
+      "type": "jf-review-slider",
+      "blocks": {
+        "review_ERiq6q": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>“Julie Sufi understood me before I even knew how to explain what I wanted. Every fitting felt calm, personal, and incredibly thoughtful. My gown felt like an extension of who I am.”</p>",
+            "author": "Mariyam B.",
+            "meta": "Melbourne Bride · 2024"
+          }
+        },
+        "review_MLnn9e": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>&ldquo;Julie Sufi understood me before I even knew how to explain what I wanted. Every fitting felt calm, personal, and incredibly thoughtful. My gown felt like an extension of who I am.&rdquo;</p>",
+            "author": "Mariyam B.",
+            "meta": "Melbourne Bride · 2024"
+          }
+        },
+        "review_qxECa7": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>&ldquo;From our first conversation to the final fitting, the entire experience felt refined and effortless. Julie&rsquo;s eye for detail and craftsmanship is truly exceptional.&rdquo;</p>",
+            "author": "Sophie K.",
+            "meta": "Custom Couture · 2024"
+          }
+        },
+        "review_fmeeV8": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>“Julie Sufi creates gowns with so much intention. I felt supported, heard, and completely confident every step of the way. I couldn’t recommend her more.”</p>",
+            "author": "Yasmin R.",
+            "meta": "Custom Couture · 2023"
+          }
+        }
+      },
+      "block_order": [
+        "review_ERiq6q",
+        "review_MLnn9e",
+        "review_qxECa7",
+        "review_fmeeV8"
+      ],
+      "name": "JF Review Slider",
+      "settings": {
+        "eyebrow": "From Our Brides",
+        "heading_line_one": "Real Brides. Real Moments.",
+        "heading_line_two": "Timeless Couture.",
+        "desktop_background_color": "#f7f4f0",
+        "mobile_background_color": "#f7f4f0",
+        "slide_gap": 20,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_image_boxed_6qPGcL": {
+      "type": "jf-image-boxed",
+      "blocks": {
+        "item_q44cit": {
+          "type": "item",
+          "settings": {
+            "title": "Melbourne-Based Atelier",
+            "text": "<p>Your wedding dress is designed, cut, and sewn entirely in Melbourne. No overseas factories. No mass production. Just exceptional local craftsmanship.</p>"
+          }
+        },
+        "item_YB8cXY": {
+          "type": "item",
+          "settings": {
+            "title": "Melbourne-Based Atelier",
+            "text": "<p>Your wedding dress is designed, cut, and sewn entirely in Melbourne. No overseas factories. No mass production. Just exceptional local craftsmanship.</p>"
+          }
+        },
+        "item_UteHeY": {
+          "type": "item",
+          "settings": {
+            "title": "Melbourne-Based Atelier",
+            "text": "<p>Your wedding dress is designed, cut, and sewn entirely in Melbourne. No overseas factories. No mass production. Just exceptional local craftsmanship.</p>"
+          }
+        },
+        "item_JCmDNm": {
+          "type": "item",
+          "settings": {
+            "title": "Melbourne-Based Atelier",
+            "text": "<p>Your wedding dress is designed, cut, and sewn entirely in Melbourne. No overseas factories. No mass production. Just exceptional local craftsmanship.</p>"
+          }
+        },
+        "item_UHEiyK": {
+          "type": "item",
+          "settings": {
+            "title": "Personal Designer Access",
+            "text": "<p>You work directly with Julie at every appointment not a sales assistant. This ensures your vision is understood and executed with complete precision.</p>"
+          }
+        },
+        "item_7crHaY": {
+          "type": "item",
+          "settings": {
+            "title": "Truly Custom Creations",
+            "text": "<p>Every custom wedding dress is designed from scratch for you. We do not adapt existing patterns we create entirely new designs based on your unique vision.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_q44cit",
+        "item_YB8cXY",
+        "item_UteHeY",
+        "item_JCmDNm",
+        "item_UHEiyK",
+        "item_7crHaY"
+      ],
+      "name": "JF Image Boxed",
+      "settings": {
+        "eyebrow": "The Julie Sufi Difference",
+        "heading_line_one": "Why Melbourne Brides Choose",
+        "heading_line_two": "Julie Sufi",
+        "description": "<p>In a city with many bridal options, Julie Sufi Couture stands apart. We are not a boutique. We are a couture atelier and the difference is felt from the very first appointment.</p>",
+        "button_label": "Book a free consultation",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 16,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 28
+      }
+    },
+    "jf_logo_slider_eDkpzq": {
+      "type": "jf-logo-slider",
+      "blocks": {
+        "logo_4mRUbE": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_CNi4x4": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_Jr9CtP": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_6mYb93": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        },
+        "logo_KP9YAd": {
+          "type": "logo",
+          "settings": {
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4mRUbE",
+        "logo_CNi4x4",
+        "logo_Jr9CtP",
+        "logo_6mYb93",
+        "logo_KP9YAd"
+      ],
+      "name": "JF Logo Slider",
+      "settings": {
+        "heading": "Featured In",
+        "logo_gap": 40,
+        "logo_height_mobile": 20,
+        "logo_height_desktop": 30,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "jf_image_slider_highlighted_FNLcG9": {
+      "type": "jf-image-slider-highlighted",
+      "blocks": {
+        "slide_tNLqxb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22856.png",
+            "title": "The House",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "slide_Md348i": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22879.png",
+            "title": "The Designer",
+            "link": "",
+            "highlighted": true
+          }
+        },
+        "slide_jJrHVf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22858.png",
+            "title": "The Celebrities",
+            "link": "",
+            "highlighted": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_tNLqxb",
+        "slide_Md348i",
+        "slide_jJrHVf"
+      ],
+      "name": "JF Image Highlighted",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "slide_gap": 10,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 28
+      }
+    },
+    "jf_faq_BHYQwi": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_6qxTym": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_EKchFE": {
+          "type": "item",
+          "settings": {
+            "question": "How does the appointment process work?",
+            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>",
+            "open_by_default": false
+          }
+        },
+        "item_H43em8": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations?",
+            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_6qxTym",
+        "item_EKchFE",
+        "item_H43em8"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "Questions, Answered",
+        "heading": "The Details",
+        "item_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
       }
     }
   },
   "order": [
-    "image_banner",
-    "featured_collection"
+    "editorial_hero",
+    "statistics_e9Pn7Y",
+    "icon_boxed_4ANnif",
+    "jf_featured_collection_R4wirD",
+    "jf_image_slider_CckHk7",
+    "rich_text_kX6hyd",
+    "jf_review_slider_DQxq78",
+    "jf_image_boxed_6qPGcL",
+    "jf_logo_slider_eDkpzq",
+    "jf_image_slider_highlighted_FNLcG9",
+    "jf_faq_BHYQwi"
   ]
 }

@@ -25,6 +25,7 @@
       "block_order": [
         "announcement-bar-0"
       ],
+      "disabled": true,
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
@@ -40,12 +41,21 @@
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
-        "menu": "main-menu",
+        "menu": "new-main-manu-2026",
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
+        "desktop_top_link_1_text": "Australian Owned",
+        "desktop_top_link_1_url": "",
+        "desktop_top_link_2_text": "Wedding Dress Melbourne",
+        "desktop_top_link_2_url": "",
+        "desktop_top_link_3_text": "Custom Bridal Gowns",
+        "desktop_top_link_3_url": "",
+        "desktop_logo_tagline": "Melbourne Couture - Est. 2010",
+        "desktop_cta_label": "Book Free Consultation",
+        "desktop_cta_link": "",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "enable_customer_avatar": true,

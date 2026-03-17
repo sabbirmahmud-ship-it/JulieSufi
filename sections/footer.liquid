@@ -1,424 +1,654 @@
-{% comment %}theme-check-disable UndefinedObject{% endcomment %}
-{{ 'section-footer.css' | asset_url | stylesheet_tag }}
-{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
-{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign footer_title = section.settings.brand_title | default: shop.name
+  assign has_social_icons = false
+  assign has_contact_card = false
+  assign has_legal_links = false
+  assign contact_email_href = blank
+
+  if section.settings.show_social
+    if settings.social_instagram_link != blank or settings.social_pinterest_link != blank or settings.social_facebook_link != blank or settings.social_youtube_link != blank or settings.social_tiktok_link != blank
+      assign has_social_icons = true
+    endif
+  endif
+
+  if section.settings.contact_location != blank or section.settings.contact_email != blank
+    assign has_contact_card = true
+  endif
+
+  if section.settings.contact_email_link != blank
+    assign contact_email_href = section.settings.contact_email_link
+  elsif section.settings.contact_email contains '@'
+    assign contact_email_href = 'mailto:' | append: section.settings.contact_email
+  endif
+
+  for index in (1..3)
+    assign legal_label_key = 'legal_link_' | append: index | append: '_label'
+    if section.settings[legal_label_key] != blank
+      assign has_legal_links = true
+    endif
+  endfor
+-%}
 
 {%- style -%}
-  .footer {
+  .footer--atelier {
     margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
   }
 
-  .section-{{ section.id }}-padding {
+  .footer--atelier .footer-atelier {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+  .footer--atelier .footer-atelier__top {
+    display: grid;
+    gap: 4rem;
+  }
+
+  .footer--atelier .footer-atelier__brand {
+    display: grid;
+    gap: 2.4rem;
+  }
+
+  .footer--atelier .footer-atelier__brand-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    text-decoration: none;
+  }
+
+  .footer--atelier .footer-atelier__brand-title {
+    color: #1e1e23;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 3.4rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+
+  .footer--atelier .footer-atelier__brand-subtitle {
+    color: #4f4f54;
+    font-size: 1.15rem;
+    letter-spacing: 0.3em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .footer--atelier .footer-atelier__description {
+    max-width: 52rem;
+    color: #25252a;
+    font-size: 1.55rem;
+    line-height: 1.8;
+  }
+
+  .footer--atelier .footer-atelier__description p {
+    margin: 0;
+  }
+
+  .footer--atelier .footer-atelier__description p + p {
+    margin-top: 1.2rem;
+  }
+
+  .footer--atelier .footer-atelier__contact-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1.2rem;
+    align-items: start;
+    width: min(100%, 38rem);
+    padding: 1.7rem 1.8rem;
+    background: #f6f4f1;
+    color: #1f1f24;
+    text-decoration: none;
+  }
+
+  .footer--atelier .footer-atelier__contact-icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-top: 0.2rem;
+  }
+
+  .footer--atelier .footer-atelier__contact-copy {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .footer--atelier .footer-atelier__contact-location,
+  .footer--atelier .footer-atelier__contact-email,
+  .footer--atelier .footer-atelier__contact-card span.footer-atelier__contact-email {
+    margin: 0;
+    color: inherit;
+    font-size: 1.45rem;
+    line-height: 1.5;
+    text-decoration: none;
+  }
+
+  .footer--atelier .footer-atelier__contact-location {
+    font-size: 1.65rem;
+  }
+
+  .footer--atelier .footer-atelier__socials {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer--atelier .footer-atelier__social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    border: 1px solid rgba(30, 30, 35, 0.18);
+    border-radius: 50%;
+    color: #1f1f24;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .footer--atelier .footer-atelier__social-link .svg-wrapper {
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  .footer--atelier .footer-atelier__social-link:hover {
+    background: #1f1f24;
+    border-color: #1f1f24;
+    color: #ffffff;
+  }
+
+  .footer--atelier .footer-atelier__navigation--desktop {
+    display: none;
+  }
+
+  .footer--atelier .footer-atelier__navigation--mobile {
+    display: grid;
+    gap: 0;
+  }
+
+  .footer--atelier .footer-atelier__accordion {
+    border-top: 1px solid rgba(30, 30, 35, 0.08);
+  }
+
+  .footer--atelier .footer-atelier__accordion:last-child {
+    border-bottom: 1px solid rgba(30, 30, 35, 0.08);
+  }
+
+  .footer--atelier .footer-atelier__accordion-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.2rem;
+    padding: 1.65rem 0;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .footer--atelier .footer-atelier__accordion-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .footer--atelier .footer-atelier__menu-heading {
+    margin: 0;
+    color: #1f1f24;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .footer--atelier .footer-atelier__accordion-toggle {
+    position: relative;
+    flex: 0 0 auto;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .footer--atelier .footer-atelier__accordion-toggle::before,
+  .footer--atelier .footer-atelier__accordion-toggle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2rem;
+    height: 0.1rem;
+    background: #1f1f24;
+    transform: translate(-50%, -50%);
+    transition: transform 0.2s ease;
+  }
+
+  .footer--atelier .footer-atelier__accordion-toggle::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .footer--atelier .footer-atelier__accordion[open] .footer-atelier__accordion-toggle::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  .footer--atelier .footer-atelier__menu-list {
+    display: grid;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0 0 1.8rem;
+  }
+
+  .footer--atelier .footer-atelier__menu-link {
+    color: #27272d;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    text-decoration: none;
+  }
+
+  .footer--atelier .footer-atelier__menu-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+
+  .footer--atelier .footer-atelier__bottom {
+    background: #1f1f24;
+  }
+
+  .footer--atelier .footer-atelier__bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4.4rem;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .footer--atelier .footer-atelier__copyright {
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .footer--atelier .footer-atelier__legal {
+    display: none;
+  }
+
   @media screen and (min-width: 750px) {
-    .footer {
+    .footer--atelier {
       margin-top: {{ section.settings.margin_top }}px;
     }
 
-    .section-{{ section.id }}-padding {
+    .footer--atelier .footer-atelier {
       padding-top: {{ section.settings.padding_top }}px;
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  @media screen and (min-width: 990px) {
+    .footer--atelier .footer-atelier__top {
+      grid-template-columns: minmax(30rem, 40rem) minmax(0, 1fr);
+      gap: 12rem;
+      align-items: start;
+    }
+
+    .footer--atelier .footer-atelier__brand {
+      gap: 2.8rem;
+    }
+
+    .footer--atelier .footer-atelier__brand-title {
+      font-size: 4.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .footer--atelier .footer-atelier__brand-subtitle {
+      font-size: 1.25rem;
+      letter-spacing: 0.38em;
+    }
+
+    .footer--atelier .footer-atelier__description {
+      font-size: 1.65rem;
+      line-height: 1.85;
+    }
+
+    .footer--atelier .footer-atelier__contact-card {
+      width: min(100%, 33.4rem);
+      min-height: 8.4rem;
+      align-items: center;
+      padding: 1.8rem 2rem;
+    }
+
+    .footer--atelier .footer-atelier__navigation--desktop {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+      gap: 4rem 8rem;
+      padding-top: 0.5rem;
+    }
+
+    .footer--atelier .footer-atelier__navigation--mobile {
+      display: none;
+    }
+
+    .footer--atelier .footer-atelier__menu-column {
+      display: grid;
+      gap: 2.1rem;
+    }
+
+    .footer--atelier .footer-atelier__menu-list {
+      padding-bottom: 0;
+    }
+
+    .footer--atelier .footer-atelier__bottom-inner {
+      justify-content: space-between;
+      min-height: 6rem;
+      gap: 3rem;
+    }
+
+    .footer--atelier .footer-atelier__legal {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 5.2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .footer--atelier .footer-atelier__legal-link {
+      color: #ffffff;
+      font-size: 1.45rem;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .footer--atelier .footer-atelier__legal-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.2rem;
+    }
+  }
 {%- endstyle -%}
 
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  {%- liquid
-    assign has_social_icons = true
-    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
-      assign has_social_icons = false
-    endif
+{%- assign copyright_text_normalized = section.settings.copyright_text | downcase -%}
 
-    if settings.brand_image == blank and settings.brand_headline == blank and settings.brand_description == blank
-      assign brand_empty = true
-    endif
+<footer class="footer footer--atelier color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width footer-atelier">
+    <div class="footer-atelier__top">
+      <div class="footer-atelier__brand">
+        <a href="{{ routes.root_url }}" class="footer-atelier__brand-link link link--text">
+          <span class="footer-atelier__brand-title">{{ footer_title | escape }}</span>
+          {%- if section.settings.brand_subtitle != blank -%}
+            <span class="footer-atelier__brand-subtitle">{{ section.settings.brand_subtitle | escape }}</span>
+          {%- endif -%}
+        </a>
 
-    if section.blocks.size == 1 and section.blocks[0].type == 'brand_information' and brand_empty and has_social_icons == false and section.settings.newsletter_enable == false and section.settings.enable_follow_on_shop == false
-      assign only_empty_brand = true
-    endif
-  -%}
-  {%- if section.blocks.size > 0
-    or section.settings.newsletter_enable
-    or section.settings.show_social
-    and has_social_icons == true
-    or section.settings.enable_follow_on_shop
-  -%}
-    {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
-        {%- if section.blocks.size > 0 -%}
-          {%- liquid
-            if section.blocks.size == 9
-              assign footer_grid_class = 'grid--3-col-tablet'
-            elsif section.blocks.size > 6
-              assign footer_grid_class = 'grid--4-col-desktop'
-            elsif section.blocks.size > 4
-              assign footer_grid_class = 'grid--3-col-tablet'
-            endif
-          -%}
-          <div
-            class="footer__blocks-wrapper grid grid--1-col grid--2-col grid--4-col-tablet {{ footer_grid_class }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            {% if settings.animations_reveal_on_scroll %}
-              data-cascade
-            {% endif %}
-          >
-            {%- for block in section.blocks -%}
-              <div
-                class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-                {{ block.shopify_attributes }}
-                {% if settings.animations_reveal_on_scroll %}
-                  data-cascade
-                  style="--animation-order: {{ forloop.index }};"
-                {% endif %}
-              >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading inline-richtext">{{- block.settings.heading -}}</h2>
-                {%- endif -%}
-
-                {%- case block.type -%}
-                  {%- when '@app' -%}
-                    {% render block %}
-                  {%- when 'text' -%}
-                    <div class="footer-block__details-content rte">
-                      {{ block.settings.subtext }}
-                    </div>
-                  {%- when 'link_list' -%}
-                    {%- if block.settings.menu != blank -%}
-                      <ul class="footer-block__details-content list-unstyled">
-                        {%- for link in block.settings.menu.links -%}
-                          <li>
-                            <a
-                              href="{{ link.url }}"
-                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                            >
-                              {{ link.title | escape }}
-                            </a>
-                          </li>
-                        {%- endfor -%}
-                      </ul>
-                    {%- endif -%}
-                  {%- when 'brand_information' -%}
-                    <div class="footer-block__brand-info">
-                      {%- if settings.brand_image != blank -%}
-                        {%- assign brand_image_height = settings.brand_image_width
-                          | divided_by: settings.brand_image.aspect_ratio
-                        -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ settings.brand_image_width }}px);"
-                        >
-                          {{
-                            settings.brand_image
-                            | image_url: width: 1100
-                            | image_tag:
-                              loading: 'lazy',
-                              widths: '50, 100, 150, 200, 300, 400, 550, 800, 1100',
-                              height: brand_image_height,
-                              width: settings.brand_image_width
-                          }}
-                        </div>
-                      {%- endif -%}
-                      {%- if settings.brand_headline != blank -%}
-                        <h2 class="footer-block__heading rte">{{ settings.brand_headline }}</h2>
-                      {%- endif -%}
-                      {%- if settings.brand_description != blank -%}
-                        <div class="rte">{{ settings.brand_description }}</div>
-                      {%- endif -%}
-                      {%- if block.settings.show_social and has_social_icons -%}
-                        {%- render 'social-icons', class: 'footer__list-social' -%}
-                      {%- endif -%}
-                    </div>
-                  {%- when 'image' -%}
-                    <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
-                      {%- if block.settings.image != blank -%}
-                        {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
-                        <div
-                          class="footer-block__image-wrapper"
-                          style="max-width: min(100%, {{ block.settings.image_width }}px);"
-                        >
-                          <img
-                            srcset="{{ block.settings.image | image_url: width: block.settings.image_width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
-                            src="{{ block.settings.image | image_url: width: 760 }}"
-                            alt="{{ block.settings.image.alt | escape }}"
-                            loading="lazy"
-                            width="{{ block.settings.image.width }}"
-                            height="{{ block.settings.image.height }}"
-                          >
-                        </div>
-                      {%- else -%}
-                        {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
-                      {%- endif -%}
-                    </div>
-                {%- endcase -%}
-              </div>
-            {%- endfor -%}
-          </div>
+        {%- if section.settings.brand_description != blank -%}
+          <div class="footer-atelier__description rte">{{ section.settings.brand_description }}</div>
         {%- endif -%}
 
-        <div
-          class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-          {% endif %}
-        >
-          {%- if section.settings.newsletter_enable -%}
-            <div class="footer-block__newsletter">
-              {%- if section.settings.newsletter_heading != blank -%}
-                <h2 class="footer-block__heading inline-richtext">{{ section.settings.newsletter_heading }}</h2>
+        {%- if has_contact_card -%}
+          {%- if section.settings.contact_card_link != blank -%}
+            <a href="{{ section.settings.contact_card_link }}" class="footer-atelier__contact-card link link--text">
+          {%- else -%}
+            <div class="footer-atelier__contact-card">
+          {%- endif -%}
+            <span class="footer-atelier__contact-icon svg-wrapper">{{ 'icon-map-pin.svg' | inline_asset_content }}</span>
+            <div class="footer-atelier__contact-copy">
+              {%- if section.settings.contact_location != blank -%}
+                <p class="footer-atelier__contact-location">{{ section.settings.contact_location | escape }}</p>
               {%- endif -%}
-              {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
-                <input type="hidden" name="contact[tags]" value="newsletter">
-                <div class="newsletter-form__field-wrapper">
-                  <div class="field">
-                    <input
-                      id="NewsletterForm--{{ section.id }}"
-                      type="email"
-                      name="contact[email]"
-                      class="field__input"
-                      value="{{ form.email }}"
-                      aria-required="true"
-                      autocorrect="off"
-                      autocapitalize="off"
-                      autocomplete="email"
-                      {% if form.errors %}
-                        autofocus
-                        aria-invalid="true"
-                        aria-describedby="ContactFooter-error"
-                      {% elsif form.posted_successfully? %}
-                        aria-describedby="ContactFooter-success"
-                      {% endif %}
-                      placeholder="{{ 'newsletter.label' | t }}"
-                      required
-                    >
-                    <label class="field__label" for="NewsletterForm--{{ section.id }}">
-                      {{ 'newsletter.label' | t }}
-                    </label>
-                    <button
-                      type="submit"
-                      class="newsletter-form__button field__button"
-                      name="commit"
-                      id="Subscribe"
-                      aria-label="{{ 'newsletter.button_label' | t }}"
-                    >
-                      <span class="svg-wrapper">
-                        {{- 'icon-arrow.svg' | inline_asset_content -}}
-                      </span>
-                    </button>
-                  </div>
-                  {%- if form.errors -%}
-                    <small class="newsletter-form__message form__message" id="ContactFooter-error">
-                      <span class="svg-wrapper">
-                        {{- 'icon-error.svg' | inline_asset_content -}}
-                      </span>
-                      {{- form.errors.translated_fields.email | capitalize }}
-                      {{ form.errors.messages.email -}}
-                    </small>
-                  {%- endif -%}
-                </div>
-                {%- if form.posted_successfully? -%}
-                  <h3
-                    class="newsletter-form__message newsletter-form__message--success form__message"
-                    id="ContactFooter-success"
-                    tabindex="-1"
-                    autofocus
-                  >
-                    <span class="svg-wrapper">
-                      {{- 'icon-success.svg' | inline_asset_content -}}
-                    </span>
-                    {{- 'newsletter.success' | t }}
-                  </h3>
+              {%- if section.settings.contact_email != blank -%}
+                {%- if section.settings.contact_card_link == blank and contact_email_href != blank -%}
+                  <a href="{{ contact_email_href }}" class="footer-atelier__contact-email">
+                    {{ section.settings.contact_email | escape }}
+                  </a>
+                {%- else -%}
+                  <span class="footer-atelier__contact-email">{{ section.settings.contact_email | escape }}</span>
                 {%- endif -%}
-              {%- endform -%}
+              {%- endif -%}
+            </div>
+          {%- if section.settings.contact_card_link != blank -%}
+            </a>
+          {%- else -%}
             </div>
           {%- endif -%}
-
-          {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
-            <div class="footer__follow-on-shop">
-              {{ shop | login_button: action: 'follow' }}
-            </div>
-          {%- endif -%}
-
-          {%- if section.settings.show_social and has_social_icons -%}
-            {%- render 'social-icons', class: 'footer__list-social' -%}
-          {%- endif -%}
-        </div>
-      </div>
-    {%- endunless -%}
-  {%- endif -%}
-
-  <div
-    class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    {% if settings.animations_reveal_on_scroll %}
-      data-cascade
-    {% endif %}
-  >
-    <div class="footer__content-bottom-wrapper page-width">
-      <div class="footer__column footer__localization isolate">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="caption-large text-body" id="FooterCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'FooterCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
         {%- endif -%}
 
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <localization-form>
-            {%- form 'localization', id: 'FooterLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="caption-large text-body" id="FooterLanguageLabel">
-                  {{ 'localization.language_label' | t }}
-                </h2>
-                {%- render 'language-localization', localPosition: 'FooterLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {%- endif -%}
-      </div>
-      <div class="footer__column footer__column--info">
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
-            </ul>
-          </div>
-        {%- endif -%}
-      </div>
-    </div>
-    <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
-      <div class="footer__copyright caption">
-        <small class="copyright__content"
-          >&copy; {{ 'now' | date: '%Y' }}, {{ shop.name | link_to: routes.root_url -}}
-        </small>
-        <small class="copyright__content">{{ powered_by_link }}</small>
-        {%- if section.settings.show_policy -%}
-          <ul class="policies list-unstyled">
-            {%- for policy in shop.policies -%}
-              {%- if policy != blank -%}
-                <li>
-                  <small class="copyright__content"
-                    ><a href="{{ policy.url }}">{{ policy.title | escape }}</a></small
-                  >
-                </li>
-              {%- endif -%}
-            {%- endfor -%}
+        {%- if has_social_icons -%}
+          <ul class="footer-atelier__socials list-unstyled" role="list">
+            {%- if settings.social_instagram_link != blank -%}
+              <li>
+                <a href="{{ settings.social_instagram_link }}" class="footer-atelier__social-link link" aria-label="Instagram">
+                  <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_pinterest_link != blank -%}
+              <li>
+                <a href="{{ settings.social_pinterest_link }}" class="footer-atelier__social-link link" aria-label="Pinterest">
+                  <span class="svg-wrapper">{{ 'icon-pinterest.svg' | inline_asset_content }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_facebook_link != blank -%}
+              <li>
+                <a href="{{ settings.social_facebook_link }}" class="footer-atelier__social-link link" aria-label="Facebook">
+                  <span class="svg-wrapper">{{ 'icon-facebook.svg' | inline_asset_content }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_youtube_link != blank -%}
+              <li>
+                <a href="{{ settings.social_youtube_link }}" class="footer-atelier__social-link link" aria-label="YouTube">
+                  <span class="svg-wrapper">{{ 'icon-youtube.svg' | inline_asset_content }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_tiktok_link != blank -%}
+              <li>
+                <a href="{{ settings.social_tiktok_link }}" class="footer-atelier__social-link link" aria-label="TikTok">
+                  <span class="svg-wrapper">{{ 'icon-tiktok.svg' | inline_asset_content }}</span>
+                </a>
+              </li>
+            {%- endif -%}
           </ul>
         {%- endif -%}
       </div>
+
+      <div class="footer-atelier__navigation footer-atelier__navigation--desktop">
+        {%- for block in section.blocks -%}
+          <div class="footer-atelier__menu-column" {{ block.shopify_attributes }}>
+            {%- if block.settings.heading != blank -%}
+              <h2 class="footer-atelier__menu-heading">{{ block.settings.heading | escape }}</h2>
+            {%- endif -%}
+            <ul class="footer-atelier__menu-list list-unstyled" role="list">
+              {%- for index in (1..6) -%}
+                {%- assign label_key = 'link_' | append: index | append: '_label' -%}
+                {%- assign url_key = 'link_' | append: index | append: '_url' -%}
+                {%- assign link_label = block.settings[label_key] -%}
+                {%- assign link_url = block.settings[url_key] -%}
+                {%- if link_label != blank -%}
+                  <li>
+                    {%- if link_url != blank -%}
+                      <a href="{{ link_url }}" class="footer-atelier__menu-link">{{ link_label | escape }}</a>
+                    {%- else -%}
+                      <span class="footer-atelier__menu-link">{{ link_label | escape }}</span>
+                    {%- endif -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <div class="footer-atelier__navigation footer-atelier__navigation--mobile">
+        {%- for block in section.blocks -%}
+          <details class="footer-atelier__accordion" {{ block.shopify_attributes }}>
+            <summary class="footer-atelier__accordion-summary">
+              <span class="footer-atelier__menu-heading">{{ block.settings.heading | escape }}</span>
+              <span class="footer-atelier__accordion-toggle" aria-hidden="true"></span>
+            </summary>
+            <ul class="footer-atelier__menu-list list-unstyled" role="list">
+              {%- for index in (1..6) -%}
+                {%- assign label_key = 'link_' | append: index | append: '_label' -%}
+                {%- assign url_key = 'link_' | append: index | append: '_url' -%}
+                {%- assign link_label = block.settings[label_key] -%}
+                {%- assign link_url = block.settings[url_key] -%}
+                {%- if link_label != blank -%}
+                  <li>
+                    {%- if link_url != blank -%}
+                      <a href="{{ link_url }}" class="footer-atelier__menu-link">{{ link_label | escape }}</a>
+                    {%- else -%}
+                      <span class="footer-atelier__menu-link">{{ link_label | escape }}</span>
+                    {%- endif -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endfor -%}
+
+        {%- if has_legal_links -%}
+          <details class="footer-atelier__accordion">
+            <summary class="footer-atelier__accordion-summary">
+              <span class="footer-atelier__menu-heading">{{ section.settings.legal_heading | escape }}</span>
+              <span class="footer-atelier__accordion-toggle" aria-hidden="true"></span>
+            </summary>
+            <ul class="footer-atelier__menu-list list-unstyled" role="list">
+              {%- for index in (1..3) -%}
+                {%- assign legal_label_key = 'legal_link_' | append: index | append: '_label' -%}
+                {%- assign legal_url_key = 'legal_link_' | append: index | append: '_url' -%}
+                {%- assign legal_label = section.settings[legal_label_key] -%}
+                {%- assign legal_url = section.settings[legal_url_key] -%}
+                {%- if legal_label != blank -%}
+                  <li>
+                    {%- if legal_url != blank -%}
+                      <a href="{{ legal_url }}" class="footer-atelier__menu-link">{{ legal_label | escape }}</a>
+                    {%- else -%}
+                      <span class="footer-atelier__menu-link">{{ legal_label | escape }}</span>
+                    {%- endif -%}
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </details>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-atelier__bottom">
+    <div class="page-width footer-atelier__bottom-inner">
+      <small class="footer-atelier__copyright">
+        {%- if section.settings.copyright_text != blank and copyright_text_normalized != 'auto' -%}
+          {{ section.settings.copyright_text | escape }}
+        {%- else -%}
+          &copy; {{ footer_title | escape }} {{ 'now' | date: '%Y' }}
+        {%- endif -%}
+      </small>
+
+      {%- if has_legal_links -%}
+        <ul class="footer-atelier__legal list-unstyled" role="list">
+          {%- for index in (1..3) -%}
+            {%- assign legal_label_key = 'legal_link_' | append: index | append: '_label' -%}
+            {%- assign legal_url_key = 'legal_link_' | append: index | append: '_url' -%}
+            {%- assign legal_label = section.settings[legal_label_key] -%}
+            {%- assign legal_url = section.settings[legal_url_key] -%}
+            {%- if legal_label != blank -%}
+              <li>
+                {%- if legal_url != blank -%}
+                  <a href="{{ legal_url }}" class="footer-atelier__legal-link">{{ legal_label | escape }}</a>
+                {%- else -%}
+                  <span class="footer-atelier__legal-link">{{ legal_label | escape }}</span>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
     </div>
   </div>
 </footer>
 
 {% schema %}
 {
-  "name": "t:sections.footer.name",
+  "name": "Editorial Footer",
   "blocks": [
     {
-      "type": "@app"
-    },
-    {
-      "type": "link_list",
-      "name": "t:sections.footer.blocks.link_list.name",
+      "type": "menu_column",
+      "name": "Menu column",
       "settings": [
         {
-          "type": "inline_richtext",
+          "type": "text",
           "id": "heading",
-          "default": "t:sections.footer.blocks.link_list.settings.heading.default",
-          "label": "t:sections.footer.blocks.link_list.settings.heading.label"
+          "default": "Bridal",
+          "label": "Heading"
         },
         {
-          "type": "link_list",
-          "id": "menu",
-          "default": "footer",
-          "label": "t:sections.footer.blocks.link_list.settings.menu.label"
-        }
-      ]
-    },
-    {
-      "type": "brand_information",
-      "name": "t:sections.footer.blocks.brand_information.name",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "t:sections.footer.blocks.brand_information.settings.paragraph.content"
+          "type": "text",
+          "id": "link_1_label",
+          "default": "Bridal Collection",
+          "label": "Link 1 label"
         },
         {
-          "type": "checkbox",
-          "id": "show_social",
-          "default": true,
-          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
-          "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
-        }
-      ]
-    },
-    {
-      "type": "text",
-      "name": "t:sections.footer.blocks.text.name",
-      "settings": [
-        {
-          "type": "inline_richtext",
-          "id": "heading",
-          "default": "t:sections.footer.blocks.text.settings.heading.default",
-          "label": "t:sections.footer.blocks.text.settings.heading.label"
+          "type": "url",
+          "id": "link_1_url",
+          "label": "Link 1 URL"
         },
         {
-          "type": "richtext",
-          "id": "subtext",
-          "default": "t:sections.footer.blocks.text.settings.subtext.default",
-          "label": "t:sections.footer.blocks.text.settings.subtext.label"
-        }
-      ]
-    },
-    {
-      "type": "image",
-      "name": "Image",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "type": "text",
+          "id": "link_2_label",
+          "default": "Book A Free Consultation",
+          "label": "Link 2 label"
         },
         {
-          "type": "range",
-          "id": "image_width",
-          "min": 50,
-          "max": 550,
-          "step": 5,
-          "unit": "px",
-          "label": "Width",
-          "default": 100
+          "type": "url",
+          "id": "link_2_url",
+          "label": "Link 2 URL"
         },
         {
-          "type": "select",
-          "id": "alignment",
-          "label": "Alignment",
-          "options": [
-            {
-              "value": "",
-              "label": "Left"
-            },
-            {
-              "value": "center",
-              "label": "Center"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ],
-          "default": "center"
+          "type": "text",
+          "id": "link_3_label",
+          "default": "Julie Sufi Brides",
+          "label": "Link 3 label"
+        },
+        {
+          "type": "url",
+          "id": "link_3_url",
+          "label": "Link 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_4_label",
+          "default": "Share Your Wedding",
+          "label": "Link 4 label"
+        },
+        {
+          "type": "url",
+          "id": "link_4_url",
+          "label": "Link 4 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_5_label",
+          "default": "FAQs",
+          "label": "Link 5 label"
+        },
+        {
+          "type": "url",
+          "id": "link_5_url",
+          "label": "Link 5 URL"
+        },
+        {
+          "type": "text",
+          "id": "link_6_label",
+          "label": "Link 6 label"
+        },
+        {
+          "type": "url",
+          "id": "link_6_url",
+          "label": "Link 6 URL"
         }
       ]
     }
@@ -427,117 +657,171 @@
     {
       "type": "color_scheme",
       "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
+      "label": "Color scheme",
       "default": "scheme-1"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.header__1.content",
-      "info": "t:sections.footer.settings.header__1.info"
+      "content": "Brand content"
     },
     {
-      "type": "checkbox",
-      "id": "newsletter_enable",
-      "default": true,
-      "label": "t:sections.footer.settings.newsletter_enable.label"
+      "type": "text",
+      "id": "brand_title",
+      "default": "JULIE SUFI",
+      "label": "Brand title"
     },
     {
-      "type": "inline_richtext",
-      "id": "newsletter_heading",
-      "default": "t:sections.footer.settings.newsletter_heading.default",
-      "label": "t:sections.footer.settings.newsletter_heading.label"
+      "type": "text",
+      "id": "brand_subtitle",
+      "default": "SINCE 2010",
+      "label": "Brand subtitle"
+    },
+    {
+      "type": "richtext",
+      "id": "brand_description",
+      "default": "<p>Haute couture bridal gowns, handcrafted with precision and intent. Our collections honour individuality, craftsmanship, and the quiet elegance of modern romance.</p>",
+      "label": "Brand description"
     },
     {
       "type": "header",
-      "content": "t:sections.footer.settings.header__9.content"
+      "content": "Contact card"
     },
     {
-      "type": "checkbox",
-      "id": "enable_follow_on_shop",
-      "default": true,
-      "label": "t:sections.footer.settings.enable_follow_on_shop.label",
-      "info": "t:sections.footer.settings.enable_follow_on_shop.info"
+      "type": "text",
+      "id": "contact_location",
+      "default": "Melbourne, Victoria",
+      "label": "Location"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "default": "info@juliesufi.com",
+      "label": "Email text"
+    },
+    {
+      "type": "url",
+      "id": "contact_email_link",
+      "label": "Email link override"
+    },
+    {
+      "type": "url",
+      "id": "contact_card_link",
+      "label": "Contact card link"
     },
     {
       "type": "checkbox",
       "id": "show_social",
       "default": true,
-      "label": "t:sections.footer.settings.show_social.label",
-      "info": "t:sections.footer.settings.show_social.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": true,
-      "label": "t:sections.footer.settings.enable_country_selector.label",
-      "info": "t:sections.footer.settings.enable_country_selector.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": true,
-      "label": "t:sections.footer.settings.enable_language_selector.label",
-      "info": "t:sections.footer.settings.enable_language_selector.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "payment_enable",
-      "default": true,
-      "label": "t:sections.footer.settings.payment_enable.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_policy",
-      "default": true,
-      "label": "t:sections.footer.settings.show_policy.label",
-      "info": "t:sections.footer.settings.show_policy.info"
+      "label": "Show social icons"
     },
     {
       "type": "header",
-      "content": "t:sections.all.spacing"
+      "content": "Legal links"
+    },
+    {
+      "type": "text",
+      "id": "legal_heading",
+      "default": "Legal",
+      "label": "Mobile legal heading"
+    },
+    {
+      "type": "text",
+      "id": "legal_link_1_label",
+      "default": "Legal Notice",
+      "label": "Legal link 1 label"
+    },
+    {
+      "type": "url",
+      "id": "legal_link_1_url",
+      "label": "Legal link 1 URL"
+    },
+    {
+      "type": "text",
+      "id": "legal_link_2_label",
+      "default": "Privacy Policy",
+      "label": "Legal link 2 label"
+    },
+    {
+      "type": "url",
+      "id": "legal_link_2_url",
+      "label": "Legal link 2 URL"
+    },
+    {
+      "type": "text",
+      "id": "legal_link_3_label",
+      "default": "Terms of Use",
+      "label": "Legal link 3 label"
+    },
+    {
+      "type": "url",
+      "id": "legal_link_3_url",
+      "label": "Legal link 3 URL"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "default": "auto",
+      "label": "Copyright text"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
     },
     {
       "type": "range",
       "id": "margin_top",
       "min": 0,
-      "max": 100,
+      "max": 120,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.footer.settings.margin_top.label",
+      "label": "Top margin",
       "default": 0
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
     },
     {
       "type": "range",
       "id": "padding_top",
       "min": 0,
-      "max": 100,
+      "max": 140,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "label": "Top padding",
+      "default": 44
     },
     {
       "type": "range",
       "id": "padding_bottom",
       "min": 0,
-      "max": 100,
+      "max": 140,
       "step": 4,
       "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "label": "Bottom padding",
+      "default": 56
     }
   ],
+  "max_blocks": 3,
   "default": {
     "blocks": [
       {
-        "type": "link_list"
+        "type": "menu_column",
+        "settings": {
+          "heading": "Bridal",
+          "link_1_label": "Bridal Collection",
+          "link_2_label": "Book A Free Consultation",
+          "link_3_label": "Julie Sufi Brides",
+          "link_4_label": "Share Your Wedding",
+          "link_5_label": "FAQs"
+        }
       },
       {
-        "type": "text"
+        "type": "menu_column",
+        "settings": {
+          "heading": "The Company",
+          "link_1_label": "About us",
+          "link_2_label": "Stockists",
+          "link_3_label": "Contact Us",
+          "link_4_label": "Journal",
+          "link_5_label": ""
+        }
       }
     ]
   }
