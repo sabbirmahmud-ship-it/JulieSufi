@@ -1,45 +1,62 @@
-{{ 'section-jf-image-slider-highlighted.css' | asset_url | stylesheet_tag }}
+{{ 'section-jf-plain-box-icon.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   assign desktop_background_image = section.settings.desktop_background_image
   assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
   assign fallback_background_image = desktop_background_image | default: mobile_background_image
-  assign enable_slider = false
-
-  if section.blocks.size > 3
-    assign enable_slider = true
-  endif
 -%}
 
 {%- style -%}
-  #JfImageSliderHighlighted-{{ section.id }} {
+  #JfPlainBoxIcon-{{ section.id }} {
     background-color: {{ section.settings.mobile_background_color }};
   }
 
-  #JfImageSliderHighlighted-{{ section.id }} .jf-image-slider-highlighted__inner {
+  #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__inner {
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   }
 
-  #JfImageSliderHighlighted-{{ section.id }} .jf-image-slider-highlighted__track {
-    --jf-highlighted-gap: {{ section.settings.slide_gap }}px;
+  #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__grid {
+    --jf-plain-box-icon-columns-mobile: {{ section.settings.columns_mobile }};
+    --jf-plain-box-icon-columns-desktop: {{ section.settings.columns_desktop }};
+    --jf-plain-box-icon-row-gap: {{ section.settings.row_gap }}px;
   }
 
+  #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__item::before {
+    display: none;
+  }
+
+  {%- if section.settings.columns_mobile > 1 -%}
+    #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__item:not(:nth-child({{ section.settings.columns_mobile }}n + 1))::before {
+      display: block;
+    }
+  {%- endif -%}
+
   @media screen and (min-width: 750px) {
-    #JfImageSliderHighlighted-{{ section.id }} {
+    #JfPlainBoxIcon-{{ section.id }} {
       background-color: {{ section.settings.desktop_background_color }};
     }
 
-    #JfImageSliderHighlighted-{{ section.id }} .jf-image-slider-highlighted__inner {
+    #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__inner {
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
     }
+
+    #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__item::before {
+      display: none;
+    }
+
+    {%- if section.settings.columns_desktop > 1 -%}
+      #JfPlainBoxIcon-{{ section.id }} .jf-plain-box-icon__item:not(:nth-child({{ section.settings.columns_desktop }}n + 1))::before {
+        display: block;
+      }
+    {%- endif -%}
   }
 {%- endstyle -%}
 
-<section id="JfImageSliderHighlighted-{{ section.id }}" class="jf-image-slider-highlighted">
+<section id="JfPlainBoxIcon-{{ section.id }}" class="jf-plain-box-icon">
   {%- if fallback_background_image != blank -%}
-    <div class="jf-image-slider-highlighted__background">
+    <div class="jf-plain-box-icon__background">
       <picture>
         {%- if mobile_background_image != blank -%}
           <source
@@ -67,68 +84,74 @@
     </div>
   {%- endif -%}
 
-  <div class="jf-image-slider-highlighted__inner page-width">
+  <div class="jf-plain-box-icon__inner page-width">
     {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.description != blank -%}
-      <div class="jf-image-slider-highlighted__intro">
+      <div class="jf-plain-box-icon__intro">
         {%- if section.settings.eyebrow != blank -%}
-          <p class="jf-image-slider-highlighted__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+          <p class="jf-plain-box-icon__eyebrow">{{ section.settings.eyebrow | escape }}</p>
         {%- endif -%}
 
         {%- if section.settings.heading != blank -%}
-          <h2 class="jf-image-slider-highlighted__heading">{{ section.settings.heading | escape }}</h2>
+          <h2 class="jf-plain-box-icon__heading">{{ section.settings.heading | escape }}</h2>
         {%- endif -%}
 
         {%- if section.settings.description != blank -%}
-          <div class="jf-image-slider-highlighted__description">{{ section.settings.description }}</div>
+          <div class="jf-plain-box-icon__description">{{ section.settings.description }}</div>
         {%- endif -%}
       </div>
     {%- endif -%}
 
-    <ul class="jf-image-slider-highlighted__track list-unstyled{% if enable_slider %} jf-image-slider-highlighted__track--slider{% endif %}">
+    <div class="jf-plain-box-icon__grid">
       {%- for block in section.blocks -%}
-        <li class="jf-image-slider-highlighted__slide{% if block.settings.highlighted %} is-highlighted{% endif %}" {{ block.shopify_attributes }}>
-          {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" class="jf-image-slider-highlighted__link">
+        {%- liquid
+          assign block_link = block.settings.link
+          assign title_text = block.settings.title | escape
+        -%}
+        <article class="jf-plain-box-icon__item" {{ block.shopify_attributes }}>
+          {%- if block_link != blank -%}
+            <a href="{{ block_link }}" class="jf-plain-box-icon__card" aria-label="{{ title_text }}">
           {%- else -%}
-            <div class="jf-image-slider-highlighted__card">
+            <div class="jf-plain-box-icon__card">
           {%- endif -%}
-            <div class="jf-image-slider-highlighted__media">
-              {%- if block.settings.image != blank -%}
-                {{
-                  block.settings.image
-                  | image_url: width: 1600
-                  | image_tag:
-                    widths: '375, 550, 750, 900, 1100, 1500, 1600',
-                    sizes: '(min-width: 750px) 33vw, 60vw',
-                    loading: 'lazy',
-                    alt: block.settings.image.alt
-                }}
-              {%- else -%}
-                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-              {%- endif -%}
-            </div>
 
-            {%- if block.settings.title != blank -%}
-              <p class="jf-image-slider-highlighted__title">{{ block.settings.title | escape }}</p>
+          <div class="jf-plain-box-icon__icon-wrap">
+            {%- if block.settings.icon_image != blank -%}
+              {{
+                block.settings.icon_image
+                | image_url: width: 120
+                | image_tag:
+                  widths: '60, 90, 120',
+                  sizes: '(min-width: 750px) 44px, 32px',
+                  loading: 'lazy',
+                  alt: block.settings.icon_image.alt
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
             {%- endif -%}
-          {%- if block.settings.link != blank -%}
+          </div>
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="jf-plain-box-icon__title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block_link != blank -%}
             </a>
           {%- else -%}
             </div>
           {%- endif -%}
-        </li>
+        </article>
       {%- endfor -%}
-    </ul>
+    </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "JF Image Highlighted",
+  "name": "JF Plain Box Icon",
   "settings": [
     {
       "type": "header",
-      "content": "Optional intro"
+      "content": "Content"
     },
     {
       "type": "text",
@@ -147,17 +170,35 @@
     },
     {
       "type": "header",
-      "content": "Slides"
+      "content": "Layout"
     },
     {
       "type": "range",
-      "id": "slide_gap",
-      "label": "Gap between slides",
-      "min": 0,
-      "max": 48,
+      "id": "columns_desktop",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 6,
       "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Items per row on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Gap between rows",
+      "min": 0,
+      "max": 120,
+      "step": 4,
       "unit": "px",
-      "default": 10
+      "default": 16
     },
     {
       "type": "header",
@@ -214,73 +255,66 @@
       "id": "padding_top_desktop",
       "label": "Desktop top padding",
       "min": 0,
-      "max": 200,
+      "max": 240,
       "step": 4,
       "unit": "px",
-      "default": 28
+      "default": 52
     },
     {
       "type": "range",
       "id": "padding_bottom_desktop",
       "label": "Desktop bottom padding",
       "min": 0,
-      "max": 200,
+      "max": 240,
       "step": 4,
       "unit": "px",
-      "default": 28
+      "default": 52
     }
   ],
   "blocks": [
     {
-      "type": "slide",
-      "name": "Slide",
+      "type": "item",
+      "name": "Item",
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "icon_image",
+          "label": "Icon image"
         },
         {
           "type": "text",
           "id": "title",
           "label": "Title",
-          "default": "The House"
+          "default": "Book an appointment"
         },
         {
           "type": "url",
           "id": "link",
           "label": "Link"
-        },
-        {
-          "type": "checkbox",
-          "id": "highlighted",
-          "label": "Highlighted size",
-          "default": false
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "JF Image Highlighted",
+      "name": "JF Plain Box Icon",
       "blocks": [
         {
-          "type": "slide",
+          "type": "item",
           "settings": {
-            "title": "The House"
+            "title": "Book an appointment"
           }
         },
         {
-          "type": "slide",
+          "type": "item",
           "settings": {
-            "title": "The Designer",
-            "highlighted": true
+            "title": "Find a boutique"
           }
         },
         {
-          "type": "slide",
+          "type": "item",
           "settings": {
-            "title": "The Celebrities"
+            "title": "Contact us"
           }
         }
       ]

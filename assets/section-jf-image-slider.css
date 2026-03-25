@@ -24,10 +24,11 @@
 .jf-image-slider__inner {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .jf-image-slider__intro {
-  max-width: 76rem;
+  max-width: 78rem;
   margin: 0 auto;
   padding-right: 1.5rem;
   padding-left: 1.5rem;
@@ -77,7 +78,7 @@
   display: flex;
   gap: var(--jf-image-slider-gap, 1.2rem);
   margin: 0;
-  padding: 0 1.5rem;
+  padding: 0;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -175,11 +176,6 @@
 
   .jf-image-slider__viewport {
     margin-top: 4.2rem;
-  }
-
-  .jf-image-slider__track {
-    padding-right: 2rem;
-    padding-left: 2rem;
   }
 
   .jf-image-slider__slide {

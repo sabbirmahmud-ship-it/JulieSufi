@@ -24,6 +24,8 @@
 .jf-review-slider__inner {
   position: relative;
   z-index: 1;
+ 
+  box-sizing: border-box;
 }
 
 .jf-review-slider__intro {
@@ -72,7 +74,7 @@
   display: flex;
   gap: var(--jf-review-gap, 1.8rem);
   margin: 0;
-  padding: 0 1.5rem;
+  padding: 0;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
@@ -143,6 +145,42 @@
   margin-top: 0.8rem;
 }
 
+.jf-review-slider__read-more {
+  display: inline;
+  margin-left: 0.45rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #8f8883;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.jf-review-slider__read-more:hover {
+  color: #1f1e23;
+}
+
+.jf-review-slider__reviewer-image {
+  width: 4.8rem;
+  height: 4.8rem;
+  margin-top: 1.8rem;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.jf-review-slider__reviewer-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .jf-review-slider__author {
   margin: 2rem 0 0;
   color: #1f1e23;
@@ -150,6 +188,10 @@
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.3;
+}
+
+.jf-review-slider__reviewer-image + .jf-review-slider__author {
+  margin-top: 1.2rem;
 }
 
 .jf-review-slider__meta {
@@ -161,6 +203,75 @@
   letter-spacing: 0.12em;
   line-height: 1.3;
   text-transform: uppercase;
+}
+
+.jf-review-slider__modal {
+  width: min(62rem, calc(100vw - 3rem));
+  max-width: 100%;
+  max-height: calc(100vh - 3rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.jf-review-slider__modal::backdrop {
+  background: rgba(17, 17, 17, 0.6);
+}
+
+.jf-review-slider__modal-content {
+  position: relative;
+  box-sizing: border-box;
+  max-height: calc(100vh - 3rem);
+  padding: 3.2rem 2rem 2.6rem;
+  background: #fffaf6;
+  border-radius: 0.8rem;
+  overflow-y: auto;
+}
+
+.jf-review-slider__modal-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #1f1e23;
+  font-size: 2.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.jf-review-slider__modal-quote {
+  margin-top: 1.8rem;
+  color: #2f2c33;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.jf-review-slider__modal-quote > *:first-child {
+  margin-top: 0;
+}
+
+.jf-review-slider__modal-quote > *:last-child {
+  margin-bottom: 0;
+}
+
+.jf-review-slider__reviewer-image--modal {
+  width: 5.6rem;
+  height: 5.6rem;
+  margin-top: 2rem;
+}
+
+.jf-review-slider__author--modal {
+  margin-top: 1.3rem;
+}
+
+.jf-review-slider__meta--modal {
+  margin-bottom: 0;
 }
 
 .jf-review-slider__controls {
@@ -220,11 +331,6 @@
     margin-top: 4.7rem;
   }
 
-  .jf-review-slider__track {
-    padding-right: 3.2rem;
-    padding-left: 3.2rem;
-  }
-
   .jf-review-slider__slide {
     flex-basis: calc((100% - (var(--jf-review-gap, 1.8rem) * 2)) / 3);
   }
@@ -243,6 +349,14 @@
   .jf-review-slider__quote {
     font-size: 1.45rem;
     line-height: 1.6;
+  }
+
+  .jf-review-slider__modal-content {
+    padding: 3.8rem 3rem 3rem;
+  }
+
+  .jf-review-slider__modal-quote {
+    font-size: 1.45rem;
   }
 
   .jf-review-slider__controls {

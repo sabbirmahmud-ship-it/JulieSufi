@@ -5,12 +5,26 @@ if (!customElements.get('jf-review-slider')) {
       this.handleResize = this.handleResize.bind(this);
       this.handleScroll = this.handleScroll.bind(this);
       this.onButtonClick = this.onButtonClick.bind(this);
+      this.onModalOpen = this.onModalOpen.bind(this);
+      this.onModalClose = this.onModalClose.bind(this);
+      this.onModalBackdropClick = this.onModalBackdropClick.bind(this);
+      this.onDialogClosed = this.onDialogClosed.bind(this);
     }
 
     connectedCallback() {
       this.track = this.querySelector('[data-review-track]');
       this.prevButton = this.querySelector('[data-review-prev]');
       this.nextButton = this.querySelector('[data-review-next]');
+      this.modalOpenButtons = Array.from(this.querySelectorAll('[data-review-open]'));
+      this.modalCloseButtons = Array.from(this.querySelectorAll('[data-review-close]'));
+      this.modals = Array.from(this.querySelectorAll('[data-review-modal]'));
+
+      this.modalOpenButtons.forEach((button) => button.addEventListener('click', this.onModalOpen));
+      this.modalCloseButtons.forEach((button) => button.addEventListener('click', this.onModalClose));
+      this.modals.forEach((modal) => {
+        modal.addEventListener('click', this.onModalBackdropClick);
+        modal.addEventListener('close', this.onDialogClosed);
+      });
 
       if (!this.track || !this.prevButton || !this.nextButton) return;
 
@@ -27,6 +41,18 @@ if (!customElements.get('jf-review-slider')) {
       if (this.track) this.track.removeEventListener('scroll', this.handleScroll);
       if (this.prevButton) this.prevButton.removeEventListener('click', this.onButtonClick);
       if (this.nextButton) this.nextButton.removeEventListener('click', this.onButtonClick);
+      if (this.modalOpenButtons) {
+        this.modalOpenButtons.forEach((button) => button.removeEventListener('click', this.onModalOpen));
+      }
+      if (this.modalCloseButtons) {
+        this.modalCloseButtons.forEach((button) => button.removeEventListener('click', this.onModalClose));
+      }
+      if (this.modals) {
+        this.modals.forEach((modal) => {
+          modal.removeEventListener('click', this.onModalBackdropClick);
+          modal.removeEventListener('close', this.onDialogClosed);
+        });
+      }
     }
 
     handleResize() {
@@ -56,6 +82,35 @@ if (!customElements.get('jf-review-slider')) {
         left: this.track.scrollLeft + direction * this.slideOffset,
         behavior: 'smooth',
       });
+    }
+
+    onModalOpen(event) {
+      const modalId = event.currentTarget.getAttribute('aria-controls');
+      const modal = modalId ? document.getElementById(modalId) : null;
+
+      if (!modal || typeof modal.showModal !== 'function') return;
+
+      this.activeModalTrigger = event.currentTarget;
+      modal.showModal();
+    }
+
+    onModalClose(event) {
+      const modal = event.currentTarget.closest('[data-review-modal]');
+
+      if (modal) modal.close();
+    }
+
+    onModalBackdropClick(event) {
+      if (event.target === event.currentTarget) {
+        event.currentTarget.close();
+      }
+    }
+
+    onDialogClosed() {
+      if (this.activeModalTrigger) {
+        this.activeModalTrigger.focus();
+        this.activeModalTrigger = null;
+      }
     }
 
     updateButtons() {

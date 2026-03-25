@@ -1,46 +1,46 @@
-{{ 'section-jf-image-slider.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'section-jf-image-slider.js' | asset_url }}" defer="defer"></script>
+{{ 'section-jf-insta-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-jf-insta-slider.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign desktop_background_image = section.settings.desktop_background_image
   assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
   assign fallback_background_image = desktop_background_image | default: mobile_background_image
-  assign show_controls = false
+  assign enable_slider = false
 
-  if section.blocks.size > 4
-    assign show_controls = true
+  if section.blocks.size > 5
+    assign enable_slider = true
   endif
 -%}
 
 {%- style -%}
-  #JfImageSlider-{{ section.id }} {
+  #JfInstaSlider-{{ section.id }} {
     background-color: {{ section.settings.mobile_background_color }};
   }
 
-  #JfImageSlider-{{ section.id }} .jf-image-slider__inner {
+  #JfInstaSlider-{{ section.id }} .jf-insta-slider__inner {
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   }
 
-  #JfImageSlider-{{ section.id }} .jf-image-slider__track {
-    --jf-image-slider-gap: {{ section.settings.slide_gap }}px;
+  #JfInstaSlider-{{ section.id }} .jf-insta-slider__track {
+    --jf-insta-gap: {{ section.settings.slide_gap }}px;
   }
 
   @media screen and (min-width: 750px) {
-    #JfImageSlider-{{ section.id }} {
+    #JfInstaSlider-{{ section.id }} {
       background-color: {{ section.settings.desktop_background_color }};
     }
 
-    #JfImageSlider-{{ section.id }} .jf-image-slider__inner {
+    #JfInstaSlider-{{ section.id }} .jf-insta-slider__inner {
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
     }
   }
 {%- endstyle -%}
 
-<jf-image-slider id="JfImageSlider-{{ section.id }}" class="jf-image-slider">
+<jf-insta-slider id="JfInstaSlider-{{ section.id }}" class="jf-insta-slider">
   {%- if fallback_background_image != blank -%}
-    <div class="jf-image-slider__background">
+    <div class="jf-insta-slider__background">
       <picture>
         {%- if mobile_background_image != blank -%}
           <source
@@ -68,50 +68,39 @@
     </div>
   {%- endif -%}
 
-  <div class="jf-image-slider__inner page-width">
-    <div class="jf-image-slider__intro">
-      {%- if section.settings.eyebrow != blank -%}
-        <p class="jf-image-slider__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+  <div class="jf-insta-slider__inner page-width">
+    <div class="jf-insta-slider__intro">
+      {%- if section.settings.handle != blank -%}
+        <p class="jf-insta-slider__handle">{{ section.settings.handle | escape }}</p>
       {%- endif -%}
 
       {%- if section.settings.heading != blank -%}
-        <h2 class="jf-image-slider__heading">{{ section.settings.heading | escape }}</h2>
-      {%- endif -%}
-
-      {%- if section.settings.description != blank -%}
-        <div class="jf-image-slider__description">{{ section.settings.description }}</div>
+        <h2 class="jf-insta-slider__heading">{{ section.settings.heading | escape }}</h2>
       {%- endif -%}
     </div>
 
-    <div class="jf-image-slider__viewport">
-      <ul
-        class="jf-image-slider__track list-unstyled{% unless show_controls %} jf-image-slider__track--desktop-grid{% endunless %}"
-        data-slider-track
-      >
+    <div class="jf-insta-slider__viewport">
+      <ul class="jf-insta-slider__track list-unstyled{% if enable_slider %} jf-insta-slider__track--slider{% else %} jf-insta-slider__track--grid{% endif %}" data-insta-track>
         {%- for block in section.blocks -%}
-          <li class="jf-image-slider__slide" id="Slide-{{ section.id }}-{{ forloop.index }}" data-slider-slide {{ block.shopify_attributes }}>
+          <li class="jf-insta-slider__slide" data-insta-slide {{ block.shopify_attributes }}>
             {%- if block.settings.link != blank -%}
-              <a href="{{ block.settings.link }}" class="jf-image-slider__link">
+              <a href="{{ block.settings.link }}" class="jf-insta-slider__link">
             {%- else -%}
-              <div class="jf-image-slider__link">
+              <div class="jf-insta-slider__card">
             {%- endif -%}
-              <div class="jf-image-slider__media">
+              <div class="jf-insta-slider__media">
                 {%- if block.settings.image != blank -%}
                   {{
                     block.settings.image
                     | image_url: width: 1200
                     | image_tag:
                       widths: '375, 550, 750, 900, 1100, 1200',
-                      sizes: '(min-width: 750px) 25vw, 75vw',
+                      sizes: '(min-width: 750px) 20vw, 48vw',
                       loading: 'lazy',
                       alt: block.settings.image.alt
                   }}
                 {%- else -%}
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                {%- endif -%}
-
-                {%- if block.settings.label != blank -%}
-                  <span class="jf-image-slider__label">{{ block.settings.label | escape }}</span>
                 {%- endif -%}
               </div>
             {%- if block.settings.link != blank -%}
@@ -123,18 +112,39 @@
         {%- endfor -%}
       </ul>
 
-      {%- if show_controls -%}
-        <div class="jf-image-slider__controls">
-          <div class="jf-image-slider__dots" data-slider-dots></div>
+      {%- if enable_slider -%}
+        <div class="jf-insta-slider__controls">
+          <button type="button" class="jf-insta-slider__arrow jf-insta-slider__arrow--prev" data-insta-prev aria-label="Previous slide">
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </button>
+          <div class="jf-insta-slider__dots" data-insta-dots></div>
+          <button type="button" class="jf-insta-slider__arrow jf-insta-slider__arrow--next" data-insta-next aria-label="Next slide">
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </button>
         </div>
       {%- endif -%}
     </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="jf-insta-slider__cta">
+        <a
+          {% if section.settings.cta_link != blank %}
+            href="{{ section.settings.cta_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+          class="jf-insta-slider__cta-link"
+        >
+          {{ section.settings.cta_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
   </div>
-</jf-image-slider>
+</jf-insta-slider>
 
 {% schema %}
 {
-  "name": "JF Image Slider",
+  "name": "JF Insta Slider",
   "settings": [
     {
       "type": "header",
@@ -142,21 +152,40 @@
     },
     {
       "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Inside the Atelier"
+      "id": "handle",
+      "label": "Handle",
+      "default": "@JULIESUFI"
     },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
-      "default": "Every Gown is Handcrafted"
+      "default": "Real brides. Real moments."
     },
     {
-      "type": "richtext",
-      "id": "description",
-      "label": "Description",
-      "default": "<p>Defined by precision, intention, and detail.</p>"
+      "type": "text",
+      "id": "cta_label",
+      "label": "Bottom link label",
+      "default": "Follow Us On Instagram"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Bottom link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "slide_gap",
+      "label": "Gap between slides",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 4
     },
     {
       "type": "header",
@@ -166,13 +195,13 @@
       "type": "color",
       "id": "desktop_background_color",
       "label": "Desktop background color",
-      "default": "#f7f4f0"
+      "default": "#ffffff"
     },
     {
       "type": "color",
       "id": "mobile_background_color",
       "label": "Mobile background color",
-      "default": "#f7f4f0"
+      "default": "#ffffff"
     },
     {
       "type": "image_picker",
@@ -187,16 +216,6 @@
     {
       "type": "header",
       "content": "Spacing"
-    },
-    {
-      "type": "range",
-      "id": "slide_gap",
-      "label": "Gap between slides",
-      "min": 0,
-      "max": 40,
-      "step": 1,
-      "unit": "px",
-      "default": 8
     },
     {
       "type": "range",
@@ -226,7 +245,7 @@
       "max": 200,
       "step": 4,
       "unit": "px",
-      "default": 56
+      "default": 24
     },
     {
       "type": "range",
@@ -236,7 +255,7 @@
       "max": 200,
       "step": 4,
       "unit": "px",
-      "default": 44
+      "default": 24
     }
   ],
   "blocks": [
@@ -250,12 +269,6 @@
           "label": "Image"
         },
         {
-          "type": "text",
-          "id": "label",
-          "label": "Label",
-          "default": "Personal, Precise, Couture"
-        },
-        {
           "type": "url",
           "id": "link",
           "label": "Link"
@@ -265,31 +278,22 @@
   ],
   "presets": [
     {
-      "name": "JF Image Slider",
+      "name": "JF Insta Slider",
       "blocks": [
         {
-          "type": "slide",
-          "settings": {
-            "label": "Personal, Precise, Couture"
-          }
+          "type": "slide"
         },
         {
-          "type": "slide",
-          "settings": {
-            "label": "Detail, Defined"
-          }
+          "type": "slide"
         },
         {
-          "type": "slide",
-          "settings": {
-            "label": "A Dress Takes Shape"
-          }
+          "type": "slide"
         },
         {
-          "type": "slide",
-          "settings": {
-            "label": "The Final Fitting"
-          }
+          "type": "slide"
+        },
+        {
+          "type": "slide"
         }
       ]
     }

@@ -1,0 +1,158 @@
+.jf-plain-box-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.jf-plain-box-icon__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.jf-plain-box-icon__background picture,
+.jf-plain-box-icon__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-plain-box-icon__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.jf-plain-box-icon__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.jf-plain-box-icon__intro {
+  max-width: 60rem;
+  margin: 0 auto 2.4rem;
+  text-align: center;
+}
+
+.jf-plain-box-icon__eyebrow {
+  margin: 0;
+  color: #8f8883;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.jf-plain-box-icon__heading {
+  margin: 1rem 0 0;
+  color: #26222a;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.jf-plain-box-icon__description {
+  margin-top: 1rem;
+  color: #38343c;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.jf-plain-box-icon__description p {
+  margin: 0;
+}
+
+.jf-plain-box-icon__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--jf-plain-box-icon-columns-mobile, 3), minmax(0, 1fr));
+  row-gap: var(--jf-plain-box-icon-row-gap, 1.6rem);
+}
+
+.jf-plain-box-icon__item {
+  position: relative;
+  min-width: 0;
+}
+
+.jf-plain-box-icon__item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 3.6rem;
+  background: rgba(31, 30, 35, 0.12);
+  transform: translateY(-50%);
+}
+
+.jf-plain-box-icon__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.4rem;
+  min-height: 6.8rem;
+  padding: 0.8rem 1.2rem;
+  color: #1f1e23;
+  text-align: center;
+  text-decoration: none;
+}
+
+.jf-plain-box-icon__icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.jf-plain-box-icon__icon-wrap img,
+.jf-plain-box-icon__icon-wrap .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.jf-plain-box-icon__title {
+  display: none;
+  margin: 0;
+  color: #1f1e23;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 750px) {
+  .jf-plain-box-icon__intro {
+    margin-bottom: 3.2rem;
+  }
+
+  .jf-plain-box-icon__heading {
+    font-size: 3.4rem;
+  }
+
+  .jf-plain-box-icon__grid {
+    grid-template-columns: repeat(var(--jf-plain-box-icon-columns-desktop, 3), minmax(0, 1fr));
+  }
+
+  .jf-plain-box-icon__item::before {
+    height: 7.6rem;
+  }
+
+  .jf-plain-box-icon__card {
+    gap: 2.2rem;
+    min-height: 13.6rem;
+    padding: 2rem 2.4rem;
+  }
+
+  .jf-plain-box-icon__title {
+    display: block;
+    font-size: 1.75rem;
+    line-height: 1.25;
+  }
+}

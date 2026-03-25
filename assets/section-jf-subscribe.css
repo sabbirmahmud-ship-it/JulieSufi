@@ -1,0 +1,184 @@
+.jf-subscribe {
+  position: relative;
+  overflow: hidden;
+}
+
+.jf-subscribe__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.jf-subscribe__background picture,
+.jf-subscribe__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-subscribe__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.jf-subscribe__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.jf-subscribe__content {
+  max-width: 69rem;
+  margin: 0 auto;
+  color: #ffffff;
+  text-align: center;
+}
+
+.jf-subscribe__heading {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 3rem;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: -0.03em;
+}
+
+.jf-subscribe__description {
+  max-width: 31rem;
+  margin: 1.6rem auto 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.jf-subscribe__description p {
+  margin: 0;
+}
+
+.jf-subscribe__form {
+  max-width: 34.2rem;
+  margin: 3.3rem auto 0;
+}
+
+.jf-subscribe__form-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.jf-subscribe__field-wrap {
+  width: 100%;
+}
+
+.jf-subscribe__field {
+  width: 100%;
+  min-height: 5.4rem;
+  padding: 1.5rem 1.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 0;
+  background: #ffffff;
+  color: #1f1e23;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.2;
+  box-sizing: border-box;
+  appearance: none;
+}
+
+.jf-subscribe__field::placeholder {
+  color: #8f8f96;
+  opacity: 1;
+}
+
+.jf-subscribe__field:focus {
+  outline: none;
+  border-color: #ffffff;
+  box-shadow: 0 0 0 1px #ffffff;
+}
+
+.jf-subscribe__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 5.4rem;
+  padding: 1.5rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.88);
+  background: transparent;
+  color: #ffffff;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.jf-subscribe__button:hover {
+  background: #ffffff;
+  color: #1f1e23;
+}
+
+.jf-subscribe__message {
+  margin: 1.2rem 0 0;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.jf-subscribe__message--error {
+  color: #ffb6b6;
+}
+
+.jf-subscribe__message--success {
+  color: #ffffff;
+}
+
+@media screen and (min-width: 750px) {
+  .jf-subscribe__content {
+    max-width: 71rem;
+  }
+
+  .jf-subscribe__heading {
+    font-size: 2.7rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .jf-subscribe__description {
+    max-width: none;
+    margin-top: 1rem;
+    font-size: 1.15rem;
+    line-height: 1.55;
+  }
+
+  .jf-subscribe__form {
+    max-width: 43rem;
+    margin-top: 2.2rem;
+  }
+
+  .jf-subscribe__form-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0;
+  }
+
+  .jf-subscribe__field {
+    min-height: 4.8rem;
+    padding: 1.4rem 1.6rem;
+    font-size: 1rem;
+  }
+
+  .jf-subscribe__button {
+    width: auto;
+    min-width: 13rem;
+    min-height: 4.8rem;
+    padding: 1.4rem 1.8rem;
+    font-size: 0.95rem;
+  }
+}

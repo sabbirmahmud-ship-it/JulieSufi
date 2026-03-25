@@ -24,8 +24,7 @@
 .jf-image-boxed__inner {
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: 100%;
+
   box-sizing: border-box;
 }
 
@@ -67,7 +66,7 @@
 .jf-image-boxed__description {
   color: #38343c;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.35rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.7;
 }
@@ -95,7 +94,9 @@
   padding: 3rem 2.2rem 2.6rem;
   background: rgba(249, 247, 243, 0.96);
   text-align: center;
+  width: 100%;
   min-width: 0;
+  max-width: 100%;
   box-sizing: border-box;
 }
 
@@ -105,6 +106,10 @@
   justify-content: center;
   min-height: 6.8rem;
   margin-bottom: 1.8rem;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .jf-image-boxed__media img,
@@ -130,7 +135,7 @@
   margin-top: 1.4rem;
   color: #3c3941;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.28rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.75;
 }
@@ -147,6 +152,9 @@
   display: flex;
   justify-content: center;
   margin-top: 2.4rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .jf-image-boxed__button {

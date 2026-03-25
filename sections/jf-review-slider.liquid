@@ -68,7 +68,7 @@
     </div>
   {%- endif -%}
 
-  <div class="jf-review-slider__inner">
+  <div class="jf-review-slider__inner page-width">
     <div class="jf-review-slider__intro">
       {%- if section.settings.eyebrow != blank -%}
         <p class="jf-review-slider__eyebrow">{{ section.settings.eyebrow | escape }}</p>
@@ -94,6 +94,19 @@
         data-review-track
       >
         {%- for block in section.blocks -%}
+          {%- liquid
+            assign quote_plain = block.settings.quote | strip_html | strip
+            assign truncated_quote = quote_plain | truncatewords: 40, ''
+            assign has_read_more = false
+
+            if truncated_quote != quote_plain
+              assign has_read_more = true
+            endif
+
+            capture review_modal_id
+              echo 'JfReviewSliderQuote-' | append: section.id | append: '-' | append: block.id
+            endcapture
+          -%}
           <li class="jf-review-slider__slide" data-review-slide {{ block.shopify_attributes }}>
             <article class="jf-review-slider__card">
               <span class="jf-review-slider__quote-mark" aria-hidden="true">&ldquo;</span>
@@ -109,7 +122,35 @@
               </div>
 
               {%- if block.settings.quote != blank -%}
-                <div class="jf-review-slider__quote">{{ block.settings.quote }}</div>
+                <div class="jf-review-slider__quote">
+                  <p>
+                    {{ truncated_quote }}{% if has_read_more %}...{% endif %}
+                    {%- if has_read_more -%}
+                      <button
+                        type="button"
+                        class="jf-review-slider__read-more"
+                        aria-controls="{{ review_modal_id }}"
+                        data-review-open
+                      >
+                        Read more
+                      </button>
+                    {%- endif -%}
+                  </p>
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.reviewer_image != blank -%}
+                <div class="jf-review-slider__reviewer-image">
+                  {{
+                    block.settings.reviewer_image
+                    | image_url: width: 160
+                    | image_tag:
+                      widths: '80, 120, 160',
+                      sizes: '64px',
+                      loading: 'lazy',
+                      alt: block.settings.author
+                  }}
+                </div>
               {%- endif -%}
 
               {%- if block.settings.author != blank -%}
@@ -120,6 +161,51 @@
                 <p class="jf-review-slider__meta">{{ block.settings.meta | escape }}</p>
               {%- endif -%}
             </article>
+
+            {%- if block.settings.quote != blank and has_read_more -%}
+              <dialog id="{{ review_modal_id }}" class="jf-review-slider__modal" data-review-modal>
+                <div class="jf-review-slider__modal-content">
+                  <button
+                    type="button"
+                    class="jf-review-slider__modal-close"
+                    aria-label="Close full review"
+                    data-review-close
+                  >
+                    &times;
+                  </button>
+
+                  <span class="jf-review-slider__quote-mark" aria-hidden="true">&ldquo;</span>
+
+                  <div class="jf-review-slider__modal-quote">
+                    {{ block.settings.quote }}
+                  </div>
+
+                  {%- if block.settings.reviewer_image != blank -%}
+                    <div class="jf-review-slider__reviewer-image jf-review-slider__reviewer-image--modal">
+                      {{
+                        block.settings.reviewer_image
+                        | image_url: width: 200
+                        | image_tag:
+                          widths: '100, 160, 200',
+                          sizes: '72px',
+                          loading: 'lazy',
+                          alt: block.settings.author
+                      }}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if block.settings.author != blank -%}
+                    <h3 class="jf-review-slider__author jf-review-slider__author--modal">
+                      {{ block.settings.author | escape }}
+                    </h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.meta != blank -%}
+                    <p class="jf-review-slider__meta jf-review-slider__meta--modal">{{ block.settings.meta | escape }}</p>
+                  {%- endif -%}
+                </div>
+              </dialog>
+            {%- endif -%}
           </li>
         {%- endfor -%}
       </ul>
@@ -264,6 +350,11 @@
           "id": "quote",
           "label": "Quote",
           "default": "<p>&ldquo;Julie Sufi understood me before I even knew how to explain what I wanted. Every fitting felt calm, personal, and incredibly thoughtful. My gown felt like an extension of who I am.&rdquo;</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "reviewer_image",
+          "label": "Reviewer image"
         },
         {
           "type": "text",

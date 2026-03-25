@@ -1,0 +1,296 @@
+{{ 'section-jf-image-content-cta.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+-%}
+
+{%- style -%}
+  #JfImageContentCta-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfImageContentCta-{{ section.id }} .jf-image-content-cta__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfImageContentCta-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfImageContentCta-{{ section.id }} .jf-image-content-cta__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfImageContentCta-{{ section.id }}" class="jf-image-content-cta">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-image-content-cta__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-image-content-cta__inner page-width">
+    <div
+      class="
+        jf-image-content-cta__layout
+        jf-image-content-cta__layout--desktop-{{ section.settings.image_position_desktop }}
+        jf-image-content-cta__layout--mobile-{{ section.settings.image_position_mobile }}
+      "
+    >
+      <div class="jf-image-content-cta__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1400
+            | image_tag:
+              widths: '375, 550, 750, 900, 1100, 1400',
+              sizes: '(min-width: 990px) 48vw, 100vw',
+              loading: 'lazy',
+              alt: section.settings.image.alt
+          }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      <div class="jf-image-content-cta__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-image-content-cta__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading_line_one != blank or section.settings.heading_line_two != blank -%}
+          <h2 class="jf-image-content-cta__heading">
+            {%- if section.settings.heading_line_one != blank -%}
+              <span class="jf-image-content-cta__heading-line">{{ section.settings.heading_line_one | escape }}</span>
+            {%- endif -%}
+            {%- if section.settings.heading_line_two != blank -%}
+              <span class="jf-image-content-cta__heading-line jf-image-content-cta__heading-line--accent">
+                {{ section.settings.heading_line_two | escape }}
+              </span>
+            {%- endif -%}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="jf-image-content-cta__description rte">{{ section.settings.description }}</div>
+        {%- endif -%}
+
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Image Content CTA",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Melbourne Atelier"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_one",
+      "label": "Heading line one",
+      "default": "Wedding Dresses Melbourne,"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_two",
+      "label": "Heading line two",
+      "default": "Designed in Collaboration With You"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Julie Sufi has been creating couture wedding dresses for Melbourne brides since 2010. Every gown begins with a complimentary consultation, with the head designer, not a sales consultant, where your vision, fabric preferences, and silhouette are explored together. The result is a Melbourne brides describe as effortless, elegant, and entirely personal.</p><p><strong>Custom Wedding Dresses, Made for You, Not the Rack</strong></p><p>Every Julie Sufi gown is custom made to your measurements. As Melbourne's couture bridal atelier featured in Vogue, Elle, and Harper's Bazaar, we create wedding gowns that reflect the individuality of the woman wearing them. No off-the-rack compromises, your bridal gown is made from first sketch to final fitting.</p><p><strong>Melbourne's Couture Bridal Atelier, Since 2010</strong></p><p>Our Melbourne atelier has welcomed brides from across Australia and internationally, drawn by the same promise: a wedding dress that is entirely yours. With over 10 years of couture craftsmanship and 300+ brides served worldwide, Julie Sufi is Melbourne's destination for brides who believe their gown should be as extraordinary as their day.</p>"
+    },
+    {
+      "type": "header",
+      "content": "CTA box"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cta_box",
+      "label": "Show CTA box",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_eyebrow",
+      "label": "CTA eyebrow",
+      "default": "Gowns from"
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "CTA heading",
+      "default": "AUD $3,500"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Book a free consultation"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "image_position_desktop",
+      "label": "Desktop image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "select",
+      "id": "image_position_mobile",
+      "label": "Mobile image position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Image Content CTA"
+    }
+  ]
+}
+{% endschema %}

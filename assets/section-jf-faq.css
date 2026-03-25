@@ -87,7 +87,7 @@
 .jf-faq__question {
   color: #2a2730;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.35rem;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.45;
 }
@@ -124,7 +124,7 @@
   padding: 0 1.4rem 1.5rem;
   color: #5c5660;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.22rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.65;
 }
@@ -137,7 +137,7 @@
   margin-top: 0.7rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (max-width: 750px) {
   .jf-faq__intro {
     margin-bottom: 3.6rem;
   }
