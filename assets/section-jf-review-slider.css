@@ -135,6 +135,7 @@
   font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.52;
+  min-height: 180px;
 }
 
 .jf-review-slider__quote p {
@@ -167,13 +168,29 @@
 }
 
 .jf-review-slider__reviewer-image {
-  width: 4.8rem;
-  height: 4.8rem;
+  width: 100%;
+  height: 22.8rem;
   margin-top: 1.8rem;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 11px;
 }
 
+.jf-review-slider__reviewer-image-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.jf-review-slider__reviewer-image-button:focus-visible {
+  outline: 2px solid #1f1e23;
+  outline-offset: -2px;
+}
+
+.jf-review-slider__reviewer-image-button img,
 .jf-review-slider__reviewer-image img {
   display: block;
   width: 100%;
@@ -230,6 +247,16 @@
   overflow-y: auto;
 }
 
+.jf-review-slider__modal--image {
+  width: min(90rem, calc(100vw - 2rem));
+}
+
+.jf-review-slider__modal-content--image {
+  padding: 3.8rem 1rem 1rem;
+  background: #111111;
+  overflow: auto;
+}
+
 .jf-review-slider__modal-close {
   position: absolute;
   top: 1.4rem;
@@ -241,6 +268,10 @@
   font-size: 2.4rem;
   line-height: 1;
   cursor: pointer;
+}
+
+.jf-review-slider__modal-content--image .jf-review-slider__modal-close {
+  color: #ffffff;
 }
 
 .jf-review-slider__modal-quote {
@@ -261,8 +292,8 @@
 }
 
 .jf-review-slider__reviewer-image--modal {
-  width: 5.6rem;
-  height: 5.6rem;
+  width: 100%;
+  height: 300px;
   margin-top: 2rem;
 }
 
@@ -272,6 +303,27 @@
 
 .jf-review-slider__meta--modal {
   margin-bottom: 0;
+}
+
+.jf-review-slider__image-modal-media img {
+  display: block;
+  width: 100%;
+  max-height: calc(100vh - 9rem);
+  object-fit: contain;
+}
+
+.jf-review-slider__image-modal-caption {
+  padding: 1.2rem 0 0.2rem;
+  text-align: center;
+}
+
+.jf-review-slider__image-modal-caption .jf-review-slider__author--modal {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.jf-review-slider__image-modal-caption .jf-review-slider__meta--modal {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .jf-review-slider__controls {
@@ -353,6 +405,10 @@
 
   .jf-review-slider__modal-content {
     padding: 3.8rem 3rem 3rem;
+  }
+
+  .jf-review-slider__modal-content--image {
+    padding: 4.5rem 2rem 1.5rem;
   }
 
   .jf-review-slider__modal-quote {
