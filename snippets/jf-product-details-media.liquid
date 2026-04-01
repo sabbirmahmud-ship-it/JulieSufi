@@ -1,0 +1,76 @@
+{%- liquid
+  assign loading_strategy = loading | default: 'lazy'
+-%}
+
+<div class="jf-product-details__media-item jf-product-details__media-item--{{ media.media_type }} jf-product-details__media-item--{{ context }}">
+  {%- case media.media_type -%}
+    {%- when 'image' -%}
+      {{
+        media
+        | image_url: width: 2000
+        | image_tag:
+          widths: '480, 720, 960, 1200, 1500, 1800, 2000',
+          sizes: sizes,
+          loading: loading_strategy,
+          alt: media.alt
+      }}
+    {%- when 'video' -%}
+      <deferred-media class="deferred-media" data-media-id="{{ section.id }}-{{ media.id }}">
+        <button class="deferred-media__poster" type="button">
+          {{
+            media.preview_image
+            | image_url: width: 2000
+            | image_tag:
+              widths: '480, 720, 960, 1200, 1500, 1800, 2000',
+              sizes: sizes,
+              loading: loading_strategy,
+              alt: media.alt
+          }}
+          <span class="jf-product-details__play" aria-hidden="true">
+            <span class="svg-wrapper">{{ 'icon-play.svg' | inline_asset_content }}</span>
+          </span>
+        </button>
+        <template>
+          {{ media | media_tag: image_size: '2048x', autoplay: false, loop: false, controls: true, preload: 'none' }}
+        </template>
+      </deferred-media>
+    {%- when 'external_video' -%}
+      <deferred-media class="deferred-media" data-media-id="{{ section.id }}-{{ media.id }}">
+        <button class="deferred-media__poster" type="button">
+          {{
+            media.preview_image
+            | image_url: width: 2000
+            | image_tag:
+              widths: '480, 720, 960, 1200, 1500, 1800, 2000',
+              sizes: sizes,
+              loading: loading_strategy,
+              alt: media.alt
+          }}
+          <span class="jf-product-details__play" aria-hidden="true">
+            <span class="svg-wrapper">{{ 'icon-play.svg' | inline_asset_content }}</span>
+          </span>
+        </button>
+        <template>
+          {%- if media.host == 'youtube' -%}
+            {{
+              media
+              | external_video_url: autoplay: true, loop: false, playlist: media.external_id
+              | external_video_tag: loading: 'lazy'
+            }}
+          {%- else -%}
+            {{ media | external_video_url: autoplay: true, loop: false | external_video_tag: loading: 'lazy' }}
+          {%- endif -%}
+        </template>
+      </deferred-media>
+    {%- else -%}
+      {{
+        media.preview_image
+        | image_url: width: 2000
+        | image_tag:
+          widths: '480, 720, 960, 1200, 1500, 1800, 2000',
+          sizes: sizes,
+          loading: loading_strategy,
+          alt: media.alt
+      }}
+  {%- endcase -%}
+</div>

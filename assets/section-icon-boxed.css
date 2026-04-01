@@ -36,7 +36,7 @@
   margin: 0;
   color: #8f8883;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -58,7 +58,7 @@
   margin: 1.3rem auto 0;
   color: #38343c;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.25rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.55;
 }
@@ -145,7 +145,7 @@
   border: 1px solid #1f1e23;
   color: #ffffff;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.15rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 1;
@@ -172,14 +172,14 @@
 
 @media screen and (min-width: 750px) {
   .icon-boxed__heading {
-    font-size: 3.2rem;
-    line-height: 1.12;
+    font-size: 42px;
+    line-height:50px;
   }
 
   .icon-boxed__description {
-    max-width: 48rem;
+    max-width: 60rem;
     margin-top: 1rem;
-    font-size: 1.3rem;
+    font-size: 16px;
     line-height: 1.5;
   }
 
@@ -194,6 +194,7 @@
     background: transparent;
   }
 
+
   .icon-boxed__icon-wrap {
     width: 4.8rem;
     height: 4.8rem;
@@ -204,14 +205,17 @@
 
   .icon-boxed__item-title {
     margin-top: 2rem;
-    font-size: 1.9rem;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: var(--taviraj-font);
   }
 
   .icon-boxed__item-copy {
     max-width: 28rem;
     margin-top: 1.2rem;
     font-size: 16px;
-    line-height: 1.7;
+    line-height: 28px;
+    font-family: var(--outfit-font, sans-serif);
   }
 
   .icon-boxed__actions {
@@ -225,5 +229,32 @@
     min-width: 16.3rem;
     padding-right: 1.8rem;
     padding-left: 1.8rem;
+  }
+}
+
+
+/* Home page only */
+
+@media screen and (min-width: 750px) {
+  #IconBoxed-template--16242805932090__icon_boxed_4ANnif .icon-boxed__item {
+    position: relative;
+  }
+
+  #IconBoxed-template--16242805932090__icon_boxed_4ANnif .icon-boxed__item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 2.4rem;
+    left: calc(50% + 2.4rem);
+    width: calc(100% + var(--icon-boxed-column-gap, 2.4rem) - 4.8rem);
+    height: 2px;
+    background: #1f1e23;
+    transform: translateY(-50%);
+  }
+
+  #IconBoxed-template--16242805932090__icon_boxed_4ANnif .icon-boxed__icon-wrap {
+    position: relative;
+    z-index: 1;
+    background: #f6f3ef;
+    border-radius: 50%;
   }
 }

@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-list-collections",
+      "disabled": true,
       "settings": {
         "title": "Collections",
         "sort": "alphabetical",
@@ -18,9 +19,292 @@
         "columns_desktop": 3,
         "columns_mobile": "2"
       }
+    },
+    "jf_all_collection_3xfjz3": {
+      "type": "jf-all-collection",
+      "blocks": {
+        "collection_jMfEhK": {
+          "type": "collection",
+          "settings": {
+            "collection": "mon-coeur"
+          }
+        },
+        "collection_YWnYBr": {
+          "type": "collection",
+          "settings": {
+            "collection": "halo-2026"
+          }
+        }
+      },
+      "block_order": [
+        "collection_jMfEhK",
+        "collection_YWnYBr"
+      ],
+      "name": "JF All Collection",
+      "settings": {
+        "heading": "The Bridal Collection",
+        "subheading": "JULIE SUFI",
+        "description": "<p>A refined expression of modern romance and timeless couture, the Julie Sufi Bridal Collection is crafted for the bride who values detail, individuality, and elegance.</p>",
+        "button_label": "VIEW COLLECTION",
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 20,
+        "padding_bottom_desktop": 24,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "icon_boxed_zmHiHr": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_39UwND": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013359_a6c61faf-53f7-433c-a09f-99ba2fc0ca3f.png",
+            "title": "Book a Free Consultation",
+            "text": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.</p>"
+          }
+        },
+        "item_hQcYd7": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013360_2d90a124-85e0-4f47-af19-77bfbc44b900.png",
+            "title": "Visit the Boutique",
+            "text": "<p>Try on selected designs, choose your fabrics, and place your order. Your couture journey begins in our Melbourne atelier.</p>"
+          }
+        },
+        "item_kUrk7a": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013361_35d9eed5-b423-4d90-80c3-0752f970844b.png",
+            "title": "Final Fittings",
+            "text": "<p>Hand-finished fittings ensure every detail is perfected. Your gown is handed over, complete, ready for your extraordinary day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_39UwND",
+        "item_hQcYd7",
+        "item_kUrk7a"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "The Bridal Experience",
+        "heading": "A Personalised Couture Journey",
+        "description": "<p>Guided by our head designer, from first sketch to final handover.</p>",
+        "button_label": "Book a free consultation",
+        "button_link": "shopify://pages/book-an-appointment",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#f6f3ef",
+        "mobile_background_color": "#f6f3ef",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "jf_logo_slider_6bym9y": {
+      "type": "jf-logo-slider",
+      "blocks": {
+        "logo_RJwfeE": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_288.png",
+            "link": ""
+          }
+        },
+        "logo_KBcCRy": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_289.png",
+            "link": ""
+          }
+        },
+        "logo_W6U7jX": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_287.png",
+            "link": ""
+          }
+        },
+        "logo_6kKnAr": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_290.png",
+            "link": ""
+          }
+        },
+        "logo_EV33GF": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_289.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_RJwfeE",
+        "logo_KBcCRy",
+        "logo_W6U7jX",
+        "logo_6kKnAr",
+        "logo_EV33GF"
+      ],
+      "name": "JF Logo Slider",
+      "settings": {
+        "heading": "Featured In",
+        "logo_gap": 40,
+        "logo_height_mobile": 20,
+        "logo_height_desktop": 30,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "jf_insta_slider_FKJP66": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_EV8keP": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-9OkaMgTD.jpg",
+            "link": ""
+          }
+        },
+        "slide_rPMQ4j": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-KBT7c1z4.jpg",
+            "link": ""
+          }
+        },
+        "slide_ErFYLL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-CnqzxHpa.jpg",
+            "link": ""
+          }
+        },
+        "slide_dK8p4P": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-yDM5MYN4.jpg",
+            "link": ""
+          }
+        },
+        "slide_ArJQ8r": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-1Obl2KRf.jpg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_EV8keP",
+        "slide_rPMQ4j",
+        "slide_ErFYLL",
+        "slide_dK8p4P",
+        "slide_ArJQ8r"
+      ],
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "slide_gap": 4,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "jf_plain_box_icon_UmU3nJ": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_CQJADG": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": ""
+          }
+        },
+        "item_Xgjbzx": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": ""
+          }
+        },
+        "item_GKFUen": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_CQJADG",
+        "item_Xgjbzx",
+        "item_GKFUen"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_subscribe_UgAefW": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "jf_all_collection_3xfjz3",
+    "icon_boxed_zmHiHr",
+    "jf_logo_slider_6bym9y",
+    "jf_insta_slider_FKJP66",
+    "jf_plain_box_icon_UmU3nJ",
+    "jf_subscribe_UgAefW"
   ]
 }

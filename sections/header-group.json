@@ -55,7 +55,7 @@
         "desktop_top_link_3_url": "",
         "desktop_logo_tagline": "Melbourne Couture - Est. 2010",
         "desktop_cta_label": "Book Free Consultation",
-        "desktop_cta_link": "",
+        "desktop_cta_link": "shopify://pages/book-an-appointment",
         "enable_country_selector": true,
         "enable_language_selector": true,
         "enable_customer_avatar": true,

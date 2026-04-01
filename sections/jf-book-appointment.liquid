@@ -1,0 +1,370 @@
+{{ 'section-jf-book-appointment.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign fetch_priority = 'auto'
+
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+{%- style -%}
+  #JfBookAppointment-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  #JfBookAppointment-{{ section.id }} .jf-book-appointment__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfBookAppointment-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+    #JfBookAppointment-{{ section.id }} .jf-book-appointment__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfBookAppointment-{{ section.id }}" class="jf-book-appointment">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-book-appointment__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy',
+            fetchpriority: fetch_priority
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-book-appointment__inner page-width">
+    <div class="jf-book-appointment__container">
+      <div class="jf-book-appointment__intro">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jf-book-appointment__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.subheading != blank -%}
+          <div class="jf-book-appointment__subheading">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+      </div>
+
+      <div class="jf-book-appointment__body">
+        <div class="jf-book-appointment__media">
+          <div class="jf-book-appointment__media-frame">
+            {%- if section.settings.image != blank -%}
+              {{
+                section.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  widths: '375, 550, 750, 900, 1100, 1200',
+                  sizes: '(min-width: 750px) 30.5rem, calc(100vw - 3rem)',
+                  loading: 'lazy',
+                  alt: section.settings.image.alt
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+        </div>
+
+        <div class="jf-book-appointment__content">
+          {%- if section.settings.content_heading != blank -%}
+            <h3 class="jf-book-appointment__content-heading">{{ section.settings.content_heading | escape }}</h3>
+          {%- endif -%}
+
+          {%- if section.settings.content_intro != blank -%}
+            <div class="jf-book-appointment__content-copy">{{ section.settings.content_intro }}</div>
+          {%- endif -%}
+
+          {%- if section.blocks.size > 0 -%}
+            <div class="jf-book-appointment__cards">
+              {%- for block in section.blocks -%}
+                <div class="jf-book-appointment__card" {{ block.shopify_attributes }}>
+                  {%- if block.settings.title != blank -%}
+                    <h4 class="jf-book-appointment__card-title">{{ block.settings.title | escape }}</h4>
+                  {%- endif -%}
+
+                  {%- if block.settings.content != blank -%}
+                    <div class="jf-book-appointment__card-copy">{{ block.settings.content }}</div>
+                  {%- endif -%}
+
+                  {%- if block.settings.show_button and block.settings.button_label != blank -%}
+                    <div class="jf-book-appointment__card-actions">
+                      <a
+                        {% if block.settings.button_link != blank %}
+                          href="{{ block.settings.button_link }}"
+                        {% else %}
+                          role="link" aria-disabled="true"
+                        {% endif %}
+                        class="jf-book-appointment__button"
+                      >
+                        <span>{{ block.settings.button_label | escape }}</span>
+                        <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                      </a>
+                    </div>
+                  {%- endif -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Book Appoinment",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Intro"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Let's Begin with a Conversation"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>A personal consultation, shaped around your vision.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "header",
+      "content": "Content Column"
+    },
+    {
+      "type": "text",
+      "id": "content_heading",
+      "label": "Content heading",
+      "default": "A FEW THINGS TO NOTE BEFORE YOUR APPOINTMENT"
+    },
+    {
+      "type": "richtext",
+      "id": "content_intro",
+      "label": "Content intro",
+      "default": "<p>Timelines range from 6 weeks to 12 months, with couture gowns beginning from $7,000, inclusive of fabrics and fittings. Wedding details such as your date and venue help us design with intention.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Mobile top margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Mobile bottom margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Desktop top margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Desktop bottom margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "appointment",
+      "name": "Appointment item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "1. Complimentary Virtual Consultation - 30 Minutes"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>A relaxed virtual conversation to understand your style, wedding details, and how you want to feel in your gown.</p><ul><li>Share reference images or a mood board if you have them, or simply come as you are</li><li>We'll gently walk you through the couture process, timelines, and possibilities in a judgement-free space</li><li>Appointments are available across time zones, and we'll find a time that suits you</li></ul>"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_button",
+          "label": "Show button",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Book an appointment"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Book Appoinment",
+      "blocks": [
+        {
+          "type": "appointment"
+        },
+        {
+          "type": "appointment",
+          "settings": {
+            "title": "2. The Melbourne Atelier - 1 hour",
+            "content": "<p>A calm, in-person appointment where your vision begins to take shape. Spend one-on-one time with our head designer exploring silhouettes, fabrics, and details as your custom design comes to life.</p><p><strong>Before You Visit</strong></p><ul><li>Appointments are by booking only</li><li>Sample gowns available in a range of sizes, including curve-friendly options</li><li>All gowns are made to your individual measurements</li><li>We suggest sharing the experience with up to three loved ones</li><li>Nude undergarments, minimal makeup, and heels similar to your wedding shoes are ideal</li><li>Please avoid perfume to protect delicate fabrics</li><li>Non-professional photos are welcome</li><li>Our atelier is small-dog friendly</li><li>Rush timelines can be discussed if needed</li></ul>",
+            "show_button": false,
+            "button_label": ""
+          }
+        },
+        {
+          "type": "appointment",
+          "settings": {
+            "title": "3. Final Fittings - 1 hour",
+            "content": "<ul><li>This stage focuses on perfecting fit, proportions, and finishing details</li><li>We recommend wearing your wedding shoes (or similar heel height) for accurate length</li><li>By the final fitting, your gown is complete and ready for collection</li></ul>",
+            "show_button": false,
+            "button_label": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

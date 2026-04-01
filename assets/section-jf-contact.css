@@ -1,0 +1,386 @@
+.jf-contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.jf-contact__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.jf-contact__background picture,
+.jf-contact__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-contact__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.jf-contact__inner {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.jf-contact__container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.jf-contact__intro {
+  max-width: 47rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.jf-contact__heading {
+  margin: 0;
+  color: #2b2830;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 3.1rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.jf-contact__intro-copy {
+  margin: 1.1rem auto 0;
+  max-width: 38rem;
+  color: #38343c;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.jf-contact__intro-copy p {
+  margin: 0;
+}
+
+.jf-contact__intro-copy--desktop {
+  display: none;
+}
+
+.jf-contact__cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--jf-contact-card-gap-mobile, 1.2rem);
+  margin-top: 2.2rem;
+}
+
+.jf-contact__card {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  min-height: 8rem;
+  padding: 2rem 1.6rem;
+  border: 1px solid rgba(31, 30, 35, 0.1);
+  background: #ffffff;
+  color: #1f1e23;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.jf-contact__card:hover {
+  background: rgba(31, 30, 35, 0.02);
+  border-color: rgba(31, 30, 35, 0.18);
+}
+
+.jf-contact__card-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: #1f1e23;
+}
+
+.jf-contact__card-icon img,
+.jf-contact__card-icon svg,
+.jf-contact__card-icon .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-contact__card-icon img,
+.jf-contact__card-icon .placeholder-svg {
+  object-fit: contain;
+}
+
+.jf-contact__card-copy {
+  min-width: 0;
+  color: #1f1e23;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.jf-contact__card-copy p {
+  margin: 0;
+}
+
+.jf-contact__card-copy p + p {
+  margin-top: 0.1rem;
+}
+
+.jf-contact__card-copy strong,
+.jf-contact__card-copy b {
+  font-weight: 500;
+}
+
+.jf-contact__form {
+  margin-top: 3.2rem;
+}
+
+.jf-contact__status {
+  margin-bottom: 2rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid rgba(31, 30, 35, 0.12);
+  background: #ffffff;
+}
+
+.jf-contact__status--success {
+  color: #1f1e23;
+}
+
+.jf-contact__status--error {
+  color: #b42318;
+}
+
+.jf-contact__status-title {
+  margin: 0;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.jf-contact__status-copy {
+  margin-top: 0.5rem;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.jf-contact__status-copy p,
+.jf-contact__status-copy ul {
+  margin: 0;
+}
+
+.jf-contact__status-copy ul {
+  padding-left: 1.6rem;
+}
+
+.jf-contact__status-copy li + li {
+  margin-top: 0.45rem;
+}
+
+.jf-contact__fields {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.8rem;
+}
+
+.jf-contact__field {
+  min-width: 0;
+}
+
+.jf-contact__field--full {
+  grid-column: 1 / -1;
+}
+
+.jf-contact__label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  margin: 0 0 0.6rem;
+  color: #2b2830;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.jf-contact__label-optional {
+  color: #9b948e;
+  font-size: 1.2rem;
+}
+
+.jf-contact__input,
+.jf-contact__textarea {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: #f2f0ec;
+  box-shadow: none;
+  color: #1f1e23;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.35rem;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.jf-contact__input {
+  min-height: 4.2rem;
+  padding: 1.2rem 1.1rem;
+}
+
+.jf-contact__textarea {
+  min-height: 10.9rem;
+  padding: 1.2rem 1.1rem;
+  resize: vertical;
+}
+
+.jf-contact__input::placeholder,
+.jf-contact__textarea::placeholder {
+  color: #5d5854;
+  opacity: 1;
+}
+
+.jf-contact__input:focus,
+.jf-contact__textarea:focus {
+  outline: none;
+  border-color: #1f1e23;
+  background: #efede8;
+}
+
+.jf-contact__actions {
+  margin-top: 1.5rem;
+}
+
+.jf-contact__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 4.7rem;
+  padding: 1.4rem 2rem;
+  border: 1px solid #1f1e23;
+  background: #1f1e23;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.jf-contact__button:hover {
+  background: transparent;
+  color: #1f1e23;
+}
+
+@media screen and (min-width: 750px) {
+  .jf-contact__heading {
+    font-size: 4.8rem;
+    line-height: 1.04;
+  }
+
+  .jf-contact__intro-copy {
+    margin-top: 0.8rem;
+    max-width: 54rem;
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .jf-contact__intro-copy--mobile {
+    display: none;
+  }
+
+  .jf-contact__intro-copy--desktop {
+    display: block;
+  }
+
+  .jf-contact__cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--jf-contact-card-gap-desktop, 2rem);
+    margin-top: 4.5rem;
+  }
+
+  .jf-contact__card {
+    min-height: 7.8rem;
+    padding: 2.2rem 2rem;
+  }
+
+  .jf-contact__card-copy {
+    font-size: 1.6rem;
+    line-height: 1.55;
+  }
+
+  .jf-contact__form {
+    margin-top: 3.8rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .jf-contact__status {
+    margin-bottom: 2.5rem;
+    padding: 1.6rem 1.8rem;
+  }
+
+  .jf-contact__status-title {
+    font-size: 2rem;
+  }
+
+  .jf-contact__status-copy {
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+
+  .jf-contact__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+    max-width: 72.6rem;
+  }
+
+  .jf-contact__label {
+    margin-bottom: 0.7rem;
+    font-size: 1.8rem;
+  }
+
+  .jf-contact__label-optional {
+    font-size: 1.5rem;
+  }
+
+  .jf-contact__input,
+  .jf-contact__textarea {
+    font-size: 1.6rem;
+  }
+
+  .jf-contact__input {
+    min-height: 5rem;
+    padding: 1.45rem 1.2rem;
+  }
+
+  .jf-contact__textarea {
+    min-height: 12rem;
+    padding: 1.4rem 1.2rem;
+  }
+
+  .jf-contact__actions {
+    margin-top: 2.2rem;
+  }
+
+  .jf-contact__button {
+    min-height: 5.2rem;
+    font-size: 1.6rem;
+  }
+}

@@ -39,7 +39,7 @@
   margin: 0;
   color: #8f8883;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -50,10 +50,10 @@
   margin: 1.3rem 0 0;
   color: #2b2830;
   font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
-  font-size: 2.3rem;
+  font-size: 42px;
   font-weight: 400;
   letter-spacing: -0.03em;
-  line-height: 1.18;
+  line-height: 50px;
 }
 
 .jf-image-slider__description {
@@ -61,7 +61,7 @@
   margin: 1.3rem auto 0;
   color: #3b3840;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.25rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.55;
 }
@@ -126,7 +126,7 @@
   background: #ffffff;
   color: #2d2a31;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.05rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.2;
 }
@@ -171,7 +171,7 @@
   .jf-image-slider__description {
     max-width: 48rem;
     margin-top: 1.2rem;
-    font-size: 1.28rem;
+    font-size: 16px;
   }
 
   .jf-image-slider__viewport {

@@ -1,6 +1,8 @@
 .jf-insta-slider {
+  display: block;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .jf-insta-slider__background {

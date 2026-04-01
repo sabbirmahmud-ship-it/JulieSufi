@@ -36,13 +36,14 @@
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
+      align-items: end;
 }
 
 .jf-image-boxed__eyebrow {
   margin: 0;
   color: #8f8883;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -53,10 +54,10 @@
   margin: 1rem 0 0;
   color: #2b2830;
   font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
-  font-size: 3.3rem;
+  font-size: 42px;
   font-weight: 400;
   letter-spacing: -0.03em;
-  line-height: 1.14;
+  line-height: 50px;
 }
 
 .jf-image-boxed__heading-accent {
@@ -68,7 +69,7 @@
   font-family: var(--outfit-font, sans-serif);
   font-size: 16px;
   font-weight: 300;
-  line-height: 1.7;
+  line-height: 28px;
 }
 
 .jf-image-boxed__description p {
@@ -92,7 +93,7 @@
 
 .jf-image-boxed__item {
   padding: 3rem 2.2rem 2.6rem;
-  background: rgba(249, 247, 243, 0.96);
+  background: #F6F6F6;
   text-align: center;
   width: 100%;
   min-width: 0;
@@ -169,7 +170,7 @@
   border: 1px solid #1f1e23;
   color: #ffffff;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.15rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 1;
@@ -196,8 +197,8 @@
 
 @media screen and (min-width: 750px) {
   .jf-image-boxed__intro {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    align-items: center;
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+    align-content: end;
     gap: 5rem;
     margin-bottom: 3.4rem;
   }

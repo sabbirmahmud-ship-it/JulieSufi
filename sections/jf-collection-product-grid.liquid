@@ -1,0 +1,432 @@
+{{ 'template-collection.css' | asset_url | stylesheet_tag }}
+{{ 'section-jf-collection-product-grid.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #JfCollectionProductGrid-{{ section.id }} {
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  #JfCollectionProductGrid-{{ section.id }} .jf-collection-product-grid__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfCollectionProductGrid-{{ section.id }} {
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+    #JfCollectionProductGrid-{{ section.id }} .jf-collection-product-grid__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfCollectionProductGrid-{{ section.id }}" class="jf-collection-product-grid">
+  <div class="jf-collection-product-grid__inner">
+    {%- if collection == blank -%}
+      <div class="jf-collection-product-grid__empty page-width">
+        <p>This section is designed for collection templates.</p>
+      </div>
+    {%- else -%}
+      {%- paginate collection.products by section.settings.products_per_page -%}
+        {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
+        {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
+          <facet-filters-form class="facets facets-vertical-sort page-width small-hide">
+            <form class="facets-vertical-form" id="FacetSortForm">
+              <div class="facet-filters sorting caption">
+                <div class="facet-filters__field">
+                  <h2 class="facet-filters__label caption-large text-body">
+                    <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+                  </h2>
+                  <div class="select">
+                    {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+                    <select
+                      name="sort_by"
+                      class="facet-filters__sort select__select caption-large"
+                      id="SortBy"
+                      aria-describedby="a11y-refresh-page-message"
+                    >
+                      {%- for option in collection.sort_options -%}
+                        <option
+                          value="{{ option.value | escape }}"
+                          {% if option.value == sort_by %}
+                            selected="selected"
+                          {% endif %}
+                        >
+                          {{ option.name | escape }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                    <span class="svg-wrapper">
+                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="product-count-vertical light" role="status">
+                <h2 class="product-count__text text-body">
+                  <span id="ProductCountDesktop">
+                    {%- if collection.results_count -%}
+                      {{
+                        'templates.search.results_with_count'
+                        | t: terms: collection.terms, count: collection.results_count
+                      }}
+                    {%- elsif collection.products_count == collection.all_products_count -%}
+                      {{ 'products.facets.product_count_simple' | t: count: collection.products_count }}
+                    {%- else -%}
+                      {{
+                        'products.facets.product_count'
+                        | t: product_count: collection.products_count, count: collection.all_products_count
+                      }}
+                    {%- endif -%}
+                  </span>
+                </h2>
+                {%- render 'loading-spinner' -%}
+              </div>
+            </form>
+          </facet-filters-form>
+        {%- endif -%}
+
+        <div class="{% if section.settings.filter_type == 'vertical' %}facets-vertical page-width{% endif %}">
+          {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
+            {{ 'component-facets.css' | asset_url | stylesheet_tag }}
+            <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
+            <aside
+              aria-labelledby="verticalTitle"
+              class="facets-wrapper{% unless section.settings.enable_filtering %} facets-wrapper--no-filters{% endunless %}{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}"
+              id="main-collection-filters"
+              data-id="{{ section.id }}"
+            >
+              {% render 'facets',
+                results: collection,
+                enable_filtering: section.settings.enable_filtering,
+                enable_sorting: section.settings.enable_sorting,
+                filter_type: section.settings.filter_type,
+                paginate: paginate
+              %}
+            </aside>
+          {%- endif -%}
+
+          <div class="product-grid-container" id="ProductGridContainer">
+            {%- if collection.products.size == 0 -%}
+              <div class="collection collection--empty page-width" id="product-grid" data-id="{{ section.id }}">
+                <div class="loading-overlay gradient"></div>
+                <div class="title-wrapper center">
+                  <h2 class="title title--primary">
+                    {{ 'sections.collection_template.empty' | t -}}
+                    <br>
+                    {{
+                      'sections.collection_template.use_fewer_filters_html'
+                      | t: link: collection.url, class: 'underlined-link link'
+                    }}
+                  </h2>
+                </div>
+              </div>
+            {%- else -%}
+              <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+                <div class="loading-overlay gradient"></div>
+                <ul
+                  id="product-grid"
+                  data-id="{{ section.id }}"
+                  class="jf-collection-product-grid__list list-unstyled"
+                  role="list"
+                >
+                  {%- for product in collection.products -%}
+                    {%- liquid
+                      assign loading_attr = 'lazy'
+                      if paginate.current_page == 1 and forloop.index <= 3
+                        assign loading_attr = 'eager'
+                      endif
+
+                      assign absolute_index = paginate.current_offset | default: 0 | plus: forloop.index
+                      assign review_remainder = absolute_index | modulo: 8
+                    -%}
+
+                    <li class="jf-collection-product-grid__item">
+                      <a href="{{ product.url }}" class="jf-collection-product-grid__card">
+                        <div class="jf-collection-product-grid__media">
+                          {%- if product.featured_media != blank -%}
+                            {%- assign product_alt = product.featured_media.alt | default: product.title -%}
+                            {{
+                              product.featured_media
+                              | image_url: width: 1600
+                              | image_tag:
+                                widths: '360, 533, 720, 900, 1100, 1500, 1600',
+                                sizes: '(min-width: 990px) calc((100vw - 9rem) / 3), calc((100vw - 3.5rem) / 2)',
+                                loading: loading_attr,
+                                alt: product_alt
+                            }}
+                          {%- else -%}
+                            {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                          {%- endif -%}
+                        </div>
+                        <span class="jf-collection-product-grid__title">{{ product.title | escape }}</span>
+                      </a>
+                    </li>
+
+                    {%- if section.blocks.size > 0 and review_remainder == 0 -%}
+                      {%- liquid
+                        assign review_cycle = absolute_index | divided_by: 8
+                        assign review_block_index = review_cycle | minus: 1 | modulo: section.blocks.size
+                        assign review_block = blank
+                      -%}
+                      {%- for block in section.blocks limit: 1 offset: review_block_index -%}
+                        {%- assign review_block = block -%}
+                      {%- endfor -%}
+                      {%- if review_block != blank -%}
+                        <li class="jf-collection-product-grid__item jf-collection-product-grid__item--review" {{ review_block.shopify_attributes }}>
+                          <article class="jf-collection-product-grid__review-card">
+                            <div
+                              class="jf-collection-product-grid__review-stars"
+                              aria-label="{{ review_block.settings.rating }} out of 5 stars"
+                            >
+                              {%- for index in (1..5) -%}
+                                <span
+                                  class="jf-collection-product-grid__review-star{% if index > review_block.settings.rating %} is-inactive{% endif %}"
+                                  aria-hidden="true"
+                                >
+                                  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 0.9l2.1 4.26 4.7 0.68-3.4 3.32 0.8 4.69L8 11.62 3.8 13.85l0.8-4.69L1.2 5.84l4.7-0.68L8 0.9z"/>
+                                  </svg>
+                                </span>
+                              {%- endfor -%}
+                            </div>
+
+                            {%- if review_block.settings.quote != blank -%}
+                              <div class="jf-collection-product-grid__review-quote">
+                                <p>&ldquo;{{ review_block.settings.quote | escape | newline_to_br }}&rdquo;</p>
+                              </div>
+                            {%- endif -%}
+
+                            {%- if review_block.settings.author != blank -%}
+                              <p class="jf-collection-product-grid__review-author">
+                                {{ review_block.settings.author | escape }}
+                              </p>
+                            {%- endif -%}
+                          </article>
+                        </li>
+                      {%- endif -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                </ul>
+
+                {%- if paginate.pages > 1 -%}
+                  <div class="jf-collection-product-grid__pagination">
+                    {% render 'pagination', paginate: paginate, anchor: '' %}
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Collection Grid",
+  "class": "section",
+  "limit": 1,
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 48,
+      "step": 4,
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Filters"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "label": "Enable filtering",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "label": "Filter layout",
+      "default": "horizontal",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        },
+        {
+          "value": "drawer",
+          "label": "Drawer"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "label": "Enable sorting",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Mobile spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Top margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Bottom margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Desktop spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Top margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Bottom margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "From our first conversation to the final fitting, the entire experience felt refined and effortless. Julie's eye for detail and craftsmanship is truly exceptional."
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Samantha R."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Collection Grid",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "From our first conversation to the final fitting, the entire experience felt refined and effortless. Julie's eye for detail and craftsmanship is truly exceptional.",
+            "author": "Samantha R."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Every fitting felt calm, personal, and beautifully considered. The gown fit like it was made for a dream I had been carrying for years.",
+            "author": "Isabelle T."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -38,7 +38,7 @@
   margin: 0;
   color: #8e8781;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.12em;
   line-height: 1.2;
@@ -64,11 +64,11 @@
 }
 
 .jf-featured-collection__description {
-  max-width: 41rem;
+  max-width: 50rem;
   margin: 1.5rem auto 0;
   color: #3b3840;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.25rem;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.55;
 }
@@ -163,7 +163,7 @@
   border: 1px solid #1f1e23;
   color: #ffffff;
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.15rem;
+  font-size: 16px;
   font-weight: 400;
   letter-spacing: 0.06em;
   line-height: 1;
@@ -195,14 +195,14 @@
   }
 
   .jf-featured-collection__heading {
-    font-size: 3.4rem;
-    line-height: 1.14;
+    font-size: 42px;
+    line-height: 50px;
   }
 
   .jf-featured-collection__description {
-    max-width: 52rem;
+    max-width: 100rem;
     margin-top: 1.2rem;
-    font-size: 1.28rem;
+    font-size: 16px;
   }
 
   .jf-featured-collection__grid {
@@ -225,7 +225,7 @@
 
   .jf-featured-collection__title {
     padding: 0.9rem 0.8rem 0;
-    font-size: 1.2rem;
+    font-size: 16px;
   }
 
   .jf-featured-collection__actions {

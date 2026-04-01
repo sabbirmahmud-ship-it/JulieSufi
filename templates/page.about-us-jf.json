@@ -1,0 +1,501 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "video_XDXgrq": {
+      "type": "video",
+      "custom_css": [
+        ".title-wrapper {display: none;}",
+        "deferred-media {--ratio-percent: 37% !important;}"
+      ],
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "Video",
+        "heading_size": "h1",
+        "enable_video_looping": false,
+        "video": "shopify://files/videos/Montage video.mov",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "cover_image": "shopify://shop_images/Screenshot_2026-02-23_at_3.40.20_PM_1.png",
+        "description": "",
+        "full_width": true,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "rich_text_yE8b47": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_yNMEfr": {
+          "type": "heading",
+          "settings": {
+            "heading": "About the Brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_ejeeGV": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With over 25 years of experience designing and crafting beautiful bridal gowns, Julie Sufi is considered one of the best wedding dress designers in the world. Combining timeless elegance and neo-romanticism, he tastefully incorporates iconic vintage references and the classic beauty of the past with the present. His designs blur the line between the brand's ready-to-wear and bridal ranges, embodying the well thought-out expansion of the collections to create versatile styles suitable for all brides.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_yNMEfr",
+        "text_ejeeGV"
+      ],
+      "custom_css": [
+        "h2.rich-text__heading {font-size: 32px; font-family: \"Taviraj\";}",
+        ".rich-text__text {font-size: 16px; font-family: \"Outfit\";}",
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 102rem; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "jf_image_content_cta_X7qQH7": {
+      "type": "jf-image-content-cta",
+      "name": "JF Image Content CTA",
+      "settings": {
+        "image": "shopify://shop_images/378a178bd954f3d843f3037a090c5941a17f069d.png",
+        "eyebrow": "",
+        "heading_line_one": "JULIE SUFI",
+        "heading_line_two": "",
+        "description": "<p><strong>FOUNDER & HEAD DESIGNER, JULIE SUFI COTURE</strong><br/></p><p>Julie Sufi is an Australian couture designer celebrated for her hand beaded artistry and sculptural bridal silhouettes. With a vision rooted in timeless elegance and modern femininity, Julie creates gowns that merge traditional couture craftsmanship with a contemporary sensibility.<br/><br/>Each piece reflects an intimate dialogue between fabric, form, and emotion. Hours of meticulous handwork, from cascading pearls to intricate bead embroidery, layered into designs that honour the feminine silhouette while telling deeply personal stories.<br/>Through her namesake label, Julie Sufi invites brides to step into pieces that are as individual as they are unforgettable. Her designs are recognised for their luxurious detailing, fluid drapery, and delicate structure, making every gown a work of art created with intention.<br/><br/>With the debut of her Mon Coeur collection at New York Bridal Market 2025, Julie reintroduces her vision on the international stage redefining modern couture for the bride who seeks beauty, meaning, and quiet confidence.<br/></p>",
+        "show_cta_box": true,
+        "cta_eyebrow": "Gowns from",
+        "cta_heading": "AUD $3,500",
+        "button_label": "Book a free consultation",
+        "button_link": "",
+        "image_position_desktop": "left",
+        "image_position_mobile": "top",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48
+      }
+    },
+    "icon_boxed_cMH3gN": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_k8LgMH": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Rectangle_22896.png",
+            "title": "HISTORY",
+            "text": "<p>With a wealth of expertise developed over the past 30 years the Hardwick team are perfectly skilled at understanding, styling and fitting complex bridal couture designs.</p>"
+          }
+        },
+        "item_bABmzQ": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Rectangle_22899.png",
+            "title": "HANDMADE",
+            "text": "<p>Fabric and hand detailing are elegantly integrated with form-flattering silhouettes according to the highest quality dressmaking and corsetry techniques.</p>"
+          }
+        },
+        "item_LGr3NX": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Rectangle_22900.png",
+            "title": "QUALITY",
+            "text": "<p>Julie Sufi designs have a distinctly orientation. Drawing inspiration from contemporary couture, vintage references, texture and drape the Mariana Hardwick gown is timeless.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_k8LgMH",
+        "item_bABmzQ",
+        "item_LGr3NX"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.icon-boxed__icon-wrap {width: 100%; height: 500px; }}",
+        "@media screen and (min-width: 750px) {.icon-boxed__item-copy {max-width: 100%; margin-top: 1.2rem; font-size: 16px; line-height: 28px; font-family: var(--outfit-font, sans-serif); }}"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "THE MAKING OF A VISION",
+        "description": "<p>Discover our full collections at a Flagship Boutique.</p>",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 0
+      }
+    },
+    "icon_boxed_AWRj7d": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_cmQTyE": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Rectangle_22898.png",
+            "title": "",
+            "text": ""
+          }
+        },
+        "item_PUAKLF": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Rectangle_22901.png",
+            "title": "",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_cmQTyE",
+        "item_PUAKLF"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.icon-boxed__icon-wrap {width: 100%; height: 580px; }}"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "columns_mobile": 1,
+        "column_gap": 16,
+        "row_gap": 0,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "icon_boxed_ibmwj7": {
+      "type": "icon-boxed",
+      "custom_css": [
+        "@media screen and (min-width: 750px) {.icon-boxed__heading {font-size: 24px; line-height: 32px; }}",
+        "@media screen and (min-width: 750px) {.icon-boxed__actions {display: flex; justify-content: center; margin-top: 2rem; }}"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Start Your Bridal Journey with Julie Sufi",
+        "description": "<p>A considered, one-on-one couture experience designed entirely around you.</p>",
+        "button_label": "Book a free consultation",
+        "button_link": "shopify://pages/book-an-appointment",
+        "columns_desktop": 1,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 56
+      }
+    },
+    "jf_all_collection_8KYfw9": {
+      "type": "jf-all-collection",
+      "blocks": {
+        "collection_WiQej7": {
+          "type": "collection",
+          "settings": {
+            "collection": "halo-2026"
+          }
+        },
+        "collection_Ak8MxV": {
+          "type": "collection",
+          "settings": {
+            "collection": "mon-coeur"
+          }
+        }
+      },
+      "block_order": [
+        "collection_WiQej7",
+        "collection_Ak8MxV"
+      ],
+      "name": "JF All Collection",
+      "settings": {
+        "heading": "The Bridal Collection",
+        "subheading": "JULIE SUFI",
+        "description": "<p>A refined expression of modern romance and timeless couture, the Julie Sufi Bridal Collection is crafted for the bride who values detail, individuality, and elegance.</p>",
+        "button_label": "VIEW COLLECTION",
+        "columns_desktop": 2,
+        "columns_mobile": "1",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 20,
+        "padding_bottom_desktop": 24,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_stockists_slider_w8ym9C": {
+      "type": "jf-stockists-slider",
+      "blocks": {
+        "slide_p3hXJJ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22888_1.png",
+            "store_name": "Always And Forever Bridal",
+            "address": "Level 1/340 Collins St\nMelbourne VIC 3000\nAustralia",
+            "phone": "+61 3 9077 2999",
+            "email": "Melbourne@Juliesufi.Com",
+            "appointment_label": "BOOK AN APPOINTMENT",
+            "appointment_link": "shopify://pages/book-an-appointment",
+            "map_label": "VIEW MAP",
+            "map_link": ""
+          }
+        },
+        "slide_WhppLT": {
+          "type": "slide",
+          "settings": {
+            "store_name": "The Sposa Group",
+            "address": "607 High St\nArmadale VIC 3143\nAustralia",
+            "phone": "+61 3 9822 6611",
+            "email": "Armadale@Juliesufi.Com",
+            "appointment_label": "BOOK AN APPOINTMENT",
+            "appointment_link": "",
+            "map_label": "VIEW MAP",
+            "map_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_p3hXJJ",
+        "slide_WhppLT"
+      ],
+      "name": "JF Stockists Slider",
+      "settings": {
+        "heading": "STOCKISTS",
+        "description": "<p>Discover Our Full Collections At A Flagship Boutique.</p>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "rich_text_a7hKBq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_6rKKc4": {
+          "type": "heading",
+          "settings": {
+            "heading": "“",
+            "heading_size": "hxxl"
+          }
+        },
+        "text_Ae4EE4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Julie Sufi creates modern couture grounded in craftsmanship and personal expression. Each gown is thoughtfully designed to honour individuality, blending refined construction with timeless elegance. The result is a piece that feels intentional, enduring, and entirely your own.</p>"
+          }
+        },
+        "caption_gYGQb9": {
+          "type": "caption",
+          "settings": {
+            "caption": "— Julie Sufi, Head Designer. Melbourne",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6rKKc4",
+        "text_Ae4EE4",
+        "caption_gYGQb9"
+      ],
+      "custom_css": [
+        ".rich-text__text {font-size: 18px; line-height: 28px; font-family: var(--taviraj-font);}",
+        "p.rich-text__caption.subtitle {font-size: 16px; font-family: var(--taviraj-font);}",
+        "h2.rich-text__heading {line-height: 20px;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 52
+      }
+    },
+    "jf_insta_slider_LtFPw3": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_nhJ4bz": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Elodie5.png",
+            "link": ""
+          }
+        },
+        "slide_QQdXDm": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Isaline3.png",
+            "link": ""
+          }
+        },
+        "slide_mjgCwf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Camille3.png",
+            "link": ""
+          }
+        },
+        "slide_Pan9zK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/NerisseSleeves3.png",
+            "link": ""
+          }
+        },
+        "slide_wGJbDt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Isolde4.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_nhJ4bz",
+        "slide_QQdXDm",
+        "slide_mjgCwf",
+        "slide_Pan9zK",
+        "slide_wGJbDt"
+      ],
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "slide_gap": 4,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "jf_plain_box_icon_yiQXy9": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_YmCRcQ": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_yVMCGt": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": ""
+          }
+        },
+        "item_a6txm7": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_YmCRcQ",
+        "item_yVMCGt",
+        "item_a6txm7"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_subscribe_YVtWCX": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_XDXgrq",
+    "rich_text_yE8b47",
+    "jf_image_content_cta_X7qQH7",
+    "icon_boxed_cMH3gN",
+    "icon_boxed_AWRj7d",
+    "icon_boxed_ibmwj7",
+    "jf_all_collection_8KYfw9",
+    "jf_stockists_slider_w8ym9C",
+    "rich_text_a7hKBq",
+    "jf_insta_slider_LtFPw3",
+    "jf_plain_box_icon_yiQXy9",
+    "jf_subscribe_YVtWCX"
+  ]
+}

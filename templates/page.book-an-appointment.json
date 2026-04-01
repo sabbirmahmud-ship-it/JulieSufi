@@ -1,0 +1,599 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "jf_book_appointment_eG7cKW": {
+      "type": "jf-book-appointment",
+      "blocks": {
+        "appointment_pmH9MA": {
+          "type": "appointment",
+          "settings": {
+            "title": "1. Complimentary Virtual Consultation - 30 Minutes",
+            "content": "<p>A relaxed virtual conversation to understand your style, wedding details, and how you want to feel in your gown.</p><ul><li>Share reference images or a mood board if you have them, or simply come as you are</li><li>We'll gently walk you through the couture process, timelines, and possibilities in a judgement-free space</li><li>Appointments are available across time zones, and we'll find a time that suits you</li></ul>",
+            "show_button": true,
+            "button_label": "Book an appointment",
+            "button_link": ""
+          }
+        },
+        "appointment_wFC4p3": {
+          "type": "appointment",
+          "settings": {
+            "title": "2. The Melbourne Atelier - 1 hour",
+            "content": "<p>A calm, in-person appointment where your vision begins to take shape. Spend one-on-one time with our head designer exploring silhouettes, fabrics, and details as your custom design comes to life.</p><p><strong>Before You Visit</strong></p><ul><li>Appointments are by booking only</li><li>Sample gowns available in a range of sizes, including curve-friendly options</li><li>All gowns are made to your individual measurements</li><li>We suggest sharing the experience with up to three loved ones</li><li>Nude undergarments, minimal makeup, and heels similar to your wedding shoes are ideal</li><li>Please avoid perfume to protect delicate fabrics</li><li>Non-professional photos are welcome</li><li>Our atelier is small-dog friendly</li><li>Rush timelines can be discussed if needed</li></ul>",
+            "show_button": false,
+            "button_label": "Book an appointment",
+            "button_link": ""
+          }
+        },
+        "appointment_RRTq9R": {
+          "type": "appointment",
+          "settings": {
+            "title": "3. Final Fittings - 1 hour",
+            "content": "<ul><li>This stage focuses on perfecting fit, proportions, and finishing details</li><li>We recommend wearing your wedding shoes (or similar heel height) for accurate length</li><li>By the final fitting, your gown is complete and ready for collection</li></ul>",
+            "show_button": false,
+            "button_label": "Book an appointment",
+            "button_link": "https://calendly.com/juliesufi"
+          }
+        }
+      },
+      "block_order": [
+        "appointment_pmH9MA",
+        "appointment_wFC4p3",
+        "appointment_RRTq9R"
+      ],
+      "name": "JF Book Appoinment",
+      "settings": {
+        "heading": "Let's Begin with a Conversation",
+        "subheading": "<p>A personal consultation, shaped around your vision.</p>",
+        "image": "shopify://shop_images/Marcelline1.jpg",
+        "content_heading": "A FEW THINGS TO NOTE BEFORE YOUR APPOINTMENT",
+        "content_intro": "<p>Timelines range from 6 weeks to 12 months, with couture gowns beginning from $7,000, inclusive of fabrics and fittings. Wedding details such as your date and venue help us design with intention.</p>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 36,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_faq_qLMT4m": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_xWzf8z": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_LqhQ6K": {
+          "type": "item",
+          "settings": {
+            "question": "How does the appointment process work?",
+            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>",
+            "open_by_default": false
+          }
+        },
+        "item_VdiAxj": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations?",
+            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_xWzf8z",
+        "item_LqhQ6K",
+        "item_VdiAxj"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "",
+        "heading": "FAQs",
+        "sub_heading": "",
+        "description": "<p>For more additional questions, view our <a href=\"https://www.eseazenabor.com/faqs-2\" target=\"_blank\">FAQS</a> page.<br/><br/></p>",
+        "item_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_stockists_slider_RUdxEp": {
+      "type": "jf-stockists-slider",
+      "blocks": {
+        "slide_GpGV3k": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22888_1.png",
+            "store_name": "Always And Forever Bridal",
+            "address": "Level 1/340 Collins St\nMelbourne VIC 3000\nAustralia",
+            "phone": "+61 3 9077 2999",
+            "email": "Melbourne@Juliesufi.Com",
+            "appointment_label": "BOOK AN APPOINTMENT",
+            "appointment_link": "",
+            "map_label": "VIEW MAP",
+            "map_link": ""
+          }
+        },
+        "slide_bacPtq": {
+          "type": "slide",
+          "settings": {
+            "store_name": "The Sposa Group",
+            "address": "607 High St\nArmadale VIC 3143\nAustralia",
+            "phone": "+61 3 9822 6611",
+            "email": "Armadale@Juliesufi.Com",
+            "appointment_label": "BOOK AN APPOINTMENT",
+            "appointment_link": "",
+            "map_label": "VIEW MAP",
+            "map_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_GpGV3k",
+        "slide_bacPtq"
+      ],
+      "name": "JF Stockists Slider",
+      "settings": {
+        "heading": "STOCKISTS",
+        "description": "<p>Discover Our Full Collections At A Flagship Boutique.</p>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_review_slider_43HAWn": {
+      "type": "jf-review-slider",
+      "blocks": {
+        "review_fQ8XiC": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I gotta give a shout out to Julie and the team for their attention to detail and their ‘all or nothing’ mentality. I’ve never met a team with such an incredibly intricate detailing and it still honestly baffles me! Through every stage of the dressmaking process, I got more and more excited, I cannot thank the team enough for making this part of the wedding seamless 🥰 Words can’t express how thankful I am for making me feel like an absolute princess 🤍</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-G4NYMWU0.jpg",
+            "author": "Christine D",
+            "meta": ""
+          }
+        },
+        "review_G98Ymt": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Thank you so much for making my dream dress, Special thanks to the most gorgeous lady ✨ JULIE ✨ for making me perfect gown, veil and accessories exactly how I wanted. You made our special day more magical. I can’t thank you enough and forever will be grateful.</p><p>#custommade #bestdesigner #dreamdress #lovedit #grateful</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-CXUj4tAT.jpg",
+            "author": "Fatima Y",
+            "meta": ""
+          }
+        },
+        "review_tbibq4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I’m sending the BIGGEST THANK YOU and RECOMMENDATION I possibly can to @belluccio @juliesufi and her team 💖 You turned my wedding dress dreams into reality, in just 4 weeks!! I am still amazed 🤩</p><p>@juliesufi you knew the predicament I was in and when you said you were willing to come off maternity leave for my dress 👗 I was shock, relieved and forever grateful 🌟 you are impressive 😍</p><p>You are truly amazing hearted people, with major talent 😇 working day & night for 4 weeks to bring my dreams to reality was a total dream come true 🥰</p><p>The team were very quick to make arrangements to start my dress from afar. From FaceTime measurements to sending progress photo updates. I was made to feel comfortable and I trusted you completely with all recommendations as your high level of competency was clear.</p><p>There is not one thing I would change about my remarkable experience with you 🙌🏼 I was completely speechless 😮 when I first got to see my dress, which I would’ve said is impossible for me, but you did it lol 🙊 the detail, care and precision was meticulous 👌🏼 I could of just stood there staring at it F O R E V E R</p><p>You couldn’t have been more generous, lending me your mannequin for my dress on the wedding day and after 4 short but very thorough weeks getting to know each other, you were willing to come to Tasmania to dress me on our day 👰🏻‍♀️ If only Covid-19 didn’t ruin it!! I am so in L O V E with my dress 💞 thank you doesn’t seem like enough!</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-RIBIs2pA.jpg",
+            "author": "Kate S",
+            "meta": ""
+          }
+        },
+        "review_xdVAGz": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I cannot recommend Julie enough. She made my vision come to light. The process was seamless. I gave her a lot of creative freedom and she had exceeded my expectations. Her passion, creativity, generosity and hard work is what makes her stand out. Working with Julie and her team was the best decision I made for my wedding!!! </p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-b23WKiK9.jpg",
+            "author": "Liz K",
+            "meta": ""
+          }
+        },
+        "review_xtBw8k": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie at Belluccio created my dream wedding dress. She made the whole process easy and gave me practical guidance at every step. I couldn’t be happier with the result. The ladies in my circle won’t be going anywhere else for their wedding dresses, we’ll be going straight to Julie.</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-pbnW9f1l.jpg",
+            "author": "Rubab N",
+            "meta": ""
+          }
+        },
+        "review_gkrkGK": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I had my wedding dress made by Julie, it was an amazing experience and she made everything so easy and smooth, continues updates, everything was amazing. I couldn’t recommend Julie enough to anyone looking to get their dream wedding dress made.<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-2RFhmM4w.jpg",
+            "author": "Linda S",
+            "meta": ""
+          }
+        },
+        "review_G9wddt": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie was amazing to work with. The craftsmanship, the fit, the care she put into every stitch it was all perfection. She went above and beyond throughout the entire process, making adjustments, offering suggestions, and making sure I felt incredible on my big day.</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-1Obl2KRf.jpg",
+            "author": "Hessen T",
+            "meta": ""
+          }
+        },
+        "review_N7R34M": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie was an absolute dream to work with,<br/>she created exactly what I wanted from scratch and even better would absolutely recommend her for your dream wedding dress and the experience was very easy aswell 🥰</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-1iBnMNie.jpg",
+            "author": "Aisha A",
+            "meta": ""
+          }
+        },
+        "review_BPpmt9": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julia designed the dress of my dreams, and she did an amazing job in such a short timeframe. She was incredibly knowledgeable and professional, and every fitting was a success. I would highly recommend her to all my friends and family. Truly one of the best bridal dress designers in Melbourne.</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-KBT7c1z4.jpg",
+            "author": "Jacqueline F",
+            "meta": ""
+          }
+        },
+        "review_aKcc99": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie designs were meticulous and with attention to detail. She is passionate and creative about her craft. Would highly recommend. Ahe provides a holistic service from start to finish. You will glow and shine in her creation.<br/>Thankyou for all your hard work Julie</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-DWTIgiDM.jpg",
+            "author": "Brianna M",
+            "meta": ""
+          }
+        },
+        "review_gDzJTF": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I got my wedding dress custom made by Julie and I couldn’t recommend her enough. The whole process was seamless, easy to contact and kept me updated throughout. She went above and beyond to ensure I’m happy - it was a lovely experience. Highly recommend Julie and her awesome work and effort 🙏🏼</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-QWN9jcPd.jpg",
+            "author": "Lina Z",
+            "meta": ""
+          }
+        },
+        "review_CHkXWy": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie was incredibly easy to work with, she took my words and my lack of experience and made me my dream dress.<br/><br/>Julie is lovely and her work is flawless, it is clean and looks like it’s out of a magazine.<br/><br/>I received so many compliments on my wedding dress and I’m still so in love with it as I was the day I brought it home.</p><p>Had such a delightful journey with Julie from beginning to end, I was treated with kindness and felt so supported and listened to! Julie really knows what she is doing! I loved my dress so much, would recommend to anyone who wants a personal one-on-one experience!</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-GKjVXawQ.jpg",
+            "author": "Clara S",
+            "meta": ""
+          }
+        },
+        "review_PCaQtQ": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>A wedding dress design is not small decision. It must articulate the dreams of your childhood, your aspirations as a woman in love and the desire to set the first impression as you walk down the aisle for your beloved all the while instating pride and joy for your parents. It is a once in a lifetime moment. Years may pass but you'll always remember your wedding gown and I can say without hesitation, the memories and process behind my wedding gown eclipsed expectation. The dress itself? Made for me. Julie has a very keen sense of fit, design and elegance. My sample fit perfectly without the need for alteration. My dress was a heavily beaded couture piece that had many elements requiring precision fit, quality silk and elegant ornament. The design was both timeless and nonchalant and I am so glad to recommend Julie Sufi bridal wholeheartedly. Thank you Julie & team.<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-YYS1Oa62.jpg",
+            "author": "Sarah L",
+            "meta": ""
+          }
+        },
+        "review_hRyLgA": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie made my dress for my wedding, I can’t express how amazing her work is.Her self and her team nailed the brief, I showed an inspiration picture and explained how I wanted the dress to look and results showed.Julie is a down to earth person with a heart of gold. I’m so glad I went to her for wedding dress she definitely created my dream dress and made me feel like a real life princess </p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-zmwAU9UN.jpg",
+            "author": "Roukaya E",
+            "meta": ""
+          }
+        },
+        "review_CQtMJf": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie crafted the most beautiful wedding dress for me, truly bringing my vision to life. Her artistic design and meticulous attention to details are honestly unmatched. She uses exceptionally high quality fabrics, my dress still shimmers almost four years later. I highly recommend Julie if you’re seeking a unique, completely custom dress tailored just for you</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-XRqG2KKJ.png",
+            "author": "Sara O",
+            "meta": ""
+          }
+        },
+        "review_d6rtT4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie is an artist! She took the time to listen to my ideas about my wedding dress and made sure I was comfortable with every decision along the way. She continually updated me throughout the whole process of making the gown, and we had multiple fittings to make sure I was 100% happy with the result. The fit and quality were excellent. I’m so grateful for her care and attention to detail. Highly recommend!<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-2xIC9bw5.jpg",
+            "author": "Veronica M",
+            "meta": ""
+          }
+        },
+        "review_9qALAx": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I couldn’t be happier with the two wedding dresses Julie created for me. From start to finish, her work was absolutely exceptional. Julie’s attention to detail, craftsmanship, and dedication truly set her apart. She was incredibly patient throughout the entire process, always taking the time to listen, make adjustments, and ensure every detail was perfect. Her work ethic is unmatched — she went above and beyond to make sure both dresses were exactly what I envisioned. Thanks to Julie, I felt confident, comfortable, and beautiful on such an important day. I highly recommend her to anyone looking for stunning work and a truly caring professional.</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-yDM5MYN4.jpg",
+            "author": "Farzana D",
+            "meta": ""
+          }
+        },
+        "review_pCEYHW": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I cannot recommend my custom wedding dresses maker highly enough. From the very first consultation, I felt truly heard and understood. Every detail I envisioned was brought to life with such care, creativity, and craftsmanship. The quality of the work was absolutely exceptional every stitch, fabric choice, and fitting was done to perfection.<br/><br/>Not only was the dress stunning and completely unique, but the entire process was calm, professional, and enjoyable. I always felt supported, reassured, and confident that I was in the best hands. On my wedding day, I felt beautiful, comfortable, and completely myself and that is something truly special.<br/>I had two dresses custom made from scratch to my dreams.<br/><br/>If you’re looking for someone who is incredibly talented, attentive, and genuinely passionate about what they do, I could not recommend a better dress maker. This was more than just a dress; it was an unforgettable experience.<br/>Thank you Julie 🤍</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-lNereTMB.jpg",
+            "author": "Roya A",
+            "meta": ""
+          }
+        },
+        "review_NeNUBh": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I couldn’t be happier with my experience in making my wedding dress. From the very first consultation, I felt listened to and understood. Every detail I imagined was brought to life even better than I expected. The craftsmanship was absolutely stunning and everything was flawless.<br/><br/>Julie made the entire process smooth and stress free and I felt taken care of each step of the way. The professionalism, patience, and creativity made the experience truly special. On my wedding day, I felt confident, comfortable, and completely myself. My vision truly brought to life and I couldn’t have been happier with the outcome.</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-Zzsjtq3P.jpg",
+            "author": "Zeenat",
+            "meta": ""
+          }
+        },
+        "review_RfYWRd": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I truly cannot put into words how grateful I am for the experience of having my wedding gown custom made by Julie From the very beginning she was so kind, patient and genuinely invested in bringing my vision to life. In just 2–3 months she created the most beautiful gown I could have ever imagined.<br/><br/>The craftsmanship and attention to detail were absolutely incredible, but what meant the most to me was the care and love she showed throughout the entire process. She didn’t just make a dress, she made me feel so supported and confident as a bride.<br/><br/>One of the most special moments for me was when she came on the morning of my wedding to help me get dressed. Having her there during such an emotional and important moment meant so much and made the experience feel even more personal and memorable.<br/><br/>When I put my gown on, I honestly felt so beautiful and so special. It was everything I had dreamed of and more. I will always be so thankful for the time, dedication and heart she put into creating my wedding dress.<br/><br/>I couldn’t recommend her enough to any bride who wants not just a beautiful gown, but an unforgettable experience. 🤍</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-CnqzxHpa.jpg",
+            "author": "Kristina D",
+            "meta": ""
+          }
+        },
+        "review_wcWtKc": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I had a very smooth and pleasant experience with Julie from the moment I met her to the day I picked up my wedding gown. She’s very professional and really amazing at what she does, she listens to you and also offers her expert advice when you need help making decision, she really does make your vision into reality. She’s very nice, genuine and knowledgeable. Every interaction, every meeting and communication has been clear and professional. Her price is also reasonable , I can’t recommend her work enough. Thank you so much Julie for the service you provide and helping your brides looking their best in the beautiful gown on their big day.<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-fn2laodh.jpg",
+            "author": "Anisa P",
+            "meta": ""
+          }
+        },
+        "review_QV9eqE": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I cannot recommend this dress business highly enough. From the very first consultation to the final fitting, the entire experience was nothing short of exceptional and stress free. Julie truly listened to my vision and transformed it into the most beautiful wedding dress I could have ever imagined.<br/>Every detail, stitch, and fabric choice was handled with such care and perfection. I felt completely supported throughout the process, and her professionalism, creativity, and warmth made what could have been a stressful experience feel exciting and special.<br/>On my wedding day, I felt confident, comfortable, and absolutely stunning, and I owe that entirely to her. My dress fit perfectly and felt uniquely me. If you are looking for a business that genuinely cares about their clients and delivers breathtaking results, look no further. This was one of the best decisions I made for my wedding.</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-9OkaMgTD.jpg",
+            "author": "Shaza M",
+            "meta": ""
+          }
+        },
+        "review_bB6EPq": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Thank God I met Julie Sufi! Owner of Belluccio. Her passion for what she does truly shows in every detail. She listened to all my ideas and helped bring my vision to life with so much care and dedication. I wholeheartly recommend her to anyone who is searching for a truly talented designer with so much creativity and a big heart. I bought her flowers but she deserves a whole garden of flowers! I'm in love with my dress. Thank you so so much, Julie! God bless you </p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-FcLBubTr.jpg",
+            "author": "Zohal M",
+            "meta": ""
+          }
+        },
+        "review_w9QyHJ": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Thank you to Julie and the team for helping me create my dream wedding gown. They were incredible throughout the whole process and brought my vision to life!</p>",
+            "reviewer_image": "shopify://shop_images/gdoc-image-FDHHFDbz.jpg",
+            "author": "Mona N",
+            "meta": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_fQ8XiC",
+        "review_G98Ymt",
+        "review_tbibq4",
+        "review_xdVAGz",
+        "review_xtBw8k",
+        "review_gkrkGK",
+        "review_G9wddt",
+        "review_N7R34M",
+        "review_BPpmt9",
+        "review_aKcc99",
+        "review_gDzJTF",
+        "review_CHkXWy",
+        "review_PCaQtQ",
+        "review_hRyLgA",
+        "review_CQtMJf",
+        "review_d6rtT4",
+        "review_9qALAx",
+        "review_pCEYHW",
+        "review_NeNUBh",
+        "review_RfYWRd",
+        "review_wcWtKc",
+        "review_QV9eqE",
+        "review_bB6EPq",
+        "review_w9QyHJ"
+      ],
+      "name": "JF Review Slider",
+      "settings": {
+        "eyebrow": "From Our Brides",
+        "heading_line_one": "Real Brides. Real Moments.",
+        "heading_line_two": "Timeless Couture.",
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "slide_gap": 20,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_insta_slider_iTayC4": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_8wdFc3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22850.png",
+            "link": ""
+          }
+        },
+        "slide_x64Wk6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22849.png",
+            "link": ""
+          }
+        },
+        "slide_hHGeMn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22848.png",
+            "link": ""
+          }
+        },
+        "slide_4jHeqL": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22847.png",
+            "link": ""
+          }
+        },
+        "slide_Rx7K4R": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22851.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_8wdFc3",
+        "slide_x64Wk6",
+        "slide_hHGeMn",
+        "slide_4jHeqL",
+        "slide_Rx7K4R"
+      ],
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "slide_gap": 4,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_plain_box_icon_LtEaB4": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_XwUVpw": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": ""
+          }
+        },
+        "item_9yViWE": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": ""
+          }
+        },
+        "item_mBtriY": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_XwUVpw",
+        "item_9yViWE",
+        "item_mBtriY"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_subscribe_fUVymH": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "jf_book_appointment_eG7cKW",
+    "jf_faq_qLMT4m",
+    "jf_stockists_slider_RUdxEp",
+    "jf_review_slider_43HAWn",
+    "jf_insta_slider_iTayC4",
+    "jf_plain_box_icon_LtEaB4",
+    "jf_subscribe_fUVymH"
+  ]
+}

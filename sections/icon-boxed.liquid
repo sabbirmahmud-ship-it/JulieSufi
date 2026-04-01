@@ -4,6 +4,8 @@
   assign desktop_background_image = section.settings.desktop_background_image
   assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
   assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign desktop_icon_gap_total = section.settings.column_gap | times: section.settings.columns_desktop | minus: section.settings.column_gap
+  assign mobile_icon_gap_total = section.settings.column_gap | times: section.settings.columns_mobile | minus: section.settings.column_gap
   assign fetch_priority = 'auto'
 
   if section.index == 1
@@ -91,12 +93,18 @@
         <div class="icon-boxed__item" {{ block.shopify_attributes }}>
           <div class="icon-boxed__icon-wrap">
             {%- if block.settings.icon_image != blank -%}
+              {%- capture icon_sizes -%}
+                (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - 10rem - {{ desktop_icon_gap_total }}px) / {{ section.settings.columns_desktop }}),
+                (min-width: 750px) calc((100vw - 10rem - {{ desktop_icon_gap_total }}px) / {{ section.settings.columns_desktop }}),
+                calc((100vw - 3rem - {{ mobile_icon_gap_total }}px) / {{ section.settings.columns_mobile }})
+              {%- endcapture -%}
+              {%- assign icon_sizes = icon_sizes | strip | strip_newlines -%}
               {{
                 block.settings.icon_image
-                | image_url: width: 120
+                | image_url: width: 1600
                 | image_tag:
-                  widths: '60, 90, 120',
-                  sizes: '60px',
+                  widths: '240, 360, 480, 720, 960, 1200, 1600',
+                  sizes: icon_sizes,
                   loading: 'lazy',
                   alt: block.settings.icon_image.alt
               }}

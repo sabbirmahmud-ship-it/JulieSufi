@@ -48,7 +48,7 @@
   margin: 1.6rem auto 0;
   color: rgba(255, 255, 255, 0.92);
   font-family: var(--outfit-font, sans-serif);
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.6;
 }
@@ -141,7 +141,7 @@
 
 @media screen and (min-width: 750px) {
   .jf-subscribe__content {
-    max-width: 71rem;
+    max-width: 100rem;
   }
 
   .jf-subscribe__heading {
@@ -153,8 +153,8 @@
   .jf-subscribe__description {
     max-width: none;
     margin-top: 1rem;
-    font-size: 1.15rem;
-    line-height: 1.55;
+    font-size: 20px;
+    line-height: 28px;
   }
 
   .jf-subscribe__form {

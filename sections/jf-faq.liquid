@@ -68,8 +68,21 @@
         <p class="jf-faq__eyebrow">{{ section.settings.eyebrow | escape }}</p>
       {%- endif -%}
 
-      {%- if section.settings.heading != blank -%}
-        <h2 class="jf-faq__heading">{{ section.settings.heading | escape }}</h2>
+      {%- if section.settings.heading != blank or section.settings.sub_heading != blank -%}
+        <h2 class="jf-faq__heading">
+          {%- if section.settings.heading != blank -%}
+            <span class="jf-faq__heading-line">{{ section.settings.heading | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.sub_heading != blank -%}
+            <span class="jf-faq__heading-line jf-faq__heading-line--accent">
+              {{ section.settings.sub_heading | escape }}
+            </span>
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="jf-faq__description">{{ section.settings.description }}</div>
       {%- endif -%}
     </div>
 
@@ -109,6 +122,18 @@
       "id": "heading",
       "label": "Heading",
       "default": "The Details"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub heading",
+      "default": "Everything You Need To Know"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Find quick answers to the most common questions about appointments, custom gowns, and consultations.</p>"
     },
     {
       "type": "header",
@@ -207,7 +232,7 @@
           "default": "Do you offer custom-made bridal gowns?"
         },
         {
-          "type": "richtext",
+          "type": "html",
           "id": "answer",
           "label": "Answer",
           "default": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>"

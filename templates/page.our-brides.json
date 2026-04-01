@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "icon_boxed_XG9Qqe": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_rh73bA": {
+          "type": "item",
+          "settings": {
+            "title": "GLOBAL STOCKISTS",
+            "text": "<p>Find the list of all our Julie Sufi stockist HERE.</p>"
+          }
+        },
+        "item_QPfpjh": {
+          "type": "item",
+          "settings": {
+            "title": "Become a Stockist",
+            "text": "<p>If you would like to become aJulie Sufi wholesale partner, please contact us at wholesale@Juliesufi.com</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_rh73bA",
+        "item_QPfpjh"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 56
+      }
+    },
+    "jf_faq_GHRCMa": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_8TWQRX": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_3RVMwT": {
+          "type": "item",
+          "settings": {
+            "question": "How does the appointment process work?",
+            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>",
+            "open_by_default": false
+          }
+        },
+        "item_DfGGja": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations?",
+            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_8TWQRX",
+        "item_3RVMwT",
+        "item_DfGGja"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "Questions, Answered",
+        "heading": "The Details",
+        "sub_heading": "Everything You Need To Know",
+        "description": "<p>Find quick answers to the most common questions about appointments, custom gowns, and consultations.</p>",
+        "item_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_insta_slider_bbdVEy": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_9pVQD7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Elodie5.png",
+            "link": ""
+          }
+        },
+        "slide_VxRbzH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Isaline3.png",
+            "link": ""
+          }
+        },
+        "slide_cPrkzy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Camille3.png",
+            "link": ""
+          }
+        },
+        "slide_3D7pxX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/NerisseSleeves3.png",
+            "link": ""
+          }
+        },
+        "slide_UgcKyt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Isolde4.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_9pVQD7",
+        "slide_VxRbzH",
+        "slide_cPrkzy",
+        "slide_3D7pxX",
+        "slide_UgcKyt"
+      ],
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "slide_gap": 4,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "jf_plain_box_icon_xUhkTn": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_yccPnT": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_nhEqYH": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": ""
+          }
+        },
+        "item_wPYMwN": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_yccPnT",
+        "item_nhEqYH",
+        "item_wPYMwN"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_subscribe_icgXYr": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "icon_boxed_XG9Qqe",
+    "jf_faq_GHRCMa",
+    "jf_insta_slider_bbdVEy",
+    "jf_plain_box_icon_xUhkTn",
+    "jf_subscribe_icgXYr"
+  ]
+}

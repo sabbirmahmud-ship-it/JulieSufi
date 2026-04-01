@@ -11,6 +11,11 @@
   "sections": {
     "banner": {
       "type": "main-collection-banner",
+      "custom_css": [
+        ".collection-hero__text-wrapper {display: flex; flex-basis: 100%; justify-content: center; flex-direction: column; align-items: center; text-align: center; gap: 0;}",
+        ".collection-hero__title {margin-top: 10px; margin-bottom: 0; font-family: var(--outfit-font);}",
+        "@media screen and (min-width: 750px) {.collection-hero__title + .collection-hero__description {font-size: 1.8rem; margin-top: 10px; font-family: var(--outfit-font); }}"
+      ],
       "settings": {
         "show_collection_description": true,
         "show_collection_image": false,
@@ -22,6 +27,7 @@
       "settings": {
         "products_per_page": 16,
         "columns_desktop": 4,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -32,7 +38,6 @@
         "enable_filtering": true,
         "filter_type": "horizontal",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 36
       }
