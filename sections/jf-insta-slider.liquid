@@ -5,9 +5,19 @@
   assign desktop_background_image = section.settings.desktop_background_image
   assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
   assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign dynamic_feed_enabled = false
+
+  if section.settings.enable_instagram_feed and section.settings.instagram_feed_endpoint != blank
+    assign dynamic_feed_enabled = true
+  endif
+
   assign enable_slider = false
 
-  if section.blocks.size > 5
+  if dynamic_feed_enabled
+    if section.settings.instagram_feed_limit > 5
+      assign enable_slider = true
+    endif
+  elsif section.blocks.size > 5
     assign enable_slider = true
   endif
 -%}
@@ -38,7 +48,16 @@
   }
 {%- endstyle -%}
 
-<jf-insta-slider id="JfInstaSlider-{{ section.id }}" class="jf-insta-slider">
+<jf-insta-slider
+  id="JfInstaSlider-{{ section.id }}"
+  class="jf-insta-slider"
+  {% if dynamic_feed_enabled %}
+    data-insta-feed-endpoint="{{ section.settings.instagram_feed_endpoint | escape }}"
+    data-insta-feed-limit="{{ section.settings.instagram_feed_limit }}"
+    data-insta-feed-handle="{{ section.settings.instagram_feed_handle | escape }}"
+    data-insta-section-id="{{ section.id }}"
+  {% endif %}
+>
   {%- if fallback_background_image != blank -%}
     <div class="jf-insta-slider__background">
       <picture>
@@ -82,6 +101,11 @@
     <div class="jf-insta-slider__viewport">
       <ul class="jf-insta-slider__track list-unstyled{% if enable_slider %} jf-insta-slider__track--slider{% else %} jf-insta-slider__track--grid{% endif %}" data-insta-track>
         {%- for block in section.blocks -%}
+          {%- liquid
+            assign manual_image = block.settings.image
+            assign instagram_image_url = block.settings.instagram_image_url | strip
+            assign slide_alt = block.settings.image_alt | default: manual_image.alt | default: section.settings.heading
+          -%}
           <li class="jf-insta-slider__slide" data-insta-slide {{ block.shopify_attributes }}>
             {%- if block.settings.link != blank -%}
               <a href="{{ block.settings.link }}" class="jf-insta-slider__link">
@@ -89,16 +113,23 @@
               <div class="jf-insta-slider__card">
             {%- endif -%}
               <div class="jf-insta-slider__media">
-                {%- if block.settings.image != blank -%}
+                {%- if manual_image != blank -%}
                   {{
-                    block.settings.image
+                    manual_image
                     | image_url: width: 1200
                     | image_tag:
                       widths: '375, 550, 750, 900, 1100, 1200',
                       sizes: '(min-width: 750px) 20vw, 48vw',
                       loading: 'lazy',
-                      alt: block.settings.image.alt
+                      alt: slide_alt
                   }}
+                {%- elsif instagram_image_url != blank -%}
+                  <img
+                    src="{{ instagram_image_url | escape }}"
+                    alt="{{ slide_alt | escape }}"
+                    loading="lazy"
+                    sizes="(min-width: 750px) 20vw, 48vw"
+                  >
                 {%- else -%}
                   {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                 {%- endif -%}
@@ -172,6 +203,38 @@
       "type": "url",
       "id": "cta_link",
       "label": "Bottom link"
+    },
+    {
+      "type": "header",
+      "content": "Instagram Feed"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_instagram_feed",
+      "label": "Enable automatic Instagram feed",
+      "default": false,
+      "info": "Requires a Shopify app proxy or backend endpoint that returns the latest Instagram posts as JSON."
+    },
+    {
+      "type": "text",
+      "id": "instagram_feed_endpoint",
+      "label": "Feed endpoint",
+      "info": "Example: /apps/instagram-feed"
+    },
+    {
+      "type": "text",
+      "id": "instagram_feed_handle",
+      "label": "Instagram handle",
+      "info": "Optional. Sent to the endpoint so the backend can choose which account to load."
+    },
+    {
+      "type": "range",
+      "id": "instagram_feed_limit",
+      "label": "Posts to load",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 5
     },
     {
       "type": "header",
@@ -267,6 +330,17 @@
           "type": "image_picker",
           "id": "image",
           "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "instagram_image_url",
+          "label": "Instagram image URL",
+          "info": "Optional. Use this when the image should be loaded from an external Instagram feed URL instead of Shopify files."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text"
         },
         {
           "type": "url",

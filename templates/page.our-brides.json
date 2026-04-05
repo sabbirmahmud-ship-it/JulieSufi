@@ -17,91 +17,118 @@
         "padding_bottom": 28
       }
     },
-    "icon_boxed_XG9Qqe": {
-      "type": "icon-boxed",
+    "jf_our_brides_gallery_BQEfqG": {
+      "type": "jf-our-brides-gallery",
       "blocks": {
-        "item_rh73bA": {
-          "type": "item",
+        "gallery_image_4GYTtB": {
+          "type": "gallery_image",
           "settings": {
-            "title": "GLOBAL STOCKISTS",
-            "text": "<p>Find the list of all our Julie Sufi stockist HERE.</p>"
+            "alt_text": "",
+            "link": ""
           }
         },
-        "item_QPfpjh": {
-          "type": "item",
+        "gallery_image_76ctf9": {
+          "type": "gallery_image",
           "settings": {
-            "title": "Become a Stockist",
-            "text": "<p>If you would like to become aJulie Sufi wholesale partner, please contact us at wholesale@Juliesufi.com</p>"
+            "alt_text": "",
+            "link": ""
+          }
+        },
+        "gallery_image_qpiUYL": {
+          "type": "gallery_image",
+          "settings": {
+            "alt_text": "",
+            "link": ""
           }
         }
       },
       "block_order": [
-        "item_rh73bA",
-        "item_QPfpjh"
+        "gallery_image_4GYTtB",
+        "gallery_image_76ctf9",
+        "gallery_image_qpiUYL"
       ],
-      "name": "Icon Boxed",
+      "name": "JF Our Brides Gallery",
       "settings": {
-        "eyebrow": "",
-        "heading": "",
-        "description": "",
-        "button_label": "",
+        "heading": "OUR BRIDES",
+        "description": "<p>Welcome to Julie Sufi Bridal - a modern atelier of timeless elegance and modern romance, brought to life by our real brides. We'd be honoured to feature your love story and wedding day moments - share your images with us and join the Julie Sufi Bridal journey.</p>",
+        "show_share_button": false,
+        "button_label": "SHARE YOUR WEDDING",
         "button_link": "",
-        "columns_desktop": 2,
+        "gallery_source": "auto",
+        "gallery_metafield_namespace": "custom",
+        "gallery_metafield_key": "jf_our_brides_gallery_images",
+        "columns_desktop": 3,
         "columns_mobile": 1,
-        "column_gap": 40,
-        "row_gap": 8,
+        "items_per_page_desktop": 18,
+        "items_per_page_mobile": 3,
+        "cards_order": "default",
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
-        "padding_top": 0,
-        "padding_bottom": 56
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 48
       }
     },
-    "jf_faq_GHRCMa": {
-      "type": "jf-faq",
+    "jf_text_slider_rMTUh9": {
+      "type": "jf-text-slider",
       "blocks": {
-        "item_8TWQRX": {
-          "type": "item",
+        "slide_BkNcPr": {
+          "type": "slide",
           "settings": {
-            "question": "Do you offer custom-made bridal gowns?",
-            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
-            "open_by_default": true
+            "eyebrow": "AS SEEN IN",
+            "publication_name": "VOGUE",
+            "quote": "Julie Sufi redefines modern bridal with sculptural silhouettes and refined craftsmanship. Each gown reflects a quiet confidence and timeless romance."
           }
         },
-        "item_3RVMwT": {
-          "type": "item",
+        "slide_3Pxj8Q": {
+          "type": "slide",
           "settings": {
-            "question": "How does the appointment process work?",
-            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>",
-            "open_by_default": false
+            "eyebrow": "FEATURED BY",
+            "publication_name": "BRIDES",
+            "quote": "An elegant balance of modern structure and romantic detail, Julie Sufi gowns feel deeply personal while remaining effortlessly refined."
           }
         },
-        "item_DfGGja": {
-          "type": "item",
+        "slide_g3VN8Y": {
+          "type": "slide",
           "settings": {
-            "question": "Do you offer virtual consultations?",
-            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>",
-            "open_by_default": false
+            "eyebrow": "EDITOR'S PICK",
+            "publication_name": "ELLE",
+            "quote": "Each design speaks with confidence, softness, and intention, creating a bridal wardrobe that feels timeless from every angle."
+          }
+        },
+        "slide_WUJLnY": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "IN THE PRESS",
+            "publication_name": "HARPER'S BAZAAR",
+            "quote": "Julie Sufi continues to shape contemporary couture with silhouettes that are both sculptural and deeply romantic."
           }
         }
       },
       "block_order": [
-        "item_8TWQRX",
-        "item_3RVMwT",
-        "item_DfGGja"
+        "slide_BkNcPr",
+        "slide_3Pxj8Q",
+        "slide_g3VN8Y",
+        "slide_WUJLnY"
       ],
-      "name": "JF FAQ",
+      "name": "JF Text Slider",
       "settings": {
-        "eyebrow": "Questions, Answered",
-        "heading": "The Details",
-        "sub_heading": "Everything You Need To Know",
-        "description": "<p>Find quick answers to the most common questions about appointments, custom gowns, and consultations.</p>",
-        "item_gap": 8,
-        "desktop_background_color": "#ffffff",
-        "mobile_background_color": "#ffffff",
-        "padding_top_mobile": 24,
-        "padding_bottom_mobile": 24,
-        "padding_top_desktop": 52,
-        "padding_bottom_desktop": 52
+        "desktop_background_color": "#f7f5f2",
+        "mobile_background_color": "#f7f5f2",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_desktop": 64,
+        "padding_bottom_desktop": 56,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "accessibility_label": "Featured press quotes"
       }
     },
     "jf_insta_slider_bbdVEy": {
@@ -111,6 +138,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Elodie5.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -118,6 +147,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Isaline3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -125,6 +156,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Camille3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -132,6 +165,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/NerisseSleeves3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -139,6 +174,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Isolde4.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -150,12 +187,17 @@
         "slide_3D7pxX",
         "slide_UgcKyt"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
@@ -163,6 +205,68 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 24,
         "padding_bottom_desktop": 24
+      }
+    },
+    "rich_text_AAdnxF": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_UPxqza": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_ExHfUM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_UPxqza",
+        "heading_ExHfUM"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "177509230999f16f86": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_bb9Wnb": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_bb9Wnb"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_plain_box_icon_xUhkTn": {
@@ -234,9 +338,11 @@
   },
   "order": [
     "main",
-    "icon_boxed_XG9Qqe",
-    "jf_faq_GHRCMa",
+    "jf_our_brides_gallery_BQEfqG",
+    "jf_text_slider_rMTUh9",
     "jf_insta_slider_bbdVEy",
+    "rich_text_AAdnxF",
+    "177509230999f16f86",
     "jf_plain_box_icon_xUhkTn",
     "jf_subscribe_icgXYr"
   ]

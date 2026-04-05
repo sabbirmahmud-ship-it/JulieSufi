@@ -24,17 +24,17 @@
           "type": "appointment",
           "settings": {
             "title": "1. Complimentary Virtual Consultation - 30 Minutes",
-            "content": "<p>A relaxed virtual conversation to understand your style, wedding details, and how you want to feel in your gown.</p><ul><li>Share reference images or a mood board if you have them, or simply come as you are</li><li>We'll gently walk you through the couture process, timelines, and possibilities in a judgement-free space</li><li>Appointments are available across time zones, and we'll find a time that suits you</li></ul>",
+            "content": "<p>A relaxed virtual consultation designed to understand your bridal vision, wedding details, personal style, and how you want to feel in your gown.</p><p>You’re welcome to share reference images or a mood board, or simply arrive with an open mind. During this appointment, we’ll gently guide you through the couture process, timelines, and design possibilities in a warm, judgement-free space.</p><p>Appointments are available across time zones, and we will arrange a time that suits you.</p>",
             "show_button": true,
             "button_label": "Book an appointment",
-            "button_link": ""
+            "button_link": "https://calendly.com/juliesufi"
           }
         },
         "appointment_wFC4p3": {
           "type": "appointment",
           "settings": {
             "title": "2. The Melbourne Atelier - 1 hour",
-            "content": "<p>A calm, in-person appointment where your vision begins to take shape. Spend one-on-one time with our head designer exploring silhouettes, fabrics, and details as your custom design comes to life.</p><p><strong>Before You Visit</strong></p><ul><li>Appointments are by booking only</li><li>Sample gowns available in a range of sizes, including curve-friendly options</li><li>All gowns are made to your individual measurements</li><li>We suggest sharing the experience with up to three loved ones</li><li>Nude undergarments, minimal makeup, and heels similar to your wedding shoes are ideal</li><li>Please avoid perfume to protect delicate fabrics</li><li>Non-professional photos are welcome</li><li>Our atelier is small-dog friendly</li><li>Rush timelines can be discussed if needed</li></ul>",
+            "content": "<p>A calm, in-person atelier appointment where your vision begins to take shape.</p><p>You’ll spend one-on-one time with our head designer exploring silhouettes, fabrics, structure, and embellishment details as your custom gown concept starts to come to life. This is where ideas become direction, and your dress begins its journey.</p><p><strong>Before You Visit</strong><br/><br/>We recommend bringing any inspiration images, fabric ideas, or visual references that reflect your preferred aesthetic. If you already have your wedding shoes or accessories in mind, these can also be helpful during the design process.</p>",
             "show_button": false,
             "button_label": "Book an appointment",
             "button_link": ""
@@ -43,26 +43,59 @@
         "appointment_RRTq9R": {
           "type": "appointment",
           "settings": {
-            "title": "3. Final Fittings - 1 hour",
-            "content": "<ul><li>This stage focuses on perfecting fit, proportions, and finishing details</li><li>We recommend wearing your wedding shoes (or similar heel height) for accurate length</li><li>By the final fitting, your gown is complete and ready for collection</li></ul>",
+            "title": "3. Mockup Fitting",
+            "content": "<p>This fitting focuses on refining the foundation of your gown, including fit, proportion, shape, and design details.</p><p>At this stage, we assess how the mock-up gown sits on your body, making precise adjustments before the construction of your final wedding dress begins.</p><p>We recommend bringing your wedding shoes, or a similar heel height, to ensure the hem length is perfectly considered.</p>",
             "show_button": false,
             "button_label": "Book an appointment",
             "button_link": "https://calendly.com/juliesufi"
+          }
+        },
+        "appointment_dk69Ng": {
+          "type": "appointment",
+          "settings": {
+            "title": "4. Wedding Dress Fitting",
+            "content": "<p>This is the moment you see your gown as it nears completion.</p><p>Between your mock-up fitting and this appointment, we will share curated updates and imagery as your gown comes to life. You are encouraged to provide feedback throughout the process, ensuring every detail aligns with your vision.</p><p>During this fitting, we refine the final fit and review each element of your gown to ensure it feels beautifully balanced, comfortable, and true to you.</p>",
+            "show_button": false,
+            "button_label": "Book an appointment",
+            "button_link": ""
+          }
+        },
+        "appointment_ekHE8K": {
+          "type": "appointment",
+          "settings": {
+            "title": "5. Optional: Second Dress Fitting",
+            "content": "<p>If required, an additional fitting will be scheduled to further refine the fit and ensure every detail feels just right.</p><p>This stage allows us to make any final adjustments so your gown fits with precision and confidence.</p>",
+            "show_button": false,
+            "button_label": "Book an appointment",
+            "button_link": ""
+          }
+        },
+        "appointment_Qnri9C": {
+          "type": "appointment",
+          "settings": {
+            "title": "6. Final Fitting",
+            "content": "<p>Your final fitting is the last step before you take your gown home.</p><p>At this appointment, your dress is complete and ready for collection. We make any final checks, ensure the fit is perfect, and prepare you for the moment you’ve been waiting for, walking down the aisle.</p>",
+            "show_button": false,
+            "button_label": "Book an appointment",
+            "button_link": ""
           }
         }
       },
       "block_order": [
         "appointment_pmH9MA",
         "appointment_wFC4p3",
-        "appointment_RRTq9R"
+        "appointment_RRTq9R",
+        "appointment_dk69Ng",
+        "appointment_ekHE8K",
+        "appointment_Qnri9C"
       ],
       "name": "JF Book Appoinment",
       "settings": {
         "heading": "Let's Begin with a Conversation",
         "subheading": "<p>A personal consultation, shaped around your vision.</p>",
-        "image": "shopify://shop_images/Marcelline1.jpg",
+        "image": "shopify://shop_images/Sophie.jpg",
         "content_heading": "A FEW THINGS TO NOTE BEFORE YOUR APPOINTMENT",
-        "content_intro": "<p>Timelines range from 6 weeks to 12 months, with couture gowns beginning from $7,000, inclusive of fabrics and fittings. Wedding details such as your date and venue help us design with intention.</p>",
+        "content_intro": "<p>Timelines range from 6 weeks to 12 months, with couture gowns beginning from $5,000 AUD, inclusive of fabrics and fittings. Wedding details such as your date and venue help us design with intention.</p>",
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
         "padding_top_mobile": 32,
@@ -121,57 +154,6 @@
         "padding_bottom_mobile": 24,
         "padding_top_desktop": 52,
         "padding_bottom_desktop": 52
-      }
-    },
-    "jf_stockists_slider_RUdxEp": {
-      "type": "jf-stockists-slider",
-      "blocks": {
-        "slide_GpGV3k": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_22888_1.png",
-            "store_name": "Always And Forever Bridal",
-            "address": "Level 1/340 Collins St\nMelbourne VIC 3000\nAustralia",
-            "phone": "+61 3 9077 2999",
-            "email": "Melbourne@Juliesufi.Com",
-            "appointment_label": "BOOK AN APPOINTMENT",
-            "appointment_link": "",
-            "map_label": "VIEW MAP",
-            "map_link": ""
-          }
-        },
-        "slide_bacPtq": {
-          "type": "slide",
-          "settings": {
-            "store_name": "The Sposa Group",
-            "address": "607 High St\nArmadale VIC 3143\nAustralia",
-            "phone": "+61 3 9822 6611",
-            "email": "Armadale@Juliesufi.Com",
-            "appointment_label": "BOOK AN APPOINTMENT",
-            "appointment_link": "",
-            "map_label": "VIEW MAP",
-            "map_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_GpGV3k",
-        "slide_bacPtq"
-      ],
-      "name": "JF Stockists Slider",
-      "settings": {
-        "heading": "STOCKISTS",
-        "description": "<p>Discover Our Full Collections At A Flagship Boutique.</p>",
-        "desktop_background_color": "#ffffff",
-        "mobile_background_color": "#ffffff",
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 24,
-        "padding_bottom_desktop": 24,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0,
-        "margin_top_desktop": 0,
-        "margin_bottom_desktop": 0
       }
     },
     "jf_review_slider_43HAWn": {
@@ -465,6 +447,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22850.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -472,6 +456,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22849.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -479,6 +465,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22848.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -486,6 +474,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22847.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -493,6 +483,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22851.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -504,12 +496,17 @@
         "slide_4jHeqL",
         "slide_Rx7K4R"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
@@ -517,6 +514,68 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 56,
         "padding_bottom_desktop": 56
+      }
+    },
+    "rich_text_XKQa7W": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_L7pMVh": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_kJFfPk": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_L7pMVh",
+        "heading_kJFfPk"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "17751039879dd8b403": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_BeUzUi": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_BeUzUi"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_plain_box_icon_LtEaB4": {
@@ -552,6 +611,7 @@
         "item_9yViWE",
         "item_mBtriY"
       ],
+      "disabled": true,
       "name": "JF Plain Box Icon",
       "settings": {
         "eyebrow": "",
@@ -590,9 +650,10 @@
     "main",
     "jf_book_appointment_eG7cKW",
     "jf_faq_qLMT4m",
-    "jf_stockists_slider_RUdxEp",
     "jf_review_slider_43HAWn",
     "jf_insta_slider_iTayC4",
+    "rich_text_XKQa7W",
+    "17751039879dd8b403",
     "jf_plain_box_icon_LtEaB4",
     "jf_subscribe_fUVymH"
   ]

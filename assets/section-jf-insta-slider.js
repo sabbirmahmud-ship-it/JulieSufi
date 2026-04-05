@@ -12,8 +12,23 @@ if (!customElements.get('jf-insta-slider')) {
       this.dots = this.querySelector('[data-insta-dots]');
       this.prevButton = this.querySelector('[data-insta-prev]');
       this.nextButton = this.querySelector('[data-insta-next]');
+      this.controls = this.querySelector('.jf-insta-slider__controls');
+      this.feedEndpoint = this.dataset.instaFeedEndpoint;
+      this.feedLimit = Number.parseInt(this.dataset.instaFeedLimit || '0', 10) || 0;
+      this.feedHandle = this.dataset.instaFeedHandle || '';
+      this.sectionId = this.dataset.instaSectionId || '';
 
-      if (!this.track || !this.dots || !this.prevButton || !this.nextButton) return;
+      if (!this.track) return;
+
+      this.initializeSlider();
+
+      if (this.feedEndpoint) {
+        this.loadFeed();
+      }
+    }
+
+    initializeSlider() {
+      if (!this.dots || !this.prevButton || !this.nextButton) return;
 
       this.resizeObserver = new ResizeObserver(this.handleResize);
       this.resizeObserver.observe(this.track);
@@ -68,6 +83,10 @@ if (!customElements.get('jf-insta-slider')) {
     }
 
     renderDots() {
+      this.toggleControls();
+
+      if (!this.dots) return;
+
       if (!this.totalPages || this.totalPages < 2) {
         this.dots.innerHTML = '';
         return;
@@ -94,6 +113,10 @@ if (!customElements.get('jf-insta-slider')) {
     }
 
     updateState() {
+      this.toggleControls();
+
+      if (!this.prevButton || !this.nextButton || !this.dots) return;
+
       const dots = Array.from(this.dots.children);
 
       if (!this.slideOffset) {
@@ -122,6 +145,131 @@ if (!customElements.get('jf-insta-slider')) {
       } else {
         this.nextButton.removeAttribute('disabled');
       }
+    }
+
+    toggleControls() {
+      if (!this.controls) return;
+
+      this.controls.hidden = !this.totalPages || this.totalPages < 2;
+    }
+
+    async loadFeed() {
+      const url = this.buildFeedUrl();
+
+      if (!url) return;
+
+      try {
+        const response = await fetch(url, {
+          headers: {
+            Accept: 'application/json',
+          },
+          credentials: 'same-origin',
+        });
+
+        if (!response.ok) return;
+
+        const payload = await response.json();
+        const posts = this.normalizePosts(payload);
+
+        if (!posts.length) return;
+
+        this.renderFeedSlides(posts);
+      } catch (error) {
+        console.warn('JF Instagram slider feed could not be loaded.', error);
+      }
+    }
+
+    buildFeedUrl() {
+      if (!this.feedEndpoint) return '';
+
+      try {
+        const url = new URL(this.feedEndpoint, window.location.origin);
+
+        if (this.feedLimit > 0) {
+          url.searchParams.set('limit', String(this.feedLimit));
+        }
+
+        if (this.feedHandle) {
+          url.searchParams.set('handle', this.feedHandle);
+        }
+
+        if (this.sectionId) {
+          url.searchParams.set('section_id', this.sectionId);
+        }
+
+        return url.toString();
+      } catch (error) {
+        console.warn('JF Instagram slider feed endpoint is invalid.', error);
+        return '';
+      }
+    }
+
+    normalizePosts(payload) {
+      const source =
+        (Array.isArray(payload) && payload) ||
+        (Array.isArray(payload?.posts) && payload.posts) ||
+        (Array.isArray(payload?.items) && payload.items) ||
+        (Array.isArray(payload?.media) && payload.media) ||
+        [];
+
+      return source
+        .map((item) => ({
+          alt: item.alt || item.caption || '',
+          imageUrl: item.image_url || item.imageUrl || item.media_url || item.mediaUrl || item.thumbnail_url || '',
+          permalink: item.permalink || item.link || '',
+        }))
+        .filter((item) => item.imageUrl);
+    }
+
+    renderFeedSlides(posts) {
+      const shouldSlider = posts.length > 5;
+
+      this.track.classList.toggle('jf-insta-slider__track--slider', shouldSlider);
+      this.track.classList.toggle('jf-insta-slider__track--grid', !shouldSlider);
+      this.track.innerHTML = posts.map((post) => this.buildSlideMarkup(post)).join('');
+
+      this.handleResize();
+      this.track.scrollTo({ left: 0, behavior: 'auto' });
+      this.updateState();
+    }
+
+    buildSlideMarkup(post) {
+      const imageAlt = this.escapeHtml(post.alt);
+      const imageMarkup = `
+        <div class="jf-insta-slider__media">
+          <img src="${this.escapeAttribute(post.imageUrl)}" alt="${imageAlt}" loading="lazy" sizes="(min-width: 750px) 20vw, 48vw">
+        </div>
+      `;
+
+      if (post.permalink) {
+        return `
+          <li class="jf-insta-slider__slide" data-insta-slide>
+            <a href="${this.escapeAttribute(post.permalink)}" class="jf-insta-slider__link">
+              ${imageMarkup}
+            </a>
+          </li>
+        `;
+      }
+
+      return `
+        <li class="jf-insta-slider__slide" data-insta-slide>
+          <div class="jf-insta-slider__card">
+            ${imageMarkup}
+          </div>
+        </li>
+      `;
+    }
+
+    escapeAttribute(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    escapeHtml(value) {
+      return this.escapeAttribute(value).replace(/'/g, '&#39;');
     }
   }
 

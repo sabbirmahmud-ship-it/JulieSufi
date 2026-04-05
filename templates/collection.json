@@ -116,7 +116,7 @@
             "phone": "+61 3 9077 2999",
             "email": "Melbourne@Juliesufi.Com",
             "appointment_label": "BOOK AN APPOINTMENT",
-            "appointment_link": "shopify://pages/contact-us",
+            "appointment_link": "shopify://pages/book-an-appointment",
             "map_label": "VIEW MAP",
             "map_link": "#"
           }
@@ -139,6 +139,7 @@
         "slide_3cwnLE",
         "slide_mjBdzV"
       ],
+      "disabled": true,
       "name": "JF Stockists Slider",
       "settings": {
         "heading": "STOCKISTS",
@@ -161,6 +162,7 @@
       "settings": {
         "heading": "RUNWAY VIDEO",
         "video": "shopify://files/videos/Montage video.mov",
+        "video_url": "",
         "enable_video_looping": false,
         "desktop_background_color": "#f6f6f6",
         "mobile_background_color": "#f6f6f6",
@@ -187,6 +189,9 @@
       "block_order": [
         "text_7a8PNJ"
       ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 114rem; font-size: 16px; font-family: var(--outfit-font); }}"
+      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "desktop_content_position": "center",
@@ -204,6 +209,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/gdoc-image-b23WKiK9.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -211,6 +218,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/gdoc-image-2RFhmM4w.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -218,6 +227,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Helena.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -225,6 +236,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/D3X3563-3.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -232,6 +245,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/D3X3388-2.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -243,12 +258,17 @@
         "slide_xzbNFD",
         "slide_Tm96dG"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
@@ -256,6 +276,68 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 24,
         "padding_bottom_desktop": 24
+      }
+    },
+    "rich_text_jitazH": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_jm6PUq": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_qe4nUm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_jm6PUq",
+        "heading_qe4nUm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "1775103762a59ef13d": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_xCG8a9": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_xCG8a9"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_plain_box_icon_3A4jL4": {
@@ -266,7 +348,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Vector.png",
             "title": "Book an appointment",
-            "link": ""
+            "link": "shopify://pages/book-an-appointment"
           }
         },
         "item_KctGkR": {
@@ -274,15 +356,15 @@
           "settings": {
             "icon_image": "shopify://shop_images/Frame.png",
             "title": "Find a boutique",
-            "link": ""
+            "link": "shopify://pages/contact-us"
           }
         },
         "item_mpMgH4": {
           "type": "item",
           "settings": {
-            "icon_image": "shopify://shop_images/Frame.png",
+            "icon_image": "shopify://shop_images/Frame_1.png",
             "title": "Contact us",
-            "link": ""
+            "link": "shopify://pages/contact-us"
           }
         }
       },
@@ -334,6 +416,8 @@
     "jf_video_EgkQna",
     "rich_text_MAU33A",
     "jf_insta_slider_KXYJ4z",
+    "rich_text_jitazH",
+    "1775103762a59ef13d",
     "jf_plain_box_icon_3A4jL4",
     "jf_subscribe_qegYkt"
   ]

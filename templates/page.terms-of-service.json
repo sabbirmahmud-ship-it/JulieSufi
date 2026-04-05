@@ -23,14 +23,14 @@
         "heading_Cxzwmr": {
           "type": "heading",
           "settings": {
-            "heading": "PRIVACY POLICY",
+            "heading": "Terms of service",
             "heading_size": "h1"
           }
         },
         "text_DGFcqc": {
           "type": "text",
           "settings": {
-            "text": "<p>Last updated: July 13, 2023<br/><br/></p>"
+            "text": "<p>Last updated: July 13, 2023</p>"
           }
         }
       },
@@ -48,48 +48,20 @@
         "padding_bottom": 0
       }
     },
-    "rich_text_MhqGAP": {
-      "type": "rich-text",
-      "blocks": {
-        "text_fEiNCN": {
-          "type": "text",
-          "settings": {
-            "text": "<p>JULIE SUFI recognizes the importance of protecting the privacy of all visitors to the JULIE SUFI website. The following explains how we handle information that we learn about you when you visit our site.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_fEiNCN"
-      ],
-      "custom_css": [
-        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
-        ".rich-text__blocks {max-width: 100%;}",
-        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 28,
-        "padding_bottom": 0
-      }
-    },
     "rich_text_8YiUTK": {
       "type": "rich-text",
       "blocks": {
         "heading_pi6gEq": {
           "type": "heading",
           "settings": {
-            "heading": "PERSONALLY IDENTIFIABLE INFORMATION",
+            "heading": "OWNERSHIP RIGHTS",
             "heading_size": "h1"
           }
         },
         "text_cw9Nca": {
           "type": "text",
           "settings": {
-            "text": "<p>Personally identifiable information, including names, addresses, e-mails and the like, is collected on this website only when it is voluntarily provided by a visitor to our site. BELLUCCIO shall not knowingly provide your name, address and e-mail to any third party without your prior consent unless ordered to do so by a court or other governmental agency.</p>"
+            "text": "<p>The JULIE SUFI company (\"JULIE SUFI\") own all rights, title and interest in and to this website.</p>"
           }
         }
       },
@@ -118,14 +90,14 @@
         "heading_YJX6UA": {
           "type": "heading",
           "settings": {
-            "heading": "COLLECTING DATA",
+            "heading": "USE OF SITE MATERIALS",
             "heading_size": "h1"
           }
         },
         "text_aQimgq": {
           "type": "text",
           "settings": {
-            "text": "<p>The JULIE SUFI website may deposit \"cookies\" in a visitor's computer. Cookies are pieces of information that a website transfers to an individual's hard drive for record keeping purposes. Cookies are only sent back to the website that deposited them when a visitor returns to that site. Cookies make it easier for you by saving your preferences while you are at our site. We never save passwords, credit card information or other personal identifiable information in cookies.</p><p>Most web browsers are initially set up to accept cookies. You can, however, reset your browser to refuse all cookies or to indicate when a cookie is being sent.</p>"
+            "text": "<p>JULIE SUFI owns all copyrights for all material on this site or has a valid right from a third party to use the material on this website. JULIE SUFI also owns all trademarks, service marks, trade names, logos and domain names used on or in connection with this website.</p><p>No part of this website may be copied, reproduced, republished, uploaded, posted, transmitted or distributed in any way for commercial purposes. This prohibition also includes framing any content from this site on another site, as well as unauthorized linking.</p><p>Any modification or use of the materials from this site for any purpose not explicitly permitted is a violation of JULIE SUFI's copyright and other proprietary rights. Use of material from this site without JULIE SUFI's prior written consent is strictly prohibited.</p><p>There may be third party sites which link to this site. JULIE SUFI does not endorse any such site or the goods or services offered on such site. JULIE SUFI disclaims all responsibility for the accuracy of any of the information provided on such site and any goods or services provided or purchased from such site. JULIE SUFI shall not be held liable or responsible for the content of any sites which link to this site.</p>"
           }
         }
       },
@@ -154,14 +126,14 @@
         "heading_kEtggb": {
           "type": "heading",
           "settings": {
-            "heading": "INFORMATION REMOVAL",
+            "heading": "AGREEMENT TO TERMS",
             "heading_size": "h1"
           }
         },
         "text_NTP8KU": {
           "type": "text",
           "settings": {
-            "text": "<p>If you prefer not to receive information from us, please send us an e-mail at contact@juliesufi.com. Please include your name and e-mail address and any message.</p>"
+            "text": "<p>Your use of this site constitutes your agreement to be bound by and to act in accordance with these Terms of Use.</p>"
           }
         }
       },
@@ -190,20 +162,128 @@
         "heading_z7H4Hn": {
           "type": "heading",
           "settings": {
-            "heading": "ADDITIONAL INFORMATION",
+            "heading": "ACCURACY OF INFORMATION",
             "heading_size": "h1"
           }
         },
         "text_iiRUnT": {
           "type": "text",
           "settings": {
-            "text": "<p>Transmission of data over the Internet is never guaranteed to be completely secure. It is possible that third parties not under the control of JULIE SUFI may be able to access or intercept transmissions or private communications without JULIE SUFI' permission or knowledge. JULIE SUFI takes all steps possible to protect your personal information. However, we cannot ensure or warrant the security of any information you transmit to us. Such transmissions are done at your own risk.</p><p>JULIE SUFI shall not, under any circumstances, including but not limited to negligence, be liable for any special, incidental or consequential damages that result from the disclosure or use of the information or materials on this site.</p><p>JULIE SUFI reserves the right to change this Privacy Policy at any time. Any such changes shall be posted on this site.</p>"
+            "text": "<p>JULIE SUFI takes all possible steps to ensure the accuracy and timeliness of the information included on this site. However, information provided is subject to change at any time without prior notice. Accordingly, JULIE SUFI cannot absolutely guarantee the accuracy, completeness or timeliness of the information provided on this site.</p>"
           }
         }
       },
       "block_order": [
         "heading_z7H4Hn",
         "text_iiRUnT"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_YtrDaG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cCCy6A": {
+          "type": "heading",
+          "settings": {
+            "heading": "OTHER",
+            "heading_size": "h1"
+          }
+        },
+        "text_8U6Qyk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This site is for informational and entertainment purposes only. It is not intended to provide any medical information or advice about the skin or otherwise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cCCy6A",
+        "text_8U6Qyk"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_8KFWjQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xKHT7E": {
+          "type": "heading",
+          "settings": {
+            "heading": "NO WAIVER",
+            "heading_size": "h1"
+          }
+        },
+        "text_wgWJbF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The failure on the part of JULIE SUFI to enforce any part of these Terms of Use shall not constitute a waiver of any of JULIE SUFI's rights hereunder for past or future actions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xKHT7E",
+        "text_wgWJbF"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_YRaQkL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MDcGyp": {
+          "type": "heading",
+          "settings": {
+            "heading": "MODIFICATIONS",
+            "heading_size": "h1"
+          }
+        },
+        "text_WtpabW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>JULIE SUFI reserves the right to change the Terms of Use at any time. Any such changes will be posted on this site</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MDcGyp",
+        "text_WtpabW"
       ],
       "custom_css": [
         ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
@@ -290,11 +370,13 @@
   "order": [
     "main",
     "rich_text_W3YpgC",
-    "rich_text_MhqGAP",
     "rich_text_8YiUTK",
     "rich_text_pfk8Ed",
     "rich_text_xQ3Vfb",
     "rich_text_wdnLXq",
+    "rich_text_YtrDaG",
+    "rich_text_8KFWjQ",
+    "rich_text_YRaQkL",
     "jf_plain_box_icon_xUhkTn",
     "jf_subscribe_icgXYr"
   ]

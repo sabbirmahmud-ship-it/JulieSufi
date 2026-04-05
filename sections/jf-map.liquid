@@ -137,6 +137,13 @@
                 </a>
               {%- endif -%}
 
+              {%- if section.settings.general_insta_dm != blank -%}
+                <a class="jf-map__contact-link" href="{{ section.settings.general_insta_dm | escape }}">
+                  {{ 'icon-instagram.svg' | inline_asset_content }}
+                  <span>Instagram DM</span>
+                </a>
+              {%- endif -%}
+
               {%- if section.settings.phone_number != blank -%}
                 <a
                   class="jf-map__contact-link"
@@ -213,6 +220,12 @@
       "id": "general_enquiries_email",
       "label": "General enquiries email",
       "default": "Contact@Juliesufi.Com"
+    },
+    {
+      "type": "text",
+      "id": "general_insta_dm",
+      "label": "Instagram DM Link",
+      "default": "https://www.instagram.com/juliesufi/"
     },
     {
       "type": "text",

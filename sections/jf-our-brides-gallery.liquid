@@ -1,30 +1,47 @@
-{{ 'section-jf-our-brides.css' | asset_url | stylesheet_tag }}
+{{ 'section-jf-our-brides-gallery.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'section-jf-our-brides.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign desktop_background_image = section.settings.desktop_background_image
   assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
   assign fallback_background_image = desktop_background_image | default: mobile_background_image
-  assign bride_entries = blank
-  assign bride_blocks = section.blocks
-  assign has_bride_entries = false
+  assign gallery_source_mode = section.settings.gallery_source | default: 'auto'
+  assign metafield_namespace = section.settings.gallery_metafield_namespace | strip
+  assign metafield_key = section.settings.gallery_metafield_key | strip
+  assign gallery_metafield = blank
+  assign gallery_images = blank
+  assign has_gallery_images = false
+  assign use_manual_blocks = true
+  assign gallery_blocks = section.blocks
   assign fetch_priority = 'auto'
   assign show_share_button = false
 
-  if metaobjects.our_bride != blank
-    assign bride_entries = metaobjects.our_bride.values
+  if gallery_source_mode != 'manual' and metafield_namespace != blank and metafield_key != blank
+    if page != blank and page.metafields[metafield_namespace] != blank and page.metafields[metafield_namespace][metafield_key] != blank
+      assign gallery_metafield = page.metafields[metafield_namespace][metafield_key]
+    elsif shop.metafields[metafield_namespace] != blank and shop.metafields[metafield_namespace][metafield_key] != blank
+      assign gallery_metafield = shop.metafields[metafield_namespace][metafield_key]
+    endif
+
+    if gallery_metafield != blank and gallery_metafield.value != blank
+      assign gallery_images = gallery_metafield.value
+      assign has_gallery_images = true
+      assign use_manual_blocks = false
+    elsif gallery_source_mode == 'metafield'
+      assign use_manual_blocks = false
+    endif
   endif
 
   if section.settings.cards_order == 'reverse'
-    if bride_entries != blank
-      assign bride_entries = bride_entries | reverse
+    if gallery_images != blank
+      assign gallery_images = gallery_images | reverse
     endif
 
-    assign bride_blocks = bride_blocks | reverse
+    assign gallery_blocks = gallery_blocks | reverse
   endif
 
-  if bride_entries != blank
-    assign has_bride_entries = true
+  if gallery_source_mode == 'manual'
+    assign use_manual_blocks = true
   endif
 
   if section.settings.show_share_button and section.settings.button_label != blank
@@ -37,7 +54,7 @@
 -%}
 
 {%- style -%}
-  #JfOurBrides-{{ section.id }} {
+  #JfOurBridesGallery-{{ section.id }} {
     background-color: {{ section.settings.mobile_background_color }};
     margin-top: {{ section.settings.margin_top_mobile }}px;
     margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
@@ -45,26 +62,26 @@
     --jf-our-brides-columns-desktop: {{ section.settings.columns_desktop }};
   }
 
-  #JfOurBrides-{{ section.id }} .jf-our-brides__inner {
+  #JfOurBridesGallery-{{ section.id }} .jf-our-brides__inner {
     padding-top: {{ section.settings.padding_top_mobile }}px;
     padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
   }
 
   @media screen and (min-width: 750px) {
-    #JfOurBrides-{{ section.id }} {
+    #JfOurBridesGallery-{{ section.id }} {
       background-color: {{ section.settings.desktop_background_color }};
       margin-top: {{ section.settings.margin_top_desktop }}px;
       margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
     }
 
-    #JfOurBrides-{{ section.id }} .jf-our-brides__inner {
+    #JfOurBridesGallery-{{ section.id }} .jf-our-brides__inner {
       padding-top: {{ section.settings.padding_top_desktop }}px;
       padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
     }
   }
 {%- endstyle -%}
 
-<section id="JfOurBrides-{{ section.id }}" class="jf-our-brides">
+<section id="JfOurBridesGallery-{{ section.id }}" class="jf-our-brides">
   {%- if fallback_background_image != blank -%}
     <div class="jf-our-brides__background">
       <picture>
@@ -129,15 +146,12 @@
 
       <div class="jf-our-brides__grid-wrapper{% unless show_share_button %} jf-our-brides__grid-wrapper--no-actions{% endunless %}">
         <div class="jf-our-brides__grid" data-items>
-          {%- if has_bride_entries -%}
-            {%- for bride in bride_entries -%}
+          {%- if has_gallery_images -%}
+            {%- for gallery_image in gallery_images -%}
               {%- liquid
                 assign image_loading = 'lazy'
-                assign bride_image = bride.image.value
-                assign bride_name = bride.title.value
-                assign bride_gown_name = bride.gown_name.value
-                assign bride_wedding_date = bride.wedding_date.value
-                assign bride_image_alt = bride_image.alt | default: bride_name
+                assign gallery_image_alt = gallery_image.alt | default: section.settings.heading
+
                 if forloop.index <= section.settings.items_per_page_desktop
                   assign image_loading = 'eager'
                 endif
@@ -146,54 +160,33 @@
               <article
                 class="jf-our-brides__card"
                 data-page-item
-                data-block-id="{{ bride.system.handle }}"
+                data-block-id="metafield-image-{{ forloop.index0 }}"
               >
                 <div class="jf-our-brides__card-link">
                   <div class="jf-our-brides__media">
-                    {%- if bride_image != blank -%}
+                    {%- if gallery_image != blank -%}
                       {{
-                        bride_image
+                        gallery_image
                         | image_url: width: 1200
                         | image_tag:
                           widths: '275, 420, 550, 720, 900, 1200',
                           sizes: '(min-width: 750px) 33vw, 100vw',
                           loading: image_loading,
-                          alt: bride_image_alt
+                          alt: gallery_image_alt
                       }}
                     {%- else -%}
                       {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
                     {%- endif -%}
                   </div>
-
-                  <div class="jf-our-brides__card-content">
-                    {% comment %} {%- if bride_name != blank -%}
-                      <h3 class="jf-our-brides__card-title">{{ bride_name | escape }}</h3>
-                    {%- endif -%} {% endcomment %}
-
-                    {%- if bride_gown_name != blank or bride_wedding_date != blank -%}
-                      <div class="jf-our-brides__meta">
-                        {%- if bride_gown_name != blank -%}
-                          <span class="jf-our-brides__meta-gown">{{ bride_gown_name | escape }}</span>
-                        {%- endif -%}
-
-                        {%- if bride_gown_name != blank and bride_wedding_date != blank -%}
-                          <span class="jf-our-brides__meta-separator" aria-hidden="true"></span>
-                        {%- endif -%}
-
-                        {%- if bride_wedding_date != blank -%}
-                          <span class="jf-our-brides__meta-date">{{ bride_wedding_date | escape }}</span>
-                        {%- endif -%}
-                      </div>
-                    {%- endif -%}
-                  </div>
                 </div>
               </article>
             {%- endfor -%}
-          {%- else -%}
-            {%- for block in bride_blocks -%}
+          {%- elsif use_manual_blocks -%}
+            {%- for block in gallery_blocks -%}
               {%- liquid
                 assign image_loading = 'lazy'
-                assign bride_image_alt = block.settings.image.alt | default: block.settings.bride_name
+                assign gallery_image_alt = block.settings.alt_text | default: block.settings.image.alt | default: section.settings.heading
+
                 if forloop.index <= section.settings.items_per_page_desktop
                   assign image_loading = 'eager'
                 endif
@@ -219,32 +212,10 @@
                             widths: '275, 420, 550, 720, 900, 1200',
                             sizes: '(min-width: 750px) 33vw, 100vw',
                             loading: image_loading,
-                            alt: bride_image_alt
+                            alt: gallery_image_alt
                         }}
                       {%- else -%}
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
-                      {%- endif -%}
-                    </div>
-
-                    <div class="jf-our-brides__card-content">
-                      {%- if block.settings.bride_name != blank -%}
-                        <h3 class="jf-our-brides__card-title">{{ block.settings.bride_name | escape }}</h3>
-                      {%- endif -%}
-
-                      {%- if block.settings.gown_name != blank or block.settings.wedding_date != blank -%}
-                        <div class="jf-our-brides__meta">
-                          {%- if block.settings.gown_name != blank -%}
-                            <span class="jf-our-brides__meta-gown">{{ block.settings.gown_name | escape }}</span>
-                          {%- endif -%}
-
-                          {%- if block.settings.gown_name != blank and block.settings.wedding_date != blank -%}
-                            <span class="jf-our-brides__meta-separator" aria-hidden="true"></span>
-                          {%- endif -%}
-
-                          {%- if block.settings.wedding_date != blank -%}
-                            <span class="jf-our-brides__meta-date">{{ block.settings.wedding_date | escape }}</span>
-                          {%- endif -%}
-                        </div>
                       {%- endif -%}
                     </div>
                 {%- if block.settings.link != blank -%}
@@ -257,13 +228,13 @@
           {%- endif -%}
         </div>
 
-        <div class="jf-our-brides__empty{% if has_bride_entries or section.blocks.size > 0 %} hidden{% endif %}">
-          Add bride blocks to populate this section.
+        <div class="jf-our-brides__empty{% if has_gallery_images or section.blocks.size > 0 %} hidden{% endif %}">
+          Add gallery image blocks or connect a gallery metafield to populate this section.
         </div>
       </div>
 
       <div class="jf-our-brides__pagination" data-pagination hidden>
-        <nav class="jf-our-brides__pagination-nav" aria-label="Our brides pagination">
+        <nav class="jf-our-brides__pagination-nav" aria-label="Our brides gallery pagination">
           <button
             type="button"
             class="jf-our-brides__pagination-arrow"
@@ -289,7 +260,7 @@
 
 {% schema %}
 {
-  "name": "JF Our Brides",
+  "name": "JF Our Brides Gallery",
   "settings": [
     {
       "type": "header",
@@ -327,6 +298,38 @@
     {
       "type": "header",
       "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "gallery_source",
+      "label": "Gallery source",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Metafield first, then manual blocks"
+        },
+        {
+          "value": "metafield",
+          "label": "Metafield only"
+        },
+        {
+          "value": "manual",
+          "label": "Manual blocks only"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "text",
+      "id": "gallery_metafield_namespace",
+      "label": "Gallery metafield namespace",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "gallery_metafield_key",
+      "label": "Gallery metafield key",
+      "default": "jf_our_brides_gallery_images"
     },
     {
       "type": "range",
@@ -497,8 +500,8 @@
   ],
   "blocks": [
     {
-      "type": "bride",
-      "name": "Bride",
+      "type": "gallery_image",
+      "name": "Gallery image",
       "settings": [
         {
           "type": "image_picker",
@@ -507,57 +510,30 @@
         },
         {
           "type": "text",
-          "id": "bride_name",
-          "label": "Bride names",
-          "default": "Beautiful Bride"
-        },
-        {
-          "type": "text",
-          "id": "gown_name",
-          "label": "Gown name",
-          "default": "THE SERAPHINE GOWN"
-        },
-        {
-          "type": "text",
-          "id": "wedding_date",
-          "label": "Wedding date",
-          "default": "November 08, 2025"
+          "id": "alt_text",
+          "label": "Alt text"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Card link"
+          "label": "Image link"
         }
       ]
     }
   ],
+  "max_blocks": 50,
   "presets": [
     {
-      "name": "JF Our Brides",
+      "name": "JF Our Brides Gallery",
       "blocks": [
         {
-          "type": "bride",
-          "settings": {
-            "bride_name": "Jacqueline & Chris",
-            "gown_name": "THE SERAPHINE GOWN",
-            "wedding_date": "November 08, 2025"
-          }
+          "type": "gallery_image"
         },
         {
-          "type": "bride",
-          "settings": {
-            "bride_name": "Claire & Will",
-            "gown_name": "THE SERAPHINE GOWN",
-            "wedding_date": "November 08, 2025"
-          }
+          "type": "gallery_image"
         },
         {
-          "type": "bride",
-          "settings": {
-            "bride_name": "Emily & Daniel",
-            "gown_name": "THE SERAPHINE GOWN",
-            "wedding_date": "November 08, 2025"
-          }
+          "type": "gallery_image"
         }
       ]
     }

@@ -103,6 +103,38 @@
   </div>
 </section>
 
+<script>
+  (function() {
+    var section = document.getElementById('JfFaq-{{ section.id }}');
+
+    if (!section) return;
+
+    var items = Array.prototype.slice.call(section.querySelectorAll('.jf-faq__item'));
+
+    if (!items.length) return;
+
+    var openItems = items.filter(function(item) {
+      return item.hasAttribute('open');
+    });
+
+    openItems.slice(1).forEach(function(item) {
+      item.removeAttribute('open');
+    });
+
+    items.forEach(function(item) {
+      item.addEventListener('toggle', function() {
+        if (!item.open) return;
+
+        items.forEach(function(otherItem) {
+          if (otherItem !== item && otherItem.open) {
+            otherItem.removeAttribute('open');
+          }
+        });
+      });
+    });
+  })();
+</script>
+
 {% schema %}
 {
   "name": "JF FAQ",

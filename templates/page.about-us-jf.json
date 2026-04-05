@@ -362,6 +362,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Elodie5.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -369,6 +371,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Isaline3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -376,6 +380,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Camille3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -383,6 +389,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/NerisseSleeves3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -390,6 +398,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Isolde4.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -401,12 +411,17 @@
         "slide_Pan9zK",
         "slide_wGJbDt"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
@@ -414,6 +429,68 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 24,
         "padding_bottom_desktop": 24
+      }
+    },
+    "rich_text_iG9HmL": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_CYKVac": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_YkBYpn": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_CYKVac",
+        "heading_YkBYpn"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "177510389638a2cdda": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_jEDF8i": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_jEDF8i"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_plain_box_icon_yiQXy9": {
@@ -432,7 +509,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Frame.png",
             "title": "Find a boutique",
-            "link": ""
+            "link": "shopify://pages/contact-us"
           }
         },
         "item_a6txm7": {
@@ -440,7 +517,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Frame_1.png",
             "title": "Contact us",
-            "link": ""
+            "link": "shopify://pages/contact-us"
           }
         }
       },
@@ -495,6 +572,8 @@
     "jf_stockists_slider_w8ym9C",
     "rich_text_a7hKBq",
     "jf_insta_slider_LtFPw3",
+    "rich_text_iG9HmL",
+    "177510389638a2cdda",
     "jf_plain_box_icon_yiQXy9",
     "jf_subscribe_YVtWCX"
   ]

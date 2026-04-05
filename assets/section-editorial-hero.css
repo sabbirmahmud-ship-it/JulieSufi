@@ -167,16 +167,92 @@
 
 @media screen and (max-width: 749px) {
   .editorial-hero__frame {
-    min-height: var(--mobile-height, 48rem);
+    min-height: max(var(--mobile-height, 48rem), 67.5rem);
   }
 
-  .editorial-hero__frame::after,
+  .editorial-hero__frame::after {
+    display: block;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247, 243, 239, 0.02) 0%,
+        rgba(247, 243, 239, 0.08) 40%,
+        rgba(247, 243, 239, 0.36) 64%,
+        rgba(247, 243, 239, 0.86) 82%,
+        rgba(247, 243, 239, 0.96) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(247, 243, 239, 0.6) 0%,
+        rgba(247, 243, 239, 0.22) 30%,
+        rgba(247, 243, 239, 0) 58%
+      );
+  }
+
   .editorial-hero__inner {
-    display: none;
+    display: flex;
+    align-items: flex-end;
+    min-height: max(var(--mobile-height, 48rem), 67.5rem);
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
   }
 
   .editorial-hero__media img,
   .editorial-hero__media .placeholder-svg {
     object-position: var(--mobile-object-position, center center);
+  }
+
+  .editorial-hero__content {
+    width: 100%;
+    max-width: 36rem;
+    padding: 0 0 3rem;
+  }
+
+  .editorial-hero__heading {
+    max-width: 31rem;
+    font-size: clamp(4.2rem, 10vw, 5.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+    font-style: italic;
+  }
+
+  .editorial-hero__heading-line + .editorial-hero__heading-line {
+    margin-top: 0.4rem;
+  }
+
+  .editorial-hero__heading-line--accent {
+    font-style: inherit;
+  }
+
+  .editorial-hero__copy {
+    max-width: 34rem;
+    margin-top: 2.2rem;
+    font-size: 1.5rem;
+    line-height: 1.55;
+  }
+
+  .editorial-hero__actions {
+    flex-direction: column;
+    gap: 1.6rem;
+    margin-top: 2.8rem;
+  }
+
+  .editorial-hero__button {
+    width: 100%;
+    min-height: 6.2rem;
+    padding: 1.8rem 2.2rem;
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+  }
+
+  .editorial-hero__button .svg-wrapper {
+    width: 1.7rem;
+    height: 1.7rem;
+    margin-left: auto;
+  }
+
+  .editorial-hero__button--secondary {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(29, 28, 34, 0.32);
   }
 }

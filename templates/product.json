@@ -115,7 +115,7 @@
     "related-products": {
       "type": "related-products",
       "custom_css": [
-        "@media only screen and (min-width: 750px) {h2, .h2 {font-size: calc(var(--font-heading-scale) * 2.4rem); text-align: center; font-family: \"Taviraj\"; }}",
+        "@media only screen and (min-width: 750px) {h2, .h2 {font-size: 42px; text-align: center; font-family: \"Taviraj\"; }}",
         ".card-information {display: none;}",
         "@media only screen and (min-width: 750px) {h5, .h5 {font-size: 16px; text-align: center; font-family: \"Outfit\"; }}"
       ],
@@ -135,57 +135,6 @@
         "padding_bottom": 28
       }
     },
-    "jf_stockists_slider_PKzfCm": {
-      "type": "jf-stockists-slider",
-      "blocks": {
-        "slide_nHaNRh": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Rectangle_22888_1.png",
-            "store_name": "Always And Forever Bridal",
-            "address": "Level 1/340 Collins St\nMelbourne VIC 3000\nAustralia",
-            "phone": "+61 3 9077 2999",
-            "email": "Melbourne@Juliesufi.Com",
-            "appointment_label": "BOOK AN APPOINTMENT",
-            "appointment_link": "",
-            "map_label": "VIEW MAP",
-            "map_link": ""
-          }
-        },
-        "slide_kRamDK": {
-          "type": "slide",
-          "settings": {
-            "store_name": "The Sposa Group",
-            "address": "607 High St\nArmadale VIC 3143\nAustralia",
-            "phone": "+61 3 9822 6611",
-            "email": "Armadale@Juliesufi.Com",
-            "appointment_label": "BOOK AN APPOINTMENT",
-            "appointment_link": "",
-            "map_label": "VIEW MAP",
-            "map_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_nHaNRh",
-        "slide_kRamDK"
-      ],
-      "name": "JF Stockists Slider",
-      "settings": {
-        "heading": "STOCKISTS",
-        "description": "<p>Discover Our Full Collections At A Flagship Boutique.</p>",
-        "desktop_background_color": "#ffffff",
-        "mobile_background_color": "#ffffff",
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 48,
-        "padding_top_desktop": 52,
-        "padding_bottom_desktop": 52,
-        "margin_top_mobile": 0,
-        "margin_bottom_mobile": 0,
-        "margin_top_desktop": 52,
-        "margin_bottom_desktop": 52
-      }
-    },
     "jf_insta_slider_dm6Td8": {
       "type": "jf-insta-slider",
       "blocks": {
@@ -193,6 +142,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/D3X3500-2.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -200,6 +151,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Genevieve.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -207,6 +160,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/gdoc-image-CnqzxHpa.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -214,6 +169,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/gdoc-image-QWN9jcPd.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -221,6 +178,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/gdoc-image-9OkaMgTD.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -232,12 +191,17 @@
         "slide_wBFdP9",
         "slide_BKWgwx"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
@@ -245,6 +209,71 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 24,
         "padding_bottom_desktop": 24
+      }
+    },
+    "rich_text_BB4WWX": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_rWVdYL": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_ntMkPF": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_rWVdYL",
+        "heading_ntMkPF"
+      ],
+      "custom_css": [
+        "@media only screen and (min-width: 750px) {h2, .h2 {font-size: 42px; text-align: center; font-family: \"Taviraj\"; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "1775104302a9cab0cf": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_KRB4kf": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_KRB4kf"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_faq_wjFqkF": {
@@ -328,6 +357,7 @@
         "item_iDRxMa",
         "item_9Yjbzc"
       ],
+      "disabled": true,
       "name": "JF Plain Box Icon",
       "settings": {
         "eyebrow": "",
@@ -366,8 +396,9 @@
     "main",
     "icon_boxed_4x9FiQ",
     "related-products",
-    "jf_stockists_slider_PKzfCm",
     "jf_insta_slider_dm6Td8",
+    "rich_text_BB4WWX",
+    "1775104302a9cab0cf",
     "jf_faq_wjFqkF",
     "jf_plain_box_icon_3RWYMj",
     "jf_subscribe_djtMfA"

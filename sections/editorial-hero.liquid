@@ -63,7 +63,7 @@
     <div class="editorial-hero__inner page-width">
       <div class="editorial-hero__content">
         {%- if section.settings.heading_line_one != blank or section.settings.heading_line_two != blank -%}
-          <h2 class="editorial-hero__heading">
+          <h1 class="editorial-hero__heading">
             {%- if section.settings.heading_line_one != blank -%}
               <span class="editorial-hero__heading-line">{{ section.settings.heading_line_one | escape }}</span>
             {%- endif -%}
@@ -72,7 +72,7 @@
                 {{ section.settings.heading_line_two | escape }}
               </span>
             {%- endif -%}
-          </h2>
+          </h1>
         {%- endif -%}
 
         {%- if section.settings.body_text != blank -%}

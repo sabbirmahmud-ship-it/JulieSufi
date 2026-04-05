@@ -16,7 +16,7 @@
           "type": "button",
           "settings": {
             "label": "Book a free consultation",
-            "link": "shopify://pages/contact-us",
+            "link": "shopify://pages/book-an-appointment",
             "style": "primary",
             "show_icon": true
           }
@@ -44,9 +44,9 @@
         "desktop_height": 740,
         "mobile_height": 480,
         "content_width": 620,
-        "body_text": "<p>Handcrafted couture gowns, designed in direct collaboration with our head designer for the bride who wants extraordinary. </p>",
-        "heading_line_one": "Wedding Dresses",
-        "heading_line_two": "Melbourne",
+        "body_text": "<p>Handcrafted couture gowns, designed in direct collaboration with our head designer for the bride who wants extraordinary.  </p>",
+        "heading_line_one": "Wedding Dresses Melbourne",
+        "heading_line_two": "",
         "color_scheme": "scheme-1"
       }
     },
@@ -108,7 +108,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Group_1000013359_a6c61faf-53f7-433c-a09f-99ba2fc0ca3f.png",
             "title": "Book a Free Consultation",
-            "text": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.</p>"
+            "text": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.  </p>"
           }
         },
         "item_XmgC8t": {
@@ -123,8 +123,8 @@
           "type": "item",
           "settings": {
             "icon_image": "shopify://shop_images/Group_1000013361_35d9eed5-b423-4d90-80c3-0752f970844b.png",
-            "title": "Final Fittings",
-            "text": "<p>Hand-finished fittings ensure every detail is perfected. Your gown is handed over, complete, ready for your extraordinary day.</p>"
+            "title": "Fittings",
+            "text": "<p>Hand-finished fittings ensure every detail is perfected. Your gown is handed over, complete, ready for your extraordinary day. </p>"
           }
         }
       },
@@ -137,9 +137,9 @@
       "settings": {
         "eyebrow": "The Bridal Experience",
         "heading": "A Personalised Couture Journey",
-        "description": "<p>Guided by our head designer, from first sketch to final handover.</p>",
+        "description": "<p>Guided by our head designer, from first sketch to final handover. </p>",
         "button_label": "Book a free consultation",
-        "button_link": "shopify://pages/contact-us",
+        "button_link": "shopify://pages/book-an-appointment",
         "columns_desktop": 3,
         "columns_mobile": 1,
         "column_gap": 40,
@@ -152,9 +152,12 @@
     },
     "jf_featured_collection_R4wirD": {
       "type": "jf-featured-collection",
+      "custom_css": [
+        "p.jf-featured-collection__title {display: none;}"
+      ],
       "name": "JF Featured Collection",
       "settings": {
-        "collection": "mon-coeur",
+        "collection": "halo-2026",
         "products_to_show": 5,
         "eyebrow": "Bridal Collection 2025",
         "heading_line_one": "Where Modern Romance",
@@ -162,11 +165,11 @@
         "description": "<p>A considered edit of modern bridal couture. Every gown begins with you.</p>",
         "mobile_button_copy": "A considered edit of modern bridal couture.",
         "button_label": "Explore full collection",
-        "button_link": "",
+        "button_link": "shopify://collections/halo-2026",
         "desktop_background_color": "#f6f6f6",
         "mobile_background_color": "#f6f6f6",
         "column_gap": 1,
-        "row_gap": 0,
+        "row_gap": 1,
         "padding_top_mobile": 32,
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 56,
@@ -566,7 +569,7 @@
         "eyebrow": "Melbourne Atelier",
         "heading_line_one": "Wedding Dresses Melbourne,",
         "heading_line_two": "Designed in Collaboration With You",
-        "description": "<p>Julie Sufi has been creating couture wedding dresses for Melbourne brides since 2010. Every gown begins with a complimentary consultation, with the head designer, not a sales consultant, where your vision, fabric preferences, and silhouette are explored together. The result is a Melbourne brides describe as effortless, elegant, and entirely personal.</p><p><strong>Custom Wedding Dresses, Made for You, Not the Rack</strong></p><p>Every Julie Sufi gown is custom made to your measurements. As Melbourne's couture bridal atelier featured in Vogue, Elle, and Harper's Bazaar, we create wedding gowns that reflect the individuality of the woman wearing them. No off-the-rack compromises, your bridal gown is made from first sketch to final fitting.</p><p><strong>Melbourne's Couture Bridal Atelier, Since 2010</strong></p><p>Our Melbourne atelier has welcomed brides from across Australia and internationally, drawn by the same promise: a wedding dress that is entirely yours. With over 10 years of couture craftsmanship and 300+ brides served worldwide, Julie Sufi is Melbourne's destination for brides who believe their gown should be as extraordinary as their day.</p>",
+        "description": "<p>Julie Sufi has been creating couture wedding dresses for Melbourne brides since 2010. Every gown begins with a complimentary consultation, with the head designer, not a sales consultant, where your vision, fabric preferences, and silhouette are explored together. The result is a Melbourne brides describe as effortless, elegant, and entirely personal.</p><p><strong>Custom Wedding Dresses, Made for You, Not the Rack</strong></p><p>Every Julie Sufi gown is custom made to your measurements. As Melbourne's couture bridal atelier featured in Vogue, Elle, and Harper's Bazaar, we create wedding gowns that reflect the individuality of the woman wearing them. No off-the-rack compromises, your bridal gown is made from first sketch to final fitting.</p><p><strong>Melbourne's Couture Bridal Atelier, Since 2010</strong></p><p>Our Melbourne atelier has welcomed brides from across Australia and internationally, drawn by the same promise: a wedding dress that is entirely yours. With over 10 years of couture craftsmanship and 5K+ brides served worldwide, Julie Sufi is Melbourne's destination for brides who believe their gown should be as extraordinary as their day.</p>",
         "show_cta_box": true,
         "cta_eyebrow": "Gowns from",
         "cta_heading": "AUD $3,500",
@@ -589,7 +592,7 @@
         "eyebrow": "Custom Wedding Dresses From",
         "heading": "AUD $5,000",
         "button_label": "Book a free consultation",
-        "button_link": "shopify://pages/contact-us",
+        "button_link": "shopify://pages/book-an-appointment",
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
         "padding_top_mobile": 8,
@@ -668,7 +671,7 @@
         "heading_line_two": "Julie Sufi",
         "description": "<p>In a city with many bridal options, Julie Sufi Couture stands apart. We are not a boutique. We are a couture atelier and the difference is felt from the very first appointment.</p>",
         "button_label": "Book a free consultation",
-        "button_link": "shopify://pages/contact-us",
+        "button_link": "shopify://pages/book-an-appointment",
         "columns_desktop": 3,
         "columns_mobile": 1,
         "column_gap": 16,
@@ -798,7 +801,7 @@
           "type": "item",
           "settings": {
             "question": "Custom Wedding Dresses vs. Ready-to-Wear Bridal Gowns",
-            "answer": "<p class=\"MsoNormal\"><span lang=\"EN-AU\">When searching for wedding dresses in Melbourne, you will encounter two primary options: ready-to-wear bridal gowns and fully custom-made wedding dresses. Each has its merits, and the right choice depends on your timeline, budget, and how important personalisation is to you.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Ready-to-wear bridal gowns are pre-designed styles available in standard sizes. They offer a faster turnaround — typically 3 to 4 months — and are generally more affordable. However, they are designed to fit a broad range of body types and may require significant alterations to achieve a perfect fit.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Custom wedding dresses, by contrast, are designed and constructed specifically for you. At Julie Sufi Couture, a custom bridal gown is created from scratch — beginning with your unique measurements, your personal style, and your vision for the day. The result is a gown that fits your body perfectly, reflects your personality, and exists nowhere else in the world. For brides who value individuality and craftsmanship, a custom wedding dress is an investment that is felt in every moment of your wedding day.</span></p>",
+            "answer": "<p class=\"MsoNormal\"><span lang=\"EN-AU\">When searching for wedding dresses in Melbourne, you will encounter two primary options: ready-to-wear bridal gowns and fully custom-made wedding dresses. Each has its merits, and the right choice depends on your timeline, budget, and how important personalisation is to you.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Ready-to-wear bridal gowns are pre-designed styles available in standard sizes. They offer a faster turnaround,vtypically 3 to 4 months, and are generally more affordable. However, they are designed to fit a broad range of body types and may require significant alterations to achieve a perfect fit.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Custom wedding dresses, by contrast, are designed and constructed specifically for you. At Julie Sufi Couture, a custom bridal gown is created from scratch, beginning with your unique measurements, your personal style, and your vision for the day. The result is a gown that fits your body perfectly, reflects your personality, and exists nowhere else in the world. For brides who value individuality and craftsmanship, a custom wedding dress is an investment that is felt in every moment of your wedding day.</span></p>",
             "open_by_default": true
           }
         },
@@ -806,7 +809,7 @@
           "type": "item",
           "settings": {
             "question": "How Much Do Wedding Dresses Cost in Melbourne?",
-            "answer": "<p class=\"MsoNormal\"><span lang=\"EN-AU\">The cost of wedding dresses in Melbourne varies significantly depending on the designer, the level of customisation, and the fabrics used. Below is a general guide to pricing across different categories:</span></p>\n<table class=\"MsoNormalTable\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin-top: 10px; width: 100%; background: #F5F0E8; \">\n<thead style=\" background: black; color:white; \">\n<tr style=\"mso-yfti-irow: 0; mso-yfti-firstrow: yes;\">\n<td style=\"padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Category</span></p>\n</td>\n<td style=\"padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Price Range (AUD)</span></p>\n</td>\n<td style=\"padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">What's Included</span></p>\n</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"mso-yfti-irow: 1;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Ready-to-Wear Bridal Gown</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$1,500 – $4,000</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Standard sizing, basic alterations</span></p>\n</td>\n</tr>\n<tr style=\"mso-yfti-irow: 2;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Semi-Custom Wedding Dress</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$3,500 – $6,000</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Modified existing design, limited fabric choice</span></p>\n</td>\n</tr>\n<tr style=\"mso-yfti-irow: 3;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Fully Custom Bridal Gown</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$5,000 – $12,000+</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Bespoke design, premium fabrics, multiple fittings</span></p>\n</td>\n</tr>\n<tr style=\"mso-yfti-irow: 4; mso-yfti-lastrow: yes;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Couture Wedding Dress</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$8,000 – $20,000+</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Hand-embroidery, imported lace, full couture construction</span></p>\n</td>\n</tr>\n</tbody>\n</table>\n<p class=\"MsoNormal\"></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">At Julie Sufi Couture, our custom wedding dresses start from $5,000 AUD, with most bespoke gowns ranging between $6,000 and $12,000 depending on design complexity and fabric selection. We also offer a curated ready-to-wear collection starting from $2,800 AUD.</span></p>",
+            "answer": "<p class=\"MsoNormal\"><span lang=\"EN-AU\">The cost of wedding dresses in Melbourne varies significantly depending on the designer, the level of customisation, and the fabrics used. Below is a general guide to pricing across different categories:</span></p>\n<table class=\"MsoNormalTable\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin-top: 10px; width: 100%; background: #F5F0E8; \">\n<thead style=\" background: black; color:white; \">\n<tr style=\"mso-yfti-irow: 0; mso-yfti-firstrow: yes;\">\n<td style=\"padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Category</span></p>\n</td>\n<td style=\"padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Price Range (AUD)</span></p>\n</td>\n<td style=\"padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">What's Included</span></p>\n</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"mso-yfti-irow: 1;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Ready-to-Wear Bridal Gown</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$1,500 – $4,000</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Standard sizing, basic alterations</span></p>\n</td>\n</tr>\n<tr style=\"mso-yfti-irow: 2;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Semi-Custom Wedding Dress</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$3,500 – $6,000</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Modified existing design, limited fabric choice</span></p>\n</td>\n</tr>\n<tr style=\"mso-yfti-irow: 3;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Fully Custom Bridal Gown</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$5,000 – $12,000+</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Bespoke design, premium fabrics, multiple fittings</span></p>\n</td>\n</tr>\n<tr style=\"mso-yfti-irow: 4; mso-yfti-lastrow: yes;\">\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Couture Wedding Dress</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">$8,000 – $20,000+</span></p>\n</td>\n<td style=\"border: none; border-bottom: solid #E8E2D9 1.0pt; mso-border-bottom-alt: solid #E8E2D9 .5pt; padding: 10.5pt 15.0pt 10.5pt 15.0pt;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Hand-embroidery, imported lace, full couture construction</span></p>\n</td>\n</tr>\n</tbody>\n</table>\n<p class=\"MsoNormal\"></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">At Julie Sufi Couture, our custom wedding dresses start from $5,000 AUD, with most bespoke gowns ranging between $6,000 and $12,000 depending on design complexity and fabric selection.</span></p>",
             "open_by_default": false
           }
         },
@@ -821,8 +824,8 @@
         "item_WFXYTj": {
           "type": "item",
           "settings": {
-            "question": "How Far in Advance Should You Order a Wedding Dress inMelbourne?",
-            "answer": "<p class=\"MsoNormal\"><span lang=\"EN-AU\">This is one of the most common questions we receive from brides searching for wedding dresses in Melbourne. The answer depends on whether you are ordering a custom or ready-to-wear gown.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">For a custom wedding dress at Julie Sufi Couture, we recommend beginning the process at least 6 to 9 months before your wedding date. This allows sufficient time for the design consultation, fabric sourcing, construction, and multiple fittings. Rush orders can be accommodated in some circumstances, but the ideal timeline ensures the best possible result.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">For ready-to-wear bridal gowns, a minimum of 4 to 6 months is recommended to allow for ordering, delivery, and alterations. We advise against leaving your gown search to the last three months before your wedding, as this significantly limits your options and increases stress.</span></p>",
+            "question": "How Far in Advance Should You Order a Wedding Dress in Melbourne?",
+            "answer": "<p class=\"MsoNormal\"><span lang=\"EN-AU\">This is one of the most common questions we receive from brides searching for wedding dresses in Melbourne. The answer depends on whether you are ordering a custom or ready-to-wear gown.</span></p>\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">For a custom wedding dress at Julie Sufi Couture, we recommend beginning the process at least 6 to 9 months before your wedding date. This allows sufficient time for the design consultation, fabric sourcing, construction, and multiple fittings. Rush orders can be accommodated in some circumstances, but the ideal timeline ensures the best possible result.</span></p>",
             "open_by_default": false
           }
         },
@@ -868,6 +871,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22850.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -875,6 +880,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22849.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -882,6 +889,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22848.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -889,6 +898,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22847.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -896,6 +907,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Rectangle_22851.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -907,12 +920,17 @@
         "slide_bUFecd",
         "slide_ADh9P6"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#f6f6f6",
         "mobile_background_color": "#f6f6f6",
@@ -920,6 +938,68 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 56,
         "padding_bottom_desktop": 56
+      }
+    },
+    "rich_text_fV3rqj": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_wDtYiE": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_9fMVQR": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_wDtYiE",
+        "heading_9fMVQR"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "177509380473b2db0a": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_CqhPDM": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_CqhPDM"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_faq_BHYQwi": {
@@ -1005,7 +1085,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Vector.png",
             "title": "Book an appointment",
-            "link": ""
+            "link": "shopify://pages/book-an-appointment"
           }
         },
         "item_PiBMc3": {
@@ -1013,7 +1093,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Frame.png",
             "title": "Find a boutique",
-            "link": ""
+            "link": "shopify://pages/contact-us"
           }
         },
         "item_At7gKR": {
@@ -1021,7 +1101,7 @@
           "settings": {
             "icon_image": "shopify://shop_images/Frame_1.png",
             "title": "Contact us",
-            "link": ""
+            "link": "shopify://pages/contact-us"
           }
         }
       },
@@ -1079,6 +1159,8 @@
     "jf_image_slider_highlighted_FNLcG9",
     "jf_faq_dCMHqN",
     "jf_insta_slider_Wgtqyd",
+    "rich_text_fV3rqj",
+    "177509380473b2db0a",
     "jf_faq_BHYQwi",
     "jf_plain_box_icon_HQndPx",
     "jf_subscribe_zibheQ"

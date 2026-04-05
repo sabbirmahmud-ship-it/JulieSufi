@@ -23,22 +23,22 @@
     "jf_all_collection_3xfjz3": {
       "type": "jf-all-collection",
       "blocks": {
-        "collection_jMfEhK": {
-          "type": "collection",
-          "settings": {
-            "collection": "mon-coeur"
-          }
-        },
         "collection_YWnYBr": {
           "type": "collection",
           "settings": {
             "collection": "halo-2026"
           }
+        },
+        "collection_jMfEhK": {
+          "type": "collection",
+          "settings": {
+            "collection": "mon-coeur"
+          }
         }
       },
       "block_order": [
-        "collection_jMfEhK",
-        "collection_YWnYBr"
+        "collection_YWnYBr",
+        "collection_jMfEhK"
       ],
       "name": "JF All Collection",
       "settings": {
@@ -170,65 +170,66 @@
         "padding_bottom_desktop": 24
       }
     },
-    "jf_insta_slider_FKJP66": {
-      "type": "jf-insta-slider",
+    "rich_text_AkTgGw": {
+      "type": "rich-text",
       "blocks": {
-        "slide_EV8keP": {
-          "type": "slide",
+        "caption_TJ6TMh": {
+          "type": "caption",
           "settings": {
-            "image": "shopify://shop_images/gdoc-image-9OkaMgTD.jpg",
-            "link": ""
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
           }
         },
-        "slide_rPMQ4j": {
-          "type": "slide",
+        "heading_9nBRqd": {
+          "type": "heading",
           "settings": {
-            "image": "shopify://shop_images/gdoc-image-KBT7c1z4.jpg",
-            "link": ""
-          }
-        },
-        "slide_ErFYLL": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/gdoc-image-CnqzxHpa.jpg",
-            "link": ""
-          }
-        },
-        "slide_dK8p4P": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/gdoc-image-yDM5MYN4.jpg",
-            "link": ""
-          }
-        },
-        "slide_ArJQ8r": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/gdoc-image-1Obl2KRf.jpg",
-            "link": ""
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
           }
         }
       },
       "block_order": [
-        "slide_EV8keP",
-        "slide_rPMQ4j",
-        "slide_ErFYLL",
-        "slide_dK8p4P",
-        "slide_ArJQ8r"
+        "caption_TJ6TMh",
+        "heading_9nBRqd"
       ],
-      "name": "JF Insta Slider",
+      "name": "t:sections.rich-text.presets.name",
       "settings": {
-        "handle": "@JULIESUFI",
-        "heading": "Real brides. Real moments.",
-        "cta_label": "Follow Us On Instagram",
-        "cta_link": "",
-        "slide_gap": 4,
-        "desktop_background_color": "#ffffff",
-        "mobile_background_color": "#ffffff",
-        "padding_top_mobile": 36,
-        "padding_bottom_mobile": 32,
-        "padding_top_desktop": 24,
-        "padding_bottom_desktop": 24
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "17751038401277b9a0": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_bjpHnf": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_bjpHnf"
+      ],
+      "settings": {
+        "include_margins": true
       }
     },
     "jf_plain_box_icon_UmU3nJ": {
@@ -303,7 +304,8 @@
     "jf_all_collection_3xfjz3",
     "icon_boxed_zmHiHr",
     "jf_logo_slider_6bym9y",
-    "jf_insta_slider_FKJP66",
+    "rich_text_AkTgGw",
+    "17751038401277b9a0",
     "jf_plain_box_icon_UmU3nJ",
     "jf_subscribe_UgAefW"
   ]

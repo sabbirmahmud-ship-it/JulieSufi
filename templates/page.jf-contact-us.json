@@ -17,6 +17,101 @@
         "padding_bottom": 28
       }
     },
+    "jf_contact_fCPAxC": {
+      "type": "jf-contact",
+      "blocks": {
+        "contact_method_XLLpWd": {
+          "type": "contact_method",
+          "settings": {
+            "icon_style": "email",
+            "content": "<p>Email us for general enquiries:<br><strong>contact@juliesufi.com</strong></p>",
+            "link": ""
+          }
+        },
+        "contact_method_BHyPxV": {
+          "type": "contact_method",
+          "settings": {
+            "icon_style": "instagram",
+            "content": "<p>Send us a DM on Instagram<br/><strong>and we'll respond shortly.</strong></p>",
+            "link": ""
+          }
+        },
+        "contact_method_LWKbXi": {
+          "type": "contact_method",
+          "settings": {
+            "icon_style": "calendar",
+            "content": "<p>For Custom Bridal Enquiries<br/><strong>Book Appointment</strong></p>",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        }
+      },
+      "block_order": [
+        "contact_method_XLLpWd",
+        "contact_method_BHyPxV",
+        "contact_method_LWKbXi"
+      ],
+      "name": "JF Contact",
+      "settings": {
+        "heading": "WE'D LOVE TO HEAR FROM YOU",
+        "intro_text": "<p>Whether You're Beginning Or Simply Exploring.</p>",
+        "mobile_intro_text": "",
+        "recipient_emails": "",
+        "success_heading": "Message Sent",
+        "success_message": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "error_heading": "Please adjust the following:",
+        "name_label": "FULL NAME",
+        "name_placeholder": "",
+        "email_label": "EMAIL",
+        "email_placeholder": "",
+        "phone_label": "PHONE",
+        "phone_placeholder": "",
+        "subject_label": "SUBJECT",
+        "subject_placeholder": "",
+        "message_label": "MESSAGE",
+        "message_optional_label": "(OPTIONAL)",
+        "message_placeholder": "Tell us what you're looking for or how we can help...",
+        "button_label": "SEND MESSAGE",
+        "card_gap_mobile": 12,
+        "card_gap_desktop": 20,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 28,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 48,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_map_rTNtjt": {
+      "type": "jf-map",
+      "name": "JF Map",
+      "settings": {
+        "heading": "CONTACT US",
+        "address": "<p>Northcote<br/>VIC 3070, Australia</p>",
+        "opening_hours": "",
+        "consultation_text": "<p><strong>Free Initial Virtual Consultation</strong></p>",
+        "order_enquiries_label": "For information about Orders, Appointments And Leadtime please contact us.",
+        "order_enquiries_email": "",
+        "general_enquiries_label": "",
+        "general_enquiries_email": "contact@juliesufi.com",
+        "general_insta_dm": "https://www.instagram.com/juliesufi/",
+        "phone_number": "",
+        "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8792.449936093411!2d145.014502601422!3d-37.7709105331185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6437c221de473%3A0x5045675218cd650!2sNorthcote%20VIC%203070!5e0!3m2!1sen!2sau!4v1775118045558!5m2!1sen!2sau\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 36,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
     "icon_boxed_XG9Qqe": {
       "type": "icon-boxed",
       "blocks": {
@@ -31,13 +126,18 @@
           "type": "item",
           "settings": {
             "title": "Become a Stockist",
-            "text": "<p>If you would like to become aJulie Sufi wholesale partner, please contact us at wholesale@Juliesufi.com</p>"
+            "text": "<p>If you would like to become a Julie Sufi wholesale partner, please contact us at contact@juliesufi.com</p>"
           }
         }
       },
       "block_order": [
         "item_rh73bA",
         "item_QPfpjh"
+      ],
+      "custom_css": [
+        ".icon-boxed__icon-wrap {display: none;}",
+        ".icon-boxed__item {align-items: flex-start; background: #f2f2f2; padding: 24px 25px; text-align: left;}",
+        "@media screen and (min-width: 750px) {.icon-boxed__item-copy {max-width: 100%; }}"
       ],
       "name": "Icon Boxed",
       "settings": {
@@ -111,6 +211,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Elodie5.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -118,6 +220,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Isaline3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -125,6 +229,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Camille3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -132,6 +238,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/NerisseSleeves3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         },
@@ -139,6 +247,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Isolde4.png",
+            "instagram_image_url": "",
+            "image_alt": "",
             "link": ""
           }
         }
@@ -150,12 +260,17 @@
         "slide_3D7pxX",
         "slide_UgcKyt"
       ],
+      "disabled": true,
       "name": "JF Insta Slider",
       "settings": {
         "handle": "@JULIESUFI",
         "heading": "Real brides. Real moments.",
         "cta_label": "Follow Us On Instagram",
         "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
         "slide_gap": 4,
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
@@ -163,55 +278,6 @@
         "padding_bottom_mobile": 32,
         "padding_top_desktop": 24,
         "padding_bottom_desktop": 24
-      }
-    },
-    "jf_plain_box_icon_xUhkTn": {
-      "type": "jf-plain-box-icon",
-      "blocks": {
-        "item_yccPnT": {
-          "type": "item",
-          "settings": {
-            "icon_image": "shopify://shop_images/Vector.png",
-            "title": "Book an appointment",
-            "link": "shopify://pages/book-an-appointment"
-          }
-        },
-        "item_nhEqYH": {
-          "type": "item",
-          "settings": {
-            "icon_image": "shopify://shop_images/Frame.png",
-            "title": "Find a boutique",
-            "link": ""
-          }
-        },
-        "item_wPYMwN": {
-          "type": "item",
-          "settings": {
-            "icon_image": "shopify://shop_images/Frame_1.png",
-            "title": "Contact us",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "item_yccPnT",
-        "item_nhEqYH",
-        "item_wPYMwN"
-      ],
-      "name": "JF Plain Box Icon",
-      "settings": {
-        "eyebrow": "",
-        "heading": "",
-        "description": "",
-        "columns_desktop": 3,
-        "columns_mobile": 3,
-        "row_gap": 16,
-        "desktop_background_color": "#ffffff",
-        "mobile_background_color": "#ffffff",
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20,
-        "padding_top_desktop": 52,
-        "padding_bottom_desktop": 52
       }
     },
     "jf_subscribe_icgXYr": {
@@ -234,10 +300,11 @@
   },
   "order": [
     "main",
+    "jf_contact_fCPAxC",
+    "jf_map_rTNtjt",
     "icon_boxed_XG9Qqe",
     "jf_faq_GHRCMa",
     "jf_insta_slider_bbdVEy",
-    "jf_plain_box_icon_xUhkTn",
     "jf_subscribe_icgXYr"
   ]
 }

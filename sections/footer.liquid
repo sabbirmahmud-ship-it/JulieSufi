@@ -1,12 +1,18 @@
 {%- liquid
   assign footer_title = section.settings.brand_title | default: shop.name
+  assign footer_logo_width = settings.logo_width | default: 220 | at_most: 240
   assign has_social_icons = false
   assign has_contact_card = false
   assign has_legal_links = false
   assign contact_email_href = blank
+  assign footer_social_instagram_link = section.settings.social_instagram_link | default: settings.social_instagram_link
+  assign footer_social_pinterest_link = section.settings.social_pinterest_link | default: settings.social_pinterest_link
+  assign footer_social_facebook_link = section.settings.social_facebook_link | default: settings.social_facebook_link
+  assign footer_social_youtube_link = section.settings.social_youtube_link | default: settings.social_youtube_link
+  assign footer_social_tiktok_link = section.settings.social_tiktok_link | default: settings.social_tiktok_link
 
   if section.settings.show_social
-    if settings.social_instagram_link != blank or settings.social_pinterest_link != blank or settings.social_facebook_link != blank or settings.social_youtube_link != blank or settings.social_tiktok_link != blank
+    if footer_social_instagram_link != blank or footer_social_pinterest_link != blank or footer_social_facebook_link != blank or footer_social_youtube_link != blank or footer_social_tiktok_link != blank
       assign has_social_icons = true
     endif
   endif
@@ -55,6 +61,13 @@
     align-items: flex-start;
     gap: 0.8rem;
     text-decoration: none;
+  }
+
+  .footer--atelier .footer-atelier__brand-logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
   }
 
   .footer--atelier .footer-atelier__brand-title {
@@ -376,9 +389,28 @@
     <div class="footer-atelier__top">
       <div class="footer-atelier__brand">
         <a href="{{ routes.root_url }}" class="footer-atelier__brand-link link link--text">
-          <span class="footer-atelier__brand-title">{{ footer_title | escape }}</span>
-          {%- if section.settings.brand_subtitle != blank -%}
-            <span class="footer-atelier__brand-subtitle">{{ section.settings.brand_subtitle | escape }}</span>
+          {%- if settings.logo != blank -%}
+            {%- assign footer_logo_alt = settings.logo.alt | default: shop.name | escape -%}
+            {%- assign footer_logo_height = footer_logo_width | divided_by: settings.logo.aspect_ratio -%}
+            {% capture footer_logo_sizes %}(max-width: 749px) 180px, {{ footer_logo_width }}px{% endcapture %}
+            {% capture footer_logo_widths %}180, {{ footer_logo_width }}{% endcapture %}
+            {{
+              settings.logo
+              | image_url: width: footer_logo_width
+              | image_tag:
+                class: 'footer-atelier__brand-logo',
+                widths: footer_logo_widths,
+                height: footer_logo_height,
+                width: footer_logo_width,
+                alt: footer_logo_alt,
+                sizes: footer_logo_sizes,
+                preload: false
+            }}
+          {%- else -%}
+            <span class="footer-atelier__brand-title">{{ footer_title | escape }}</span>
+            {%- if section.settings.brand_subtitle != blank -%}
+              <span class="footer-atelier__brand-subtitle">{{ section.settings.brand_subtitle | escape }}</span>
+            {%- endif -%}
           {%- endif -%}
         </a>
 
@@ -416,37 +448,37 @@
 
         {%- if has_social_icons -%}
           <ul class="footer-atelier__socials list-unstyled" role="list">
-            {%- if settings.social_instagram_link != blank -%}
+            {%- if footer_social_instagram_link != blank -%}
               <li>
-                <a href="{{ settings.social_instagram_link }}" class="footer-atelier__social-link link" aria-label="Instagram">
+                <a href="{{ footer_social_instagram_link }}" class="footer-atelier__social-link link" aria-label="Instagram">
                   <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
                 </a>
               </li>
             {%- endif -%}
-            {%- if settings.social_pinterest_link != blank -%}
+            {%- if footer_social_pinterest_link != blank -%}
               <li>
-                <a href="{{ settings.social_pinterest_link }}" class="footer-atelier__social-link link" aria-label="Pinterest">
+                <a href="{{ footer_social_pinterest_link }}" class="footer-atelier__social-link link" aria-label="Pinterest">
                   <span class="svg-wrapper">{{ 'icon-pinterest.svg' | inline_asset_content }}</span>
                 </a>
               </li>
             {%- endif -%}
-            {%- if settings.social_facebook_link != blank -%}
+            {%- if footer_social_facebook_link != blank -%}
               <li>
-                <a href="{{ settings.social_facebook_link }}" class="footer-atelier__social-link link" aria-label="Facebook">
+                <a href="{{ footer_social_facebook_link }}" class="footer-atelier__social-link link" aria-label="Facebook">
                   <span class="svg-wrapper">{{ 'icon-facebook.svg' | inline_asset_content }}</span>
                 </a>
               </li>
             {%- endif -%}
-            {%- if settings.social_youtube_link != blank -%}
+            {%- if footer_social_youtube_link != blank -%}
               <li>
-                <a href="{{ settings.social_youtube_link }}" class="footer-atelier__social-link link" aria-label="YouTube">
+                <a href="{{ footer_social_youtube_link }}" class="footer-atelier__social-link link" aria-label="YouTube">
                   <span class="svg-wrapper">{{ 'icon-youtube.svg' | inline_asset_content }}</span>
                 </a>
               </li>
             {%- endif -%}
-            {%- if settings.social_tiktok_link != blank -%}
+            {%- if footer_social_tiktok_link != blank -%}
               <li>
-                <a href="{{ settings.social_tiktok_link }}" class="footer-atelier__social-link link" aria-label="TikTok">
+                <a href="{{ footer_social_tiktok_link }}" class="footer-atelier__social-link link" aria-label="TikTok">
                   <span class="svg-wrapper">{{ 'icon-tiktok.svg' | inline_asset_content }}</span>
                 </a>
               </li>
@@ -713,6 +745,39 @@
       "id": "show_social",
       "default": true,
       "label": "Show social icons"
+    },
+    {
+      "type": "header",
+      "content": "Social links"
+    },
+    {
+      "type": "paragraph",
+      "content": "Add footer-specific social links here. Leave blank to use the Theme settings social links."
+    },
+    {
+      "type": "url",
+      "id": "social_instagram_link",
+      "label": "Instagram link"
+    },
+    {
+      "type": "url",
+      "id": "social_pinterest_link",
+      "label": "Pinterest link"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook_link",
+      "label": "Facebook link"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube_link",
+      "label": "YouTube link"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok_link",
+      "label": "TikTok link"
     },
     {
       "type": "header",
