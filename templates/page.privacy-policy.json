@@ -1,0 +1,301 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_W3YpgC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Cxzwmr": {
+          "type": "heading",
+          "settings": {
+            "heading": "PRIVACY POLICY",
+            "heading_size": "h1"
+          }
+        },
+        "text_DGFcqc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Last updated: July 13, 2023<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Cxzwmr",
+        "text_DGFcqc"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_MhqGAP": {
+      "type": "rich-text",
+      "blocks": {
+        "text_fEiNCN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>JULIE SUFI recognizes the importance of protecting the privacy of all visitors to the JULIE SUFI website. The following explains how we handle information that we learn about you when you visit our site.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_fEiNCN"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_8YiUTK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pi6gEq": {
+          "type": "heading",
+          "settings": {
+            "heading": "PERSONALLY IDENTIFIABLE INFORMATION",
+            "heading_size": "h1"
+          }
+        },
+        "text_cw9Nca": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Personally identifiable information, including names, addresses, e-mails and the like, is collected on this website only when it is voluntarily provided by a visitor to our site. BELLUCCIO shall not knowingly provide your name, address and e-mail to any third party without your prior consent unless ordered to do so by a court or other governmental agency.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pi6gEq",
+        "text_cw9Nca"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_pfk8Ed": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YJX6UA": {
+          "type": "heading",
+          "settings": {
+            "heading": "COLLECTING DATA",
+            "heading_size": "h1"
+          }
+        },
+        "text_aQimgq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The JULIE SUFI website may deposit \"cookies\" in a visitor's computer. Cookies are pieces of information that a website transfers to an individual's hard drive for record keeping purposes. Cookies are only sent back to the website that deposited them when a visitor returns to that site. Cookies make it easier for you by saving your preferences while you are at our site. We never save passwords, credit card information or other personal identifiable information in cookies.</p><p>Most web browsers are initially set up to accept cookies. You can, however, reset your browser to refuse all cookies or to indicate when a cookie is being sent.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YJX6UA",
+        "text_aQimgq"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_xQ3Vfb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kEtggb": {
+          "type": "heading",
+          "settings": {
+            "heading": "INFORMATION REMOVAL",
+            "heading_size": "h1"
+          }
+        },
+        "text_NTP8KU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you prefer not to receive information from us, please send us an e-mail at contact@juliesufi.com. Please include your name and e-mail address and any message.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kEtggb",
+        "text_NTP8KU"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_wdnLXq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_z7H4Hn": {
+          "type": "heading",
+          "settings": {
+            "heading": "ADDITIONAL INFORMATION",
+            "heading_size": "h1"
+          }
+        },
+        "text_iiRUnT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Transmission of data over the Internet is never guaranteed to be completely secure. It is possible that third parties not under the control of JULIE SUFI may be able to access or intercept transmissions or private communications without JULIE SUFI' permission or knowledge. JULIE SUFI takes all steps possible to protect your personal information. However, we cannot ensure or warrant the security of any information you transmit to us. Such transmissions are done at your own risk.</p><p>JULIE SUFI shall not, under any circumstances, including but not limited to negligence, be liable for any special, incidental or consequential damages that result from the disclosure or use of the information or materials on this site.</p><p>JULIE SUFI reserves the right to change this Privacy Policy at any time. Any such changes shall be posted on this site.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_z7H4Hn",
+        "text_iiRUnT"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "jf_plain_box_icon_xUhkTn": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_yccPnT": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_nhEqYH": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": ""
+          }
+        },
+        "item_wPYMwN": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_yccPnT",
+        "item_nhEqYH",
+        "item_wPYMwN"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_subscribe_icgXYr": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_W3YpgC",
+    "rich_text_MhqGAP",
+    "rich_text_8YiUTK",
+    "rich_text_pfk8Ed",
+    "rich_text_xQ3Vfb",
+    "rich_text_wdnLXq",
+    "jf_plain_box_icon_xUhkTn",
+    "jf_subscribe_icgXYr"
+  ]
+}

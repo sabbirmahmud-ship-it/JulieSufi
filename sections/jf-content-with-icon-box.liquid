@@ -1,0 +1,308 @@
+{{ 'section-jf-content-with-icon-box.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #JfContentWithIconBox-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #JfContentWithIconBox-{{ section.id }} .jf-content-with-icon-box__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfContentWithIconBox-{{ section.id }} .jf-content-with-icon-box__button {
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfContentWithIconBox-{{ section.id }} .jf-content-with-icon-box__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfContentWithIconBox-{{ section.id }}" class="jf-content-with-icon-box">
+  <div class="jf-content-with-icon-box__inner page-width">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.intro != blank -%}
+      <div class="jf-content-with-icon-box__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-content-with-icon-box__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jf-content-with-icon-box__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.intro != blank -%}
+          <div class="jf-content-with-icon-box__intro rte">{{ section.settings.intro }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="jf-content-with-icon-box__body">
+      <div class="jf-content-with-icon-box__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1400
+            | image_tag:
+              widths: '375, 550, 750, 900, 1100, 1400',
+              sizes: '(min-width: 990px) 53vw, 100vw',
+              loading: 'lazy',
+              alt: section.settings.image.alt
+          }}
+        {%- else -%}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      <div class="jf-content-with-icon-box__content">
+        {%- if section.blocks.size > 0 -%}
+          <div class="jf-content-with-icon-box__items">
+            {%- for block in section.blocks -%}
+              <article class="jf-content-with-icon-box__item" {{ block.shopify_attributes }}>
+                <div class="jf-content-with-icon-box__icon">
+                  {%- if block.settings.icon_image != blank -%}
+                    {{
+                      block.settings.icon_image
+                      | image_url: width: 120
+                      | image_tag:
+                        widths: '60, 90, 120',
+                        sizes: '48px',
+                        loading: 'lazy',
+                        alt: block.settings.icon_image.alt
+                    }}
+                  {%- else -%}
+                    {%- if forloop.index == 1 -%}
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 40 40">
+                        <path d="M12 10v5M28 10v5M9 16h22M11 12h18c1.1 0 2 .9 2 2v16c0 1.1-.9 2-2 2H11c-1.1 0-2-.9-2-2V14c0-1.1.9-2 2-2Z" fill="none" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M14 21h3M19 21h3M24 21h3M14 25h3M19 25h3M24 25h3" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                      </svg>
+                    {%- else -%}
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 40 40">
+                        <path d="M20 9c2.1 0 3.6 1.2 3.6 3 0 1.4-.9 2.3-2.2 3l-1.4.8v2.2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                        <path d="M13 22h14l-3 8h-8l-3-8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                        <path d="M11 32h18M16 30l-2 2M24 30l2 2M15 22l5-4 5 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    {%- endif -%}
+                  {%- endif -%}
+                </div>
+
+                <div class="jf-content-with-icon-box__item-copy">
+                  {%- if block.settings.title != blank -%}
+                    <h3 class="jf-content-with-icon-box__item-title">{{ block.settings.title | escape }}</h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.text != blank -%}
+                    <div class="jf-content-with-icon-box__item-text rte">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.content != blank -%}
+          <div class="jf-content-with-icon-box__text rte">{{ section.settings.content }}</div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="jf-content-with-icon-box__footer">
+        <a
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+          class="jf-content-with-icon-box__button"
+        >
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Content With Icon Box",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE DISTINCTION OF BESPOKE ARTISTRY"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Maker's Mark: What Is a True Custom Wedding Dress?"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>In a world of mass-produced bridal wear, a true custom wedding dress is a rarity. It starts with a blank page&mdash;a garment that does not exist until you and Julie Sufi vision it into being. Unlike Made-to-Order dresses, which are simply standard sizes adjusted to your height, a bespoke gown is built from the ground up. It begins not with a rack of samples, but with a hand-drawn illustration and a roll of raw fabric.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Image and content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Right content",
+      "default": "<p>There is a profound difference between a bridal boutique and a working atelier. In a retail environment, you speak to a stylist; at Julie Sufi, you speak to the maker.</p><p>This is the <strong>Maker's Mark</strong>&mdash;the technical assurance that the person designing your gown is the same hand that understands the grain of the silk, the tension of the corsetry, and the physics of the drape.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "BOOK A FREE CONSULTATION"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Font color",
+      "default": "#232128"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#1f1f23"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon_box",
+      "name": "Icon box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Made-to-Order"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>You select an existing design, choose a size from a chart, and customise small details like a sleeve or a neckline. <strong>You are adapting to the dress.</strong></p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Content With Icon Box",
+      "blocks": [
+        {
+          "type": "icon_box",
+          "settings": {
+            "title": "Made-to-Order",
+            "text": "<p>You select an existing design, choose a size from a chart, and customise small details like a sleeve or a neckline. <strong>You are adapting to the dress.</strong></p>"
+          }
+        },
+        {
+          "type": "icon_box",
+          "settings": {
+            "title": "Julie Sufi Couture Bridal Dress",
+            "text": "<p>We draft a unique pattern based on your specific vision. We sculpt the fabric directly to your frame. <strong>The dress is adapting to you.</strong></p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

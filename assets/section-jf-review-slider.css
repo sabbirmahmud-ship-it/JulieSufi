@@ -1,0 +1,423 @@
+.jf-review-slider {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.jf-review-slider__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.jf-review-slider__background picture,
+.jf-review-slider__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-review-slider__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.jf-review-slider__inner {
+  position: relative;
+  z-index: 1;
+ 
+  box-sizing: border-box;
+}
+
+.jf-review-slider__intro {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  text-align: center;
+}
+
+.jf-review-slider__eyebrow {
+  margin: 0;
+  color: #8f8883;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.jf-review-slider__heading {
+  margin: 1.4rem 0 0;
+  color: #2b2830;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 42px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 50px;
+}
+
+.jf-review-slider__heading-line {
+  display: block;
+}
+
+.jf-review-slider__heading-line--accent {
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+.jf-review-slider__viewport {
+  margin-top: 3rem;
+}
+
+.jf-review-slider__track {
+  display: flex;
+  gap: var(--jf-review-gap, 1.8rem);
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.jf-review-slider__track::-webkit-scrollbar {
+  display: none;
+}
+
+.jf-review-slider__slide {
+  flex: 0 0 min(28rem, calc(100% - 5rem));
+  scroll-snap-align: start;
+}
+
+.jf-review-slider__card {
+  min-height: 100%;
+  padding: 2.6rem 1.8rem 2.3rem;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.jf-review-slider__quote-mark {
+  display: block;
+  color: #a5a0a0;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 45px;
+  font-weight: 500;
+  line-height: 0.8;
+}
+
+.jf-review-slider__stars {
+  display: flex;
+  gap: 0.45rem;
+  /* margin-top: 1.6rem; */
+}
+
+.jf-review-slider__star {
+  width: 20px;
+  height: 20px;
+  color: #111111;
+}
+
+.jf-review-slider__star svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.jf-review-slider__star.is-inactive {
+  color: rgba(17, 17, 17, 0.2);
+}
+
+.jf-review-slider__quote {
+  margin-top: 1.8rem;
+  color: #2f2c33;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.52;
+  min-height: 250px;
+}
+
+.jf-review-slider__quote p {
+  margin: 0;
+}
+
+.jf-review-slider__quote p + p {
+  margin-top: 0.8rem;
+}
+
+.jf-review-slider__read-more {
+  display: inline;
+  margin-left: 0.45rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #8f8883;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.jf-review-slider__read-more:hover {
+  color: #1f1e23;
+}
+
+.jf-review-slider__reviewer-image {
+  width: 100%;
+  height: 22.8rem;
+  margin-top: 1.8rem;
+  overflow: hidden;
+  border-radius: 11px;
+}
+
+.jf-review-slider__reviewer-image-button {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.jf-review-slider__reviewer-image-button:focus-visible {
+  outline: 2px solid #1f1e23;
+  outline-offset: -2px;
+}
+
+.jf-review-slider__reviewer-image-button img,
+.jf-review-slider__reviewer-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jf-review-slider__author {
+  margin: 2rem 0 0;
+  color: #1f1e23;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.jf-review-slider__reviewer-image + .jf-review-slider__author {
+  margin-top: 1.2rem;
+}
+
+.jf-review-slider__meta {
+  margin-top: 0.7rem;
+  color: #8f8883;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.jf-review-slider__modal {
+  width: min(62rem, calc(100vw - 3rem));
+  max-width: 100%;
+  max-height: calc(100vh - 3rem);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.jf-review-slider__modal::backdrop {
+  background: rgba(17, 17, 17, 0.6);
+}
+
+.jf-review-slider__modal-content {
+  position: relative;
+  box-sizing: border-box;
+  max-height: calc(100vh - 3rem);
+  padding: 3.2rem 2rem 2.6rem;
+  background: #fffaf6;
+  border-radius: 0.8rem;
+  overflow-y: auto;
+}
+
+.jf-review-slider__modal--image {
+  width: min(90rem, calc(100vw - 2rem));
+}
+
+.jf-review-slider__modal-content--image {
+  padding: 3.8rem 1rem 1rem;
+  background: #111111;
+  overflow: auto;
+}
+
+.jf-review-slider__modal-close {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #1f1e23;
+  font-size: 2.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.jf-review-slider__modal-content--image .jf-review-slider__modal-close {
+  color: #ffffff;
+}
+
+.jf-review-slider__modal-quote {
+  margin-top: 1.8rem;
+  color: #2f2c33;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.jf-review-slider__modal-quote > *:first-child {
+  margin-top: 0;
+}
+
+.jf-review-slider__modal-quote > *:last-child {
+  margin-bottom: 0;
+}
+
+.jf-review-slider__reviewer-image--modal {
+  width: 100%;
+  height: 300px;
+  margin-top: 2rem;
+}
+
+.jf-review-slider__author--modal {
+  margin-top: 1.3rem;
+}
+
+.jf-review-slider__meta--modal {
+  margin-bottom: 0;
+}
+
+.jf-review-slider__image-modal-media img {
+  display: block;
+  width: 100%;
+  max-height: calc(65vh - 9rem);
+  object-fit: contain;
+}
+
+.jf-review-slider__image-modal-caption {
+  padding: 1.2rem 0 0.2rem;
+  text-align: center;
+}
+
+.jf-review-slider__image-modal-caption .jf-review-slider__author--modal {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.jf-review-slider__image-modal-caption .jf-review-slider__meta--modal {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.jf-review-slider__controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.jf-review-slider__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.3rem;
+  height: 3.3rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #050505;
+  color: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.jf-review-slider__arrow .svg-wrapper {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.jf-review-slider__arrow .svg-wrapper svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-review-slider__arrow--prev .svg-wrapper {
+  transform: rotate(180deg);
+}
+
+.jf-review-slider__arrow[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media screen and (min-width: 750px) {
+  .jf-review-slider__intro {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+
+  .jf-review-slider__heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  .jf-review-slider__viewport {
+    margin-top: 4.7rem;
+  }
+
+  .jf-review-slider__slide {
+    flex-basis: calc((100% - (var(--jf-review-gap, 1.8rem) * 2)) / 3);
+  }
+
+  .jf-review-slider__track--desktop-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .jf-review-slider__card {
+    padding: 2.8rem 2rem 2.4rem;
+  }
+
+  .jf-review-slider__quote {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .jf-review-slider__modal-content {
+    padding: 3.8rem 3rem 3rem;
+  }
+
+  .jf-review-slider__modal-content--image {
+    padding: 4.5rem 2rem 1.5rem;
+  }
+
+  .jf-review-slider__modal-quote {
+    font-size: 1.45rem;
+  }
+
+  .jf-review-slider__controls {
+    margin-top: 3rem;
+  }
+}

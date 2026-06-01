@@ -1,0 +1,652 @@
+{{ 'component-deferred-media.css' | asset_url | stylesheet_tag }}
+{{ 'section-jf-product-details.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-jf-product-details.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign product_details_meta = product.metafields.custom.jf_product_detail_accordion_item.value
+  if product_details_meta == blank
+    assign product_details_meta = product.metafields.custom.product_details.value
+  endif
+  assign accordion_items = product.metafields.custom.jf_product_details_accordions.value
+  assign accordion_text_items = product.metafields.custom.jf_product_details_accordion_items.value | strip
+  assign share_url = request.origin | append: product.url
+  assign share_title = product.title | url_encode
+  assign share_image = product.featured_image | image_url: width: 1600 | url_encode
+  assign product_description = product.description | strip_html | strip
+-%}
+
+{%- style -%}
+  #JfProductDetails-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  #JfProductDetails-{{ section.id }} .jf-product-details__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 990px) {
+    #JfProductDetails-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+    #JfProductDetails-{{ section.id }} .jf-product-details__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfProductDetails-{{ section.id }}" class="jf-product-details">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-product-details__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 989px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy',
+            alt: fallback_background_image.alt
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <jf-product-details
+    class="jf-product-details__inner page-width"
+    data-label-more="{{ section.settings.show_more_label | escape }}"
+    data-label-less="{{ section.settings.show_less_label | escape }}"
+  >
+    <div class="jf-product-details__layout">
+      <div class="jf-product-details__media-column">
+        <div class="jf-product-details__slider">
+          <div class="jf-product-details__slider-viewport" data-product-details-track>
+            <div class="jf-product-details__slider-track">
+              {%- for media in product.media -%}
+                <div
+                  class="jf-product-details__slider-slide"
+                  data-product-details-slide
+                  data-product-details-index="{{ forloop.index0 }}"
+                >
+                  {%- assign loading_strategy = 'lazy' -%}
+                  {%- if forloop.first -%}
+                    {%- assign loading_strategy = 'eager' -%}
+                  {%- endif -%}
+
+                  {%- render 'jf-product-details-media',
+                    media: media,
+                    section: section,
+                    context: 'mobile',
+                    sizes: 'calc(100vw - 3.2rem)',
+                    loading: loading_strategy
+                  -%}
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+
+          {%- if product.media.size > 1 -%}
+            <div class="jf-product-details__slider-dots" aria-label="Product media navigation">
+              {%- for media in product.media -%}
+                <button
+                  type="button"
+                  class="jf-product-details__slider-dot{% if forloop.first %} is-active{% endif %}"
+                  data-product-details-dot="{{ forloop.index0 }}"
+                  aria-label="Go to media {{ forloop.index }}"
+                  {% if forloop.first %}
+                    aria-current="true"
+                  {% endif %}
+                ></button>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="jf-product-details__grid">
+          {%- for media in product.media -%}
+            {%- render 'jf-product-details-media',
+              media: media,
+              section: section,
+              context: 'desktop',
+              sizes: '(min-width: 990px) 48vw, 100vw',
+              loading: 'lazy'
+            -%}
+          {%- endfor -%}
+        </div>
+      </div>
+
+      <div class="jf-product-details__content">
+        <div class="jf-product-details__content-inner">
+          <div class="jf-product-details__header">
+            <h1 class="jf-product-details__title">{{ product.title | escape }}</h1>
+
+            {%- if section.settings.show_favorite_icon -%}
+              <span class="jf-product-details__favorite" aria-hidden="true">
+                {{ 'icon-heart.svg' | inline_asset_content }}
+              </span>
+            {%- endif -%}
+          </div>
+
+          {%- if product_description != blank -%}
+            <div class="jf-product-details__description-wrap">
+              <div
+                class="jf-product-details__description jf-product-details__description--collapsed"
+                data-product-details-description
+              >
+                <p>{{ product_description | escape }}</p>
+              </div>
+              <button type="button" class="jf-product-details__description-toggle" data-product-details-more>
+                {{ section.settings.show_more_label | escape }}
+              </button>
+            </div>
+          {%- endif -%}
+
+          <div class="jf-product-details__accordions">
+            {%- capture product_details_meta_markup -%}
+              {%- if product_details_meta != blank -%}
+                {%- assign rendered_meta_accordion_count = 0 -%}
+                {%- liquid
+                  assign title_one = product_details_meta.title_one.value
+                  if title_one == blank and product_details_meta.title != blank
+                    assign title_one = product_details_meta.title.value
+                  endif
+
+                  assign content_one = product_details_meta.content_one
+                  if content_one == blank and product_details_meta.content != blank
+                    assign content_one = product_details_meta.content
+                  endif
+                -%}
+
+                {%- if title_one != blank and content_one != blank -%}
+                  {%- assign rendered_meta_accordion_count = rendered_meta_accordion_count | plus: 1 -%}
+                  <details class="jf-product-details__accordion" {% if rendered_meta_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                    <summary class="jf-product-details__accordion-summary">
+                      <span class="jf-product-details__accordion-title">{{ title_one | escape }}</span>
+                      <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="jf-product-details__accordion-content">
+                      {{ content_one | metafield_tag }}
+                    </div>
+                  </details>
+                {%- endif -%}
+
+                {%- if product_details_meta.title_two.value != blank and product_details_meta.content_two != blank -%}
+                  {%- assign rendered_meta_accordion_count = rendered_meta_accordion_count | plus: 1 -%}
+                  <details class="jf-product-details__accordion" {% if rendered_meta_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                    <summary class="jf-product-details__accordion-summary">
+                      <span class="jf-product-details__accordion-title">{{ product_details_meta.title_two.value | escape }}</span>
+                      <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="jf-product-details__accordion-content">
+                      {{ product_details_meta.content_two | metafield_tag }}
+                    </div>
+                  </details>
+                {%- endif -%}
+
+                {%- if product_details_meta.title_three.value != blank and product_details_meta.content_three != blank -%}
+                  {%- assign rendered_meta_accordion_count = rendered_meta_accordion_count | plus: 1 -%}
+                  <details class="jf-product-details__accordion" {% if rendered_meta_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                    <summary class="jf-product-details__accordion-summary">
+                      <span class="jf-product-details__accordion-title">{{ product_details_meta.title_three.value | escape }}</span>
+                      <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="jf-product-details__accordion-content">
+                      {{ product_details_meta.content_three | metafield_tag }}
+                    </div>
+                  </details>
+                {%- endif -%}
+
+                {%- if product_details_meta.title_four.value != blank and product_details_meta.content_four != blank -%}
+                  {%- assign rendered_meta_accordion_count = rendered_meta_accordion_count | plus: 1 -%}
+                  <details class="jf-product-details__accordion" {% if rendered_meta_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                    <summary class="jf-product-details__accordion-summary">
+                      <span class="jf-product-details__accordion-title">{{ product_details_meta.title_four.value | escape }}</span>
+                      <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="jf-product-details__accordion-content">
+                      {{ product_details_meta.content_four | metafield_tag }}
+                    </div>
+                  </details>
+                {%- endif -%}
+
+                {%- if product_details_meta.title_five.value != blank and product_details_meta.content_five != blank -%}
+                  {%- assign rendered_meta_accordion_count = rendered_meta_accordion_count | plus: 1 -%}
+                  <details class="jf-product-details__accordion" {% if rendered_meta_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                    <summary class="jf-product-details__accordion-summary">
+                      <span class="jf-product-details__accordion-title">{{ product_details_meta.title_five.value | escape }}</span>
+                      <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                    </summary>
+                    <div class="jf-product-details__accordion-content">
+                      {{ product_details_meta.content_five | metafield_tag }}
+                    </div>
+                  </details>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- capture accordion_items_markup -%}
+              {%- if accordion_items != blank -%}
+                {%- assign rendered_list_accordion_count = 0 -%}
+                {%- for item in accordion_items -%}
+                  {%- liquid
+                    assign accordion_title = item.title.value
+                    if accordion_title == blank and item.heading != blank
+                      assign accordion_title = item.heading.value
+                    endif
+                    if accordion_title == blank and item.question != blank
+                      assign accordion_title = item.question.value
+                    endif
+                  -%}
+
+                  {%- capture accordion_content -%}
+                    {%- if item.content != blank -%}
+                      {{ item.content | metafield_tag }}
+                    {%- elsif item.body != blank -%}
+                      {{ item.body | metafield_tag }}
+                    {%- elsif item.answer != blank -%}
+                      {{ item.answer | metafield_tag }}
+                    {%- elsif item.text != blank -%}
+                      <p>{{ item.text.value | newline_to_br }}</p>
+                    {%- endif -%}
+                  {%- endcapture -%}
+
+                  {%- if accordion_title != blank or accordion_content != blank -%}
+                    {%- assign rendered_list_accordion_count = rendered_list_accordion_count | plus: 1 -%}
+                    <details class="jf-product-details__accordion" {% if rendered_list_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                      <summary class="jf-product-details__accordion-summary">
+                        <span class="jf-product-details__accordion-title">{{ accordion_title | escape }}</span>
+                        <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                      </summary>
+                      <div class="jf-product-details__accordion-content">
+                        {{ accordion_content }}
+                      </div>
+                    </details>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- capture accordion_text_items_markup -%}
+              {%- if accordion_text_items != blank -%}
+                {%- assign accordion_text_groups = accordion_text_items | split: '|||' -%}
+                {%- assign rendered_text_accordion_count = 0 -%}
+                {%- for raw_item in accordion_text_groups -%}
+                  {%- liquid
+                    assign raw_item = raw_item | strip
+                    if raw_item == blank
+                      continue
+                    endif
+
+                    assign raw_parts = raw_item | split: '::'
+                    assign accordion_title = raw_parts | first | strip
+                    assign accordion_content = raw_item | remove_first: accordion_title | remove_first: '::' | strip
+                  -%}
+
+                  {%- if accordion_title != blank and accordion_content != blank -%}
+                    {%- assign rendered_text_accordion_count = rendered_text_accordion_count | plus: 1 -%}
+                    <details class="jf-product-details__accordion" {% if rendered_text_accordion_count == 1 and section.settings.open_first_item %}open{% endif %}>
+                      <summary class="jf-product-details__accordion-summary">
+                        <span class="jf-product-details__accordion-title">{{ accordion_title | escape }}</span>
+                        <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                      </summary>
+                      <div class="jf-product-details__accordion-content">
+                        {{ accordion_content | escape | newline_to_br }}
+                      </div>
+                    </details>
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- if product_details_meta_markup != blank -%}
+              {{ product_details_meta_markup }}
+            {%- elsif accordion_items_markup != blank -%}
+              {{ accordion_items_markup }}
+            {%- elsif accordion_text_items_markup != blank -%}
+              {{ accordion_text_items_markup }}
+            {%- elsif section.blocks.size > 0 -%}
+              {%- for block in section.blocks -%}
+                <details
+                  class="jf-product-details__accordion"
+                  {% if forloop.first and section.settings.open_first_item %}open{% endif %}
+                  {{ block.shopify_attributes }}
+                >
+                  <summary class="jf-product-details__accordion-summary">
+                    <span class="jf-product-details__accordion-title">{{ block.settings.heading | escape }}</span>
+                    <span class="jf-product-details__accordion-toggle" aria-hidden="true"></span>
+                  </summary>
+                  <div class="jf-product-details__accordion-content">{{ block.settings.content }}</div>
+                </details>
+              {%- endfor -%}
+            {%- else -%}
+              <div class="jf-product-details__empty">
+                Add accordion items to <strong>custom.jf_product_detail_accordion_item</strong>, <strong>custom.product_details</strong>, <strong>custom.jf_product_details_accordions</strong>, or <strong>custom.jf_product_details_accordion_items</strong>. You can also use the section block list as an admin fallback.
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="jf-product-details__buttons">
+            {%- if section.settings.primary_button_label != blank -%}
+              <a
+                {% if section.settings.primary_button_link != blank %}
+                  href="{{ section.settings.primary_button_link }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+                class="jf-product-details__button jf-product-details__button--primary"
+              >
+                {{ section.settings.primary_button_label | escape }}
+              </a>
+            {%- endif -%}
+
+            {%- if section.settings.secondary_button_label != blank -%}
+              <a
+                {% if section.settings.secondary_button_link != blank %}
+                  href="{{ section.settings.secondary_button_link }}"
+                {% else %}
+                  role="link" aria-disabled="true"
+                {% endif %}
+                class="jf-product-details__button jf-product-details__button--secondary"
+              >
+                {{ section.settings.secondary_button_label | escape }}
+              </a>
+            {%- endif -%}
+          </div>
+
+          {%- if section.settings.show_share_links -%}
+            <div class="jf-product-details__share">
+              <span class="jf-product-details__share-label">{{ section.settings.share_label | escape }}</span>
+              <div class="jf-product-details__share-links">
+                <a
+                  class="jf-product-details__share-link"
+                  href="{{ settings.social_instagram_link | default: 'https://www.instagram.com/' }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <span class="svg-wrapper">{{ 'icon-instagram.svg' | inline_asset_content }}</span>
+                </a>
+                <a
+                  class="jf-product-details__share-link"
+                  href="https://pinterest.com/pin/create/button/?url={{ share_url | url_encode }}&media={{ share_image }}&description={{ share_title }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Pinterest"
+                >
+                  <span class="svg-wrapper">{{ 'icon-pinterest.svg' | inline_asset_content }}</span>
+                </a>
+                <a
+                  class="jf-product-details__share-link"
+                  href="https://www.facebook.com/sharer/sharer.php?u={{ share_url | url_encode }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
+                  <span class="svg-wrapper">{{ 'icon-facebook.svg' | inline_asset_content }}</span>
+                </a>
+              </div>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </jf-product-details>
+</section>
+
+{% schema %}
+{
+  "name": "JF Product Details",
+  "enabled_on": {
+    "templates": ["product"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "This section supports `custom.jf_product_detail_accordion_item` or `custom.product_details` (single referenced metaobject with up to five title/content pairs), `custom.jf_product_details_accordions` (recommended list of metaobject references), or `custom.jf_product_details_accordion_items` (multi-line text using `Title::Content|||Title 2::Content 2`). If none of those sources have content, the section blocks below are used as the admin fallback list."
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first_item",
+      "label": "Open first accordion item",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_favorite_icon",
+      "label": "Show heart icon",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "show_more_label",
+      "label": "Mobile show more label",
+      "default": "See more"
+    },
+    {
+      "type": "text",
+      "id": "show_less_label",
+      "label": "Mobile show less label",
+      "default": "See less"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_label",
+      "label": "Primary button label",
+      "default": "Book a free consultation"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_label",
+      "label": "Secondary button label",
+      "default": "Find a stockist"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary button link"
+    },
+    {
+      "type": "header",
+      "content": "Share"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_share_links",
+      "label": "Show share links",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "share_label",
+      "label": "Share label",
+      "default": "Share it on"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Mobile top margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Mobile bottom margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Desktop top margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Desktop bottom margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "accordion_item",
+      "name": "Accordion item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Silhouette"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Content",
+          "default": "<p>Add fallback content here when product metafields are not connected yet.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Product Details",
+      "blocks": [
+        {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Silhouette"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Details & Fabric"
+          }
+        },
+        {
+          "type": "accordion_item",
+          "settings": {
+            "heading": "Customisation"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

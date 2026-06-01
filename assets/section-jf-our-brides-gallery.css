@@ -1,0 +1,310 @@
+.jf-our-brides {
+  position: relative;
+  overflow: hidden;
+}
+
+.jf-our-brides__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.jf-our-brides__background picture,
+.jf-our-brides__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-our-brides__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.jf-our-brides__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.jf-our-brides__content {
+  display: block;
+  width: 100%;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.jf-our-brides__intro {
+  max-width: 28rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.jf-our-brides__heading {
+  margin: 0;
+  color: #2b2830;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.18;
+}
+
+.jf-our-brides__description {
+  max-width: 100%;
+  margin: 1rem auto 0;
+  color: #38343c;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.15rem;
+  font-weight: 300;
+  line-height: 1.58;
+}
+
+.jf-our-brides__description p {
+  margin: 0;
+}
+
+.jf-our-brides__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.6rem;
+}
+
+.jf-our-brides__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 4.3rem;
+  padding: 1.2rem 1.8rem;
+  border: 1px solid #6d6966;
+  background: transparent;
+  color: #2b2830;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.jf-our-brides__button:hover {
+  background-color: #2b2830;
+  color: #ffffff;
+}
+
+.jf-our-brides__grid-wrapper {
+  margin-top: 3.6rem;
+}
+
+.jf-our-brides__grid-wrapper--no-actions {
+  margin-top: 3rem;
+}
+
+.jf-our-brides__grid {
+  display: grid;
+  grid-template-columns: repeat(var(--jf-our-brides-columns-mobile, 1), minmax(0, 1fr));
+  gap: 3rem 1.2rem;
+}
+
+.jf-our-brides__card {
+  min-width: 0;
+}
+
+.jf-our-brides__card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.jf-our-brides__media {
+  position: relative;
+  overflow: hidden;
+  background: #f3ede4;
+  aspect-ratio: 275 / 414;
+}
+
+.jf-our-brides__media img,
+.jf-our-brides__media .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jf-our-brides__card-content {
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.jf-our-brides__card-title {
+  margin: 0;
+  color: #2b2830;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 1.45rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.jf-our-brides__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  margin-top: 0.55rem;
+  color: #373239;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.jf-our-brides__meta-gown {
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.jf-our-brides__meta-separator {
+  width: 1px;
+  height: 1rem;
+  background: rgba(55, 50, 57, 0.28);
+}
+
+.jf-our-brides__meta-date {
+  color: #8f8883;
+}
+
+.jf-our-brides__pagination {
+  margin-top: 3.4rem;
+}
+
+.jf-our-brides__pagination-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.jf-our-brides__pagination-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.jf-our-brides__pagination-arrow,
+.jf-our-brides__pagination-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3.6rem;
+  height: 3.6rem;
+  padding: 0 0.8rem;
+  border: 0;
+  background: transparent;
+  color: #2b2830;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.jf-our-brides__pagination-button {
+  position: relative;
+}
+
+.jf-our-brides__pagination-button.is-active::after {
+  content: '';
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.6rem;
+  left: 0.8rem;
+  height: 1px;
+  background: currentColor;
+}
+
+.jf-our-brides__pagination-arrow[disabled],
+.jf-our-brides__pagination-button[disabled] {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.jf-our-brides__empty {
+  color: #38343c;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.4rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.jf-our-brides__empty.hidden {
+  display: none;
+}
+
+@media screen and (min-width: 750px) {
+  .jf-our-brides__intro {
+    max-width: 108rem;
+  }
+
+  .jf-our-brides__heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  .jf-our-brides__description {
+    margin-top: 1rem;
+    font-size: 16px;
+    line-height: 30px;
+  }
+
+  .jf-our-brides__actions {
+    margin-top: 1.9rem;
+  }
+
+  .jf-our-brides__button {
+    width: auto;
+    min-width: 16.4rem;
+    min-height: 5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+    font-size: 16px;
+  }
+
+  .jf-our-brides__grid-wrapper {
+    margin-top: 6.4rem;
+  }
+
+  .jf-our-brides__grid-wrapper--no-actions {
+    margin-top: 5rem;
+  }
+
+  .jf-our-brides__grid {
+    grid-template-columns: repeat(var(--jf-our-brides-columns-desktop, 3), minmax(0, 1fr));
+    gap: 2.2rem 2.2rem;
+  }
+
+  .jf-our-brides__card-content {
+    padding-top: 1.3rem;
+  }
+
+  .jf-our-brides__card-title {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .jf-our-brides__meta {
+    gap: 0.8rem;
+    margin-top: 0.7rem;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .jf-our-brides__pagination {
+    margin-top: 4.4rem;
+  }
+}

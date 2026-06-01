@@ -1,0 +1,300 @@
+{{ 'section-jf-coustom-dress-picker.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #JfCoustomDressPicker-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #JfCoustomDressPicker-{{ section.id }} .jf-coustom-dress-picker__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfCoustomDressPicker-{{ section.id }} .jf-coustom-dress-picker__button {
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfCoustomDressPicker-{{ section.id }} .jf-coustom-dress-picker__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfCoustomDressPicker-{{ section.id }}" class="jf-coustom-dress-picker">
+  <div class="jf-coustom-dress-picker__inner page-width">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.intro != blank -%}
+      <div class="jf-coustom-dress-picker__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-coustom-dress-picker__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jf-coustom-dress-picker__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.intro != blank -%}
+          <div class="jf-coustom-dress-picker__intro rte">{{ section.settings.intro }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="jf-coustom-dress-picker__grid">
+        {%- for block in section.blocks -%}
+          <article class="jf-coustom-dress-picker__item" {{ block.shopify_attributes }}>
+            <div class="jf-coustom-dress-picker__media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 900
+                  | image_tag:
+                    widths: '375, 550, 750, 900',
+                    sizes: '(min-width: 990px) 31vw, (min-width: 750px) 33vw, 100vw',
+                    loading: 'lazy',
+                    alt: block.settings.image.alt
+                }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.heading != blank -%}
+              <h3 class="jf-coustom-dress-picker__item-heading">{{ block.settings.heading | escape }}</h3>
+            {%- endif -%}
+
+            {%- if block.settings.subheading != blank -%}
+              <div class="jf-coustom-dress-picker__item-subheading rte">{{ block.settings.subheading }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.text != blank -%}
+              <div class="jf-coustom-dress-picker__item-text rte">{{ block.settings.text }}</div>
+            {%- endif -%}
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.footer_heading != blank or section.settings.footer_text != blank or section.settings.button_label != blank -%}
+      <div class="jf-coustom-dress-picker__footer-panel">
+        {%- if section.settings.footer_heading != blank -%}
+          <h3 class="jf-coustom-dress-picker__footer-heading">{{ section.settings.footer_heading | escape }}</h3>
+        {%- endif -%}
+
+        {%- if section.settings.footer_text != blank -%}
+          <div class="jf-coustom-dress-picker__footer-text rte">{{ section.settings.footer_text }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.button_label != blank -%}
+          <div class="jf-coustom-dress-picker__button-wrap">
+            <a
+              {% if section.settings.button_link != blank %}
+                href="{{ section.settings.button_link }}"
+              {% else %}
+                role="link" aria-disabled="true"
+              {% endif %}
+              class="jf-coustom-dress-picker__button"
+            >
+              <span>{{ section.settings.button_label | escape }}</span>
+              <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+            </a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Coustom Dress Picker",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "DEFINING THE JULIE SUFI BRIDE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Is a Custom Wedding Dress Right for You?"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>A departure from the traditional, a couture commission is an investment in both time and self-expression. A Julie Sufi gown is not found-it is forged. While every bride is unique, those who enter our atelier are typically driven by one of three distinct motivations.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Footer content"
+    },
+    {
+      "type": "text",
+      "id": "footer_heading",
+      "label": "Footer heading",
+      "default": "The Julie Sufi Distinction"
+    },
+    {
+      "type": "richtext",
+      "id": "footer_text",
+      "label": "Footer text",
+      "default": "<p>Whether you are driven by vision, fit, or legacy, the result is a singular, non-replicated work of art that belongs exclusively to you.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "BOOK YOUR DESIGN DIALOGUE SLOT"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Font color",
+      "default": "#232128"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#1f1f23"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "dress_type",
+      "name": "Image box",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "The Visionary"
+        },
+        {
+          "type": "richtext",
+          "id": "subheading",
+          "label": "Bold intro",
+          "default": "<p><strong>For the bride who seeks a singular aesthetic.</strong></p>"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>If you find the standard bridal offering repetitive, you are likely looking for a designer to translate a specific aesthetic soul into a physical reality. You value the creative dialogue of the process and refuse to settle for a design that already exists. For you, the bespoke wedding gown is a canvas for an original story.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Coustom Dress Picker",
+      "blocks": [
+        {
+          "type": "dress_type",
+          "settings": {
+            "heading": "The Visionary",
+            "subheading": "<p><strong>For the bride who seeks a singular aesthetic.</strong></p>",
+            "text": "<p>If you find the standard bridal offering repetitive, you are likely looking for a designer to translate a specific aesthetic soul into a physical reality. You value the creative dialogue of the process and refuse to settle for a design that already exists. For you, the bespoke wedding gown is a canvas for an original story.</p>"
+          }
+        },
+        {
+          "type": "dress_type",
+          "settings": {
+            "heading": "The Perfectionist",
+            "subheading": "<p><strong>For the bride who prioritises the mathematics of fit.</strong></p>",
+            "text": "<p>You understand that true elegance is a derivative of architecture. If you have struggled with standard sizing or simply demand a garment that moves in total harmony with your skin, you seek the security of our Toile prototype dress. You require a gown sculpted for your specific geometry to ensure effortless poise.</p>"
+          }
+        },
+        {
+          "type": "dress_type",
+          "settings": {
+            "heading": "The Heritage-Seeker",
+            "subheading": "<p><strong>For the bride who views her gown as a landmark.</strong></p>",
+            "text": "<p>You see a wedding gown as a piece of your family history rather than a single-day garment. Drawn to Julie Sufi's three generations of lineage, you value the heritage techniques and master-craftsmanship that ensure your handmade wedding dress remains a preserved masterpiece for decades to come.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

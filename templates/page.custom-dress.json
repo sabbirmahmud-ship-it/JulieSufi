@@ -1,0 +1,872 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "editorial_hero_6z6Fwc": {
+      "type": "editorial-hero",
+      "blocks": {
+        "button_ULPdBi": {
+          "type": "button",
+          "settings": {
+            "label": "Book a free consultation",
+            "link": "",
+            "style": "primary",
+            "show_icon": true
+          }
+        },
+        "button_c9KMi3": {
+          "type": "button",
+          "settings": {
+            "label": "Explore collection",
+            "link": "",
+            "style": "secondary",
+            "show_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "button_ULPdBi",
+        "button_c9KMi3"
+      ],
+      "custom_css": [
+        ".editorial-hero__frame:after {background: none;}",
+        ".editorial-hero__heading,.editorial-hero__copy,.editorial-hero__button--secondary {color: #fff;}",
+        ".editorial-hero__heading-line {font: 300 16px/16px Outfit; letter-spacing: 0;}",
+        ".editorial-hero__heading-line + .editorial-hero__heading-line {font: 300 64px/70px Taviraj;}",
+        ".editorial-hero__button--primary {background: #fff; color: #1d1c22;}",
+        ".editorial-hero__button--secondary {background: 0 0; border: 1px solid;}"
+      ],
+      "name": "Editorial Hero",
+      "settings": {
+        "desktop_image": "shopify://shop_images/Group_1000013455.png",
+        "desktop_image_position": "center center",
+        "mobile_image_position": "center center",
+        "overlay_opacity": 70,
+        "desktop_height": 740,
+        "mobile_height": 480,
+        "content_width": 620,
+        "body_text": "<p>Step beyond the limitations of the rack and into a silhouette designed exclusively for your geometry and your story. At Julie Sufi, we reject the mass-produced for the architectural, hand-sculpting each gown in our private Melbourne atelier to ensure your wedding dress is not just a garment, but a timeless work of heritage artistry.</p>",
+        "heading_line_one": "CUSTOM WEDDING DRESSES MELBOURNE BY JULIE SUFI",
+        "heading_line_two": "The Rare Luxuryof a Hand-Sculpted Couture Gown",
+        "color_scheme": ""
+      }
+    },
+    "jf_logo_slider_emxRt6": {
+      "type": "jf-logo-slider",
+      "blocks": {
+        "logo_Atxye4": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_287.png",
+            "link": ""
+          }
+        },
+        "logo_JwNkMm": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_289.png",
+            "link": ""
+          }
+        },
+        "logo_mGmepi": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_288.png",
+            "link": ""
+          }
+        },
+        "logo_Mzdxq8": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_290.png",
+            "link": ""
+          }
+        },
+        "logo_pD7pa7": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_292.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_Atxye4",
+        "logo_JwNkMm",
+        "logo_mGmepi",
+        "logo_Mzdxq8",
+        "logo_pD7pa7"
+      ],
+      "custom_css": [
+        "#JfLogoSlider-template--16440469618746__jf_logo_slider_emxRt6 {border-bottom: 1px solid #e8e8e8;}"
+      ],
+      "name": "JF Logo Slider",
+      "settings": {
+        "heading": "Featured In",
+        "logo_gap": 40,
+        "logo_height_mobile": 20,
+        "logo_height_desktop": 30,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "statistics_nKaRyX": {
+      "type": "statistics",
+      "blocks": {
+        "stat_GKxnHP": {
+          "type": "stat",
+          "settings": {
+            "value": "15+",
+            "label": "<p>Years of Couture Heritage</p>"
+          }
+        },
+        "stat_jPNG97": {
+          "type": "stat",
+          "settings": {
+            "value": "1-on-1",
+            "label": "<p>Signature Designer Dialogue</p>"
+          }
+        },
+        "stat_UBRXJj": {
+          "type": "stat",
+          "settings": {
+            "value": "100%",
+            "label": "<p>Hand-Sculpted in Melbourne</p>"
+          }
+        },
+        "stat_AEpePE": {
+          "type": "stat",
+          "settings": {
+            "value": "5,000+",
+            "label": "<p>Bespoke Creations Legacy</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stat_GKxnHP",
+        "stat_jPNG97",
+        "stat_UBRXJj",
+        "stat_AEpePE"
+      ],
+      "custom_css": [
+        "section#Statistics-template--16440469618746__statistics_nKaRyX {border-bottom: 1px solid #e8e8e8;}"
+      ],
+      "name": "Statistics",
+      "settings": {
+        "columns_desktop": 4,
+        "columns_mobile": 3,
+        "column_gap": 24,
+        "row_gap": 12,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#f3f1ed",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "jf_content_with_icon_box_qULK4z": {
+      "type": "jf-content-with-icon-box",
+      "blocks": {
+        "icon_box_FNiCpz": {
+          "type": "icon_box",
+          "settings": {
+            "title": "Made-to-Order",
+            "text": "<p>You select an existing design, choose a size from a chart, and customise small details like a sleeve or a neckline. <strong>You are adapting to the dress.</strong></p>"
+          }
+        },
+        "icon_box_6VHjLq": {
+          "type": "icon_box",
+          "settings": {
+            "title": "Julie Sufi Couture Bridal Dress",
+            "text": "<p>We draft a unique pattern based on your specific vision. We sculpt the fabric directly to your frame. <strong>The dress is adapting to you.</strong></p>"
+          }
+        }
+      },
+      "block_order": [
+        "icon_box_FNiCpz",
+        "icon_box_6VHjLq"
+      ],
+      "name": "JF Content With Icon Box",
+      "settings": {
+        "eyebrow": "THE DISTINCTION OF BESPOKE ARTISTRY",
+        "heading": "The Maker's Mark: What Is a True Custom Wedding Dress?",
+        "intro": "<p>In a world of mass-produced bridal wear, a true custom wedding dress is a rarity. It starts with a blank page—a garment that does not exist until you and Julie Sufi vision it into being. Unlike Made-to-Order dresses, which are simply standard sizes adjusted to your height, a bespoke gown is built from the ground up. It begins not with a rack of samples, but with a hand-drawn illustration and a roll of raw fabric.</p>",
+        "image": "shopify://shop_images/Rectangle_22924.png",
+        "content": "<p>There is a profound difference between a bridal boutique and a working atelier. In a retail environment, you speak to a stylist; at Julie Sufi, you speak to the maker.</p><p>This is the <strong>Maker's Mark</strong>—the technical assurance that the person designing your gown is the same hand that understands the grain of the silk, the tension of the corsetry, and the physics of the drape.</p>",
+        "button_label": "BOOK A FREE CONSULTATION",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "button_background_color": "#1f1f23",
+        "button_text_color": "#ffffff",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 64
+      }
+    },
+    "jf_content_with_icon_box_JrciBF": {
+      "type": "jf-content-with-icon-box",
+      "custom_css": [
+        ".jf-content-with-icon-box__media {overflow: hidden; max-height: 350px;}",
+        "@media screen and (min-width: 750px) {.jf-content-with-icon-box__body {align-items: center; }}"
+      ],
+      "name": "JF Content With Icon Box (No Icon))",
+      "settings": {
+        "eyebrow": "A Heritage of Custom Wedding Dresses Melbourne",
+        "heading": "Three Generations of the Needle: Designed for Your Legacy",
+        "intro": "",
+        "image": "shopify://shop_images/Rectangle_22925.png",
+        "content": "<p>At Julie Sufi, the art of the gown is a language passed down through a heritage of sartorial mastery. We are not a brand built on fleeting trends, but a lineage built on the mastery of the stitch. </p><p>When you enter our Melbourne atelier, you bypass the noise of the showroom for a Direct-to-Designer dialogue. You are sitting with the person behind the scissors—the artisan who translates your vision into a structural, breathtaking reality.</p><p>While the industry scales for the masses, we focus on the individual, ensuring your bespoke wedding dress is an heirloom-quality garment designed for your specific geometry and your unique legacy.</p>",
+        "button_label": "",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "button_background_color": "#1f1f23",
+        "button_text_color": "#ffffff",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 64
+      }
+    },
+    "icon_boxed_bknHak": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_zzDtkr": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013359_a6c61faf-53f7-433c-a09f-99ba2fc0ca3f.png",
+            "title": "Generational Knowledge",
+            "text": "<p>We utilise heritage techniques refined over decades—from intricate hidden corsetry to hand-finished internal bindings—to ensure the soul of your couture bridal dress is as flawless as the exterior.</p>"
+          }
+        },
+        "item_d7tCDA": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013360_2d90a124-85e0-4f47-af19-77bfbc44b900.png",
+            "title": "The Individual Silhouette",
+            "text": "<p>We do not design for a standard size; we sculpt for your unique frame. The result is a gown that moves as a natural extension of you with effortless poise and structural integrity. </p>"
+          }
+        },
+        "item_D8KLzt": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013361_35d9eed5-b423-4d90-80c3-0752f970844b.png",
+            "title": "Artisan Exclusivity",
+            "text": "<p>By rejecting mass production, we guarantee a singular masterpiece. Each creation is a one-of-one, ensuring your custom bridal wear legacy is never replicated. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_zzDtkr",
+        "item_d7tCDA",
+        "item_D8KLzt"
+      ],
+      "custom_css": [
+        ".icon-boxed__item {align-items: self-start;}",
+        "@media screen and (min-width: 750px) {.icon-boxed__item-copy {max-width: 100%; text-align: left; }}"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "The Pillars of a Julie Sufi Original",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "jf_step_zjajdA": {
+      "type": "jf-step",
+      "blocks": {
+        "step_row_9FwgN4": {
+          "type": "step_row",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22930.png",
+            "image_position": "right",
+            "step_1_title": "Step 1: The Design Dialogue",
+            "step_1_text": "<p>We begin with the aesthetic soul of your wedding. Through mood boards and conversation, we distill your inspirations into a cohesive creative direction.</p>",
+            "step_2_title": "Step 2: Concept & Sketching",
+            "step_2_text": "<p>Your vision takes form through original hand-drawn illustrations. This is where Julie Sufi balances proportions and maps out the architectural lines of your custom bridal gown.</p>"
+          }
+        },
+        "step_row_wUzwXK": {
+          "type": "step_row",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22931.png",
+            "image_position": "left",
+            "step_1_title": "Step 3: The Material Archive",
+            "step_1_text": "<p>Tactile luxury is paramount. We curate a selection of world-class textiles-from architectural Italian Mikado to delicate French laces-sourced specifically to flow with your design.</p>",
+            "step_2_title": "Step 4: The Toile Fitting (The Safety Net)",
+            "step_2_text": "<p>This is the most critical phase. We construct a prototype of your gown in calico (cotton) to perfect the architecture of the fit. This allows us to refine the geometry against your body before a single thread of silk is touched.</p>"
+          }
+        },
+        "step_row_rdgF7g": {
+          "type": "step_row",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22932.png",
+            "image_position": "right",
+            "step_1_title": "Step 5: The Silk Construction",
+            "step_1_text": "<p>Once the mock-up wedding dress is perfected, the master construction begins. Your gown is hand-finished in our Melbourne atelier, where heritage techniques of handmade wedding dresses meet modern precision.</p>",
+            "step_2_title": "Step 6: The Final Reveal",
+            "step_2_text": "<p>The culmination of the journey. A final fitting ensures a second-skin finish, resulting in a bespoke bridal dress that feels weightless, secure, and uniquely yours.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "step_row_9FwgN4",
+        "step_row_wUzwXK",
+        "step_row_rdgF7g"
+      ],
+      "name": "JF Step",
+      "settings": {
+        "eyebrow": "THE JOURNEY OF COUTURE BRIDAL DRESSES",
+        "heading": "The Evolution of an Icon: 6 Stages of Technical Precision",
+        "intro": "<p>Creating custom wedding dresses involves a meticulous evolution. At Julie Sufi, we follow a disciplined, six-stage process that removes the guesswork, ensuring the final garment is a flawless reflection of your intent.</p>",
+        "button_label": "START WITH THE DESIGN DIALOGUE",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "button_background_color": "#1f1f23",
+        "button_text_color": "#ffffff",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 12,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_coustom_dress_slider_dETPn8": {
+      "type": "jf-coustom-dress-slider",
+      "blocks": {
+        "slide_mMxaL6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22925_ccd0d155-79ca-48de-9564-07350c6f3113.png",
+            "heading": "The Pillars of a Julie Sufi Original",
+            "feature_1_heading": "Invisible Support",
+            "feature_1_text": "<p>Built-in couture corsetry is hand-sculpted to your frame, offering a flawless contour without the need for additional undergarments.</p>",
+            "feature_2_heading": "Structural Precision",
+            "feature_2_text": "<p>Every internal bone is drafted to your specific anatomy, ensuring your bespoke bridal dress moves in perfect harmony with you from the first step to the final dance.</p>"
+          }
+        },
+        "slide_DU3pxT": {
+          "type": "slide",
+          "settings": {
+            "heading": "The Language of Customisation",
+            "feature_1_heading": "Silhouette Architecture",
+            "feature_1_text": "<p>Your gown is shaped around proportion, movement, and posture so the final silhouette feels intentional from every angle.</p>",
+            "feature_2_heading": "Fluid Refinement",
+            "feature_2_text": "<p>Every fitting is used to refine the balance of fabric, support, and softness until the dress feels completely resolved.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "slide_mMxaL6",
+        "slide_DU3pxT"
+      ],
+      "name": "JF Coustom Dress Slider",
+      "settings": {
+        "eyebrow": "BESPOKE WEDDING GOWNS & CUSTOM BRIDAL WEAR",
+        "heading": "The Engineering of Grace: Infinite Customisation",
+        "intro": "<p>The secret to flawless custom wedding dresses lies beneath the silk. More than an aesthetic choice, it is a feat of sartorial engineering. We view dressmaking not merely as sewing, but as a form of soft architecture-where the physics of weight distribution meets the fluid movement of the body.</p>",
+        "button_label": "",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "button_background_color": "#1f1f23",
+        "button_text_color": "#ffffff",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 48,
+        "padding_bottom_desktop": 48
+      }
+    },
+    "jf_coustom_dress_picker_H3gMzk": {
+      "type": "jf-coustom-dress-picker",
+      "blocks": {
+        "dress_type_WQ4BqP": {
+          "type": "dress_type",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22936.png",
+            "heading": "The Visionary",
+            "subheading": "<p><strong>For the bride who seeks a singular aesthetic.</strong></p>",
+            "text": "<p>If you find the standard bridal offering repetitive, you are likely looking for a designer to translate a specific aesthetic soul into a physical reality. You value the creative dialogue of the process and refuse to settle for a design that already exists. For you, the bespoke wedding gown is a canvas for an original story.</p>"
+          }
+        },
+        "dress_type_8kiCKV": {
+          "type": "dress_type",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22937.png",
+            "heading": "The Perfectionist",
+            "subheading": "<p><strong>For the bride who prioritises the mathematics of fit.</strong></p>",
+            "text": "<p>You understand that true elegance is a derivative of architecture. If you have struggled with standard sizing or simply demand a garment that moves in total harmony with your skin, you seek the security of our Toile prototype dress. You require a gown sculpted for your specific geometry to ensure effortless poise.</p>"
+          }
+        },
+        "dress_type_rpkbCV": {
+          "type": "dress_type",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22938.png",
+            "heading": "The Heritage-Seeker",
+            "subheading": "<p><strong>For the bride who views her gown as a landmark.</strong></p>",
+            "text": "<p>You see a wedding gown as a piece of your family history rather than a single-day garment. Drawn to Julie Sufi's three generations of lineage, you value the heritage techniques and master-craftsmanship that ensure your handmade wedding dress remains a preserved masterpiece for decades to come.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "dress_type_WQ4BqP",
+        "dress_type_8kiCKV",
+        "dress_type_rpkbCV"
+      ],
+      "name": "JF Coustom Dress Picker",
+      "settings": {
+        "eyebrow": "DEFINING THE JULIE SUFI BRIDE",
+        "heading": "Is a Custom Wedding Dress Right for You?",
+        "intro": "<p>A departure from the traditional, a couture commission is an investment in both time and self-expression. A Julie Sufi gown is not found-it is forged. While every bride is unique, those who enter our atelier are typically driven by one of three distinct motivations.</p>",
+        "footer_heading": "The Julie Sufi Distinction",
+        "footer_text": "<p>Whether you are driven by vision, fit, or legacy, the result is a singular, non-replicated work of art that belongs exclusively to you.</p>",
+        "button_label": "BOOK YOUR DESIGN DIALOGUE SLOT",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "button_background_color": "#1f1f23",
+        "button_text_color": "#ffffff",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 48
+      }
+    },
+    "icon_boxed_3pY9DW": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_JqwE9t": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013458.png",
+            "title": "The Golden Window: 6–9 Months",
+            "text": "<p>This is the ideal window for the full Julie Sufi experience. It allows for a relaxed evolution of the design dialogue, the sourcing of rare textiles from European mills, and the critical Toile mock-up fitting phase. This timeline ensures that the journey of creating your bespoke wedding gown is as seamless as the final garment.<br/><br/></p>"
+          }
+        },
+        "item_PafwRn": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013456.png",
+            "title": "The Express Protocol: Under 4 Months",
+            "text": "<p>For weddings occurring in less than four months, we offer an express protocol. This accelerated path reallocates our available Melbourne atelier resources to maintain our signature structural integrity, ensuring your custom wedding dress is delivered without compromising the Maker’s Mark.<br/><br/></p>"
+          }
+        },
+        "item_VxMXbU": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013457.png",
+            "title": "Short-Lead Commissions",
+            "text": "<p>Depending on our atelier capacity and the structural complexity of your vision, we can occasionally facilitate short-lead requests. These are assessed on a case-by-case basis to ensure our commitment to quality is never diluted by the calendar. <br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_JqwE9t",
+        "item_PafwRn",
+        "item_VxMXbU"
+      ],
+      "custom_css": [
+        ".icon-boxed__item {align-items: self-start;}",
+        "@media screen and (min-width: 750px) {.icon-boxed__item-copy {max-width: 100%; text-align: left; }}"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "Timeline of Couture Bridal Dresses Melbourne",
+        "heading": "The Pace of Art: From Vision to Silhouette",
+        "description": "<p>Couture is a slow art governed by precision in every stitch. At our Melbourne atelier, we operate within a disciplined calendar to ensure every hand-finished detail meets our generational standards and your vision.<br/><br/></p>",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "jf_two_row_content_yGUGbL": {
+      "type": "jf-two-row-content",
+      "blocks": {
+        "content_box_Kim4zD": {
+          "type": "content_box",
+          "settings": {
+            "heading": "Virtual Consultations:",
+            "text": "<p>We guide you through the design evolution in real time via video dialogue. But to let you feel it, we courier premium fabric swatches to your door.</p>"
+          }
+        },
+        "content_box_7PaY4q": {
+          "type": "content_box",
+          "settings": {
+            "heading": "Master-Pattern Integration",
+            "text": "<p>We pair our Melbourne atelier's master patterns with trusted local couturiers in your city. Our regular technical oversight ensures the fit meets the rigorous standards of our couture bridal dresses.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "content_box_Kim4zD",
+        "content_box_7PaY4q"
+      ],
+      "name": "JF Two Row Content",
+      "settings": {
+        "heading": "The Virtual Atelier: Global Access to Melbourne Couture",
+        "intro": "<p>Geography is no longer a barrier to the Julie Sufi experience. We collaborate with brides across Australia and overseas, utilising a refined digital architecture to deliver custom wedding dresses from Melbourne to the world.</p>",
+        "footer_text": "<p>This collaborative hybrid model ensures that, regardless of your location, you receive the same world-class couture experience and precision engineering synonymous with the finest bespoke wedding gowns in Melbourne.</p>",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 36,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_cost_Ae6yPM": {
+      "type": "jf-cost",
+      "blocks": {
+        "cost_row_kjG6MF": {
+          "type": "cost_row",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22940.png",
+            "image_position": "left",
+            "heading": "Julie Sufi Bespoke Couture Price Range",
+            "price": "Starting from AU$5,000",
+            "description": "<p>Designed for the bride seeking minimalist elegance and architectural purity. This tier focuses on superior fabric choice (such as heavy-weight crepes or Italian Mikado) and our signature internal construction, featuring clean lines and a flawlessly sculpted silhouette.</p>",
+            "feature_1_heading": "",
+            "feature_1_text": "",
+            "feature_2_heading": "",
+            "feature_2_text": "",
+            "feature_3_heading": "",
+            "feature_3_text": ""
+          }
+        },
+        "cost_row_8DxWYA": {
+          "type": "cost_row",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22943.png",
+            "image_position": "right",
+            "heading": "Julie Sufi High Couture Price Range",
+            "price": "Starting from AU$8,000",
+            "description": "<p>Designed for the bride seeking intricate complexity. This tier includes couture bridal dresses featuring intensive hand-detailing, multi-layered French laces, elaborate beadwork, or significant structural elements like expansive detachable overskirts and cathedral-length extensions.</p>",
+            "feature_1_heading": "",
+            "feature_1_text": "",
+            "feature_2_heading": "",
+            "feature_2_text": "",
+            "feature_3_heading": "",
+            "feature_3_text": ""
+          }
+        },
+        "cost_row_44UqpV": {
+          "type": "cost_row",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22944.png",
+            "image_position": "left",
+            "heading": "Begin with the Final Cost",
+            "price": "Starting from AU$5,000",
+            "description": "<p>One of the most significant benefits of the couture path is the elimination of the hidden costs associated with traditional bridal boutiques.</p>",
+            "feature_1_heading": "Starting from AU$8,000",
+            "feature_1_text": "<p>Standard bridal shops often charge between AU$800 and AU$1,500 for post-purchase alterations. At Julie Sufi, your gown is built to your measurements from day one.</p>",
+            "feature_2_heading": "Unlimited Fittings",
+            "feature_2_text": "<p>Your first price outline includes every fitting required-from the initial calico Toile mock-up to the final silk refinement.</p>",
+            "feature_3_heading": "Direct Accountability",
+            "feature_3_text": "<p>You are not paying for showroom markups or retail overhead. Every dollar of your investment stays within our Melbourne atelier, and so does the responsibility for the master-craftsmanship of your custom wedding dress.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "cost_row_kjG6MF",
+        "cost_row_8DxWYA",
+        "cost_row_44UqpV"
+      ],
+      "name": "JF Cost",
+      "settings": {
+        "eyebrow": "CUSTOM WEDDING DRESSES COST & VALUE",
+        "heading": "Investing in The One Day & Forever: Pricing & Tiers",
+        "intro": "<p>A Julie Sufi custom wedding dress Melbourne is an investment in both a momentous day and a permanent legacy. Unlike off-the-rack bridal shopping-where the price of the gown is often just the starting point-our pricing is comprehensive, reflecting the thousands of artisan hours forging your handmade wedding dress.</p>",
+        "promise_text": "<p><strong>Our Promise:</strong> We provide a finalized, fixed-price quote following your initial design dialogue. There are no external charges-only the certainty of a masterpiece delivered to your exact specifications.</p>",
+        "button_label": "",
+        "button_link": "",
+        "background_color": "#ffffff",
+        "text_color": "#232128",
+        "button_background_color": "#1f1f23",
+        "button_text_color": "#ffffff",
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 44,
+        "padding_top_desktop": 12,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "icon_boxed_by4eCr": {
+      "type": "icon-boxed",
+      "name": "video header",
+      "settings": {
+        "eyebrow": "Our Iconic Custom Wedding Dresses Melbourne",
+        "heading": "From Atelier to Aisle: Featured Julie Sufi Brides",
+        "description": "<p>The true measure of bespoke wedding dresses lies in the harmony between the original brief and the final silhouette. Explore our most distinctive commissions from the raw fabric in our private atelier to a finished dream of a bride.</p>",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 32
+      }
+    },
+    "video_XNDXby": {
+      "type": "video",
+      "name": "t:sections.video.presets.name",
+      "settings": {
+        "heading": "",
+        "heading_size": "h1",
+        "enable_video_looping": true,
+        "video": "shopify://files/videos/LONG MONTAGE _EXTRA FOOTAGE.mov",
+        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+        "description": "",
+        "full_width": false,
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "icon_boxed_rURqCe": {
+      "type": "icon-boxed",
+      "name": "video footer",
+      "settings": {
+        "eyebrow": "",
+        "heading": "Start Your Story",
+        "description": "<p>As a Julie Sufi bride, begin with a blank page. Whether you are inspired by the archives or seeking something entirely unprecedented, your journey of a custom bridal wear starts with a one-on-one conversation with Julie herself in our Melbourne atelier.</p>",
+        "button_label": "Book a Free Design Consultation",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 32,
+        "padding_bottom": 56
+      }
+    },
+    "jf_faq_zRkp8F": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_JGY3zP": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_eHjQ7z": {
+          "type": "item",
+          "settings": {
+            "question": "How does the appointment process work?",
+            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>",
+            "open_by_default": false
+          }
+        },
+        "item_FcCzeX": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations?",
+            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_JGY3zP",
+        "item_eHjQ7z",
+        "item_FcCzeX"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "Questions, Answered",
+        "heading": "The Details",
+        "sub_heading": "Everything You Need To Know",
+        "description": "<p>Find quick answers to the most common questions about appointments, custom gowns, and consultations.</p>",
+        "item_gap": 8,
+        "items_per_row": "two",
+        "desktop_background_color": "#f7f7f7",
+        "mobile_background_color": "#f7f7f7",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "icon_boxed_U8C99U": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_MkPmGc": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1_abd6c2c1-b85a-4441-9094-a403c2e820fc.png",
+            "title": "Creative Exploration",
+            "text": "<p>Discuss your vision, sketches, and fabrics. <br/><br/></p>"
+          }
+        },
+        "item_a3fPEE": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1_abd6c2c1-b85a-4441-9094-a403c2e820fc.png",
+            "title": "Artisan Insight",
+            "text": "<p>Get professional guidance to realise your vision.<br/><br/></p>"
+          }
+        },
+        "item_tydH4F": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1_abd6c2c1-b85a-4441-9094-a403c2e820fc.png",
+            "title": "Move at Your Pace",
+            "text": "<p>Keep the next step entirely in your hands.<br/><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_MkPmGc",
+        "item_a3fPEE",
+        "item_tydH4F"
+      ],
+      "custom_css": [],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "<p>Every Julie Sufi custom wedding dress is a tapestry woven of dialogues between you and Julie. We invite you to our Melbourne atelier for a complimentary design consultation to explore your vision and see if we are the right hands for your story.<br/><br/></p>",
+        "button_label": "Request Complimentary Consultation",
+        "button_link": "",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "jf_plain_box_icon_KaxWj6": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_NVf99Y": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_7y8Y9E": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": "shopify://pages/contact-us"
+          }
+        },
+        "item_TKC7Vm": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": "shopify://pages/contact-us"
+          }
+        }
+      },
+      "block_order": [
+        "item_NVf99Y",
+        "item_7y8Y9E",
+        "item_TKC7Vm"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_subscribe_fXCatb": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "editorial_hero_6z6Fwc",
+    "jf_logo_slider_emxRt6",
+    "statistics_nKaRyX",
+    "jf_content_with_icon_box_qULK4z",
+    "jf_content_with_icon_box_JrciBF",
+    "icon_boxed_bknHak",
+    "jf_step_zjajdA",
+    "jf_coustom_dress_slider_dETPn8",
+    "jf_coustom_dress_picker_H3gMzk",
+    "icon_boxed_3pY9DW",
+    "jf_two_row_content_yGUGbL",
+    "jf_cost_Ae6yPM",
+    "icon_boxed_by4eCr",
+    "video_XNDXby",
+    "icon_boxed_rURqCe",
+    "jf_faq_zRkp8F",
+    "icon_boxed_U8C99U",
+    "jf_plain_box_icon_KaxWj6",
+    "jf_subscribe_fXCatb"
+  ]
+}

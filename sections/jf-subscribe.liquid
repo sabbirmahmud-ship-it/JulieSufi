@@ -1,0 +1,245 @@
+{{ 'section-jf-subscribe.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+-%}
+
+{%- style -%}
+  #JfSubscribe-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfSubscribe-{{ section.id }} .jf-subscribe__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfSubscribe-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfSubscribe-{{ section.id }} .jf-subscribe__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfSubscribe-{{ section.id }}" class="jf-subscribe">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-subscribe__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-subscribe__inner page-width">
+    <div class="jf-subscribe__content">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="jf-subscribe__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="jf-subscribe__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+
+      {% form 'customer', class: 'jf-subscribe__form' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="jf-subscribe__form-layout">
+          <div class="jf-subscribe__field-wrap">
+            <label class="visually-hidden" for="JfSubscribeEmail-{{ section.id }}">
+              {{ section.settings.email_placeholder | default: 'Email address' }}
+            </label>
+            <input
+              id="JfSubscribeEmail-{{ section.id }}"
+              type="email"
+              name="contact[email]"
+              class="jf-subscribe__field"
+              value="{{ form.email }}"
+              aria-required="true"
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="email"
+              {% if form.errors %}
+                autofocus
+                aria-invalid="true"
+                aria-describedby="JfSubscribeError-{{ section.id }}"
+              {% elsif form.posted_successfully? %}
+                aria-describedby="JfSubscribeSuccess-{{ section.id }}"
+              {% endif %}
+              placeholder="{{ section.settings.email_placeholder | escape }}"
+              required
+            >
+          </div>
+
+          <button
+            type="submit"
+            class="jf-subscribe__button"
+            name="commit"
+          >
+            {{ section.settings.button_label | escape }}
+          </button>
+        </div>
+
+        {%- if form.errors -%}
+          <small class="jf-subscribe__message jf-subscribe__message--error" id="JfSubscribeError-{{ section.id }}">
+            {{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}
+          </small>
+        {%- endif -%}
+
+        {%- if form.posted_successfully? -%}
+          <p
+            class="jf-subscribe__message jf-subscribe__message--success"
+            id="JfSubscribeSuccess-{{ section.id }}"
+            tabindex="-1"
+            autofocus
+          >
+            {{ section.settings.success_message | escape }}
+          </p>
+        {%- endif -%}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Subscribe",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join Our Inner Circle"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Enter your email address"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Join the list"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "Thanks for subscribing."
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#1d1d20"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#1d1d20"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Subscribe"
+    }
+  ]
+}
+{% endschema %}

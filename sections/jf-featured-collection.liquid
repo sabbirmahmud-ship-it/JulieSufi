@@ -1,0 +1,319 @@
+{{ 'section-jf-featured-collection.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign fetch_priority = 'auto'
+
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+{%- style -%}
+  #JfFeaturedCollection-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #JfFeaturedCollection-{{ section.id }} .jf-featured-collection__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfFeaturedCollection-{{ section.id }} .jf-featured-collection__grid {
+    --jf-featured-column-gap: {{ section.settings.column_gap }}px;
+    --jf-featured-row-gap: {{ section.settings.row_gap }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfFeaturedCollection-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #JfFeaturedCollection-{{ section.id }} .jf-featured-collection__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfFeaturedCollection-{{ section.id }}" class="jf-featured-collection">
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-featured-collection__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy',
+            fetchpriority: fetch_priority
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-featured-collection__inner page-width">
+    <div class="jf-featured-collection__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="jf-featured-collection__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading_line_one != blank or section.settings.heading_line_two != blank -%}
+        <h2 class="jf-featured-collection__heading">
+          {%- if section.settings.heading_line_one != blank -%}
+            <span class="jf-featured-collection__heading-line">{{ section.settings.heading_line_one | escape }}</span>
+          {%- endif -%}
+          {%- if section.settings.heading_line_two != blank -%}
+            <span class="jf-featured-collection__heading-line jf-featured-collection__heading-line--accent">
+              {{ section.settings.heading_line_two | escape }}
+            </span>
+          {%- endif -%}
+        </h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="jf-featured-collection__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="jf-featured-collection__grid">
+      {%- if section.settings.collection != blank and section.settings.collection.products.size > 0 -%}
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          <div class="jf-featured-collection__item{% if forloop.first %} jf-featured-collection__item--featured{% endif %}">
+            <a href="{{ product.url }}" class="jf-featured-collection__card">
+              <div class="jf-featured-collection__media">
+                {%- if product.featured_media != blank -%}
+                  {{
+                    product.featured_media
+                    | image_url: width: 1600
+                    | image_tag:
+                      widths: '375, 550, 750, 900, 1100, 1500, 1600',
+                      sizes: '(min-width: 750px) 33vw, 50vw',
+                      loading: 'lazy',
+                      alt: product.featured_media.alt
+                  }}
+                {%- else -%}
+                  {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+              <p class="jf-featured-collection__title">{{ product.title | escape }}</p>
+            </a>
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for index in (1..5) -%}
+          <div class="jf-featured-collection__item{% if forloop.first %} jf-featured-collection__item--featured{% endif %}">
+            <div class="jf-featured-collection__card">
+              <div class="jf-featured-collection__media">
+                {{ 'product-apparel-' | append: index | placeholder_svg_tag: 'placeholder-svg' }}
+              </div>
+              <p class="jf-featured-collection__title">Sample look {{ index }}</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="jf-featured-collection__actions">
+        {%- if section.settings.mobile_button_copy != blank -%}
+          <p class="jf-featured-collection__actions-copy">{{ section.settings.mobile_button_copy | escape }}</p>
+        {%- endif -%}
+        <div class="jf-featured-collection__button-wrap">
+          <a
+            {% if section.settings.button_link != blank %}
+              href="{{ section.settings.button_link }}"
+            {% elsif section.settings.collection != blank %}
+              href="{{ section.settings.collection.url }}"
+            {% else %}
+              role="link" aria-disabled="true"
+            {% endif %}
+            class="jf-featured-collection__button"
+          >
+            <span>{{ section.settings.button_label | escape }}</span>
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </a>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Featured Collection",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 5
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Bridal Collection 2025"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_one",
+      "label": "Heading line one",
+      "default": "Where Modern Romance"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_two",
+      "label": "Heading line two",
+      "default": "Meets Couture Craftsmanship"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>A considered edit of modern bridal couture. Every gown begins with you.</p>"
+    },
+    {
+      "type": "text",
+      "id": "mobile_button_copy",
+      "label": "Mobile text above button",
+      "default": "A considered edit of modern bridal couture."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Explore full collection"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link override"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#f8f5f1"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#f8f5f1"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Column gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Row gap",
+      "min": 0,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Featured Collection"
+    }
+  ]
+}
+{% endschema %}

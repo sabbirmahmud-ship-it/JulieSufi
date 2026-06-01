@@ -1,0 +1,90 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "Editorial Footer",
+  "type": "footer",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "menu_column_bridal": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "Bridal",
+            "link_1_label": "Our Collection",
+            "link_1_url": "shopify://collections",
+            "link_2_label": "Book A Free Consultation",
+            "link_2_url": "shopify://pages/book-an-appointment",
+            "link_3_label": "Julie Sufi Brides",
+            "link_3_url": "shopify://pages/our-brides",
+            "link_4_label": "",
+            "link_4_url": "",
+            "link_5_label": "FAQs",
+            "link_5_url": "shopify://pages/faqs",
+            "link_6_label": "",
+            "link_6_url": ""
+          }
+        },
+        "menu_column_company": {
+          "type": "menu_column",
+          "settings": {
+            "heading": "The Company",
+            "link_1_label": "About us",
+            "link_1_url": "shopify://pages/about-us",
+            "link_2_label": "",
+            "link_2_url": "",
+            "link_3_label": "Contact Us",
+            "link_3_url": "",
+            "link_4_label": "Blogs",
+            "link_4_url": "shopify://blogs/news",
+            "link_5_label": "Returns Policy",
+            "link_5_url": "shopify://pages/return-policy",
+            "link_6_label": "Shipping Policy",
+            "link_6_url": "shopify://pages/shipping-policy"
+          }
+        }
+      },
+      "block_order": [
+        "menu_column_bridal",
+        "menu_column_company"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "brand_title": "JULIE SUFI",
+        "brand_subtitle": "SINCE 2010",
+        "brand_description": "<p>Bridging a three-generation legacy of sartorial mastery with contemporary bridal architecture. From our private Northcote atelier, Julie Sufi hand-sculpts one-of-a-kind couture gowns for the modern Melbourne bride. Experience the art of the singular silhouette, where every stitch is an unbroken promise of perfection.</p><p>Designed in Melbourne, Australia.</p>",
+        "contact_location": "Northcote, Victoria",
+        "contact_email": "info@juliesufi.com",
+        "contact_email_link": "",
+        "contact_card_link": "",
+        "show_social": true,
+        "social_instagram_link": "https://www.instagram.com/juliesufi/",
+        "social_pinterest_link": "",
+        "social_facebook_link": "",
+        "social_youtube_link": "",
+        "social_tiktok_link": "",
+        "legal_heading": "Legal",
+        "legal_link_1_label": "",
+        "legal_link_1_url": "",
+        "legal_link_2_label": "Privacy Policy",
+        "legal_link_2_url": "shopify://pages/privacy-policy",
+        "legal_link_3_label": "Terms of Use",
+        "legal_link_3_url": "shopify://pages/terms-of-use",
+        "copyright_text": "auto",
+        "margin_top": 0,
+        "padding_top": 44,
+        "padding_bottom": 56
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

@@ -1,0 +1,1178 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "editorial_hero": {
+      "type": "editorial-hero",
+      "blocks": {
+        "hero_button_primary": {
+          "type": "button",
+          "settings": {
+            "label": "Book a Private Consultation",
+            "link": "shopify://pages/book-an-appointment",
+            "style": "primary",
+            "show_icon": true
+          }
+        },
+        "hero_button_secondary": {
+          "type": "button",
+          "settings": {
+            "label": "Explore Our Collection",
+            "link": "shopify://collections",
+            "style": "secondary",
+            "show_icon": false
+          }
+        }
+      },
+      "block_order": [
+        "hero_button_primary",
+        "hero_button_secondary"
+      ],
+      "settings": {
+        "desktop_image": "shopify://shop_images/hero_cm_0f5ad9c9-70a0-4d6d-b643-d190a4d293e7.png",
+        "mobile_image": "shopify://shop_images/ZEp7LlQ_1.png",
+        "desktop_image_position": "right top",
+        "mobile_image_position": "center center",
+        "overlay_opacity": 70,
+        "desktop_height": 740,
+        "mobile_height": 480,
+        "content_width": 620,
+        "body_text": "<p>True couture is an inheritance of skill and soul. At our Melbourne wedding boutique, Julie Sufi weaves a three-generation lineage of sartorial mastery into your perfect silhouette. Experience a private, designer-led collaboration that transcends the traditional retail floor. In the Julie Sufi Atelier, your custom wedding dress is hand-sketched and hand-finished to be as memorable as the day itself.</p>",
+        "heading_line_one": "Wedding Dresses Melbourne: Timeless as Your Vows.",
+        "heading_line_two": "",
+        "color_scheme": "scheme-1"
+      }
+    },
+    "jf_logo_slider_eDkpzq": {
+      "type": "jf-logo-slider",
+      "blocks": {
+        "logo_4mRUbE": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_287.png",
+            "link": ""
+          }
+        },
+        "logo_CNi4x4": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_292.png",
+            "link": ""
+          }
+        },
+        "logo_Jr9CtP": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_288.png",
+            "link": ""
+          }
+        },
+        "logo_6mYb93": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_290.png",
+            "link": ""
+          }
+        },
+        "logo_KP9YAd": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/image_289.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "logo_4mRUbE",
+        "logo_CNi4x4",
+        "logo_Jr9CtP",
+        "logo_6mYb93",
+        "logo_KP9YAd"
+      ],
+      "name": "JF Logo Slider",
+      "settings": {
+        "heading": "Featured In",
+        "logo_gap": 40,
+        "logo_height_mobile": 20,
+        "logo_height_desktop": 30,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "statistics_e9Pn7Y": {
+      "type": "statistics",
+      "blocks": {
+        "stat_UTMdRc": {
+          "type": "stat",
+          "settings": {
+            "value": "5,000+",
+            "label": "<p>Handcrafted Gowns</p>"
+          }
+        },
+        "stat_8kXq6Y": {
+          "type": "stat",
+          "settings": {
+            "value": "15+",
+            "label": "<p>Years of Couture</p>"
+          }
+        },
+        "stat_m3B9w8": {
+          "type": "stat",
+          "settings": {
+            "value": "100%",
+            "label": "<p>Sartorial Handcraft</p>"
+          }
+        },
+        "stat_y7BYmy": {
+          "type": "stat",
+          "settings": {
+            "value": "1-on-1",
+            "label": "<p>Designer Access</p>"
+          }
+        }
+      },
+      "block_order": [
+        "stat_UTMdRc",
+        "stat_8kXq6Y",
+        "stat_m3B9w8",
+        "stat_y7BYmy"
+      ],
+      "name": "Statistics",
+      "settings": {
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "column_gap": 24,
+        "row_gap": 12,
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "icon_boxed_4ANnif": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_LCaq7d": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013359_a6c61faf-53f7-433c-a09f-99ba2fc0ca3f.png",
+            "title": "1. Bringing Your Vision to Life",
+            "text": "<p>Your journey begins with an immersive design dialogue in the Julie Sufi atelier. Unlike a typical wedding dress store in Melbourne, we don't start with a rack; we start with your vision. Together with Julie, you will explore world-class fabrics and silhouettes to define a vision that is entirely your own.</p>"
+          }
+        },
+        "item_XmgC8t": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013360_2d90a124-85e0-4f47-af19-77bfbc44b900.png",
+            "title": "2. Crafting the Blueprint",
+            "text": "<p>Step into the heart of our wedding boutique in Melbourne, where the artistry of custom wedding dresses meets modern elegance. This is where your concept takes shape; you will select premium laces and silks, refining the design until it perfectly captures the spirit of your day.</p>"
+          }
+        },
+        "item_GdntjW": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Group_1000013361_35d9eed5-b423-4d90-80c3-0752f970844b.png",
+            "title": "3. Hand-Finished Perfection",
+            "text": "<p>Each Julie Sufi wedding gown is meticulously hand-finished in our Melbourne atelier to ensure a flawless, second-skin fit. Your gown is handed over in its final, breathtaking form—ready for your extraordinary day.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_LCaq7d",
+        "item_XmgC8t",
+        "item_GdntjW"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "THE JULIE SUFI EXPERIENCE",
+        "heading": "A Collaborative Couture Journey of Wedding Dresses in Melbourne",
+        "description": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.</p><p>From the first hand-drawn sketch to your final silhouette, every step is guided by our founder and head designer, Julie Sufi.</p>",
+        "button_label": "Book a free consultation",
+        "button_link": "shopify://pages/book-an-appointment",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "jf_featured_collection_R4wirD": {
+      "type": "jf-featured-collection",
+      "custom_css": [
+        "p.jf-featured-collection__title {display: none;}"
+      ],
+      "name": "JF Featured Collection",
+      "settings": {
+        "collection": "halo-2026",
+        "products_to_show": 5,
+        "eyebrow": "JULIE SUFI BRIDAL COLLECTION",
+        "heading_line_one": "Introducing Halo 2026",
+        "heading_line_two": "The Architecture of Grace",
+        "description": "<p>A halo is more than a silhouette; it is a circle of light, an unbroken promise of perfection. Julie Sufi’s Halo 2026 collection captures that radiant energy and weaves the intangible glow of a bride into structured silk and hand-draped tulle. </p><p>Explore our collection of wedding dresses in Melbourne, Australia, and transition from a vision to a handcrafted reality.</p>",
+        "mobile_button_copy": "A considered edit of modern bridal couture.",
+        "button_label": "Explore Our Full Collection",
+        "button_link": "shopify://collections/halo-2026",
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "column_gap": 1,
+        "row_gap": 1,
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_image_slider_CckHk7": {
+      "type": "jf-image-slider",
+      "blocks": {
+        "slide_Cz9MLQ": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22888.png",
+            "label": "One-on-One Artistry: Personal. Precise. Couture.",
+            "link": ""
+          }
+        },
+        "slide_PYP6Am": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22889.png",
+            "label": "Intricate Geometry: Detail defined by hand.",
+            "link": ""
+          }
+        },
+        "slide_7kxw38": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22890.png",
+            "label": "Intricate Geometry: Detail defined by hand.",
+            "link": ""
+          }
+        },
+        "slide_UDmDKM": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22891.png",
+            "label": "The Final Fitting: A signature silhouette, authentically yours.",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_Cz9MLQ",
+        "slide_PYP6Am",
+        "slide_7kxw38",
+        "slide_UDmDKM"
+      ],
+      "name": "JF Image Slider",
+      "settings": {
+        "eyebrow": "INSIDE OUR MELBOURNE ATELIER",
+        "heading": "The Art of the Singular Gown",
+        "description": "<p>From the first stroke on paper to the final stitch on fabric, the soul of our craftsmen defines the moment your vision finds its form.</p>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "slide_gap": 8,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "rich_text_kX6hyd": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_7XpWB3": {
+          "type": "caption",
+          "settings": {
+            "caption": "“",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "large"
+          }
+        },
+        "text_4QXCBb": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every Julie Sufi wedding gown begins as a one-on-one dialogue in our Melbourne boutique. Through the meticulous hand-sculpting of fabric to form, we bridge the soul of the maker and the spirit of the bride into a single silhouette that is as structural as it is personal.</p>"
+          }
+        },
+        "caption_zMWknk": {
+          "type": "caption",
+          "settings": {
+            "caption": "— Julie Sufi, Founder & Head Designer",
+            "text_style": "subtitle",
+            "text_size": "small"
+          }
+        }
+      },
+      "block_order": [
+        "caption_7XpWB3",
+        "text_4QXCBb",
+        "caption_zMWknk"
+      ],
+      "custom_css": [
+        ".caption-with-letter-spacing--large {font-size: 58px; letter-spacing: 0; line-height: 1; padding: 0; margin-bottom: -25px !important;}",
+        "p.rich-text__caption.subtitle {font-size: 16px; font-family: var(--taviraj-font);}",
+        "h2.rich-text__heading {line-height: 20px;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 52
+      }
+    },
+    "jf_review_slider_DQxq78": {
+      "type": "jf-review-slider",
+      "blocks": {
+        "review_drNMnk": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I gotta give a shout out to Julie and the team for their attention to detail and their ‘all or nothing’ mentality. I’ve never met a wedding boutique in Melbourne, Australia, with such an incredibly intricate detailing, and it still honestly baffles me! Through every stage of the dressmaking process, I got more and more excited, I cannot thank the team enough for making this part of the wedding seamless 🥰 Words can’t express how thankful I am for making me feel like an absolute princess 🤍</p>",
+            "reviewer_image": "shopify://shop_images/custom-mermaid-wedding-dress-melbourne.jpg",
+            "author": "Christine D",
+            "meta": ""
+          }
+        },
+        "review_bNeHxE": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Thank you so much for making my dream dress. Special thanks to the most gorgeous lady ✨ JULIE ✨ for making me my perfect wedding gown, veil, and accessories exactly how I wanted. You made our special day more magical. I can’t thank you enough and forever will be grateful.</p><p>#custommade #bestdesigner #dreamdress #lovedit #grateful</p>",
+            "reviewer_image": "shopify://shop_images/v-neck-wedding-gowns-melbourne-veil.jpg",
+            "author": "Fatima Y",
+            "meta": ""
+          }
+        },
+        "review_wdTYCA": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I’m sending the BIGGEST THANK YOU and RECOMMENDATION I possibly can to @belluccio, @juliesufi, and her team 💖 You turned my dream for a custom wedding dress into reality, in just 4 weeks!! I am still amazed 🤩@juliesufi you knew the predicament I am still amazed 🤩</p><p>@juliesufi you knew the predicament I was in and when you said you were willing to come off maternity leave for my dress 👗 I was shock, relieved and forever grateful 🌟 you are impressive 😍</p><p>You are truly amazing hearted people, with major talent 😇 working day & night for 4 weeks to bring my dreams to reality was a total dream come true 🥰</p><p>The team were very quick to make arrangements to start my dress from afar. From FaceTime measurements to sending progress photo updates. I was made to feel comfortable and I trusted you completely with all recommendations as your high level of competency was clear.</p><p>There is not one thing I would change about my remarkable experience with you 🙌🏼 I was completely speechless 😮 when I first got to see my dress, which I would’ve said is impossible for me, but you did it lol 🙊 the detail, care and precision was meticulous 👌🏼 I could of just stood there staring at it F O R E V E R</p><p>You couldn’t have been more generous, lending me your mannequin for my dress on the wedding day and after 4 short but very thorough weeks getting to know each other, you were willing to come to Tasmania to dress me on our day 👰🏻‍♀️ If only Covid-19 didn’t ruin it!! I am so in L O V E with my dress 💞 thank you doesn’t seem like enough!</p>",
+            "reviewer_image": "shopify://shop_images/structured-silk-wedding-dresses-melbourne.jpg",
+            "author": "Kate S",
+            "meta": ""
+          }
+        },
+        "review_DRVxUT": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I cannot recommend Julie enough. She made my vision come to light. The process was seamless. I gave her a lot of creative freedom and she had exceeded my expectations. Her passion, creativity, generosity and hard work is what makes her stand out. Working with Julie and her team was the best decision I made for my wedding!!! </p>",
+            "reviewer_image": "shopify://shop_images/a-line-wedding-dresses-melbourne-silhouette.jpg",
+            "author": "Liz K",
+            "meta": ""
+          }
+        },
+        "review_GFNmyw": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie at Belluccio created my dream wedding dress. She made the whole process easy and gave me practical guidance at every step. I couldn’t be happier with the result. The Melbourne brides in my circle won’t be going anywhere else for their wedding gowns. The ladies in my circle won’t be going anywhere else for their wedding dresses, we’ll be going straight to Julie.</p>",
+            "reviewer_image": "shopify://shop_images/ballgown-wedding-gowns-melbourne-corset.jpg",
+            "author": "Rubab N",
+            "meta": ""
+          }
+        },
+        "review_rT3DH9": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I had my wedding dress made by Julie. It was an amazing experience, and she made everything so easy and smooth with continuous updates. Everything was amazing. I couldn’t recommend Julie Sufie enough to anyone looking to get their dream wedding dress made.<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/minimalist-crepe-wedding-dress-store-melbourne.jpg",
+            "author": "Linda S",
+            "meta": ""
+          }
+        },
+        "review_eKcTTH": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie was amazing to work with. The craftsmanship, the fit, the care she put into every stitch—it was all perfection. She went above and beyond throughout the entire process, making adjustments, offering suggestions, and making sure I felt incredible on my big day.</p>",
+            "reviewer_image": "shopify://shop_images/tulle-wedding-dresses-melbourne-australia.jpg",
+            "author": "Hessen T",
+            "meta": ""
+          }
+        },
+        "review_Nic4JX": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie was an absolute dream to work with. She created exactly what I wanted from scratch, and even better. I would absolutely recommend her for your dream wedding dress in Melbourne. The experience was very easy as well! 🥰<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/off-the-shoulder-custom-wedding-dresses-melbourne.jpg",
+            "author": "Aisha A",
+            "meta": ""
+          }
+        },
+        "review_98Fptt": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie designed the wedding dress of my dreams, and she did an amazing job in such a short timeframe. She was incredibly knowledgeable and professional, and every fitting was a success. I would highly recommend her to all my friends and family. Truly one of the best bridal dress designers in Melbourne.</p>",
+            "reviewer_image": "shopify://shop_images/silk-wedding-gowns-melbourne-boutique.jpg",
+            "author": "Jacqueline F",
+            "meta": ""
+          }
+        },
+        "review_yrej8F": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie Sufie's designs were meticulous and with attention to detail. She is passionate and creative about her craft. Would highly recommend her. She provides a holistic service from start to finish. You will glow and shine in her creation. Thank you for all your hard work Julie</p>",
+            "reviewer_image": "shopify://shop_images/floral-lace-wedding-boutique-melbourne.jpg",
+            "author": "Brianna M",
+            "meta": ""
+          }
+        },
+        "review_xJ3T3x": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I got my wedding dress custom-made by Julie, and I couldn’t recommend her enough. The whole process was seamless, easy to contact, and she kept me updated throughout. She went above and beyond to ensure I’m happy - it was a lovely experience. Highly recommend Julie and her awesome work and effort 🙏🏼</p>",
+            "reviewer_image": "shopify://shop_images/modest-wedding-dresses-melbourne-custom.jpg",
+            "author": "Lina Z",
+            "meta": ""
+          }
+        },
+        "review_n3iRx8": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie was incredibly easy to work with; she took my words and my lack of experience and made me my dream dress. </p><p>Julie is lovely, and her work is flawless; it is clean and looks like it’s out of a magazine, truly standing out among the finest wedding dresses Melbourne has to offer. </p><p>I received so many compliments on my wedding dress and I’m still so in love with it as I was the day I brought it home.</p><p>Had such a delightful journey with Julie from beginning to end, I was treated with kindness and felt so supported and listened to! Julie really knows what she is doing! I loved my dress so much, would recommend to anyone who wants a personal one-on-one experience!</p>",
+            "reviewer_image": "shopify://shop_images/column-wedding-dresses-melbourne-refined.jpg",
+            "author": "Clara S",
+            "meta": ""
+          }
+        },
+        "review_HYCrpq": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>A wedding dress design is not a small decision. It must articulate the dreams of your childhood, your aspirations as a woman in love, and the desire to set the first impression as you walk down the aisle for your beloved all the while instating pride and joy for your parents. It is a once in a lifetime moment. Years may pass but you'll always remember your wedding gown and I can say without hesitation, the memories and process behind my wedding gown eclipsed expectation. The dress itself? Made for me. Julie has a very keen sense of fit, design and elegance. My sample fit perfectly without the need for alteration. My dress was a heavily beaded couture piece that had many elements requiring precision fit, quality silk and elegant ornament. The design was both timeless and nonchalant and I am so glad to recommend Julie Sufi bridal wholeheartedly. Thank you Julie & team.<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/backless-wedding-dress-store-melbourne.jpg",
+            "author": "Sarah L",
+            "meta": ""
+          }
+        },
+        "review_rD9wwB": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie made my dress for my wedding. I can’t express how amazing her work is. She and her team nailed the brief. I showed an inspirational picture and explained how I wanted the dress to look, and the results showed Julie is a down to earth person with a heart of gold. I’m so glad I went to her for wedding dress she definitely created my dream dress and made me feel like a real life princess </p>",
+            "reviewer_image": "shopify://shop_images/long-sleeve-custom-wedding-dresses-melbourne.jpg",
+            "author": "Roukaya E",
+            "meta": ""
+          }
+        },
+        "review_QeqfTg": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie crafted the most beautiful wedding dress for me, truly bringing my vision to life. Her artistic design and meticulous attention to detail are honestly unmatched. She uses exceptionally high-quality fabrics; my wedding dress still shimmers almost four years later. I highly recommend Julie if you’re seeking a unique, completely custom dress tailored just for you</p>",
+            "reviewer_image": "shopify://shop_images/satin-wedding-gowns-melbourne-consultation.png",
+            "author": "Sara O",
+            "meta": ""
+          }
+        },
+        "review_949Bf9": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Julie is an artist! She took the time to listen to my ideas about my wedding dress and made sure I was comfortable with every decision along the way. She continually updated me throughout the whole process of making the the gown, and we had multiple fittings to make sure I was 100% happy with the result. The fit and quality were excellent. I’m so grateful for her care and attention to detail. Highly recommend!<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/tulle-layered-wedding-dresses-melbourne.jpg",
+            "author": "Veronica M",
+            "meta": ""
+          }
+        },
+        "review_F4RHR6": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I couldn’t be happier with the two wedding dresses Julie created for me in her Melbourne boutique. From start to finish, her work was absolutely exceptional. Julie’s attention to detail, craftsmanship, and dedication truly set her apart. She was incredibly patient throughout the entire process, always taking the time to listen, make adjustments, and ensure every detail was perfect. Her work ethic is unmatched — she went above and beyond to make sure both dresses were exactly what I envisioned. Thanks to Julie, I felt confident, comfortable, and beautiful on such an important day. I highly recommend her to anyone looking for stunning work and a truly caring professional.</p>",
+            "reviewer_image": "shopify://shop_images/square-neck-wedding-dress-store-melbourne.jpg",
+            "author": "Farzana D",
+            "meta": ""
+          }
+        },
+        "review_Nywpht": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I cannot recommend my custom wedding dresses maker highly enough. From the very first consultation, I felt truly heard and understood. Every detail I envisioned was brought to life with such care, creativity, and craftsmanship. The quality of the work was absolutely exceptional every stitch, fabric choice, and fitting was done to perfection.<br/><br/>Not only was the dress stunning and completely unique, but the entire process was calm, professional, and enjoyable. I always felt supported, reassured, and confident that I was in the best hands. On my wedding day, I felt beautiful, comfortable, and completely myself and that is something truly special.<br/>I had two dresses custom made from scratch to my dreams.<br/><br/>If you’re looking for someone who is incredibly talented, attentive, and genuinely passionate about what they do, I could not recommend a better dress maker. This was more than just a dress; it was an unforgettable experience.<br/>Thank you Julie 🤍</p>",
+            "reviewer_image": "shopify://shop_images/ong-sleeve-custom-wedding-dresses-melbourne.jpg",
+            "author": "Roya A",
+            "meta": ""
+          }
+        },
+        "review_39ckne": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I couldn’t be happier with my experience in making my wedding dress. From the very first consultation, I felt listened to and understood. Every detail I imagined was brought to life even better than I expected. The craftsmanship was absolutely stunning and everything was flawless.<br/><br/>Julie made the entire process smooth and stress free and I felt taken care of each step of the way. The professionalism, patience, and creativity made the experience truly special. On my wedding day, I felt confident, comfortable, and completely myself. My vision truly brought to life and I couldn’t have been happier with the outcome.</p>",
+            "reviewer_image": "shopify://shop_images/reception-wedding-dresses-melbourne-boutique.jpg",
+            "author": "Zeenat",
+            "meta": ""
+          }
+        },
+        "review_ERiq6q": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I truly cannot put into words how grateful I am for the experience of having my wedding gown custom-made by Julie Sufi. From the very beginning, she was so kind, patient, and genuinely invested in bringing my vision to life. In just 2–3 months she created the most beautiful gown I could have ever imagined.<br/><br/>The craftsmanship and attention to detail were absolutely incredible, but what meant the most to me was the care and love she showed throughout the entire process. She didn’t just make a dress, she made me feel so supported and confident as a bride.<br/><br/>One of the most special moments for me was when she came on the morning of my wedding to help me get dressed. Having her there during such an emotional and important moment meant so much and made the experience feel even more personal and memorable.<br/><br/>When I put my gown on, I honestly felt so beautiful and so special. It was everything I had dreamed of and more. I will always be so thankful for the time, dedication and heart she put into creating my wedding dress.<br/><br/>I couldn’t recommend her enough to any bride who wants not just a beautiful gown, but an unforgettable experience. 🤍</p>",
+            "reviewer_image": "shopify://shop_images/fit-and-flare-wedding-gowns-melbourne.jpg",
+            "author": "Kristina D",
+            "meta": ""
+          }
+        },
+        "review_MLnn9e": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I had a very smooth and pleasant experience with Julie from the moment I met her to the day I picked up my wedding gown. She’s very professional and really amazing at what she does, she listens to you and also offers her expert advice when you need help making decision, she really does make your vision into reality. She’s very nice, genuine and knowledgeable. Every interaction, every meeting and communication has been clear and professional. Her price is also reasonable , I can’t recommend her work enough. Thank you so much Julie for the service you provide and helping your brides looking their best in the beautiful gown on their big day.<br/><br/></p>",
+            "reviewer_image": "shopify://shop_images/sweetheart-neckline-custom-wedding-dresses-melbourne.jpg",
+            "author": "Anisa P",
+            "meta": ""
+          }
+        },
+        "review_qxECa7": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>I cannot recommend Julte Sufi’s wedding dresses highly enough. From the very first consultation to the final fitting, the entire experience was nothing short of exceptional and stress-free. Julie truly listened to my vision and transformed it into the most beautiful wedding dress I could have ever imagined.<br/>Every detail, stitch, and fabric choice was handled with such care and perfection. I felt completely supported throughout the process, and her professionalism, creativity, and warmth made what could have been a stressful experience feel exciting and special.<br/>On my wedding day, I felt confident, comfortable, and absolutely stunning, and I owe that entirely to her. My dress fit perfectly and felt uniquely me. If you are looking for a business that genuinely cares about their clients and delivers breathtaking results, look no further. This was one of the best decisions I made for my wedding.</p>",
+            "reviewer_image": "shopify://shop_images/tea-length-wedding-dresses-melbourne-australia.jpg",
+            "author": "Shaza M",
+            "meta": ""
+          }
+        },
+        "review_fmeeV8": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Thank God I met Julie Sufi of all the wedding dress designers in Melbourne, Australia. Her passion for what she does truly shows in every detail. She listened to all my ideas and helped bring my vision to life with so much care and dedication. I  wholeheartly recommend her to anyone who is searching for a truly talented designer with so much creativity and a big heart. I bought her flowers but she deserves a whole garden of flowers! I'm in love with my dress. Thank you so so much, Julie! God bless you </p>",
+            "reviewer_image": "shopify://shop_images/bohemian-luxe-wedding-dresses-melbourne.jpg",
+            "author": "Zohal M",
+            "meta": ""
+          }
+        },
+        "review_kb8epq": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "<p>Thank you to Julie and the team for helping me create my dream wedding gown. They were incredible throughout the whole process and brought my vision to life!</p>",
+            "reviewer_image": "shopify://shop_images/pearl-embellished-wedding-boutique-melbourne.jpg",
+            "author": "Mona N",
+            "meta": ""
+          }
+        }
+      },
+      "block_order": [
+        "review_drNMnk",
+        "review_bNeHxE",
+        "review_wdTYCA",
+        "review_DRVxUT",
+        "review_GFNmyw",
+        "review_rT3DH9",
+        "review_eKcTTH",
+        "review_Nic4JX",
+        "review_98Fptt",
+        "review_yrej8F",
+        "review_xJ3T3x",
+        "review_n3iRx8",
+        "review_HYCrpq",
+        "review_rD9wwB",
+        "review_QeqfTg",
+        "review_949Bf9",
+        "review_F4RHR6",
+        "review_Nywpht",
+        "review_39ckne",
+        "review_ERiq6q",
+        "review_MLnn9e",
+        "review_qxECa7",
+        "review_fmeeV8",
+        "review_kb8epq"
+      ],
+      "name": "JF Review Slider",
+      "settings": {
+        "eyebrow": "JOURNEYS TO THE PERFECT WEDDING DRESSES IN MELBOURNE",
+        "heading_line_one": "From the Atelier to the Aisle",
+        "heading_line_two": "Stories from Our Brides",
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "slide_gap": 20,
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_image_content_cta_36jhHR": {
+      "type": "jf-image-content-cta",
+      "name": "JF Image Content CTA",
+      "settings": {
+        "image": "shopify://shop_images/Rectangle_22897.png",
+        "eyebrow": "COUTURE WEDDING DRESSES MELBOURNE",
+        "heading_line_one": "Sculpting a Shared Vision in the Julie Sufi Atelier",
+        "heading_line_two": "",
+        "description": "<p>Since 2010, Julie Sufi has been the visionary behind couture wedding dresses for the discerning Melbourne bride. Your journey begins not with a sales consultant but with a private dialogue with our founder and head designer, Julie. Together, we explore the nuances of your vision, the touch of the fabric, and the architecture of your silhouette. </p><p>The result is a presence that brides describe as effortless, elegant, and entirely personal.</p><p><strong>Melbourne Couture: The Individual Form</strong><br/><br/><strong>Beyond the Ready-to-Wear:</strong> We embrace the freedom of bespoke design, creating wedding gowns that mirror the soul and silhouette of the bride.</p><p><strong>Meticulously Sculpted:</strong> Every piece is a study in precision, custom-tailored to your exact measurements for a flawless, architectural fit.</p><p>From the initial charcoal sketch to the final fitting, your journey is guided by high-fashion expertise recognized by <em>Vogue, Elle,</em> and <em>Harper’s Bazaar</em>.<br/><br/><strong>A Legacy Realized: Est. 2010</strong><br/></p><ul><li><strong>The Working Atelier:</strong> Our studio is a sanctuary of quiet mastery, where your vision is transformed into a physical reality that is authentically, singularly yours.</li><li><strong>Years of Artistry:</strong> With over 15 years of couture heritage and 5,000+ brides served, we bring a deep, seasoned expertise to every deliberate stitch.</li></ul><p>Julie Sufi’s Melbourne boutique is a destination for brides who believe their gown should be as extraordinary as their day.</p>",
+        "show_cta_box": true,
+        "cta_eyebrow": "Gowns from",
+        "cta_heading": "AUD $3,500",
+        "button_label": "Book a free consultation",
+        "button_link": "",
+        "image_position_desktop": "right",
+        "image_position_mobile": "top",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 28,
+        "padding_bottom_mobile": 28,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 0
+      }
+    },
+    "jf_simple_cta_4QqF6Y": {
+      "type": "jf-simple-cta",
+      "name": "JF Simple CTA",
+      "settings": {
+        "eyebrow": "Custom Wedding Dresses From",
+        "heading": "AUD $6,000",
+        "button_label": "Book a free consultation",
+        "button_link": "shopify://pages/book-an-appointment",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 8,
+        "padding_bottom_mobile": 8,
+        "padding_top_desktop": 20,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_image_boxed_6qPGcL": {
+      "type": "jf-image-boxed",
+      "blocks": {
+        "item_q44cit": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1000013363.png",
+            "title": "Defined Investment",
+            "text": "<p>Every gown is envisioned, draped, and refined with a transparent investment structure from the first sketch—ensuring absolute clarity without compromise.</p>"
+          }
+        },
+        "item_YB8cXY": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1000013364.png",
+            "title": "Direct Designer Access",
+            "text": "<p>Your journey is a private dialogue with Julie Sufi herself. By bypassing sales consultants, your vision is drawn with the technical precision only a master designer can provide.</p>"
+          }
+        },
+        "item_UteHeY": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1000013365.png",
+            "title": "Artisanal Integrity",
+            "text": "<p>We create your vision. From the first sketch to the final stitch, your wedding dress is authentically yours. We eschew mass production in favor of a single, hand-crafted masterpiece designed exclusively for you.</p>"
+          }
+        },
+        "item_JCmDNm": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1000013366.png",
+            "title": "Couture-Grade Fabrics",
+            "text": "<p>We source the finest silks, laces, and embellishments - the same suppliers used by the world's leading couture houses.</p>"
+          }
+        },
+        "item_UHEiyK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1000013367.png",
+            "title": "Private Experience",
+            "text": "<p>Every consultation is one-on-one and by appointment only. You will never feel rushed, overlooked, or pressured. Your wedding day deserves nothing less.</p>"
+          }
+        },
+        "item_7crHaY": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1000013368.png",
+            "title": "Complimentary Consultation",
+            "text": "<p>Your first appointment is always complimentary and obligation-free. Come and experience the Julie Sufi difference for yourself. No commitment required.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_q44cit",
+        "item_YB8cXY",
+        "item_UteHeY",
+        "item_JCmDNm",
+        "item_UHEiyK",
+        "item_7crHaY"
+      ],
+      "custom_css": [
+        ".jf-image-boxed__item {background: white;}"
+      ],
+      "name": "JF Image Boxed",
+      "settings": {
+        "eyebrow": "BEYOND THE WEDDING DRESS STORES IN MELBOURNE",
+        "heading_line_one": "The Julie Sufi Difference: A Pure Couture Atelier",
+        "heading_line_two": "",
+        "description": "<p>In a city of endless options, Julie Sufi stands apart as a working atelier, not a showroom. The distinction is felt the moment you enter—a space where the scent of silk and the focus of the maker replace the noise of the retail world.</p>",
+        "button_label": "Book a free consultation",
+        "button_link": "shopify://pages/book-an-appointment",
+        "columns_desktop": 3,
+        "columns_mobile": 1,
+        "column_gap": 16,
+        "row_gap": 16,
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_image_slider_highlighted_FNLcG9": {
+      "type": "jf-image-slider-highlighted",
+      "blocks": {
+        "slide_tNLqxb": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22856.png",
+            "title": "The House",
+            "link": "",
+            "highlighted": false
+          }
+        },
+        "slide_Md348i": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22879.png",
+            "title": "The Designer",
+            "link": "",
+            "highlighted": true
+          }
+        },
+        "slide_jJrHVf": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22858.png",
+            "title": "The Celebrities",
+            "link": "",
+            "highlighted": false
+          }
+        }
+      },
+      "block_order": [
+        "slide_tNLqxb",
+        "slide_Md348i",
+        "slide_jJrHVf"
+      ],
+      "name": "JF Image Highlighted",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "slide_gap": 10,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_faq_dCMHqN": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_rJmwNd": {
+          "type": "item",
+          "settings": {
+            "question": "The Philosophy: Custom vs Ready-to-Wear",
+            "answer": "<p dir=\"ltr\"><span>In the world of bridal architecture, there are two distinct paths:</span></p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Ready-to-Wear:</strong><span> </span><span>Designed for the many. </span><span><br></span><span>These standard-sized silhouettes offer an efficient 3 to 4-month timeline. While accessible, they often require structural alterations to mimic a true fit.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<strong>The Julie Sufi Couture Wedding Gown:</strong> Designed for the one. <br>Beginning with a blank page and your unique geometry, we build a gown that exists nowhere else. It is an investment in uncompromising fit, world-class silks, and artisanal identity.</li>\n</ul>\n<p> </p>",
+            "open_by_default": true
+          }
+        },
+        "item_KKVJ8F": {
+          "type": "item",
+          "settings": {
+            "question": "The Investment Landscape",
+            "answer": "<p class=\"MsoNormal\"><meta charset=\"utf-8\">Transparency is the cornerstone of a luxury experience. Understanding the Julie Dufi pricing allows for a confident, informed decision.</p>\n<table class=\"MsoNormalTable\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"margin-top: 10px; width: 100%; background: rgb(245, 240, 232); height: 275.938px;\">\n<thead style=\"background: black; color: white;\">\n<tr style=\"height: 55.1875px;\">\n<td style=\"padding: 10.5pt 15pt; height: 55.1875px; width: 23.8351%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Category</span></p>\n</td>\n<td style=\"padding: 10.5pt 15pt; height: 55.1875px; width: 24.1935%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\">Price Range (AUD)</span></p>\n</td>\n<td style=\"padding: 10.5pt 15pt; height: 55.1875px; width: 52.1505%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">\n<b id=\"docs-internal-guid-18236860-7fff-3266-4c11-d8cefd6568e6\"><span>What You Get</span></b></span></p>\n</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 55.1875px;\">\n<td style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor rgb(232, 226, 217); border-image: initial; padding: 10.5pt 15pt; height: 55.1875px; width: 23.8351%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">\n<strong>Bespoke Couture</strong></span></p>\n</td>\n<td style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor rgb(232, 226, 217); border-image: initial; padding: 10.5pt 15pt; height: 55.1875px; width: 24.1935%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">$6,000–$12,000+</span></p>\n</td>\n<td style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor rgb(232, 226, 217); border-image: initial; padding: 10.5pt 15pt; height: 55.1875px; width: 52.1505%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">Original design, premium silks, 1-on-1 designer access.</span></p>\n</td>\n</tr>\n<tr style=\"height: 55.1875px;\">\n<td style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor rgb(232, 226, 217); border-image: initial; padding: 10.5pt 15pt; height: 55.1875px; width: 23.8351%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">\n<b id=\"docs-internal-guid-9e70264a-7fff-6471-8bb8-20b40cf5d37b\"><span>High Couture</span></b></span></p>\n</td>\n<td style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor rgb(232, 226, 217); border-image: initial; padding: 10.5pt 15pt; height: 55.1875px; width: 24.1935%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">$8,000–$20,000+</span></p>\n</td>\n<td style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor rgb(232, 226, 217); border-image: initial; padding: 10.5pt 15pt; height: 55.1875px; width: 52.1505%;\">\n<p class=\"MsoNormal\"><span lang=\"EN-AU\"><meta charset=\"utf-8\">Hand-embroidery, imported laces, complex construction</span></p>\n</td>\n</tr>\n</tbody>\n</table>",
+            "open_by_default": false
+          }
+        },
+        "item_fNHwFP": {
+          "type": "item",
+          "settings": {
+            "question": "Signature Melbourne Silhouettes",
+            "answer": "<p dir=\"ltr\"><span>Melbourne brides are renowned for a style that is both avant-garde and timeless. We focus on six iconic forms defining the modern aisle:</span></p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>The Architectural A-Line:</strong><span> Universally flattering; a study in balance and grace.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>The Sculptural Fishtail:</strong><span> Body-conscious and dramatic; a favourite for high-fashion statements.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>The Grand Ballgown:</strong><span> Voluminous and regal; designed for Melbourne’s heritage cathedrals.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>The Minimalist Slip:</strong><span> Bias-cut liquid silk; the epitome of contemporary chic.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>The Romantic Long-Sleeve:</strong><span> Refined lace and sheer coverage; a seasonal favourite.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>The Modern Two-Piece:</strong><span> Versatile and edgy; for the bride who breaks from tradition.</span></p>\n</li>\n</ul>\n<p> </p>",
+            "open_by_default": false
+          }
+        },
+        "item_WFXYTj": {
+          "type": "item",
+          "settings": {
+            "question": "The Temporal Luxury: Your Timeline",
+            "answer": "Time is the most critical element of couture. To ensure the meticulous hand-finishing your wedding gown deserves, we recommend the ‘Golden Window’ of 6 to 9 months. This allows for meticulous fabric sourcing, muslin mock-ups, and the series of precision fittings required for a flawless, second-skin finish",
+            "open_by_default": false
+          }
+        },
+        "item_UpGjLV": {
+          "type": "item",
+          "settings": {
+            "question": "Vetting Your Designer",
+            "answer": "<p dir=\"ltr\"><span>When visiting a wedding dress store in Melbourne, ensure your experience meets these luxury benchmarks:</span></p>\n<ol>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Direct Designer Access:</strong><span> You should collaborate with the designer, not just a sales consultant.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Portfolio Consistency:</strong><span> Look for signature artistry that resonates with your personal aesthetic.</span></p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Process Transparency:</strong><span> A reputable atelier provides clear, upfront investment figures without hidden costs.</span></p>\n</li>\n</ol>\n<p> </p>",
+            "open_by_default": false
+          }
+        },
+        "item_RCGRfG": {
+          "type": "item",
+          "settings": {
+            "question": "Begin Your Journey",
+            "answer": "<p>Experience the difference of a vision-led design process. We invite you to the Julie Sufi Melbourne atelier for a complimentary consultation to discuss your dream wedding gown.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_rJmwNd",
+        "item_KKVJ8F",
+        "item_fNHwFP",
+        "item_WFXYTj",
+        "item_UpGjLV",
+        "item_RCGRfG"
+      ],
+      "custom_css": [
+        ".jf-faq__list {max-width: 120rem;}",
+        ".jf-faq__intro {max-width: 120rem;}"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "",
+        "heading": "THE ULTIMATE GUIDE TO WEDDING DRESSES IN MELBOURNE",
+        "sub_heading": "Navigating the Art of Couture with Julie Sufi",
+        "description": "<p>Choosing your wedding gown is the most significant sartorial decision of your life. In Melbourne’s vibrant bridal landscape, the journey to ‘the one’ is a delicate balance of time, artistry, and personal vision.</p>",
+        "item_gap": 8,
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_insta_slider_Wgtqyd": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_KN6CJK": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22850.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_cdj9AA": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22849.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_BEenKY": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22848.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_bUFecd": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22847.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_ADh9P6": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22851.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_KN6CJK",
+        "slide_cdj9AA",
+        "slide_BEenKY",
+        "slide_bUFecd",
+        "slide_ADh9P6"
+      ],
+      "disabled": true,
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
+        "slide_gap": 4,
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "rich_text_fV3rqj": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_wDtYiE": {
+          "type": "caption",
+          "settings": {
+            "caption": "BRIDAL COUTURE MELBOURNE | @JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_9fMVQR": {
+          "type": "heading",
+          "settings": {
+            "heading": "A Diary From Sketch to Silhouette",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_wDtYiE",
+        "heading_9fMVQR"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "177509380473b2db0a": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_CqhPDM": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_CqhPDM"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "jf_faq_BHYQwi": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_Ld4Wgx": {
+          "type": "item",
+          "settings": {
+            "question": "Where is the Julie Sufi bridal atelier located?",
+            "answer": "Our private bridal atelier is located in Northcote, Melbourne, Australia. Unlike a traditional wedding dress store in Melbourne, we provide a quiet, designer-led sanctuary away from the busy retail floor. Whether you are traveling from the Melbourne CBD or interstate, every consultation is a private, unhurried experience with Julie herself. We welcome you to experience Julie Sufi for your custom wedding dresses.",
+            "open_by_default": false
+          }
+        },
+        "item_6qxTym": {
+          "type": "item",
+          "settings": {
+            "question": "How many fittings are included with a custom wedding gown?",
+            "answer": "Every Julie Sufi commission includes a dedicated series of precision fittings to ensure a flawless, second-skin fit. Your journey includes an initial design dialogue, a mid-construction fitting, and a final walkthrough before your day. As one of the leading wedding boutiques in Melbourne, we offer additional adjustments as required at no extra charge, ensuring your custom wedding dress is structurally and aesthetically perfect.",
+            "open_by_default": true
+          }
+        },
+        "item_EKchFE": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations for brides outside Melbourne?",
+            "answer": "Yes, we frequently collaborate with brides across Australia and overseas. Through immersive virtual consultations, we guide you through the design process, couriering premium fabric swatches to your door. By pairing our Melbourne atelier’s master patterns with trusted local seamstresses in your city, we ensure the same world-class couture experience synonymous with the finest wedding gowns in Melbourne, Australia, regardless of your location.",
+            "open_by_default": false
+          }
+        },
+        "item_j8pLCC": {
+          "type": "item",
+          "settings": {
+            "question": "What is the investment for a custom Julie Sufi wedding gown?",
+            "answer": "Every Julie Sufi wedding gown is a singular investment in world-class silks and artisanal heritage. Our bespoke couture starts from AU$6,000, with high-couture designs featuring hand-embroidery or complex construction ranging from AU$8,000 to AU$20,000+. As a leading wedding dress store in Melbourne, we provide a transparent, defined investment structure from your very first sketch, ensuring absolute clarity without hidden costs.",
+            "open_by_default": false
+          }
+        },
+        "item_wJkgtR": {
+          "type": "item",
+          "settings": {
+            "question": "How far in advance should I book my initial consultation?",
+            "answer": "To ensure the meticulous hand-finishing your wedding gown in Melbourne deserves, we recommend a ‘Golden Window’ of 6 to 9 months. This timeframe allows for precision fabric sourcing from international mills and multiple muslin mock-ups. However, for brides with a shorter timeline, our Melbourne atelier can occasionally accommodate express couture commissions depending on the complexity of the vision.",
+            "open_by_default": false
+          }
+        },
+        "item_H43em8": {
+          "type": "item",
+          "settings": {
+            "question": "Can I bring reference images or a specific vision to my appointment?",
+            "answer": "<p>Absolutely, you can. Your reference image becomes a bridge between your spirit and our craft. While we don't replicate other designers, your inspiration is the blueprint for our collaboration. Whether you have a Pinterest board of minimalist wedding dresses or a family heirloom you wish to incorporate, Julie Sufi works to translate your references into a signature wedding dress.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_Ld4Wgx",
+        "item_6qxTym",
+        "item_EKchFE",
+        "item_j8pLCC",
+        "item_wJkgtR",
+        "item_H43em8"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "WEDDING DRESSES MELBOURNE FAQs",
+        "heading": "Defining the Details:",
+        "sub_heading": "Frequently Asked Questions",
+        "description": "<p>Find the answers to your most frequent questions about the Julie Sufi couture process, from investment details to our Northcote atelier location.</p>",
+        "item_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_plain_box_icon_HQndPx": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_BCmVj8": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_PiBMc3": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": "shopify://pages/contact-us"
+          }
+        },
+        "item_At7gKR": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": "shopify://pages/contact-us"
+          }
+        }
+      },
+      "block_order": [
+        "item_BCmVj8",
+        "item_PiBMc3",
+        "item_At7gKR"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 56
+      }
+    },
+    "jf_subscribe_zibheQ": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "editorial_hero",
+    "jf_logo_slider_eDkpzq",
+    "statistics_e9Pn7Y",
+    "icon_boxed_4ANnif",
+    "jf_featured_collection_R4wirD",
+    "jf_image_slider_CckHk7",
+    "rich_text_kX6hyd",
+    "jf_review_slider_DQxq78",
+    "jf_image_content_cta_36jhHR",
+    "jf_simple_cta_4QqF6Y",
+    "jf_image_boxed_6qPGcL",
+    "jf_image_slider_highlighted_FNLcG9",
+    "jf_faq_dCMHqN",
+    "jf_insta_slider_Wgtqyd",
+    "rich_text_fV3rqj",
+    "177509380473b2db0a",
+    "jf_faq_BHYQwi",
+    "jf_plain_box_icon_HQndPx",
+    "jf_subscribe_zibheQ"
+  ]
+}

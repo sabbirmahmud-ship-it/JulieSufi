@@ -1,0 +1,326 @@
+{{ 'section-jf-step.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #JfStep-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #JfStep-{{ section.id }} .jf-step__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfStep-{{ section.id }} .jf-step__button {
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfStep-{{ section.id }} .jf-step__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="JfStep-{{ section.id }}" class="jf-step">
+  <div class="jf-step__inner page-width">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.intro != blank -%}
+      <div class="jf-step__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-step__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jf-step__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.intro != blank -%}
+          <div class="jf-step__intro rte">{{ section.settings.intro }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="jf-step__rows">
+        {%- for block in section.blocks -%}
+          <div class="jf-step__row jf-step__row--image-{{ block.settings.image_position }}" {{ block.shopify_attributes }}>
+            <div class="jf-step__cards">
+              {%- if block.settings.step_1_title != blank or block.settings.step_1_text != blank -%}
+                <article class="jf-step__card">
+                  {%- if block.settings.step_1_title != blank -%}
+                    <h3 class="jf-step__card-title">{{ block.settings.step_1_title | escape }}</h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.step_1_text != blank -%}
+                    <div class="jf-step__card-text rte">{{ block.settings.step_1_text }}</div>
+                  {%- endif -%}
+                </article>
+              {%- endif -%}
+
+              {%- if block.settings.step_2_title != blank or block.settings.step_2_text != blank -%}
+                <article class="jf-step__card">
+                  {%- if block.settings.step_2_title != blank -%}
+                    <h3 class="jf-step__card-title">{{ block.settings.step_2_title | escape }}</h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.step_2_text != blank -%}
+                    <div class="jf-step__card-text rte">{{ block.settings.step_2_text }}</div>
+                  {%- endif -%}
+                </article>
+              {%- endif -%}
+            </div>
+
+            <div class="jf-step__media">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 1400
+                  | image_tag:
+                    widths: '375, 550, 750, 900, 1100, 1400',
+                    sizes: '(min-width: 990px) 48vw, 100vw',
+                    loading: 'lazy',
+                    alt: block.settings.image.alt
+                }}
+              {%- else -%}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="jf-step__footer">
+        <a
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+          class="jf-step__button"
+        >
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "JF Step",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE JOURNEY OF COUTURE BRIDAL DRESSES"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Evolution of an Icon: 6 Stages of Technical Precision"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>Creating custom wedding dresses involves a meticulous evolution. At Julie Sufi, we follow a disciplined, six-stage process that removes the guesswork, ensuring the final garment is a flawless reflection of your intent.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "START WITH THE DESIGN DIALOGUE"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Font color",
+      "default": "#232128"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#1f1f23"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 52
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step_row",
+      "name": "Step row",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "Desktop image position",
+          "default": "right",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "First step"
+        },
+        {
+          "type": "text",
+          "id": "step_1_title",
+          "label": "Title",
+          "default": "Step 1: The Design Dialogue"
+        },
+        {
+          "type": "richtext",
+          "id": "step_1_text",
+          "label": "Text",
+          "default": "<p>We begin with the aesthetic soul of your wedding. Through mood boards and conversation, we distill your inspirations into a cohesive creative direction.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Second step"
+        },
+        {
+          "type": "text",
+          "id": "step_2_title",
+          "label": "Title",
+          "default": "Step 2: Concept & Sketching"
+        },
+        {
+          "type": "richtext",
+          "id": "step_2_text",
+          "label": "Text",
+          "default": "<p>Your vision takes form through original hand-drawn illustrations. This is where Julie Sufi balances proportions and maps out the architectural lines of your custom bridal gown.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Step",
+      "blocks": [
+        {
+          "type": "step_row",
+          "settings": {
+            "image_position": "right",
+            "step_1_title": "Step 1: The Design Dialogue",
+            "step_1_text": "<p>We begin with the aesthetic soul of your wedding. Through mood boards and conversation, we distill your inspirations into a cohesive creative direction.</p>",
+            "step_2_title": "Step 2: Concept & Sketching",
+            "step_2_text": "<p>Your vision takes form through original hand-drawn illustrations. This is where Julie Sufi balances proportions and maps out the architectural lines of your custom bridal gown.</p>"
+          }
+        },
+        {
+          "type": "step_row",
+          "settings": {
+            "image_position": "left",
+            "step_1_title": "Step 3: The Material Archive",
+            "step_1_text": "<p>Tactile luxury is paramount. We curate a selection of world-class textiles-from architectural Italian Mikado to delicate French laces-sourced specifically to flow with your design.</p>",
+            "step_2_title": "Step 4: The Toile Fitting (The Safety Net)",
+            "step_2_text": "<p>This is the most critical phase. We construct a prototype of your gown in calico (cotton) to perfect the architecture of the fit. This allows us to refine the geometry against your body before a single thread of silk is touched.</p>"
+          }
+        },
+        {
+          "type": "step_row",
+          "settings": {
+            "image_position": "right",
+            "step_1_title": "Step 5: The Silk Construction",
+            "step_1_text": "<p>Once the mock-up wedding dress is perfected, the master construction begins. Your gown is hand-finished in our Melbourne atelier, where heritage techniques of handmade wedding dresses meet modern precision.</p>",
+            "step_2_title": "Step 6: The Final Reveal",
+            "step_2_text": "<p>The culmination of the journey. A final fitting ensures a second-skin finish, resulting in a bespoke bridal dress that feels weightless, secure, and uniquely yours.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

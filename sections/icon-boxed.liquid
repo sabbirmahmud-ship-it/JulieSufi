@@ -1,0 +1,329 @@
+{{ 'section-icon-boxed.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign desktop_icon_gap_total = section.settings.column_gap | times: section.settings.columns_desktop | minus: section.settings.column_gap
+  assign mobile_icon_gap_total = section.settings.column_gap | times: section.settings.columns_mobile | minus: section.settings.column_gap
+  assign fetch_priority = 'auto'
+
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+{%- style -%}
+  #IconBoxed-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+  }
+
+  #IconBoxed-{{ section.id }} .icon-boxed__inner {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  #IconBoxed-{{ section.id }} .icon-boxed__grid {
+    --icon-boxed-columns-mobile: {{ section.settings.columns_mobile }};
+    --icon-boxed-columns-desktop: {{ section.settings.columns_desktop }};
+    --icon-boxed-column-gap: {{ section.settings.column_gap }}px;
+    --icon-boxed-row-gap: {{ section.settings.row_gap }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #IconBoxed-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+    }
+
+    #IconBoxed-{{ section.id }} .icon-boxed__inner {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section id="IconBoxed-{{ section.id }}" class="icon-boxed">
+  {%- if fallback_background_image != blank -%}
+    <div class="icon-boxed__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy',
+            fetchpriority: fetch_priority
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="icon-boxed__inner page-width">
+    <div class="icon-boxed__intro">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="icon-boxed__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <h2 class="icon-boxed__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="icon-boxed__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="icon-boxed__grid">
+      {%- for block in section.blocks -%}
+        <div class="icon-boxed__item" {{ block.shopify_attributes }}>
+          <div class="icon-boxed__icon-wrap">
+            {%- if block.settings.icon_image != blank -%}
+              {%- capture icon_sizes -%}
+                (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - 10rem - {{ desktop_icon_gap_total }}px) / {{ section.settings.columns_desktop }}),
+                (min-width: 750px) calc((100vw - 10rem - {{ desktop_icon_gap_total }}px) / {{ section.settings.columns_desktop }}),
+                calc((100vw - 3rem - {{ mobile_icon_gap_total }}px) / {{ section.settings.columns_mobile }})
+              {%- endcapture -%}
+              {%- assign icon_sizes = icon_sizes | strip | strip_newlines -%}
+              {{
+                block.settings.icon_image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '240, 360, 480, 720, 960, 1200, 1600',
+                  sizes: icon_sizes,
+                  loading: 'lazy',
+                  alt: block.settings.icon_image.alt
+              }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {%- endif -%}
+          </div>
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="icon-boxed__item-title">{{ block.settings.title | escape }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.text != blank -%}
+            <div class="icon-boxed__item-copy">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="icon-boxed__actions">
+        <a
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+          class="icon-boxed__button"
+        >
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Icon Boxed",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Bridal Experience"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Personalised Couture Journey"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Guided by our head designer, from first sketch to final handover.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Book a free consultation"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Items per row on desktop",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Items per row on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Gap between items",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "row_gap",
+      "label": "Gap between rows",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#f6f3ef"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#f6f3ef"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Icon item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Book a Free Consultation"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Boxed",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Book a Free Consultation",
+            "text": "<p>Meet with our head designer. Explore fabrics, silhouettes, and your vision. Fully personalised off-the-rack compromises.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Visit the Boutique",
+            "text": "<p>Try on selected designs, choose your fabrics, and place your order. Your couture journey begins in our Melbourne atelier.</p>"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Final Fittings",
+            "text": "<p>Hand-finished fittings ensure every detail is perfected. Your gown is handed over, complete, ready for your extraordinary day.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

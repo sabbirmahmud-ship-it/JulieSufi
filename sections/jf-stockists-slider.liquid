@@ -1,0 +1,481 @@
+{{ 'section-jf-stockists-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-jf-stockists-slider.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign show_controls = false
+
+  if section.blocks.size > 1
+    assign show_controls = true
+  endif
+-%}
+
+{%- style -%}
+  #JfStockistsSlider-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  #JfStockistsSlider-{{ section.id }} .jf-stockists-slider__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfStockistsSlider-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+    #JfStockistsSlider-{{ section.id }} .jf-stockists-slider__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<jf-stockists-slider
+  id="JfStockistsSlider-{{ section.id }}"
+  class="jf-stockists-slider"
+  {% if show_controls %}
+    data-has-controls="true"
+  {% endif %}
+>
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-stockists-slider__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-stockists-slider__inner page-width" id="jf-stockists-slider">
+    <div class="jf-stockists-slider__intro">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="jf-stockists-slider__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="jf-stockists-slider__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+
+      {%- if show_controls -%}
+        <div class="jf-stockists-slider__dots" aria-label="Slide navigation">
+          {%- for block in section.blocks -%}
+            <button
+              type="button"
+              class="jf-stockists-slider__dot{% if forloop.first %} is-active{% endif %}"
+              data-stockists-dot
+              data-stockists-index="{{ forloop.index0 }}"
+              aria-label="Go to slide {{ forloop.index }}"
+              {% if forloop.first %}
+                aria-current="true"
+              {% endif %}
+            ></button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="jf-stockists-slider__stage">
+      {%- if show_controls -%}
+        <button
+          type="button"
+          class="jf-stockists-slider__arrow jf-stockists-slider__arrow--desktop jf-stockists-slider__arrow--prev"
+          data-stockists-prev
+          aria-label="Previous stockist"
+          disabled
+        >
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+      {%- endif -%}
+
+      <div class="jf-stockists-slider__viewport" data-stockists-track>
+        <ul
+          class="jf-stockists-slider__track list-unstyled"
+          role="list"
+          aria-label="{{ section.settings.heading | default: 'Stockists slider' | escape }}"
+        >
+          {%- for block in section.blocks -%}
+            {%- liquid
+              assign address = block.settings.address | strip
+              assign phone = block.settings.phone | strip
+              assign email = block.settings.email | strip
+              assign appointment_label = block.settings.appointment_label | strip
+              assign map_label = block.settings.map_label | strip
+            -%}
+            <li
+              class="jf-stockists-slider__slide"
+              id="Slide-{{ section.id }}-{{ block.id }}"
+              data-stockists-slide
+              data-stockists-index="{{ forloop.index0 }}"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="{{ forloop.index }} of {{ section.blocks.size }}"
+              {{ block.shopify_attributes }}
+            >
+              <article class="jf-stockists-slider__card">
+                <div class="jf-stockists-slider__media">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 2000
+                      | image_tag:
+                        widths: '480, 720, 900, 1200, 1500, 1800, 2000',
+                        sizes: '(min-width: 750px) 72rem, calc(100vw - 1.4rem)',
+                        loading: 'lazy',
+                        alt: block.settings.image.alt
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+
+                <div class="jf-stockists-slider__content">
+                  <div class="jf-stockists-slider__content-main">
+                    {%- if show_controls -%}
+                      <div class="jf-stockists-slider__mobile-heading-row">
+                        <button
+                          type="button"
+                          class="jf-stockists-slider__arrow jf-stockists-slider__arrow--mobile jf-stockists-slider__arrow--prev"
+                          data-stockists-prev
+                          aria-label="Previous stockist"
+                          {% if forloop.first %}
+                            disabled
+                          {% endif %}
+                        >
+                          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                        </button>
+
+                        {%- if block.settings.store_name != blank -%}
+                          <h3 class="jf-stockists-slider__store-name">{{ block.settings.store_name | escape }}</h3>
+                        {%- endif -%}
+
+                        <button
+                          type="button"
+                          class="jf-stockists-slider__arrow jf-stockists-slider__arrow--mobile jf-stockists-slider__arrow--next"
+                          data-stockists-next
+                          aria-label="Next stockist"
+                          {% if forloop.last %}
+                            disabled
+                          {% endif %}
+                        >
+                          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                        </button>
+                      </div>
+                    {%- elsif block.settings.store_name != blank -%}
+                      <h3 class="jf-stockists-slider__store-name jf-stockists-slider__store-name--standalone">
+                        {{ block.settings.store_name | escape }}
+                      </h3>
+                    {%- endif -%}
+
+                    <div class="jf-stockists-slider__details">
+                      {%- if address != blank -%}
+                        <div class="jf-stockists-slider__address">{{ address | escape | newline_to_br }}</div>
+                      {%- endif -%}
+
+                      {%- if phone != blank or email != blank -%}
+                        <div class="jf-stockists-slider__contact">
+                          {%- if phone != blank -%}
+                            <p>
+                              <span>Tel:</span>
+                              <a href="tel:{{ phone | replace: ' ', '' | escape }}">{{ phone | escape }}</a>
+                            </p>
+                          {%- endif -%}
+
+                          {%- if email != blank -%}
+                            <p>
+                              <span>Email:</span>
+                              <a href="mailto:{{ email | escape }}">{{ email | escape }}</a>
+                            </p>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </div>
+
+                  <div class="jf-stockists-slider__actions">
+                    {%- if appointment_label != blank -%}
+                      {%- if block.settings.appointment_link != blank -%}
+                        <a href="{{ block.settings.appointment_link }}" class="jf-stockists-slider__button jf-stockists-slider__button--primary">
+                          {{ appointment_label | escape }}
+                        </a>
+                      {%- else -%}
+                        <span class="jf-stockists-slider__button jf-stockists-slider__button--primary is-disabled">
+                          {{ appointment_label | escape }}
+                        </span>
+                      {%- endif -%}
+                    {%- endif -%}
+
+                    {%- if map_label != blank -%}
+                      {%- if block.settings.map_link != blank -%}
+                        <a href="{{ block.settings.map_link }}" class="jf-stockists-slider__button jf-stockists-slider__button--secondary">
+                          {{ map_label | escape }}
+                        </a>
+                      {%- else -%}
+                        <span class="jf-stockists-slider__button jf-stockists-slider__button--secondary is-disabled">
+                          {{ map_label | escape }}
+                        </span>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </div>
+                </div>
+              </article>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- if show_controls -%}
+        <button
+          type="button"
+          class="jf-stockists-slider__arrow jf-stockists-slider__arrow--desktop jf-stockists-slider__arrow--next"
+          data-stockists-next
+          aria-label="Next stockist"
+          {% if section.blocks.size == 1 %}
+            disabled
+          {% endif %}
+        >
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+      {%- endif -%}
+    </div>
+  </div>
+</jf-stockists-slider>
+
+{% schema %}
+{
+  "name": "JF Stockists Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "STOCKISTS"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Discover Our Full Collections At A Flagship Boutique.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Mobile top margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Mobile bottom margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Desktop top margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Desktop bottom margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "store_name",
+          "label": "Store name",
+          "default": "Always And Forever Bridal"
+        },
+        {
+          "type": "textarea",
+          "id": "address",
+          "label": "Address",
+          "default": "Level 1/340 Collins St\nMelbourne VIC 3000\nAustralia"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone",
+          "default": "+61 3 9077 2999"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email",
+          "default": "Melbourne@Juliesufi.Com"
+        },
+        {
+          "type": "text",
+          "id": "appointment_label",
+          "label": "Primary button label",
+          "default": "BOOK AN APPOINTMENT"
+        },
+        {
+          "type": "url",
+          "id": "appointment_link",
+          "label": "Primary button link"
+        },
+        {
+          "type": "text",
+          "id": "map_label",
+          "label": "Secondary button label",
+          "default": "VIEW MAP"
+        },
+        {
+          "type": "url",
+          "id": "map_link",
+          "label": "Secondary button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Stockists Slider",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "store_name": "The Sposa Group",
+            "address": "607 High St\nArmadale VIC 3143\nAustralia",
+            "phone": "+61 3 9822 6611",
+            "email": "Armadale@Juliesufi.Com"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

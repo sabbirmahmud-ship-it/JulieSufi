@@ -1,0 +1,364 @@
+{{ 'section-jf-timeline-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-jf-timeline-slider.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign show_desktop_controls = false
+
+  if section.blocks.size > 3
+    assign show_desktop_controls = true
+  endif
+-%}
+
+{%- style -%}
+  #JfTimelineSlider-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    --jf-timeline-columns: 1;
+  }
+
+  #JfTimelineSlider-{{ section.id }} .jf-timeline-slider__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfTimelineSlider-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+      --jf-timeline-columns: 3;
+    }
+
+    #JfTimelineSlider-{{ section.id }} .jf-timeline-slider__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<jf-timeline-slider
+  id="JfTimelineSlider-{{ section.id }}"
+  class="jf-timeline-slider"
+  {% if show_desktop_controls %}
+    data-show-desktop-controls="true"
+  {% endif %}
+>
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-timeline-slider__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-timeline-slider__inner page-width">
+    <div class="jf-timeline-slider__intro">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="jf-timeline-slider__heading">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <div class="jf-timeline-slider__description">{{ section.settings.description }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="jf-timeline-slider__stage">
+      <div class="jf-timeline-slider__track" data-timeline-track>
+        {%- for block in section.blocks -%}
+          <article
+            class="jf-timeline-slider__slide"
+            data-timeline-slide
+            data-timeline-index="{{ forloop.index0 }}"
+            aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="jf-timeline-slider__card">
+              <div class="jf-timeline-slider__media-wrap">
+                <div class="jf-timeline-slider__media">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 2000
+                      | image_tag:
+                        widths: '480, 720, 900, 1200, 1500, 1800, 2000',
+                        sizes: '(min-width: 750px) 33vw, calc(100vw - 1.4rem)',
+                        loading: 'lazy',
+                        alt: block.settings.image.alt
+                    }}
+                  {%- else -%}
+                    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                  {%- endif -%}
+                </div>
+              </div>
+
+              <div class="jf-timeline-slider__rail">
+                <button
+                  type="button"
+                  class="jf-timeline-slider__arrow jf-timeline-slider__arrow--prev"
+                  data-timeline-prev
+                  aria-label="Previous timeline item"
+                  {% if forloop.first %}
+                    disabled
+                  {% endif %}
+                >
+                  <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                </button>
+
+                <span class="jf-timeline-slider__dot"></span>
+
+                <button
+                  type="button"
+                  class="jf-timeline-slider__arrow jf-timeline-slider__arrow--next"
+                  data-timeline-next
+                  aria-label="Next timeline item"
+                  {% if forloop.last and section.blocks.size <= 3 %}
+                    disabled
+                  {% endif %}
+                >
+                  <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+                </button>
+              </div>
+
+              {%- if block.settings.year != blank -%}
+                <div class="jf-timeline-slider__year">{{ block.settings.year | escape }}</div>
+              {%- endif -%}
+
+              <div class="jf-timeline-slider__content-wrap">
+                <div class="jf-timeline-slider__content">
+                  {%- if block.settings.title != blank -%}
+                    <h3 class="jf-timeline-slider__title">{{ block.settings.title | escape }}</h3>
+                  {%- endif -%}
+
+                  {%- if block.settings.text != blank -%}
+                    <div class="jf-timeline-slider__text">{{ block.settings.text }}</div>
+                  {%- endif -%}
+                </div>
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</jf-timeline-slider>
+
+{% schema %}
+{
+  "name": "JF Timeline Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "CRAFTED THROUGH THE YEARS"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>From our first gown to today, Julie Sufi has remained devoted to craftsmanship, intention, and timeless design.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#fcfbf9"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#fcfbf9"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Mobile top margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Mobile bottom margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Desktop top margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Desktop bottom margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Timeline item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2012"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "The Beginning"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Julie Sufi is founded with a vision to create modern couture gowns rooted in craftsmanship, intention, and personal connection.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Timeline Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "year": "2012",
+            "title": "The Beginning",
+            "text": "<p>Julie Sufi is founded with a vision to create modern couture gowns rooted in craftsmanship, intention, and personal connection.</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "year": "2014",
+            "title": "First Atelier Opening",
+            "text": "<p>Julie Sufi is founded with a vision to create modern couture gowns rooted in craftsmanship, intention, and personal connection.</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "year": "2016",
+            "title": "Couture Expansion",
+            "text": "<p>Julie Sufi is founded with a vision to create modern couture gowns rooted in craftsmanship, intention, and personal connection.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

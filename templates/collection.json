@@ -1,0 +1,424 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "custom_css": [
+        ".collection-hero__text-wrapper {display: flex; flex-basis: 100%; justify-content: center; flex-direction: column; align-items: center; text-align: center; gap: 0;}",
+        ".collection-hero__title {margin-top: 10px; margin-bottom: 0; font-family: var(--outfit-font);}",
+        "@media screen and (min-width: 750px) {.collection-hero__title + .collection-hero__description {font-size: 1.8rem; margin-top: 10px; font-family: var(--outfit-font); }}"
+      ],
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
+    "jf_collection_product_grid_c6DT9B": {
+      "type": "jf-collection-product-grid",
+      "blocks": {
+        "review_aQkBLq": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "From our first conversation to the final fitting, the entire experience felt refined and effortless. Julie's eye for detail and craftsmanship is truly exceptional.",
+            "author": "Samantha R."
+          }
+        },
+        "review_xjQz3G": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "quote": "Every fitting felt calm, personal, and beautifully considered. The gown fit like it was made for a dream I had been carrying for years.",
+            "author": "Isabelle T."
+          }
+        }
+      },
+      "block_order": [
+        "review_aQkBLq",
+        "review_xjQz3G"
+      ],
+      "name": "JF Collection Grid",
+      "settings": {
+        "products_per_page": 16,
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0,
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 16,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "enable_filtering": true,
+        "filter_type": "horizontal",
+        "enable_sorting": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "jf_image_with_content_fRGQk3": {
+      "type": "jf-image-with-content",
+      "name": "JF Image With Content",
+      "settings": {
+        "image": "shopify://shop_images/pexels-jill-wellington-1638660-5618793_1.png",
+        "heading": "FOUND PIECES YOU LOVE?",
+        "description": "<p>Try them on in person or online.</p>",
+        "button_label": "BOOK A FREE CONSULTATION",
+        "button_link": "",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_stockists_slider_DyG3hU": {
+      "type": "jf-stockists-slider",
+      "blocks": {
+        "slide_3cwnLE": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_22888_1.png",
+            "store_name": "Always And Forever Bridal",
+            "address": "Level 1/340 Collins St\nMelbourne VIC 3000\nAustralia",
+            "phone": "+61 3 9077 2999",
+            "email": "Melbourne@Juliesufi.Com",
+            "appointment_label": "BOOK AN APPOINTMENT",
+            "appointment_link": "shopify://pages/book-an-appointment",
+            "map_label": "VIEW MAP",
+            "map_link": "#"
+          }
+        },
+        "slide_mjBdzV": {
+          "type": "slide",
+          "settings": {
+            "store_name": "The Sposa Group",
+            "address": "607 High St\nArmadale VIC 3143\nAustralia",
+            "phone": "+61 3 9822 6611",
+            "email": "Armadale@Juliesufi.Com",
+            "appointment_label": "BOOK AN APPOINTMENT",
+            "appointment_link": "",
+            "map_label": "VIEW MAP",
+            "map_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_3cwnLE",
+        "slide_mjBdzV"
+      ],
+      "disabled": true,
+      "name": "JF Stockists Slider",
+      "settings": {
+        "heading": "STOCKISTS",
+        "description": "<p>Discover Our Full Collections At A Flagship Boutique.</p>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 48,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_video_EgkQna": {
+      "type": "jf-video",
+      "name": "JF Video",
+      "settings": {
+        "heading": "RUNWAY VIDEO",
+        "video": "shopify://files/videos/Montage video.mov",
+        "video_url": "",
+        "enable_video_looping": false,
+        "desktop_background_color": "#f6f6f6",
+        "mobile_background_color": "#f6f6f6",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 28,
+        "padding_top_desktop": 36,
+        "padding_bottom_desktop": 44,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "rich_text_MAU33A": {
+      "type": "rich-text",
+      "blocks": {
+        "text_7a8PNJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover exquisite ready-to-wear bridal dresses by Julie Sufi, which offers a variety of elegant wedding dress styles perfect for any bridal occasion. Our bridal collection ensures every bride finds her dream wedding dress. Explore our selection of long-sleeve wedding gowns, lace wedding dresses, and charming short-length designer dresses, ideal for courthouse ceremonies or intimate receptions.<br/><br/>Each designer gown in our collection is crafted to perfection, with intricate details and luxurious fabrics that reflect your unique style. Whether you envision yourself in a classic lace dress, a sophisticated sweetheart wedding dress, or a chic little white dress, we have the perfect gown for your special day. For the modern bride, our ready-to-wear wedding dresses combine elegance with convenience, ensuring you shine in luxury on your wedding day. Shop all styles and embrace the sophistication and allure of Julie Sufi ready-to-wear bridal collection to make your wedding day unforgettable.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_7a8PNJ"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.rich-text__blocks {max-width: 114rem; font-size: 16px; font-family: var(--outfit-font); }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "jf_insta_slider_KXYJ4z": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_T4CrVB": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-b23WKiK9.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_ag9bn4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/gdoc-image-2RFhmM4w.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_DUp6Jy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Helena.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_xzbNFD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/D3X3563-3.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_Tm96dG": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/D3X3388-2.jpg",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_T4CrVB",
+        "slide_ag9bn4",
+        "slide_DUp6Jy",
+        "slide_xzbNFD",
+        "slide_Tm96dG"
+      ],
+      "disabled": true,
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
+        "slide_gap": 4,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "rich_text_jitazH": {
+      "type": "rich-text",
+      "blocks": {
+        "caption_jm6PUq": {
+          "type": "caption",
+          "settings": {
+            "caption": "@JULIESUFI",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_qe4nUm": {
+          "type": "heading",
+          "settings": {
+            "heading": "Real brides. Real moments.",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "caption_jm6PUq",
+        "heading_qe4nUm"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "1775103762a59ef13d": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_xCG8a9": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_xCG8a9"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "jf_plain_box_icon_3A4jL4": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_dMwpLf": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_KctGkR": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": "shopify://pages/contact-us"
+          }
+        },
+        "item_mpMgH4": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": "shopify://pages/contact-us"
+          }
+        }
+      },
+      "block_order": [
+        "item_dMwpLf",
+        "item_KctGkR",
+        "item_mpMgH4"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_subscribe_qegYkt": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "jf_collection_product_grid_c6DT9B",
+    "product-grid",
+    "jf_image_with_content_fRGQk3",
+    "jf_stockists_slider_DyG3hU",
+    "jf_video_EgkQna",
+    "rich_text_MAU33A",
+    "jf_insta_slider_KXYJ4z",
+    "rich_text_jitazH",
+    "1775103762a59ef13d",
+    "jf_plain_box_icon_3A4jL4",
+    "jf_subscribe_qegYkt"
+  ]
+}

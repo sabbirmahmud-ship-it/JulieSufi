@@ -1,0 +1,383 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_W3YpgC": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_Cxzwmr": {
+          "type": "heading",
+          "settings": {
+            "heading": "Terms of service",
+            "heading_size": "h1"
+          }
+        },
+        "text_DGFcqc": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Last updated: July 13, 2023</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_Cxzwmr",
+        "text_DGFcqc"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_8YiUTK": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_pi6gEq": {
+          "type": "heading",
+          "settings": {
+            "heading": "OWNERSHIP RIGHTS",
+            "heading_size": "h1"
+          }
+        },
+        "text_cw9Nca": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The JULIE SUFI company (\"JULIE SUFI\") own all rights, title and interest in and to this website.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pi6gEq",
+        "text_cw9Nca"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_pfk8Ed": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_YJX6UA": {
+          "type": "heading",
+          "settings": {
+            "heading": "USE OF SITE MATERIALS",
+            "heading_size": "h1"
+          }
+        },
+        "text_aQimgq": {
+          "type": "text",
+          "settings": {
+            "text": "<p>JULIE SUFI owns all copyrights for all material on this site or has a valid right from a third party to use the material on this website. JULIE SUFI also owns all trademarks, service marks, trade names, logos and domain names used on or in connection with this website.</p><p>No part of this website may be copied, reproduced, republished, uploaded, posted, transmitted or distributed in any way for commercial purposes. This prohibition also includes framing any content from this site on another site, as well as unauthorized linking.</p><p>Any modification or use of the materials from this site for any purpose not explicitly permitted is a violation of JULIE SUFI's copyright and other proprietary rights. Use of material from this site without JULIE SUFI's prior written consent is strictly prohibited.</p><p>There may be third party sites which link to this site. JULIE SUFI does not endorse any such site or the goods or services offered on such site. JULIE SUFI disclaims all responsibility for the accuracy of any of the information provided on such site and any goods or services provided or purchased from such site. JULIE SUFI shall not be held liable or responsible for the content of any sites which link to this site.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_YJX6UA",
+        "text_aQimgq"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_xQ3Vfb": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_kEtggb": {
+          "type": "heading",
+          "settings": {
+            "heading": "AGREEMENT TO TERMS",
+            "heading_size": "h1"
+          }
+        },
+        "text_NTP8KU": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your use of this site constitutes your agreement to be bound by and to act in accordance with these Terms of Use.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_kEtggb",
+        "text_NTP8KU"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_wdnLXq": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_z7H4Hn": {
+          "type": "heading",
+          "settings": {
+            "heading": "ACCURACY OF INFORMATION",
+            "heading_size": "h1"
+          }
+        },
+        "text_iiRUnT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>JULIE SUFI takes all possible steps to ensure the accuracy and timeliness of the information included on this site. However, information provided is subject to change at any time without prior notice. Accordingly, JULIE SUFI cannot absolutely guarantee the accuracy, completeness or timeliness of the information provided on this site.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_z7H4Hn",
+        "text_iiRUnT"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_YtrDaG": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_cCCy6A": {
+          "type": "heading",
+          "settings": {
+            "heading": "OTHER",
+            "heading_size": "h1"
+          }
+        },
+        "text_8U6Qyk": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This site is for informational and entertainment purposes only. It is not intended to provide any medical information or advice about the skin or otherwise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_cCCy6A",
+        "text_8U6Qyk"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_8KFWjQ": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_xKHT7E": {
+          "type": "heading",
+          "settings": {
+            "heading": "NO WAIVER",
+            "heading_size": "h1"
+          }
+        },
+        "text_wgWJbF": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The failure on the part of JULIE SUFI to enforce any part of these Terms of Use shall not constitute a waiver of any of JULIE SUFI's rights hereunder for past or future actions.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_xKHT7E",
+        "text_wgWJbF"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "rich_text_YRaQkL": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_MDcGyp": {
+          "type": "heading",
+          "settings": {
+            "heading": "MODIFICATIONS",
+            "heading_size": "h1"
+          }
+        },
+        "text_WtpabW": {
+          "type": "text",
+          "settings": {
+            "text": "<p>JULIE SUFI reserves the right to change the Terms of Use at any time. Any such changes will be posted on this site</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_MDcGyp",
+        "text_WtpabW"
+      ],
+      "custom_css": [
+        ".rich-text__text {margin: 0; padding: 0; text-align: left; font-family: \"Outfit\";}",
+        ".rich-text__blocks {max-width: 100%;}",
+        "h2.rich-text__heading {font-size: 20px; line-height: 32px; text-align: left; font-weight: 600;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 0
+      }
+    },
+    "jf_plain_box_icon_xUhkTn": {
+      "type": "jf-plain-box-icon",
+      "blocks": {
+        "item_yccPnT": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Vector.png",
+            "title": "Book an appointment",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        },
+        "item_nhEqYH": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame.png",
+            "title": "Find a boutique",
+            "link": ""
+          }
+        },
+        "item_wPYMwN": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Frame_1.png",
+            "title": "Contact us",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_yccPnT",
+        "item_nhEqYH",
+        "item_wPYMwN"
+      ],
+      "name": "JF Plain Box Icon",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "row_gap": 16,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_subscribe_icgXYr": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_W3YpgC",
+    "rich_text_8YiUTK",
+    "rich_text_pfk8Ed",
+    "rich_text_xQ3Vfb",
+    "rich_text_wdnLXq",
+    "rich_text_YtrDaG",
+    "rich_text_8KFWjQ",
+    "rich_text_YRaQkL",
+    "jf_plain_box_icon_xUhkTn",
+    "jf_subscribe_icgXYr"
+  ]
+}

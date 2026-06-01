@@ -1,0 +1,405 @@
+.jf-stockists-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.jf-stockists-slider__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.jf-stockists-slider__background picture,
+.jf-stockists-slider__background img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-stockists-slider__background img {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.jf-stockists-slider__inner {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.jf-stockists-slider__intro {
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.jf-stockists-slider__heading {
+  margin: 0;
+  color: #282828;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.12;
+  text-transform: uppercase;
+}
+
+.jf-stockists-slider__description {
+  
+  margin: 1.2rem auto 0;
+  color: #282828;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.45;
+}
+
+.jf-stockists-slider__description p {
+  margin: 0;
+}
+
+.jf-stockists-slider__dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.7rem;
+}
+
+.jf-stockists-slider__dot {
+  width: 0.8rem;
+  height: 0.8rem;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #d8d8d8;
+  cursor: pointer;
+}
+
+.jf-stockists-slider__dot.is-active {
+  background: #2d2d2d;
+}
+
+.jf-stockists-slider__stage {
+  position: relative;
+  max-width: 92rem;
+  margin: 2.4rem auto 0;
+}
+
+.jf-stockists-slider__viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.jf-stockists-slider__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.jf-stockists-slider__track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.jf-stockists-slider__slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  scroll-snap-align: start;
+}
+
+.jf-stockists-slider__card {
+  width: 100%;
+}
+
+.jf-stockists-slider__media {
+  overflow: hidden;
+  background: rgba(245, 243, 240, 0.8);
+}
+
+.jf-stockists-slider__media img,
+.jf-stockists-slider__media .placeholder-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.6 / 1;
+  object-fit: cover;
+}
+
+.jf-stockists-slider__content {
+  margin: 1.8rem auto 0;
+}
+
+.jf-stockists-slider__content-main {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.jf-stockists-slider__mobile-heading-row {
+  display: grid;
+  grid-template-columns: 3.2rem minmax(0, 1fr) 3.2rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+.jf-stockists-slider__store-name {
+  margin: 0;
+  color: #282828;
+  font-family: var(--taviraj-font, Georgia, 'Times New Roman', serif);
+  font-size: 2rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.jf-stockists-slider__store-name--standalone {
+  margin-bottom: 1.6rem;
+}
+
+.jf-stockists-slider__details {
+  margin-top: 1.2rem;
+}
+
+.jf-stockists-slider__address,
+.jf-stockists-slider__contact {
+  color: #282828;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.jf-stockists-slider__contact {
+  margin-top: 2rem;
+}
+
+.jf-stockists-slider__contact p {
+  margin: 0;
+}
+
+.jf-stockists-slider__contact p + p {
+  margin-top: 0.8rem;
+}
+
+.jf-stockists-slider__contact span {
+  font-weight: 300;
+}
+
+.jf-stockists-slider__address a,
+.jf-stockists-slider__contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.jf-stockists-slider__actions {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: 2.4rem;
+}
+
+.jf-stockists-slider__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 5.3rem;
+  width: 100%;
+  padding: 1.2rem 2rem;
+  box-sizing: border-box;
+  color: #282828;
+  font-family: var(--outfit-font, sans-serif);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.jf-stockists-slider__button--primary {
+  background: #212125;
+  border: 1px solid #212125;
+  color: #ffffff;
+}
+
+.jf-stockists-slider__button--secondary {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  color: #282828;
+}
+
+.jf-stockists-slider__button.is-disabled {
+  cursor: default;
+}
+
+.jf-stockists-slider__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #5e5e5e;
+  background: transparent;
+  cursor: pointer;
+}
+
+.jf-stockists-slider__arrow .svg-wrapper {
+  display: inline-flex;
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.jf-stockists-slider__arrow .svg-wrapper svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.jf-stockists-slider__arrow--prev .svg-wrapper {
+  transform: rotate(180deg);
+}
+
+.jf-stockists-slider__arrow[disabled] {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.jf-stockists-slider__arrow--mobile {
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 1px solid #909090;
+  border-radius: 50%;
+}
+
+.jf-stockists-slider__arrow--mobile .svg-wrapper {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.jf-stockists-slider__arrow--desktop {
+  position: absolute;
+  top: 16.4rem;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: 0;
+}
+
+.jf-stockists-slider__arrow--desktop.jf-stockists-slider__arrow--prev {
+  left: -5.8rem;
+}
+
+.jf-stockists-slider__arrow--desktop.jf-stockists-slider__arrow--next {
+  right: -5.8rem;
+}
+
+@media screen and (max-width: 749px) {
+  .jf-stockists-slider__arrow--desktop {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .jf-stockists-slider__intro {
+    max-width: 88rem;
+  }
+
+  .jf-stockists-slider__heading {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  .jf-stockists-slider__description {
+    
+    margin-top: 0.8rem;
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .jf-stockists-slider__dots {
+    margin-top: 1.5rem;
+  }
+
+  .jf-stockists-slider__stage {
+    margin-top: 2.8rem;
+    padding-right: 6rem;
+    padding-left: 6rem;
+    box-sizing: border-box;
+  }
+
+  .jf-stockists-slider__media {
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .jf-stockists-slider__media img,
+  .jf-stockists-slider__media .placeholder-svg {
+    aspect-ratio: 1.65 / 1;
+  }
+
+  .jf-stockists-slider__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 24rem;
+    gap: 3rem;
+    align-items: start;
+    max-width: 72rem;
+    margin-top: 2.8rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .jf-stockists-slider__content-main {
+    max-width: none;
+    margin: 0;
+  }
+
+  .jf-stockists-slider__mobile-heading-row {
+    display: block;
+  }
+
+  .jf-stockists-slider__arrow--mobile {
+    display: none;
+  }
+
+  .jf-stockists-slider__store-name,
+  .jf-stockists-slider__store-name--standalone {
+    margin-bottom: 1.8rem;
+    font-size: 28px;
+    line-height: 1.15;
+    text-align: left;
+  }
+
+  .jf-stockists-slider__details {
+    display: grid;
+    grid-template-columns: minmax(0, 40%) minmax(0, 60%);
+    gap: 1                            rem;
+    margin-top: 0;
+  }
+
+  .jf-stockists-slider__address,
+  .jf-stockists-slider__contact {
+    font-size: 16px;
+    line-height: 28px;
+    text-align: left;
+  }
+
+  .jf-stockists-slider__contact {
+    margin-top: 0;
+  }
+
+  .jf-stockists-slider__contact p + p {
+    margin-top: 0.2rem;
+  }
+
+  .jf-stockists-slider__actions {
+    gap: 0.8rem;
+    margin-top: 0;
+  }
+
+  .jf-stockists-slider__button {
+    min-height: 4.6rem;
+    font-size: 16px;
+  }
+}

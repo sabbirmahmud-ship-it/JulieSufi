@@ -1,0 +1,310 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "jf_contact_fCPAxC": {
+      "type": "jf-contact",
+      "blocks": {
+        "contact_method_XLLpWd": {
+          "type": "contact_method",
+          "settings": {
+            "icon_style": "email",
+            "content": "<p>Email us for general enquiries:<br><strong>contact@juliesufi.com</strong></p>",
+            "link": ""
+          }
+        },
+        "contact_method_BHyPxV": {
+          "type": "contact_method",
+          "settings": {
+            "icon_style": "instagram",
+            "content": "<p>Send us a DM on Instagram<br/><strong>and we'll respond shortly.</strong></p>",
+            "link": ""
+          }
+        },
+        "contact_method_LWKbXi": {
+          "type": "contact_method",
+          "settings": {
+            "icon_style": "calendar",
+            "content": "<p>For Custom Bridal Enquiries<br/><strong>Book Appointment</strong></p>",
+            "link": "shopify://pages/book-an-appointment"
+          }
+        }
+      },
+      "block_order": [
+        "contact_method_XLLpWd",
+        "contact_method_BHyPxV",
+        "contact_method_LWKbXi"
+      ],
+      "name": "JF Contact",
+      "settings": {
+        "heading": "WE'D LOVE TO HEAR FROM YOU",
+        "intro_text": "<p>Whether You're Beginning Or Simply Exploring.</p>",
+        "mobile_intro_text": "",
+        "recipient_emails": "",
+        "success_heading": "Message Sent",
+        "success_message": "Thanks for contacting us. We'll get back to you as soon as possible.",
+        "error_heading": "Please adjust the following:",
+        "name_label": "FULL NAME",
+        "name_placeholder": "",
+        "email_label": "EMAIL",
+        "email_placeholder": "",
+        "phone_label": "PHONE",
+        "phone_placeholder": "",
+        "subject_label": "SUBJECT",
+        "subject_placeholder": "",
+        "message_label": "MESSAGE",
+        "message_optional_label": "(OPTIONAL)",
+        "message_placeholder": "Tell us what you're looking for or how we can help...",
+        "button_label": "SEND MESSAGE",
+        "card_gap_mobile": 12,
+        "card_gap_desktop": 20,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 28,
+        "padding_top_desktop": 28,
+        "padding_bottom_desktop": 48,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "jf_map_rTNtjt": {
+      "type": "jf-map",
+      "name": "JF Map",
+      "settings": {
+        "heading": "CONTACT US",
+        "address": "<p>Northcote<br/>VIC 3070, Australia</p>",
+        "opening_hours": "",
+        "consultation_text": "<p><strong>Free Initial Virtual Consultation</strong></p>",
+        "order_enquiries_label": "For information about Orders, Appointments And Leadtime please contact us.",
+        "order_enquiries_email": "",
+        "general_enquiries_label": "",
+        "general_enquiries_email": "contact@juliesufi.com",
+        "general_insta_dm": "https://www.instagram.com/juliesufi/",
+        "phone_number": "",
+        "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8792.449936093411!2d145.014502601422!3d-37.7709105331185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6437c221de473%3A0x5045675218cd650!2sNorthcote%20VIC%203070!5e0!3m2!1sen!2sau!4v1775118045558!5m2!1sen!2sau\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 32,
+        "padding_bottom_mobile": 36,
+        "padding_top_desktop": 32,
+        "padding_bottom_desktop": 32,
+        "margin_top_mobile": 0,
+        "margin_bottom_mobile": 0,
+        "margin_top_desktop": 0,
+        "margin_bottom_desktop": 0
+      }
+    },
+    "icon_boxed_XG9Qqe": {
+      "type": "icon-boxed",
+      "blocks": {
+        "item_rh73bA": {
+          "type": "item",
+          "settings": {
+            "title": "GLOBAL STOCKISTS",
+            "text": "<p>Find the list of all our Julie Sufi stockist HERE.</p>"
+          }
+        },
+        "item_QPfpjh": {
+          "type": "item",
+          "settings": {
+            "title": "Become a Stockist",
+            "text": "<p>If you would like to become a Julie Sufi wholesale partner, please contact us at contact@juliesufi.com</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_rh73bA",
+        "item_QPfpjh"
+      ],
+      "custom_css": [
+        ".icon-boxed__icon-wrap {display: none;}",
+        ".icon-boxed__item {align-items: flex-start; background: #f2f2f2; padding: 24px 25px; text-align: left;}",
+        "@media screen and (min-width: 750px) {.icon-boxed__item-copy {max-width: 100%; }}"
+      ],
+      "name": "Icon Boxed",
+      "settings": {
+        "eyebrow": "",
+        "heading": "",
+        "description": "",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 2,
+        "columns_mobile": 1,
+        "column_gap": 40,
+        "row_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top": 0,
+        "padding_bottom": 56
+      }
+    },
+    "jf_faq_GHRCMa": {
+      "type": "jf-faq",
+      "blocks": {
+        "item_8TWQRX": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_3RVMwT": {
+          "type": "item",
+          "settings": {
+            "question": "How does the appointment process work?",
+            "answer": "<p>We begin with a consultation to understand your vision, silhouette preferences, and timeline before moving into design and fitting stages.</p>",
+            "open_by_default": false
+          }
+        },
+        "item_DfGGja": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer virtual consultations?",
+            "answer": "<p>Yes, virtual consultations can be arranged for interstate and international brides.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "item_8TWQRX",
+        "item_3RVMwT",
+        "item_DfGGja"
+      ],
+      "name": "JF FAQ",
+      "settings": {
+        "eyebrow": "Questions, Answered",
+        "heading": "The Details",
+        "sub_heading": "Everything You Need To Know",
+        "description": "<p>Find quick answers to the most common questions about appointments, custom gowns, and consultations.</p>",
+        "item_gap": 8,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "padding_top_desktop": 52,
+        "padding_bottom_desktop": 52
+      }
+    },
+    "jf_insta_slider_bbdVEy": {
+      "type": "jf-insta-slider",
+      "blocks": {
+        "slide_9pVQD7": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Elodie5.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_VxRbzH": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Isaline3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_cPrkzy": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Camille3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_3D7pxX": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/NerisseSleeves3.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        },
+        "slide_UgcKyt": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Isolde4.png",
+            "instagram_image_url": "",
+            "image_alt": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_9pVQD7",
+        "slide_VxRbzH",
+        "slide_cPrkzy",
+        "slide_3D7pxX",
+        "slide_UgcKyt"
+      ],
+      "disabled": true,
+      "name": "JF Insta Slider",
+      "settings": {
+        "handle": "@JULIESUFI",
+        "heading": "Real brides. Real moments.",
+        "cta_label": "Follow Us On Instagram",
+        "cta_link": "",
+        "enable_instagram_feed": false,
+        "instagram_feed_endpoint": "",
+        "instagram_feed_handle": "",
+        "instagram_feed_limit": 5,
+        "slide_gap": 4,
+        "desktop_background_color": "#ffffff",
+        "mobile_background_color": "#ffffff",
+        "padding_top_mobile": 36,
+        "padding_bottom_mobile": 32,
+        "padding_top_desktop": 24,
+        "padding_bottom_desktop": 24
+      }
+    },
+    "jf_subscribe_icgXYr": {
+      "type": "jf-subscribe",
+      "name": "JF Subscribe",
+      "settings": {
+        "heading": "Join Our Inner Circle",
+        "description": "<p>Be the first to discover new collections, trunk shows, and atelier stories from Julie Sufi.</p>",
+        "email_placeholder": "Enter your email address",
+        "button_label": "Join the list",
+        "success_message": "Thanks for subscribing.",
+        "desktop_background_color": "#1d1d20",
+        "mobile_background_color": "#1d1d20",
+        "padding_top_mobile": 44,
+        "padding_bottom_mobile": 52,
+        "padding_top_desktop": 56,
+        "padding_bottom_desktop": 56
+      }
+    }
+  },
+  "order": [
+    "main",
+    "jf_contact_fCPAxC",
+    "jf_map_rTNtjt",
+    "icon_boxed_XG9Qqe",
+    "jf_faq_GHRCMa",
+    "jf_insta_slider_bbdVEy",
+    "jf_subscribe_icgXYr"
+  ]
+}

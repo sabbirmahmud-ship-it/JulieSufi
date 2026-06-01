@@ -1,0 +1,364 @@
+{{ 'section-jf-text-slider.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'section-jf-text-slider.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign desktop_background_image = section.settings.desktop_background_image
+  assign mobile_background_image = section.settings.mobile_background_image | default: desktop_background_image
+  assign fallback_background_image = desktop_background_image | default: mobile_background_image
+  assign show_controls = false
+
+  if section.blocks.size > 1
+    assign show_controls = true
+  endif
+-%}
+
+{%- style -%}
+  #JfTextSlider-{{ section.id }} {
+    background-color: {{ section.settings.mobile_background_color }};
+    margin-top: {{ section.settings.margin_top_mobile }}px;
+    margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+
+  #JfTextSlider-{{ section.id }} .jf-text-slider__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfTextSlider-{{ section.id }} {
+      background-color: {{ section.settings.desktop_background_color }};
+      margin-top: {{ section.settings.margin_top_desktop }}px;
+      margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+    }
+
+    #JfTextSlider-{{ section.id }} .jf-text-slider__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<jf-text-slider
+  id="JfTextSlider-{{ section.id }}"
+  class="jf-text-slider"
+  {% if show_controls %}
+    data-slider-enabled="true"
+  {% endif %}
+>
+  {%- if fallback_background_image != blank -%}
+    <div class="jf-text-slider__background">
+      <picture>
+        {%- if mobile_background_image != blank -%}
+          <source
+            media="(max-width: 749px)"
+            srcset="
+              {{ mobile_background_image | image_url: width: 375 }} 375w,
+              {{ mobile_background_image | image_url: width: 550 }} 550w,
+              {{ mobile_background_image | image_url: width: 750 }} 750w,
+              {{ mobile_background_image | image_url: width: 900 }} 900w,
+              {{ mobile_background_image | image_url: width: 1200 }} 1200w,
+              {{ mobile_background_image | image_url: width: 1600 }} 1600w
+            "
+            sizes="100vw"
+          >
+        {%- endif -%}
+        {{
+          fallback_background_image
+          | image_url: width: 2400
+          | image_tag:
+            widths: '750, 1100, 1500, 1780, 2000, 2400',
+            sizes: '100vw',
+            loading: 'lazy'
+        }}
+      </picture>
+    </div>
+  {%- endif -%}
+
+  <div class="jf-text-slider__inner page-width">
+    <div
+      class="jf-text-slider__stage"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="{{ section.settings.accessibility_label | escape }}"
+    >
+      {%- if show_controls -%}
+        <button
+          type="button"
+          class="jf-text-slider__arrow jf-text-slider__arrow--prev"
+          data-text-prev
+          aria-label="Previous slide"
+        >
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+      {%- endif -%}
+
+      <div class="jf-text-slider__viewport" data-text-viewport tabindex="0">
+        <ul class="jf-text-slider__track list-unstyled" data-text-track>
+          {%- for block in section.blocks -%}
+            <li
+              class="jf-text-slider__slide"
+              data-text-slide
+              data-slide-index="{{ forloop.index0 }}"
+              aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}"
+              {{ block.shopify_attributes }}
+            >
+              <article class="jf-text-slider__card">
+                {%- if block.settings.eyebrow != blank -%}
+                  <p class="jf-text-slider__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+                {%- endif -%}
+
+                {%- if block.settings.publication_logo != blank or block.settings.publication_name != blank -%}
+                  <div class="jf-text-slider__publication">
+                    {%- if block.settings.publication_logo != blank -%}
+                      {{
+                        block.settings.publication_logo
+                        | image_url: width: 1200
+                        | image_tag:
+                          widths: '180, 240, 360, 480, 720, 960, 1200',
+                          sizes: '(max-width: 749px) 150px, 220px',
+                          loading: 'lazy',
+                          alt: block.settings.publication_name
+                      }}
+                    {%- else -%}
+                      <h2 class="jf-text-slider__publication-text">{{ block.settings.publication_name | escape }}</h2>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+
+                {%- if block.settings.quote != blank -%}
+                  <blockquote class="jf-text-slider__quote">
+                    {{ block.settings.quote | escape | newline_to_br }}
+                  </blockquote>
+                {%- endif -%}
+              </article>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      {%- if show_controls -%}
+        <button
+          type="button"
+          class="jf-text-slider__arrow jf-text-slider__arrow--next"
+          data-text-next
+          aria-label="Next slide"
+        >
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </button>
+      {%- endif -%}
+    </div>
+
+    {%- if show_controls -%}
+      <div class="jf-text-slider__pagination" aria-label="Slide navigation">
+        {%- for block in section.blocks -%}
+          <button
+            type="button"
+            class="jf-text-slider__dot{% if forloop.first %} is-active{% endif %}"
+            data-text-dot
+            data-slide-index="{{ forloop.index0 }}"
+            aria-label="Go to slide {{ forloop.index }}"
+            {% if forloop.first %}
+              aria-current="true"
+            {% else %}
+              aria-current="false"
+            {% endif %}
+          ></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</jf-text-slider>
+
+{% schema %}
+{
+  "name": "JF Text Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "desktop_background_color",
+      "label": "Desktop background color",
+      "default": "#f7f5f2"
+    },
+    {
+      "type": "color",
+      "id": "mobile_background_color",
+      "label": "Mobile background color",
+      "default": "#f7f5f2"
+    },
+    {
+      "type": "image_picker",
+      "id": "desktop_background_image",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_background_image",
+      "label": "Mobile background image"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Mobile top margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "label": "Mobile bottom margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "label": "Desktop top margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "label": "Desktop bottom margin",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "text",
+      "id": "accessibility_label",
+      "label": "Accessibility label",
+      "default": "Featured press quotes"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "AS SEEN IN"
+        },
+        {
+          "type": "image_picker",
+          "id": "publication_logo",
+          "label": "Publication logo"
+        },
+        {
+          "type": "text",
+          "id": "publication_name",
+          "label": "Publication name",
+          "default": "VOGUE"
+        },
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote",
+          "default": "Julie Sufi redefines modern bridal with sculptural silhouettes and refined craftsmanship. Each gown reflects a quiet confidence and timeless romance."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Text Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "AS SEEN IN",
+            "publication_name": "VOGUE",
+            "quote": "Julie Sufi redefines modern bridal with sculptural silhouettes and refined craftsmanship. Each gown reflects a quiet confidence and timeless romance."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "FEATURED BY",
+            "publication_name": "BRIDES",
+            "quote": "An elegant balance of modern structure and romantic detail, Julie Sufi gowns feel deeply personal while remaining effortlessly refined."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "EDITOR'S PICK",
+            "publication_name": "ELLE",
+            "quote": "Each design speaks with confidence, softness, and intention, creating a bridal wardrobe that feels timeless from every angle."
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "IN THE PRESS",
+            "publication_name": "HARPER'S BAZAAR",
+            "quote": "Julie Sufi continues to shape contemporary couture with silhouettes that are both sculptural and deeply romantic."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

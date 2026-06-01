@@ -1,0 +1,352 @@
+{{ 'section-jf-coustom-dress-slider.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #JfCoustomDressSlider-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #JfCoustomDressSlider-{{ section.id }} .jf-coustom-dress-slider__inner {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  #JfCoustomDressSlider-{{ section.id }} .jf-coustom-dress-slider__button {
+    background-color: {{ section.settings.button_background_color }};
+    color: {{ section.settings.button_text_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    #JfCoustomDressSlider-{{ section.id }} .jf-coustom-dress-slider__inner {
+      padding-top: {{ section.settings.padding_top_desktop }}px;
+      padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+    }
+  }
+{%- endstyle -%}
+
+<jf-coustom-dress-slider id="JfCoustomDressSlider-{{ section.id }}" class="jf-coustom-dress-slider">
+  <div class="jf-coustom-dress-slider__inner page-width">
+    {%- if section.settings.eyebrow != blank or section.settings.heading != blank or section.settings.intro != blank -%}
+      <div class="jf-coustom-dress-slider__header">
+        {%- if section.settings.eyebrow != blank -%}
+          <p class="jf-coustom-dress-slider__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+        {%- endif -%}
+
+        {%- if section.settings.heading != blank -%}
+          <h2 class="jf-coustom-dress-slider__heading">{{ section.settings.heading | escape }}</h2>
+        {%- endif -%}
+
+        {%- if section.settings.intro != blank -%}
+          <div class="jf-coustom-dress-slider__intro rte">{{ section.settings.intro }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="jf-coustom-dress-slider__viewport">
+        <div class="jf-coustom-dress-slider__track" data-custom-dress-track>
+          {%- for block in section.blocks -%}
+            <article
+              class="jf-coustom-dress-slider__slide"
+              data-custom-dress-slide
+              data-slide-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              <div class="jf-coustom-dress-slider__content">
+                {%- if block.settings.heading != blank -%}
+                  <h3 class="jf-coustom-dress-slider__slide-heading">{{ block.settings.heading | escape }}</h3>
+                {%- endif -%}
+
+                {%- if block.settings.feature_1_heading != blank or block.settings.feature_1_text != blank or block.settings.feature_2_heading != blank or block.settings.feature_2_text != blank -%}
+                  <div class="jf-coustom-dress-slider__features">
+                    {%- if block.settings.feature_1_heading != blank or block.settings.feature_1_text != blank -%}
+                      <div class="jf-coustom-dress-slider__feature">
+                        <span class="jf-coustom-dress-slider__feature-icon" aria-hidden="true">
+                          <svg viewBox="0 0 16 16" focusable="false">
+                            <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                            <path d="M5.1 8.2 7 10.1 11 6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <div class="jf-coustom-dress-slider__feature-copy">
+                          {%- if block.settings.feature_1_heading != blank -%}
+                            <p class="jf-coustom-dress-slider__feature-heading">{{ block.settings.feature_1_heading | escape }}</p>
+                          {%- endif -%}
+
+                          {%- if block.settings.feature_1_text != blank -%}
+                            <div class="jf-coustom-dress-slider__feature-text rte">{{ block.settings.feature_1_text }}</div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if block.settings.feature_2_heading != blank or block.settings.feature_2_text != blank -%}
+                      <div class="jf-coustom-dress-slider__feature">
+                        <span class="jf-coustom-dress-slider__feature-icon" aria-hidden="true">
+                          <svg viewBox="0 0 16 16" focusable="false">
+                            <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.2"/>
+                            <path d="M5.1 8.2 7 10.1 11 6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                        </span>
+                        <div class="jf-coustom-dress-slider__feature-copy">
+                          {%- if block.settings.feature_2_heading != blank -%}
+                            <p class="jf-coustom-dress-slider__feature-heading">{{ block.settings.feature_2_heading | escape }}</p>
+                          {%- endif -%}
+
+                          {%- if block.settings.feature_2_text != blank -%}
+                            <div class="jf-coustom-dress-slider__feature-text rte">{{ block.settings.feature_2_text }}</div>
+                          {%- endif -%}
+                        </div>
+                      </div>
+                    {%- endif -%}
+                  </div>
+                {%- endif -%}
+              </div>
+
+              <div class="jf-coustom-dress-slider__media">
+                {%- if block.settings.image != blank -%}
+                  {{
+                    block.settings.image
+                    | image_url: width: 1400
+                    | image_tag:
+                      widths: '375, 550, 750, 900, 1100, 1400',
+                      sizes: '(min-width: 990px) 48vw, 100vw',
+                      loading: 'lazy',
+                      alt: block.settings.image.alt
+                  }}
+                {%- else -%}
+                  {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+                {%- endif -%}
+              </div>
+            </article>
+          {%- endfor -%}
+        </div>
+      </div>
+
+      {%- if section.blocks.size > 1 -%}
+        <div class="jf-coustom-dress-slider__controls">
+          <button type="button" class="jf-coustom-dress-slider__arrow jf-coustom-dress-slider__arrow--prev" data-custom-dress-prev aria-label="Previous slide">
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </button>
+
+          <div class="jf-coustom-dress-slider__dots" data-custom-dress-dots></div>
+
+          <button type="button" class="jf-coustom-dress-slider__arrow jf-coustom-dress-slider__arrow--next" data-custom-dress-next aria-label="Next slide">
+            <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+          </button>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="jf-coustom-dress-slider__footer">
+        <a
+          {% if section.settings.button_link != blank %}
+            href="{{ section.settings.button_link }}"
+          {% else %}
+            role="link" aria-disabled="true"
+          {% endif %}
+          class="jf-coustom-dress-slider__button"
+        >
+          <span>{{ section.settings.button_label | escape }}</span>
+          <span class="svg-wrapper">{{ 'icon-arrow.svg' | inline_asset_content }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</jf-coustom-dress-slider>
+
+<script src="{{ 'section-jf-coustom-dress-slider.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+{
+  "name": "JF Coustom Dress Slider",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Top content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "BESPOKE WEDDING GOWNS & CUSTOM BRIDAL WEAR"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Engineering of Grace: Infinite Customisation"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro text",
+      "default": "<p>The secret to flawless custom wedding dresses lies beneath the silk. More than an aesthetic choice, it is a feat of sartorial engineering. We view dressmaking not merely as sewing, but as a form of soft architecture-where the physics of weight distribution meets the fluid movement of the body.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Font color",
+      "default": "#232128"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button background",
+      "default": "#1f1f23"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "label": "Mobile top padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "label": "Mobile bottom padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 44
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "label": "Desktop top padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "label": "Desktop bottom padding",
+      "min": 0,
+      "max": 240,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "The Pillars of a Julie Sufi Original"
+        },
+        {
+          "type": "header",
+          "content": "First item"
+        },
+        {
+          "type": "text",
+          "id": "feature_1_heading",
+          "label": "Heading",
+          "default": "Invisible Support"
+        },
+        {
+          "type": "richtext",
+          "id": "feature_1_text",
+          "label": "Text",
+          "default": "<p>Built-in couture corsetry is hand-sculpted to your frame, offering a flawless contour without the need for additional undergarments.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Second item"
+        },
+        {
+          "type": "text",
+          "id": "feature_2_heading",
+          "label": "Heading",
+          "default": "Structural Precision"
+        },
+        {
+          "type": "richtext",
+          "id": "feature_2_text",
+          "label": "Text",
+          "default": "<p>Every internal bone is drafted to your specific anatomy, ensuring your bespoke bridal dress moves in perfect harmony with you from the first step to the final dance.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "JF Coustom Dress Slider",
+      "blocks": [
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "The Pillars of a Julie Sufi Original",
+            "feature_1_heading": "Invisible Support",
+            "feature_1_text": "<p>Built-in couture corsetry is hand-sculpted to your frame, offering a flawless contour without the need for additional undergarments.</p>",
+            "feature_2_heading": "Structural Precision",
+            "feature_2_text": "<p>Every internal bone is drafted to your specific anatomy, ensuring your bespoke bridal dress moves in perfect harmony with you from the first step to the final dance.</p>"
+          }
+        },
+        {
+          "type": "slide",
+          "settings": {
+            "heading": "The Language of Customisation",
+            "feature_1_heading": "Silhouette Architecture",
+            "feature_1_text": "<p>Your gown is shaped around proportion, movement, and posture so the final silhouette feels intentional from every angle.</p>",
+            "feature_2_heading": "Fluid Refinement",
+            "feature_2_text": "<p>Every fitting is used to refine the balance of fabric, support, and softness until the dress feels completely resolved.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
