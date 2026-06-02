@@ -87,18 +87,40 @@
     </div>
 
     <div class="jf-faq__list jf-faq__list--{{ section.settings.items_per_row }}-per-row">
-      {%- for block in section.blocks -%}
-        <details class="jf-faq__item" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
-          <summary class="jf-faq__summary">
-            <span class="jf-faq__question">{{ block.settings.question | escape }}</span>
-            <span class="jf-faq__toggle" aria-hidden="true"></span>
-          </summary>
+      {%- if section.settings.items_per_row == 'two' -%}
+        {%- for column in (0..1) -%}
+          <div class="jf-faq__column">
+            {%- for block in section.blocks -%}
+              {%- assign column_index = forloop.index0 | modulo: 2 -%}
+              {%- if column_index == column -%}
+                <details class="jf-faq__item" data-faq-index="{{ forloop.index0 }}" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+                  <summary class="jf-faq__summary">
+                    <span class="jf-faq__question">{{ block.settings.question | escape }}</span>
+                    <span class="jf-faq__toggle" aria-hidden="true"></span>
+                  </summary>
 
-          {%- if block.settings.answer != blank -%}
-            <div class="jf-faq__answer">{{ block.settings.answer }}</div>
-          {%- endif -%}
-        </details>
-      {%- endfor -%}
+                  {%- if block.settings.answer != blank -%}
+                    <div class="jf-faq__answer">{{ block.settings.answer }}</div>
+                  {%- endif -%}
+                </details>
+              {%- endif -%}
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        {%- for block in section.blocks -%}
+          <details class="jf-faq__item" data-faq-index="{{ forloop.index0 }}" {% if block.settings.open_by_default %}open{% endif %} {{ block.shopify_attributes }}>
+            <summary class="jf-faq__summary">
+              <span class="jf-faq__question">{{ block.settings.question | escape }}</span>
+              <span class="jf-faq__toggle" aria-hidden="true"></span>
+            </summary>
+
+            {%- if block.settings.answer != blank -%}
+              <div class="jf-faq__answer">{{ block.settings.answer }}</div>
+            {%- endif -%}
+          </details>
+        {%- endfor -%}
+      {%- endif -%}
     </div>
   </div>
 </section>
@@ -110,16 +132,36 @@
     if (!section) return;
 
     var items = Array.prototype.slice.call(section.querySelectorAll('.jf-faq__item'));
+    var isTwoColumn = {{ section.settings.items_per_row | json }} === 'two';
 
     if (!items.length) return;
+
+    if (isTwoColumn) {
+      items.forEach(function(item) {
+        item.removeAttribute('open');
+      });
+    }
 
     var openItems = items.filter(function(item) {
       return item.hasAttribute('open');
     });
 
-    openItems.slice(1).forEach(function(item) {
-      item.removeAttribute('open');
-    });
+    if (!openItems.length && !isTwoColumn) {
+      items[0].setAttribute('open', '');
+    } else if (openItems.length) {
+      var itemToKeepOpen = openItems.reduce(function(latestItem, item) {
+        var latestIndex = Number(latestItem.getAttribute('data-faq-index')) || 0;
+        var itemIndex = Number(item.getAttribute('data-faq-index')) || 0;
+
+        return itemIndex > latestIndex ? item : latestItem;
+      }, openItems[0]);
+
+      openItems.forEach(function(item) {
+        if (item !== itemToKeepOpen) {
+          item.removeAttribute('open');
+        }
+      });
+    }
 
     items.forEach(function(item) {
       item.addEventListener('toggle', function() {
@@ -289,7 +331,7 @@
           "type": "checkbox",
           "id": "open_by_default",
           "label": "Open by default",
-          "default": false
+          "default": true
         }
       ]
     }

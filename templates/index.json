@@ -117,7 +117,7 @@
           "type": "stat",
           "settings": {
             "value": "5,000+",
-            "label": "<p>Handcrafted Gowns</p>"
+            "label": "<p>Handcrafted Gowns </p>"
           }
         },
         "stat_8kXq6Y": {
@@ -866,6 +866,7 @@
         "sub_heading": "Navigating the Art of Couture with Julie Sufi",
         "description": "<p>Choosing your wedding gown is the most significant sartorial decision of your life. In Melbourne’s vibrant bridal landscape, the journey to ‘the one’ is a delicate balance of time, artistry, and personal vision.</p>",
         "item_gap": 8,
+        "items_per_row": "one",
         "desktop_background_color": "#f6f6f6",
         "mobile_background_color": "#f6f6f6",
         "padding_top_mobile": 24,
@@ -1079,6 +1080,7 @@
         "sub_heading": "Frequently Asked Questions",
         "description": "<p>Find the answers to your most frequent questions about the Julie Sufi couture process, from investment details to our Northcote atelier location.</p>",
         "item_gap": 8,
+        "items_per_row": "one",
         "desktop_background_color": "#ffffff",
         "mobile_background_color": "#ffffff",
         "padding_top_mobile": 24,

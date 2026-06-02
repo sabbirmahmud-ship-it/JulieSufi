@@ -98,6 +98,10 @@
   margin-top: var(--jf-faq-gap, 0.8rem);
 }
 
+.jf-faq__column + .jf-faq__column {
+  margin-top: var(--jf-faq-gap, 0.8rem);
+}
+
 .jf-faq__summary {
   display: flex;
   align-items: center;
@@ -209,9 +213,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--jf-faq-gap, 0.8rem);
     max-width: 110rem;
+    align-items: start;
   }
 
-  .jf-faq__list--two-per-row .jf-faq__item + .jf-faq__item {
+  .jf-faq__list--two-per-row > .jf-faq__item + .jf-faq__item {
+    margin-top: 0;
+  }
+
+  .jf-faq__list--two-per-row .jf-faq__column + .jf-faq__column {
     margin-top: 0;
   }
 }

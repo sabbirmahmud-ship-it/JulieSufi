@@ -258,8 +258,8 @@
   }
 
   .jf-cost__row {
-    grid-template-columns: minmax(360px, 1fr) minmax(320px, 0.95fr);
-    gap: 56px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
     align-items: stretch;
   }
 
@@ -268,7 +268,7 @@
   }
 
   .jf-cost__row--image-right {
-    grid-template-columns: minmax(320px, 0.95fr) minmax(360px, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .jf-cost__row--image-right .jf-cost__media {
@@ -288,12 +288,11 @@
 
   .jf-cost__content {
     min-height: 430px;
-    padding: 0 4px;
+    padding: 0 48px;
   }
 
   .jf-cost__row:nth-child(2) .jf-cost__content {
     justify-content: center;
-    padding-left: 0;
   }
 
   .jf-cost__promise {

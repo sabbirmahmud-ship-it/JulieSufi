@@ -24,7 +24,7 @@
           "type": "button",
           "settings": {
             "label": "Book a free consultation",
-            "link": "",
+            "link": "https://calendly.com/juliesufi",
             "style": "primary",
             "show_icon": true
           }
@@ -33,7 +33,7 @@
           "type": "button",
           "settings": {
             "label": "Explore collection",
-            "link": "",
+            "link": "shopify://collections",
             "style": "secondary",
             "show_icon": false
           }
@@ -173,7 +173,7 @@
       "name": "Statistics",
       "settings": {
         "columns_desktop": 4,
-        "columns_mobile": 3,
+        "columns_mobile": 2,
         "column_gap": 24,
         "row_gap": 12,
         "desktop_background_color": "#ffffff",
@@ -208,11 +208,11 @@
       "settings": {
         "eyebrow": "THE DISTINCTION OF BESPOKE ARTISTRY",
         "heading": "The Maker's Mark: What Is a True Custom Wedding Dress?",
-        "intro": "<p>In a world of mass-produced bridal wear, a true custom wedding dress is a rarity. It starts with a blank page—a garment that does not exist until you and Julie Sufi vision it into being. Unlike Made-to-Order dresses, which are simply standard sizes adjusted to your height, a bespoke gown is built from the ground up. It begins not with a rack of samples, but with a hand-drawn illustration and a roll of raw fabric.</p>",
+        "intro": "<p>In a world of mass-produced bridal wear, a true custom wedding dress is a rarity. It starts with a blank page—a garment that does not exist until you and Julie Sufi vision it into being. Unlike Made-to-Order dresses, which are simply standard sizes adjusted to your height, a bespoke gown is built from the ground up. It begins not with a rack of samples, but with a hand-drawn illustration and a roll of raw fabric. </p>",
         "image": "shopify://shop_images/Rectangle_22924.png",
         "content": "<p>There is a profound difference between a bridal boutique and a working atelier. In a retail environment, you speak to a stylist; at Julie Sufi, you speak to the maker.</p><p>This is the <strong>Maker's Mark</strong>—the technical assurance that the person designing your gown is the same hand that understands the grain of the silk, the tension of the corsetry, and the physics of the drape.</p>",
         "button_label": "BOOK A FREE CONSULTATION",
-        "button_link": "",
+        "button_link": "https://calendly.com/juliesufi",
         "background_color": "#ffffff",
         "text_color": "#232128",
         "button_background_color": "#1f1f23",
@@ -350,7 +350,7 @@
         "heading": "The Evolution of an Icon: 6 Stages of Technical Precision",
         "intro": "<p>Creating custom wedding dresses involves a meticulous evolution. At Julie Sufi, we follow a disciplined, six-stage process that removes the guesswork, ensuring the final garment is a flawless reflection of your intent.</p>",
         "button_label": "START WITH THE DESIGN DIALOGUE",
-        "button_link": "",
+        "button_link": "https://calendly.com/juliesufi",
         "background_color": "#ffffff",
         "text_color": "#232128",
         "button_background_color": "#1f1f23",
@@ -451,7 +451,7 @@
         "footer_heading": "The Julie Sufi Distinction",
         "footer_text": "<p>Whether you are driven by vision, fit, or legacy, the result is a singular, non-replicated work of art that belongs exclusively to you.</p>",
         "button_label": "BOOK YOUR DESIGN DIALOGUE SLOT",
-        "button_link": "",
+        "button_link": "https://calendly.com/juliesufi",
         "background_color": "#ffffff",
         "text_color": "#232128",
         "button_background_color": "#1f1f23",
@@ -669,7 +669,7 @@
         "heading": "Start Your Story",
         "description": "<p>As a Julie Sufi bride, begin with a blank page. Whether you are inspired by the archives or seeking something entirely unprecedented, your journey of a custom bridal wear starts with a one-on-one conversation with Julie herself in our Melbourne atelier.</p>",
         "button_label": "Book a Free Design Consultation",
-        "button_link": "",
+        "button_link": "https://calendly.com/juliesufi",
         "columns_desktop": 3,
         "columns_mobile": 1,
         "column_gap": 40,
@@ -683,6 +683,46 @@
     "jf_faq_zRkp8F": {
       "type": "jf-faq",
       "blocks": {
+        "item_QBUNmX": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_Mx6ktM": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_EXPdUn": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_kMRVLf": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
+        "item_4B6Lxt": {
+          "type": "item",
+          "settings": {
+            "question": "Do you offer custom-made bridal gowns?",
+            "answer": "<p>Yes. Every Julie Sufi gown is custom-made and designed in collaboration with the bride.</p>",
+            "open_by_default": true
+          }
+        },
         "item_JGY3zP": {
           "type": "item",
           "settings": {
@@ -709,6 +749,11 @@
         }
       },
       "block_order": [
+        "item_QBUNmX",
+        "item_Mx6ktM",
+        "item_EXPdUn",
+        "item_kMRVLf",
+        "item_4B6Lxt",
         "item_JGY3zP",
         "item_eHjQ7z",
         "item_FcCzeX"
@@ -769,7 +814,7 @@
         "heading": "",
         "description": "<p>Every Julie Sufi custom wedding dress is a tapestry woven of dialogues between you and Julie. We invite you to our Melbourne atelier for a complimentary design consultation to explore your vision and see if we are the right hands for your story.<br/><br/></p>",
         "button_label": "Request Complimentary Consultation",
-        "button_link": "",
+        "button_link": "https://calendly.com/juliesufi",
         "columns_desktop": 3,
         "columns_mobile": 1,
         "column_gap": 40,
